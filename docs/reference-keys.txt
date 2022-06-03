@@ -1,0 +1,3 @@
+solubility
+permeability
+plasma-protein-binding
