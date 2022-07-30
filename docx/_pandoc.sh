@@ -9,6 +9,7 @@
 #pandoc --extract-media ./ -s chapter1-2021-10-11-added-yimds.docx -t markdown -o chapter1-2021-10-11-added-yimds.md
 #pandoc --extract-media ./ -s chapter1.docx -t markdown -o chapter1.md
 #pandoc --extract-media ./ -s chapter2.docx -t markdown -o chapter2.md
-pandoc --extract-media ./ -s chapter3.docx -t markdown -o chapter3.md
+#pandoc --extract-media ./ -s chapter3.docx -t markdown -o chapter3.md
+pandoc --extract-media ./ -s yim.docx -t markdown -o yim.md
 
 
