@@ -10,6 +10,9 @@
 #pandoc --extract-media ./ -s chapter1.docx -t markdown -o chapter1.md
 #pandoc --extract-media ./ -s chapter2.docx -t markdown -o chapter2.md
 #pandoc --extract-media ./ -s chapter3.docx -t markdown -o chapter3.md
-pandoc --extract-media ./ -s yim.docx -t markdown -o yim.md
+#pandoc --extract-media ./ -s chapter4.docx -t markdown -o chapter4.md
+#pandoc --extract-media ./ -s chapter5.docx -t markdown -o chapter5.md 
+#pandoc --extract-media ./ -s chapter6.docx -t markdown -o chapter6.md
+pandoc --extract-media ./ -s chapter7.docx -t markdown -o chapter7.md
 
 
