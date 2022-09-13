@@ -79,10 +79,16 @@ Class I과 Class III로 분류되기 위한 "높은 용해도"란 "37℃ 및 pH 
 수용액의 부피가 250 mL 이하"일 때를 의미한다. 이 때 250 mL은 위장액의
 부피 혹은 약물 복용 시 먹는 물 한 컵의 양을 기준으로 설정된 것이다.
 
-그림 2. Biopharmaceutics Classification System (BCS)
-
+<!--
 ![](./media-01/image2.png){width="4.137998687664042in"
 height="3.0930227471566054in"}
+-->
+
+```{r 01-02, fig.cap = "(ref:01-02)"}
+knitr::include_graphics('media-01/image2.png')
+```
+
+(ref:01-02) Biopharmaceutics Classification System (BCS)
 
 ## 용해도에 영향을 주는 인자
 
@@ -115,13 +121,9 @@ height="3.0930227471566054in"}
 용매에 따른 용해도 종류를 크게 분류하면 다음과 같다.
 
 -   수용액에서의 용해도
-
 -   유기용매에서의 용해도
-
 -   pH에 따른 용해도
-
 -   Compendial media에서의 용해도
-
 -   Bio-relevant media에서의 용해도
 
 약물이 주로 흡수되는 위장관의 다양한 조건 (넓은 pH 범위 (pH 1.4 -- 8.0),
@@ -309,7 +311,9 @@ buffer, compendial 및 bio-relevant media 등과 같은 다양한 용매
 조건에서의 용해도 평가에 대하여 정확히 이해하고, 이를 적절히 활용하는
 것이 중요하겠다.
 
-## 참고문헌
+## 참고문헌 
+
+(편집자: 이 참고문헌은 모두 인용 위치가 본문 내에서 구체적으로 표시되어야 합니다.)
 
 1. Edward H. Kerns and Li Di, Drug-like properties: Concepts, Structure Design and Methods.
 2. Lubrizol Life Science, Biopharmaceutical Classification System, 2019 https://3ehzg6104228bwtte1se19g6-wpengine.netdna-ssl.com/wp-content/uploads/2019/10/TB-28-Biopharmaceutical-Classification-System.pdf

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 혈장단백결합 | pharmapk.knit</title>
+  <meta name="description" content="약동학은 신약의 발견부터 시판허가 이후의 관리에 이르기까지 모든 단계에서 쓰이는 가장 기본적이고 필수적인 지식이며 도구입니다. 저자들은 지난 20여년간 대학과 기업의 연구원들을 대상으로 약동학을 가르치며 겪은 학습자들의 질문과 반응들을 토대로 꼭 필요한 내용들을 이해하기 쉽게 설명하고자 영상 제작과 함께, 이 교재를 만들게 되었습니다. 약동학 책이라면 흔히 떠올리는, 맥락을 알 수 없는 미분방정식들로 가득 찬 책이 아니라, 학위과정 중에 약동학을 공부할 기회가 없었던 제약/바이오 연구자 분들도 정독하면 이해할 수 있는 책이 될 수 있도록 꼭 필요한만큼의 수식들만 넣었습니다. 대신 약동학 파라미터들 각자의 의미와 해석, 자칫하면 오해하거나 혼동하기 쉬워서 주의할 측면 등을 독자들을 위해 드러내고자 하였습니다." />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 혈장단백결합 | pharmapk.knit" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="http://pipet.or.kr/books/pharmapk/images/cover-pdf.jpg" />
+  <meta property="og:description" content="약동학은 신약의 발견부터 시판허가 이후의 관리에 이르기까지 모든 단계에서 쓰이는 가장 기본적이고 필수적인 지식이며 도구입니다. 저자들은 지난 20여년간 대학과 기업의 연구원들을 대상으로 약동학을 가르치며 겪은 학습자들의 질문과 반응들을 토대로 꼭 필요한 내용들을 이해하기 쉽게 설명하고자 영상 제작과 함께, 이 교재를 만들게 되었습니다. 약동학 책이라면 흔히 떠올리는, 맥락을 알 수 없는 미분방정식들로 가득 찬 책이 아니라, 학위과정 중에 약동학을 공부할 기회가 없었던 제약/바이오 연구자 분들도 정독하면 이해할 수 있는 책이 될 수 있도록 꼭 필요한만큼의 수식들만 넣었습니다. 대신 약동학 파라미터들 각자의 의미와 해석, 자칫하면 오해하거나 혼동하기 쉬워서 주의할 측면 등을 독자들을 위해 드러내고자 하였습니다." />
+  <meta name="github-repo" content="pipetcpt/pharmapk" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 혈장단백결합 | pharmapk.knit" />
+  
+  <meta name="twitter:description" content="약동학은 신약의 발견부터 시판허가 이후의 관리에 이르기까지 모든 단계에서 쓰이는 가장 기본적이고 필수적인 지식이며 도구입니다. 저자들은 지난 20여년간 대학과 기업의 연구원들을 대상으로 약동학을 가르치며 겪은 학습자들의 질문과 반응들을 토대로 꼭 필요한 내용들을 이해하기 쉽게 설명하고자 영상 제작과 함께, 이 교재를 만들게 되었습니다. 약동학 책이라면 흔히 떠올리는, 맥락을 알 수 없는 미분방정식들로 가득 찬 책이 아니라, 학위과정 중에 약동학을 공부할 기회가 없었던 제약/바이오 연구자 분들도 정독하면 이해할 수 있는 책이 될 수 있도록 꼭 필요한만큼의 수식들만 넣었습니다. 대신 약동학 파라미터들 각자의 의미와 해석, 자칫하면 오해하거나 혼동하기 쉬워서 주의할 측면 등을 독자들을 위해 드러내고자 하였습니다." />
+  <meta name="twitter:image" content="http://pipet.or.kr/books/pharmapk/images/cover-pdf.jpg" />
+
+<meta name="author" content="가톨릭대학교 계량약리학연구소(PIPET), AIMS BioScience, Q-fitter - Ver 0.0.1 (2022-06-03)" />
+
+
+<meta name="date" content="2022-09-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="투과도.html"/>
+<link rel="next" href="대사-기질로의-후보-물질-특성-평가.html"/>
+<script src="libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">신약개발을 위한 실전 약동학</a></li>
+<li><a href="https://www.bookk.co.kr/shanmdphd" target="_blank">도서 구입</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>머리말</a></li>
+<li class="chapter" data-level="1" data-path="용해도solubility.html"><a href="용해도solubility.html"><i class="fa fa-check"></i><b>1</b> 용해도(solubility)</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="용해도solubility.html"><a href="용해도solubility.html#서론"><i class="fa fa-check"></i><b>1.1</b> 서론</a></li>
+<li class="chapter" data-level="1.2" data-path="용해도solubility.html"><a href="용해도solubility.html#용해도-분류-기준"><i class="fa fa-check"></i><b>1.2</b> 용해도 분류 기준</a></li>
+<li class="chapter" data-level="1.3" data-path="용해도solubility.html"><a href="용해도solubility.html#용해도에-영향을-주는-인자"><i class="fa fa-check"></i><b>1.3</b> 용해도에 영향을 주는 인자</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="용해도solubility.html"><a href="용해도solubility.html#약물의-물리화학적-특성"><i class="fa fa-check"></i><b>1.3.1</b> 약물의 물리화학적 특성</a></li>
+<li class="chapter" data-level="1.3.2" data-path="용해도solubility.html"><a href="용해도solubility.html#용매-종류"><i class="fa fa-check"></i><b>1.3.2</b> 용매 종류</a></li>
+<li class="chapter" data-level="1.3.3" data-path="용해도solubility.html"><a href="용해도solubility.html#bio-relevant-media"><i class="fa fa-check"></i><b>1.3.3</b> Bio-relevant media</a></li>
+<li class="chapter" data-level="1.3.4" data-path="용해도solubility.html"><a href="용해도solubility.html#용해도-측정법"><i class="fa fa-check"></i><b>1.3.4</b> 용해도 측정법</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="용해도solubility.html"><a href="용해도solubility.html#맺음말"><i class="fa fa-check"></i><b>1.4</b> 맺음말</a></li>
+<li class="chapter" data-level="1.5" data-path="용해도solubility.html"><a href="용해도solubility.html#참고문헌"><i class="fa fa-check"></i><b>1.5</b> 참고문헌</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="투과도.html"><a href="투과도.html"><i class="fa fa-check"></i><b>2</b> 투과도</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="투과도.html"><a href="투과도.html#서론-1"><i class="fa fa-check"></i><b>2.1</b> 서론</a></li>
+<li class="chapter" data-level="2.2" data-path="투과도.html"><a href="투과도.html#기본-개념"><i class="fa fa-check"></i><b>2.2</b> 기본 개념</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="투과도.html"><a href="투과도.html#막-투과-기전"><i class="fa fa-check"></i><b>2.2.1</b> 막 투과 기전</a></li>
+<li class="chapter" data-level="2.2.2" data-path="투과도.html"><a href="투과도.html#투과도에-영향을-주는-인자"><i class="fa fa-check"></i><b>2.2.2</b> 투과도에 영향을 주는 인자</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="투과도.html"><a href="투과도.html#투과도-평가-시험"><i class="fa fa-check"></i><b>2.3</b> 투과도 평가 시험</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="투과도.html"><a href="투과도.html#pampa-parallel-artificial-membrane-permeability-assay"><i class="fa fa-check"></i><b>2.3.1</b> PAMPA (Parallel Artificial Membrane Permeability Assay)</a></li>
+<li class="chapter" data-level="2.3.2" data-path="투과도.html"><a href="투과도.html#caco-2-cell-based-permeability-assay"><i class="fa fa-check"></i><b>2.3.2</b> Caco-2 cell-based permeability assay</a></li>
+<li class="chapter" data-level="2.3.3" data-path="투과도.html"><a href="투과도.html#mdck-cell-based-permeability-assay"><i class="fa fa-check"></i><b>2.3.3</b> MDCK cell-based permeability assay</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="투과도.html"><a href="투과도.html#투과도-평가-결과의-해석-및-활용"><i class="fa fa-check"></i><b>2.4</b> 투과도 평가 결과의 해석 및 활용</a></li>
+<li class="chapter" data-level="2.5" data-path="투과도.html"><a href="투과도.html#투과도-평가-시-고려사항"><i class="fa fa-check"></i><b>2.5</b> 투과도 평가 시 고려사항</a></li>
+<li class="chapter" data-level="2.6" data-path="투과도.html"><a href="투과도.html#맺음말-1"><i class="fa fa-check"></i><b>2.6</b> 맺음말</a></li>
+<li class="chapter" data-level="2.7" data-path="투과도.html"><a href="투과도.html#참고문헌-1"><i class="fa fa-check"></i><b>2.7</b> 참고문헌</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="혈장단백결합.html"><a href="혈장단백결합.html"><i class="fa fa-check"></i><b>3</b> 혈장단백결합</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="혈장단백결합.html"><a href="혈장단백결합.html#서론-2"><i class="fa fa-check"></i><b>3.1</b> 서론</a></li>
+<li class="chapter" data-level="3.2" data-path="혈장단백결합.html"><a href="혈장단백결합.html#혈장-내-주요-약물-결합-단백질"><i class="fa fa-check"></i><b>3.2</b> 혈장 내 주요 약물 결합 단백질</a></li>
+<li class="chapter" data-level="3.3" data-path="혈장단백결합.html"><a href="혈장단백결합.html#혈장-단백결합-평가-방법"><i class="fa fa-check"></i><b>3.3</b> 혈장 단백결합 평가 방법</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="혈장단백결합.html"><a href="혈장단백결합.html#평형투석법-equilibrium-dialysis"><i class="fa fa-check"></i><b>3.3.1</b> 평형투석법 (Equilibrium Dialysis)</a></li>
+<li class="chapter" data-level="3.3.2" data-path="혈장단백결합.html"><a href="혈장단백결합.html#한여과-ultrafiltration-평가법"><i class="fa fa-check"></i><b>3.3.2</b> 한여과 (ultrafiltration) 평가법</a></li>
+<li class="chapter" data-level="3.3.3" data-path="혈장단백결합.html"><a href="혈장단백결합.html#초원심분리-ultracentrifugation-평가법"><i class="fa fa-check"></i><b>3.3.3</b> 초원심분리 (Ultracentrifugation) 평가법</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="혈장단백결합.html"><a href="혈장단백결합.html#혈장단백결합-결과-해석-및-활용"><i class="fa fa-check"></i><b>3.4</b> 혈장단백결합 결과 해석 및 활용</a></li>
+<li class="chapter" data-level="3.5" data-path="혈장단백결합.html"><a href="혈장단백결합.html#혈장단백결합-평가-시-고려사항"><i class="fa fa-check"></i><b>3.5</b> 혈장단백결합 평가 시 고려사항</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="혈장단백결합.html"><a href="혈장단백결합.html#낮은-회수율-low-recovery"><i class="fa fa-check"></i><b>3.5.1</b> 낮은 회수율 (Low recovery)</a></li>
+<li class="chapter" data-level="3.5.2" data-path="혈장단백결합.html"><a href="혈장단백결합.html#높은-혈장단백결합을-가진-약물의-혈장단백결합-평가방법"><i class="fa fa-check"></i><b>3.5.2</b> 높은 혈장단백결합을 가진 약물의 혈장단백결합 평가방법</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="혈장단백결합.html"><a href="혈장단백결합.html#맺음말-2"><i class="fa fa-check"></i><b>3.6</b> 맺음말</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="대사-기질로의-후보-물질-특성-평가.html"><a href="대사-기질로의-후보-물질-특성-평가.html"><i class="fa fa-check"></i><b>4</b> 대사 기질로의 후보 물질 특성 평가</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="대사-기질로의-후보-물질-특성-평가.html"><a href="대사-기질로의-후보-물질-특성-평가.html#서론-3"><i class="fa fa-check"></i><b>4.1</b> 서론</a></li>
+<li class="chapter" data-level="4.2" data-path="대사-기질로의-후보-물질-특성-평가.html"><a href="대사-기질로의-후보-물질-특성-평가.html#대사-과정"><i class="fa fa-check"></i><b>4.2</b> 대사 과정</a></li>
+<li class="chapter" data-level="4.3" data-path="대사-기질로의-후보-물질-특성-평가.html"><a href="대사-기질로의-후보-물질-특성-평가.html#대사-효소"><i class="fa fa-check"></i><b>4.3</b> 대사 효소</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="대사-기질로의-후보-물질-특성-평가.html"><a href="대사-기질로의-후보-물질-특성-평가.html#phase-i-대사"><i class="fa fa-check"></i><b>4.3.1</b> Phase I 대사</a></li>
+<li class="chapter" data-level="4.3.2" data-path="대사-기질로의-후보-물질-특성-평가.html"><a href="대사-기질로의-후보-물질-특성-평가.html#phase-ii-대사"><i class="fa fa-check"></i><b>4.3.2</b> Phase II 대사</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="대사-기질로의-후보-물질-특성-평가.html"><a href="대사-기질로의-후보-물질-특성-평가.html#대사-특성-평가"><i class="fa fa-check"></i><b>4.4</b> 대사 특성 평가</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="대사-기질로의-후보-물질-특성-평가.html"><a href="대사-기질로의-후보-물질-특성-평가.html#in-vitro-systems"><i class="fa fa-check"></i><b>4.4.1</b> In vitro systems</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="대사-기질로의-후보-물질-특성-평가.html"><a href="대사-기질로의-후보-물질-특성-평가.html#맺음말-3"><i class="fa fa-check"></i><b>4.5</b> 맺음말</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="후보-물질의-대사-억제-특성-평가.html"><a href="후보-물질의-대사-억제-특성-평가.html"><i class="fa fa-check"></i><b>5</b> 후보 물질의 대사 억제 특성 평가</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="후보-물질의-대사-억제-특성-평가.html"><a href="후보-물질의-대사-억제-특성-평가.html#개요"><i class="fa fa-check"></i><b>5.1</b> 개요</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="Induction.html"><a href="Induction.html"><i class="fa fa-check"></i><b>6</b> 후보 물질의 대사 유도 특성 평가</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="Induction.html"><a href="Induction.html#서론-4"><i class="fa fa-check"></i><b>6.1</b> 서론</a></li>
+<li class="chapter" data-level="6.2" data-path="Induction.html"><a href="Induction.html#유도체의-작용-메커니즘"><i class="fa fa-check"></i><b>6.2</b> 유도체의 작용 메커니즘</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="Induction.html"><a href="Induction.html#특징"><i class="fa fa-check"></i><b>6.2.1</b> 특징</a></li>
+<li class="chapter" data-level="6.2.2" data-path="Induction.html"><a href="Induction.html#유도체에-의한-활성효소의-변화"><i class="fa fa-check"></i><b>6.2.2</b> 유도체에 의한 활성효소의 변화</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="Induction.html"><a href="Induction.html#후보-물질의-유도-가능-여부-평가를-위한-in-vitro-study-디자인"><i class="fa fa-check"></i><b>6.3</b> 후보 물질의 유도 가능 여부 평가를 위한 In vitro study 디자인</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="약물-수송체에-대한-후보물질의-작용평가.html"><a href="약물-수송체에-대한-후보물질의-작용평가.html"><i class="fa fa-check"></i><b>7</b> 약물 수송체에 대한 후보물질의 작용평가</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="약물-수송체에-대한-후보물질의-작용평가.html"><a href="약물-수송체에-대한-후보물질의-작용평가.html#서론-5"><i class="fa fa-check"></i><b>7.1</b> 서론</a></li>
+<li class="chapter" data-level="7.2" data-path="약물-수송체에-대한-후보물질의-작용평가.html"><a href="약물-수송체에-대한-후보물질의-작용평가.html#맺음말-4"><i class="fa fa-check"></i><b>7.2</b> 맺음말</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="translation.html"><a href="translation.html"><i class="fa fa-check"></i><b>8</b> Translation</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="translation.html"><a href="translation.html#서론-6"><i class="fa fa-check"></i><b>8.1</b> 서론</a></li>
+<li class="chapter" data-level="8.2" data-path="translation.html"><a href="translation.html#생체이용률f의-추정"><i class="fa fa-check"></i><b>8.2</b> 생체이용률(F)의 추정</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="translation.html"><a href="translation.html#fa의-추정"><i class="fa fa-check"></i><b>8.2.1</b> F<sub>a</sub>의 추정</a></li>
+<li class="chapter" data-level="8.2.2" data-path="translation.html"><a href="translation.html#fg의-추정"><i class="fa fa-check"></i><b>8.2.2</b> F<sub>g</sub>의 추정</a></li>
+<li class="chapter" data-level="8.2.3" data-path="translation.html"><a href="translation.html#fh의-추정"><i class="fa fa-check"></i><b>8.2.3</b> F<sub>h</sub>의 추정</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="translation.html"><a href="translation.html#경구흡수-속도의-추정"><i class="fa fa-check"></i><b>8.3</b> 경구흡수 속도의 추정</a></li>
+<li class="chapter" data-level="8.4" data-path="translation.html"><a href="translation.html#vd의-추정"><i class="fa fa-check"></i><b>8.4</b> V<sub>d</sub>의 추정</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="translation.html"><a href="translation.html#pbpk-방법"><i class="fa fa-check"></i><b>8.4.1</b> PBPK 방법</a></li>
+<li class="chapter" data-level="8.4.2" data-path="translation.html"><a href="translation.html#allometry-방법"><i class="fa fa-check"></i><b>8.4.2</b> Allometry 방법</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="translation.html"><a href="translation.html#cl의-추정"><i class="fa fa-check"></i><b>8.5</b> CL의 추정</a></li>
+<li class="chapter" data-level="8.6" data-path="translation.html"><a href="translation.html#약물상호작용-실험-결과의-translation"><i class="fa fa-check"></i><b>8.6</b> 약물상호작용 실험 결과의 translation</a></li>
+<li class="chapter" data-level="8.7" data-path="translation.html"><a href="translation.html#혈장단백결합률의-의미에-관한-해석"><i class="fa fa-check"></i><b>8.7</b> 혈장단백결합률의 의미에 관한 해석</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="참고문헌-2.html"><a href="참고문헌-2.html"><i class="fa fa-check"></i>참고문헌</a></li>
+<li class="divider"></li>
+<li><a href="https://pipetcpt.github.io/pharmapk/pharmapk.pdf">PDF 보기</a></li>
+<li><a href="http://pipet.or.kr/books/" target="_blank">Published by PIPET</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><center>
+신약개발을 위한 실전 약동학 II
+</center>
+<center>
+(ADME의 기초 자료)
+</center></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="혈장단백결합" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> 혈장단백결합<a href="혈장단백결합.html#혈장단백결합" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>원상범</p>
+<div id="서론-2" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> 서론<a href="혈장단백결합.html#서론-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>약을 복용하게 되면 위장관에서 붕해 및 용해되어 전신순환혈에 도달하는 흡수과정을 거치게 되고, 전신순환혈에 도달한 약물은 혈장 내 단백질과 결합하거나 유리된 상태로 존재하게 된다.
+혈장 내 유리 상태의 약물은 생체막을 통과하여 신장이나 간 등 약물이 작용하는 여러 장기로 분포하는 과정을 거치게 되고, 이렇게 분포된 약물 또한 조직 내 단백질과 결합하거나 유리된 상태로 존재한다.
+일반적으로 약효는 유리된 상태의 약물이 표적 작용 부위에서 수용체와 결합하여 활성을 나타내는 것으로 가정하며, 이러한 작용을 자유약물가설 (free drug hypothesis)이라고 한다 (그림 <a href="혈장단백결합.html#fig:03-01">3.1</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:03-01"></span>
+<img src="media-03/image1.png" alt="자유약물가설의 개략도" width="100%" />
+<p class="caption">
+그림 3.1: 자유약물가설의 개략도
+</p>
+</div>
+
+<!--![텍스트, 장치, 측정기, 스크린샷이(가) 표시된 사진 자동 생성된 설명](./media-03/image1.png){width="5.333333333333333in" height="3.1192847769028873in"}-->
+<p>약물의 단백결합 평가는 약물동태의 분포와 관련된 평가 중 하나이지만, 그 외 약효의 설명 또는 유효농도 예측, 안전성 평가 및 약물상호작용의 위험도를 평가하는데도 활용된다. 약물의 단백결합은 plasma, tissue 그리고 microsome 등 여러 종류의 단백질에 대하여 평가하지만, 이번 장에서는 혈장에서의 단백결합 평가 방법 및 평가 시 고려해야할 사항에 대해 기술하여 이해를 돕고자 한다.</p>
+</div>
+<div id="혈장-내-주요-약물-결합-단백질" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> 혈장 내 주요 약물 결합 단백질<a href="혈장단백결합.html#혈장-내-주요-약물-결합-단백질" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>혈장에서 약물이 주로 결합할 수 있는 단백질로는 albumin,
+α1-acid-glycoprotein (AGP), lipoprotein 그리고 globulin 등이 있다. 이 중
+albumin은 혈장 내 단백질 구성 성분 중 50% 이상을 차지하고 있어, 혈장 내
+단백질 성분 중 가장 많은 양을 차지하고 있다. 또한 albumin은 결합 부위도
+8개를 가지고 있으며, 이 중 2개의 결합부위에는 주로 산성이나 중성인
+약물들이 결합하게 된다. 다음으로 AGP, lipoprotein 순으로 약물들이 많이
+결합하게 되는데, 염기성 약물은 주로 AGP와 결합하고, lipoprotein은 산성,
+중성 및 염기성 약물이 일부 결합하며, globulin에는 비타민, 스테로이드가
+결합하는 것으로 알려져 있다.</p>
+</div>
+<div id="혈장-단백결합-평가-방법" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> 혈장 단백결합 평가 방법<a href="혈장단백결합.html#혈장-단백결합-평가-방법" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>혈장 내 단백질과 약물의 결합을 평가하는 방법으로는 형광분석법
+(fluorescence spectroscopy), 크로마토그래피 및 모세관 전기영동법
+(Chromatography and capillary electrophoresis),
+미세투석법(Microdialysis), 평형투석 (Equilibrium Dialysis), 한외여과
+(Ultrafiltration) 그리고 초고속 원심분리 (Ultracentrifugation)과 같이
+다양한 방법이 개발되어 있다. 가장 일반적으로 사용되는 평가 방법은
+평형투석, 한외여과 및 초고속 원심분리 방법이며, 이 세 가지 방법에 대해서
+자세히 기술해 보도록 하겠다.</p>
+<div id="평형투석법-equilibrium-dialysis" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> 평형투석법 (Equilibrium Dialysis)<a href="혈장단백결합.html#평형투석법-equilibrium-dialysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>평형투석법 (Equilibrium Dialysis)은 여러 단백결합 평가 방법 중 gold
+standard로 알려져 있다. 아래의 그림 3.2은 평형투석법으로 약물의 혈장
+단백결합을 평가할 때 많이 사용되는 RED (Rapid Equilibrium Dialysis)
+device를 이용한 시험 방법을 나타낸 것이다. Plasma chamber (Red)에
+시험물질을 첨가한 혈장을 넣고, Buffer chamber (White)에는 phosphate
+buffer를 넣어준 후 평형상태에 도달할 수 있도록 충분한 시간 (약
+4-24시간)동안 37 ℃에서 배양시킨다. 이 과정에서 Plasma chamber 내 약물은
+혈장 내 단백질과 결합을 하게 되고, 결합하지 않은 약물만이 반투과성 막을
+통과하여 Buffer chamber로 확산 이동을 하게 된다. 그리고 배양이 끝난 후
+Plasma 및 Buffer chamber에서의 약물 농도를 측정하여 식 3.1과 같이
+계산하면, 단백결합율 (fraction bound, f<sub>b</sub>) 및 비결합 분획 (fraction
+unbound, f<sub>u</sub>)을 산출할 수 있다.</p>
+<p><img src="media-03/image2.png" style="width:6.26806in;height:1.71458in" /></p>
+<p>그림 3.2 평형투석법 (Equilibrium Dialysis)</p>
+<p><span class="math inline">\(\% Bound = \frac{Conc.of\ \mathbf{buffer}\ chamber}{Conc.of\ \mathbf{sample}\ chamber} \times 100(\%)\)</span>,
+%<span class="math inline">\(Unbound = 100 - \% Bound,{\ \ \ \mathbf{f}}_{\mathbf{u}} = \ \frac{\%_{\mathbf{unbound}}}{\mathbf{100}}\)</span>
+(식 3.1)</p>
+<p>반투과성 막을 기준으로 Plasma와 Buffer chamber가 구분되어 있기는 하지만,
+결합하지 않은 유리 상태의 약물이 막을 자유롭게 이동할 수 있어
+평형상태에서의 단백결합율을 측정할 수 있다는 장점이 있다. 이 점이
+평형투석법이 단백결합 평가 시 가장 많이 쓰이며 표준시험법으로 여겨지는
+이유다. 반면 4시간 이상, 길게는 24시간 이상 배양을 해야 하므로,
+혈장에서의 안정성이 낮은 약물인 경우 낮은 회수율 (recovery)이 나올 수
+있으며, Plasma 및 Buffer chamber 간 용매의 이동으로 인해 volume의 변화가
+나타날 수 있다.</p>
+</div>
+<div id="한여과-ultrafiltration-평가법" class="section level3 hasAnchor" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> 한여과 (ultrafiltration) 평가법<a href="혈장단백결합.html#한여과-ultrafiltration-평가법" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>한여과 (ultrafiltration) 평가법은 결합하지 않은 약물이 반투과성 막을
+통과한다는 점이 앞서 설명하였던 평형투석법과 유사하지만, 평형상태에서
+Buffer 내 약물 농도를 측정하는 평형투석법과 달리 일정 시간이 지난 후
+원심분리를 통해 막을 통과한 여과액 (filtrate)에서의 약물 농도를
+측정한다는 차이가 있다. 아래 그림 3.3과 같이 평가 장치의 하단부에
+반투과성 막이 있으며 막의 위쪽에 약물과 혈장을 함께 넣은 후 원심분리를
+하면 유리 상태의 약물만이 막을 통과한 여과액에 모이게 된다. 분자량이 큰
+혈장 내 단백질 및 이와 결합한 약물은 막을 투과할 수 없다. 이렇게 얻어진
+여과액에서의 약물 농도를 측정하고, 원심분리 전 완충액 내 약물 농도를
+측정하여 식 3.2에 따라 계산하면, 비특이적 결합 (non-specific binding,
+NSB) 및 비결합 분획 (fraction unbound, f<sub>u</sub>)을 산출할 수 있다.</p>
+<div class="figure">
+<img src="media-03/image3.png" style="width:4.83333in;height:2.29453in" alt="" />
+<p class="caption">텍스트, 시험관, 머그이(가) 표시된 사진 자동 생성된
+설명</p>
+</div>
+<p>그림 3.3 한여과 (ultrafiltration) 평가법</p>
+<p>, (식 3.2)</p>
+<p>한여과 평가법의 장점은 평형투석법과 달리 빠른 시간 내 평가가 가능하므로,
+비교적 혈장에서 불안정한 약물도 평가가 가능하다는 것이다. 반면
+원심분리에 의해 반투과성 막이 손상되는 경우도 있고, 다른 평가 방법에
+비해 비특이적 결합이 높다는 단점이 있다.</p>
+</div>
+<div id="초원심분리-ultracentrifugation-평가법" class="section level3 hasAnchor" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> 초원심분리 (Ultracentrifugation) 평가법<a href="혈장단백결합.html#초원심분리-ultracentrifugation-평가법" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>초원심분리 (Ultracentrifugation) 평가법은 초원심분리용 tube에 약물과
+혈장을 넣고, 장기간 동안 초원심분리 (예: 500,000 g, 10-24 시간) 하여
+단백질을 바닥에 침전시킨 후 aqueous layer 내 결합하지 않은 약물의 농도를
+측정한다 (그림 3.4). 이 방법은 앞서 설명한 평형투석법이나 한여과
+평가법과는 달리 비특이적 결합이 없다는 장점이 있으나, 초원심분리 후
+생기는 upper layer (지질층)에 약물이 결합할 수 있어 이보다 아래의
+aqueous layer를 취하는 과정에서 시료가 오염될 수 있다. 그리고 고가의
+장비인 초원심분리기가 있어야만 이 방법으로 평가가 가능하다는 단점이
+있으며, 다른 방법과 비교했을 때 상대적으로 단백결합율이 낮게 평가되는
+경향이 있다.</p>
+<p><img src="media-03/image4.png" style="width:5.325in;height:2.24304in" /></p>
+<p>그림 3.4 초원심분리 (Ultracentrifugation) 평가법</p>
+</div>
+</div>
+<div id="혈장단백결합-결과-해석-및-활용" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> 혈장단백결합 결과 해석 및 활용<a href="혈장단백결합.html#혈장단백결합-결과-해석-및-활용" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>혈장단백결합 결과의 해석은 궁극적으로 혈장단백결합율의 높고 낮음을
+분류하는 것이다. 혈장단백결합율의 높고 낮음을 나누는 정형화된 기준은
+없으며, 시험 기관 혹은 문헌 마다 그 기준이 상이하다. 일반적으로
+혈장단백결합율이 90% 이상이면 높은 것으로 분류하지만, 최근 highly
+potent한 약물을 개발하는 경우가 많아지면서 이에 따라 lipophilicity가
+증가되어, 많은 약물들이 90% 이상의 높은 혈장단백결합율을 보이고 있다.
+이러한 추세를 반영하면, 혈장단백결합율이 98%이상이면 high, 90-98%를
+moderate 그리고 90% 이하이면 low로 분류하는 것이 보다 현실적인 기준일
+것으로 판단된다.</p>
+<p>약효 측면에서는 자유약물가설에 따라 혈장단백율이 낮을수록 유리한 약물로
+생각할 수 있다. 그러나 유리 상태의 약물은 빠르게 대사 및 배설될 수 있고,
+혈장 내 유리 상태의 약물 비율이 낮아지면 결합된 약물이 분리되어 다시
+평형을 이루게 되므로 혈장단백결합율의 좋고 나쁨을 판단하기는 어렵다.
+약물상호작용 측면에서 보면, 높은 단백결합율을 보이는 약물의 경우
+약물상호작용의 위험이 높다고 판단할 수 있다. 예를 들어 단백결합율이
+99.9% (fraction bound, f<sub>b</sub> = 0.999)인 약물이 병용투여한 약물에 의해
+단백결합율이 99.8%로 감소된다면, 단백결합율은 0.1%의 차이로 서로 유사한
+것처럼 보이나, 이 때 비결합분획 (fraction unbound, f<sub>u</sub>)는 0.01에서
+0.02로 2배가 증가된 것이므로 이는 매우 큰 차이라 할 수 있다. 안전역
+(Therapeutic index)이 낮은 약물인 경우 위와 같은 약물상호작용에 따른
+단백결합율의 변화가 부작용과 연관될 수 있어 주의가 필요하다.</p>
+<p>혈장단백결합율은 약효, 독성, 약물상호작용의 위험도를 설명하거나
+예측하는데 활용된다. 예를 들면, 자유약물가설에 따라 약물의 혈중 농도에
+비결합분획을 곱한 혈중 유리 상태의 약물 농도 (free drug concentration)의
+time profile과 <em>in vitro</em> 시험에서 구한 IC<sub>50</sub> 혹은 EC<sub>50</sub>를 비교하여
+약효를 설명하거나 약효 시험의 용량을 결정하기도 하고, <em>in vitro</em> hERG
+assay에서 구한 IC<sub>50</sub>와 비교하여 약물의 심장 독성에 대한 위험도를
+평가하기도 한다. 또한 FDA의 약물상호작용 가이던스에 따라 약물상호작용의
+위험도를 평가할 때 산출하게 되는 다양한 R value를 구하기 위해서도
+혈장단백결합율이 필요하다. 그리고 human PK prediction 과정 중
+클리어런스나 생체이용률을 예측하기 위한 IVIVE (In Vitro-In Vivo
+Extrapolation)에도 혈장단백결합율이 활용된다.</p>
+</div>
+<div id="혈장단백결합-평가-시-고려사항" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> 혈장단백결합 평가 시 고려사항<a href="혈장단백결합.html#혈장단백결합-평가-시-고려사항" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="낮은-회수율-low-recovery" class="section level3 hasAnchor" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> 낮은 회수율 (Low recovery)<a href="혈장단백결합.html#낮은-회수율-low-recovery" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>혈장단백결합을 평가하다 보면, 낮은 회수율 문제가 빈번하게 발생된다. 이
+때 낮은 회수율이 나타나는 이유로는 약물의 용해도가 낮거나 혈장 내
+안정성이 떨어지는 약물인 경우가 있고, 시험 장치의 plastic ware 또는
+반투과성 막에 약물이 결합하는 비특이적 결합 (non-specific binding,
+NSB)이 있다. 회수율은 해당 시험계에서의 평가 결과에 대한 신뢰성을
+판단하는 기준이기 때문에 만약 회수율이 낮게 나왔다면 재시험을 고려하는
+경우가 많다.</p>
+<p>만약 평형투석법 평가 시 낮은 회수율의 원인이 약물의 낮은 용해도라면 평가
+농도를 낮추어 재시험을 수행할 수 있고, 약물의 혈장 내 안정성이 낮았기
+때문이라면 평형투석법이 아닌 한여과법 등의 다른 방법으로 평가하는 것을
+고려할 수 있다. 다만 문헌에 따르면, 평형투석법의 경우 회수율이
+비결합분획 값에 미치는 영향은 없는 것으로 나타났다 (표 3.1). 따라서
+적어도 전임상 개발 단계가 아닌 lead optimization 단계의 과제라면,
+평형투석법 평가 시 낮은 회수율로 재시험을 수행하거나, 이를 해결하기 위해
+많은 시간적, 물적 및 인적 자원을 사용하는 것은 바람직하지 않다고
+보여진다.</p>
+<p>표 3.1 회수율이 비결합분획에 미치는 영향</p>
+<div class="figure">
+<img src="media-03/image5.png" style="width:6.26806in;height:1.40625in" alt="" />
+<p class="caption">테이블이(가) 표시된 사진 자동 생성된
+설명</p>
+</div>
+</div>
+<div id="높은-혈장단백결합을-가진-약물의-혈장단백결합-평가방법" class="section level3 hasAnchor" number="3.5.2">
+<h3><span class="header-section-number">3.5.2</span> 높은 혈장단백결합을 가진 약물의 혈장단백결합 평가방법<a href="혈장단백결합.html#높은-혈장단백결합을-가진-약물의-혈장단백결합-평가방법" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>가장 많이 처방되고 있는 100개 약물들의 혈장단백결합율은 98%이고 (Smith,
+Dennis A, 2010), FDA에서 승인된 189개의 약물들 중 많은 약물들의
+혈장단백결합율이 99% 이상인 것과 같이 최근 매우 높은 혈장단백결합율을
+가진 약물들이 많이 개발되고 있는 추세이다 (그림 3.5).</p>
+<p><img src="media-03/image6.png" style="width:3.37735in;height:2.68287in" /></p>
+<p>그림 3.5 US FDA에서 승인된 189개 약물의 혈장단백결합율 (Xingrong Liu,
+2014)</p>
+<p>이 같은 약물을 평형투석법으로 평가 시 Buffer chamber로 이행되는 약물의
+양이 너무 적어, Buffer chamber 내 약물 농도를 분석할 때 정량한계의
+문제로 인해 단백결합율을 구하지 못하는 경우가 있다. 이럴 때는 혈장을
+희석하여 단백결합율을 평가하는 방법을 고려해볼 수 있다. 주의할 점은 기존
+평형투석법과 동일하게 RED device를 이용해 평가를 수행하되, 희석한 혈장을
+첨가하여 평가를 진행하므로 비결합분획을 계산할 때 반드시 희석배수를
+보정하여 산출해야 한다는 것이다. 아래의 식 3.3은 혈장을 10배 희석하여
+사용했을 때 비결합분획을 계산하는 수식을 나타낸 예시이다.</p>
+<p><span class="math inline">\(\% Bound = \frac{Conc.of\ \mathbf{buffer}\ chamber}{Conc.of\ \mathbf{sample}\ chamber} \times 100(\%)\)</span>,
+%<span class="math inline">\(Unbound = 100 - \% Bound\)</span></p>
+<p><span class="math inline">\({\ \ \ f}_{u\ 10\%} = \ \frac{\%_{unbound}}{100}\ \ ,\ \ \ \ \ \ \ {\ \ \ f}_{u\ 100\%} = \ \frac{{\ \ \ f}_{u\ 10\%}}{10\  - 9*f_{u\ 10\%}}\ \ \ \ \ \ \ \ \)</span>(식
+3.3)</p>
+<p>최근에는 이처럼 매우 높은 혈장단백결합율을 보이는 화합물의 비결합분획을 산출할 수 있도록 고안된 제품 (TRANSIL High Sensitivity Binding Kit<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>) 도 있어, 높은 단백결합율로 인해 어려움을 겪을 때 이러한 장치를 활용하는 것도 추천한다.</p>
+</div>
+</div>
+<div id="맺음말-2" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> 맺음말<a href="혈장단백결합.html#맺음말-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>이상으로 ADME의 기초자료: Physicochemical properties에서 혈장단백결합
+평가 방법 및 평가 시 고려사항에 대해 알아보았다. 혈장단백결합 평가는
+분포에 관련된 평가 중 하나이며 단백결합율의 높고 낮음이 약물의 우수성을
+나타내지는 않는다. 하지만 혈장단백결합율은 약효, 독성, 약물상호작용,
+임상 PK 예측 등 신약개발의 다양한 영역에서 결과의 해석, 용량결정 및
+예측에 활용된다. 따라서, 혈장단백결합을 이해하고 적절한 방법으로
+평가하는 것이 필요하겠다.</p>
+<p><strong>참고문헌</strong></p>
+<p><span class="math display">\[1\]</span> Tonika; Gan, Liang-Shang. Plasma protein binding: From discovery
+to development. Journal of Pharmaceutical Sciences, 102(9), 2953–2994,
+2013.</p>
+<p><span class="math display">\[2\]</span> Van Liempd, Sebastiaan; Morrison, Denise; Sysmans, Leen; Nelis,
+Paul; Mortishire-Smith, Russell. Development and Validation of a
+Higher-Throughput Equilibrium Dialysis Assay for Plasma Protein Binding.
+Journal of Laboratory Automation, 16(1), 56–67, 2011.</p>
+<p><span class="math display">\[3\]</span> Li Di; John P. Umland; Patrick E. Trapa; Tristan S. Maurer. Impact
+of recovery on fraction unbound using equilibrium dialysis. 101(3),
+1327–1335, 2012.</p>
+<p><span class="math display">\[4\]</span> Liu, Xingrong; Wright, Matthew; Hop, Cornelis E. C. A. Rational
+Use of Plasma Protein and Tissue Binding Data in Drug Design. Journal of
+Medicinal Chemistry, 57(20), 8238–8248, 2014.</p>
+<p><span class="math display">\[5\]</span> Buscher, Brigitte; Laakso, Sirpa; Mascher, Hermann; Pusecker,
+Klaus; Doig, Mira; Dillen, Lieve; Wagner-Redeker, Winfried; Pfeifer,
+Thomas; Delrat, Pascal; Timmerman, Philip. Bioanalysis for plasma
+protein binding studies in drug discovery and drug development: views
+and recommendations of the European Bioanalysis Forum. Bioanalysis,
+6(5), 673–682, 2014.</p>
+<p><span class="math display">\[6\]</span> Edward H. Kerns and Li Di, Drug-like properties: Concepts,
+Structure Design and Methods.</p>
+<p><span class="math display">\[7\]</span> Everything you need to know about ADME, 3rd Edition, Cyprotex</p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="3">
+<li id="fn3"><p><a href="https://sovicell.com/products/tpb-0400-0135" class="uri">https://sovicell.com/products/tpb-0400-0135</a><a href="혈장단백결합.html#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="투과도.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="대사-기질로의-후보-물질-특성-평가.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/clipboard.min.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script src="libs/gitbook/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/pipetcpt/basic/edit/master/inst/examples/03.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["pharmapk.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

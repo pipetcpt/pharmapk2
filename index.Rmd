@@ -1,6 +1,6 @@
 --- 
 title: |
-  <center> 신약개발을 위한 실전 약동학 II</center>\index{약동학}
+  <center> 신약개발을 위한 실전 약동학 II</center>
   <center> (ADME의 기초 자료)  </center>
 #"신약개발을 위한 실전 약동학\newline(I-이론과 자료해석)"\index{약동학}
 author: "가톨릭대학교 계량약리학연구소(PIPET), AIMS BioScience, Q-fitter - Ver 0.0.1 (2022-06-03)"
@@ -81,7 +81,7 @@ Sys.setenv(RSTUDIO_PDFLATEX = "latexmk")
 
 # 머리말 {-}
 
-`r if (knitr::is_html_output()) ' [<img src="images/cover-pdf.jpg" style="max-width:40%;min-width:80px;float:right;margin: 10px 10px 5px 5px" alt="표지" />](https://pipetcpt.github.io/pharmapk/pharmapk.pdf)'`
+<!--`r if (knitr::is_html_output()) ' [<img src="images/cover-pdf.jpg" style="max-width:40%;min-width:80px;float:right;margin: 10px 10px 5px 5px" alt="표지" />](https://pipetcpt.github.io/pharmapk/pharmapk2.pdf)'`-->
 
 \normalsize
 
@@ -128,7 +128,7 @@ include_graphics("images/preface.pdf")
 ```
 -->
 
-\hfill 2021년 9월, 성의교정 연구실에서
+\hfill 2022년 9월, 성의교정 연구실에서
 
 \hfill 대표저자 임동석 拜
 

@@ -1,19 +1,9 @@
----
-subtitle: |
-  신약개발을 위한 실전 약동학​ II
-
-  (Phamacokinetics for pharmaceutical scientists​)
----
 
 # 약물 수송체에 대한 후보물질의 작용평가
 
 배수현
 
-5.  
-
-6.  
-
-7.  1.  **서론**
+## 서론
 
 세포내 물질 이동은 그림 7.1과 같다. 크게 수동수송과 능동수송으로 구분할
 수 있다. 수동수송은 세포막 사이의 물질의 농도 차이에 의해 발생한다. 즉,
@@ -28,7 +18,7 @@ cassette (ABC) transporter로 나뉜다. 이 단원에서는 약물을 세포 �
 이동시키는데 관여하는 수송체의 종류와 특성을 살펴보고, 신약후보물질의
 수송체 기질 및 저해능 평가 방법에 대하여 기술한다.
 
-![](./media/image1.png){width="6.3811843832021in"
+![](./media-07/image1.png){width="6.3811843832021in"
 height="2.9102635608048995in"}
 
 그림 7‑1. 세포내 물질의 이동 원리
@@ -53,10 +43,10 @@ ABC 수송체는 SLC 수송체와 반대로, 주로 물질을 세포밖으로
 
 표 7.1. 약물 수송체의 종류
 
-![](./media/image2.emf){width="6.268055555555556in"
+![](./media-07/image2.emf){width="6.268055555555556in"
 height="3.2069444444444444in"}
 
-![](./media/image3.emf){width="6.268055555555556in"
+![](./media-07/image3.emf){width="6.268055555555556in"
 height="3.2527777777777778in"}
 
 그림 7.2에서와 같이 약물 수송체는 생체 내 여러 조직에 분포하고 있으며,
@@ -74,7 +64,7 @@ OATP2B1 등은 대표적인 uptake 수송체이며, 주로 간에서 물질을 �
 및 대사체들의 소변 배설에 중요한 역할을 한다. 약물의 ADME에 중요한
 역할을 하는 대표적인 수송체들에 대하여 자세히 살펴보자.
 
-![](./media/image4.png){width="6.268055555555556in"
+![](./media-07/image4.png){width="6.268055555555556in"
 height="4.772916666666666in"}
 
 그림 ‑. 생체 내 조직에 분포하는 수송체의 종류 (International Transporter
@@ -120,7 +110,7 @@ et al. 2003; Lee et al. 2005). 이러한 수송체의 유전적 다형성으로 
 간으로의 유입에 차이가 생기게 되어 약물의 대사 및 배설에 영향을 미치며,
 결국 개인간 약물의 혈중노출이 달라질 수 있다.
 
-![](./media/image5.emf){width="3.5003127734033246in"
+![](./media-07/image5.emf){width="3.5003127734033246in"
 height="3.1508081802274717in"}
 
 그림 ‑. 간세포에 발현되어 있는 수송체들
@@ -163,7 +153,7 @@ membrane (MATE1)과 신장 proximal tubule cells의 brush-border membrane
 이온이나 zwitter 이온 물질을 수송시키며, 신장에서 약물을 배설시키는
 역할을 한다.
 
-![](./media/image6.png){width="5.256227034120735in"
+![](./media-07/image6.png){width="5.256227034120735in"
 height="3.838888888888889in"}
 
 그림 ‑. 신장 proximal tubule cell에 발현되어 있는 수송체
@@ -181,7 +171,7 @@ In vitro transporter assay를 통해 약물이 특정 수송체의 기질임을
 
 $${CL}_{int,organ} = \ \frac{({PS}_{\inf}\  + {PS}_{pd})}{{PS}_{\inf} + {PS}_{pd} + {CL}_{int,met} + {CL}_{int,exc}} \bullet {(CL}_{int,met} + {CL}_{int,exc})$$
 
-![](./media/image7.png){width="3.976139545056868in"
+![](./media-07/image7.png){width="3.976139545056868in"
 height="1.4899070428696413in"}
 
 그림 ‑. 간세포에의 약물의 이동 및 대사
@@ -194,8 +184,8 @@ height="1.4899070428696413in"}
 > 클리어런스(CL~int,organ~)는 대사 클리어런스(CL~int,met~)와 담즙으로
 > 배설되는 클리어런스(CL~int,exc~)의 합이다. 아래 식에서 PS~inf~와
 > PS~eff~는 각각 능동 수송에 의한 세포 내 유입
-> 클리어런스(transporter-mediated sinusoidal influx clearance)와 능동
-> 수송에 의한 세포 외 유출 클리어런스(transporter-mediated sinusoidal
+> 클리어런스(transporter-media-07ted sinusoidal influx clearance)와 능동
+> 수송에 의한 세포 외 유출 클리어런스(transporter-media-07ted sinusoidal
 > efflux clearance)를 의미하며, PS~pd~는 수동확산 클리어런스(passive
 > diffusion clearance)를 의미한다.
 
@@ -239,7 +229,7 @@ sitagliptin의 위장관 흡수를 증가시켰으며, 이와 동시에 cyclospo
 영향 뿐만 아니라, 약물 수송 이후의 대사 및 배설 과정에 간접적으로 영향을
 미칠 수 있기 때문에, 대사과정에 의한 약물상호작용 보다 더 복잡하다.
 
-![](./media/image8.png){width="5.053192257217848in"
+![](./media-07/image8.png){width="5.053192257217848in"
 height="3.820706474190726in"}
 
 그림 ‑. Sitagliptin과 cyclosporine의 약물상호작용 (Krishna et al. 2007)
@@ -263,7 +253,7 @@ fimasartan의 t~1/2~가 0.26배 작아진 것으로 보아(표,7.2) OATP1B1의
 저해능과 CYP3A4의 유도능이 복합적으로 작용하였지만, 결국 fimasartan의
 혈중 노출을 증가시켰다.
 
-> ![](./media/image9.png){width="4.544006999125109in"
+> ![](./media-07/image9.png){width="4.544006999125109in"
 > height="3.2955522747156607in"}
 
 그림 ‑. Fimasartan과 ketoconazole/rifampicin의 약물상호작용 (Kim et al.
@@ -273,7 +263,7 @@ fimasartan의 t~1/2~가 0.26배 작아진 것으로 보아(표,7.2) OATP1B1의
 2013)
 
 ![테이블이(가) 표시된 사진 자동 생성된
-설명](./media/image10.png){width="5.984473972003499in"
+설명](./media-07/image10.png){width="5.984473972003499in"
 height="2.058033683289589in"}
 
 3.  Cerivastatin -- gemfibrozil
@@ -291,7 +281,7 @@ gemfibrozil 및 gemfibrozil-glucuronide의 OATP1B1과 CYP2C8 저해능으로
 인해, cerivastatin의 C~max~와 AUC는 각각 2.5배와 4.36배
 증가하였다(Backman et al. 2002).
 
-![](./media/image11.png){width="5.9520002187226595in"
+![](./media-07/image11.png){width="5.9520002187226595in"
 height="2.322143482064742in"}
 
 그림 ‑. Cerivastatin-gemfibrozil 약물상호작용. Cerivastatin의
@@ -309,7 +299,7 @@ metformin의 배설에 관여하는 OCT2와 MATE1/2-k를 저해하여, metformin
 C~max~와 AUC는 cimetidine과 병용 시 각각 1.5배 및 1.6배 증가하였다(Wang
 et al. 2008).
 
-> ![](./media/image12.png){width="6.268055555555556in"
+> ![](./media-07/image12.png){width="6.268055555555556in"
 > height="1.836111111111111in"}
 
 그림 ‑. Metformin -- cimetidine 약물상호작용. Metformin -- cimetidine의
@@ -349,7 +339,7 @@ vesicles이 만들어진다. 이 중에서 inside-out membrane vesicle만이 ATP
 수송체의 기질성 평가에 활용되며, 상업적으로 판매하는 vesicle이 있기
 때문에, 비교적 편리하게 활용될 수 있다.
 
-![](./media/image13.png){width="4.229166666666667in" height="4.3125in"}
+![](./media-07/image13.png){width="4.229166666666667in" height="4.3125in"}
 
 2.  (Transfected) Cell lines
 
@@ -400,8 +390,8 @@ P~app~를 확인할 수 있다. P~app~를 구하는 식은 아래와 같다.
 
 $$P_{app} = \ \frac{Volume\ of\ receptor\ chamber\ (mL)\ }{Membrane\ area\ ({cm}^{2}) \times \ {Concentration}_{initial}(\mu M)}\  \times \ \frac{\mathrm{\Delta}\ Concentration\ (\mu M)\ }{\mathrm{\Delta}\ time\ (s)}$$
 
-![](./media/image14.png){width="3.1846445756780404in"
-height="2.0118864829396323in"}![](./media/image15.png){width="4.9375in"
+![](./media-07/image14.png){width="3.1846445756780404in"
+height="2.0118864829396323in"}![](./media-07/image15.png){width="4.9375in"
 height="2.1979166666666665in"}
 
 시험에 사용될 수 있는 세포주는 대표적으로 CaCO-2, MDCKII, LLC-PK1 등이
@@ -420,7 +410,7 @@ height="2.1979166666666665in"}
 B-A/A-B 비가 test만 처리했을 때와 거의 비슷하였다. 이 결과를 통해 test는
 efflux 수송체, 특히, P-gp 수송체의 기질일 가능성이 매우 높다.
 
-![](./media/image18.png){width="5.170833333333333in"
+![](./media-07/image18.png){width="5.170833333333333in"
 height="1.8430555555555554in"}표 .. CaCO-2 세포주를 이용한 P~app~ 산출
 데이터의 예
 
@@ -441,7 +431,7 @@ polarization되고, canalicular system을 만들게 된다. 이러한 시스템�
 
 $${CL}_{uptake} = \ \frac{\mathrm{\Delta}\ Accumulation\ }{\mathrm{\Delta}\ time \times \ {Concentration}_{medium}}$$
 
-![](./media/image19.png){width="6.268055555555556in"
+![](./media-07/image19.png){width="6.268055555555556in"
 height="3.2527777777777778in"}
 
 또한, 칼슘과 마그네슘 이온이 포함되어 있지 않은 배양액을 사용하여 SCH를
@@ -456,7 +446,7 @@ junction이 헐거워지게 된다. 그렇게 되면 담즙 배설된 시험 약
 
 $${CL}_{bile,\ int} = \ \frac{{Accumulation}_{Std} - {Accumulation}_{{Ca}^{2 +}free}\ }{{AUC}_{cell}}$$
 
-3.  **맺음말**
+## 맺음말
 
 후보물질의 세포 내외의 이동은 수동 확산 또는 능동 수송을 통해
 이루어지며, 다양한 실험방법을 통해 in vitro에서 P~app~를 비롯하여 수송
@@ -489,6 +479,7 @@ $${CL}_{h} = \ Q_{h} \bullet \frac{f_{B} \bullet {(CL}_{uptake} + {CL}_{PD})\  \
 때문에, 후보물질의 수송체의 기질성 및 저해능을 확인하였다면, 각 수송체에
 대한 후보물질의 특성을 정량적으로 평가할 수 있는 kinetic parameter
 (J~max~, K~m~, CL, CL~efflux~, CL~pd~ 등)들을 얻어야 함을 잊지 말자.
+
 참고문헌
 
 Backman, J. T., C. Kyrklund, M. Neuvonen, and P. J. Neuvonen. 2002.
@@ -503,7 +494,7 @@ in drug discovery and development\', *Clin Pharmacol Ther*, 94: 95-112.
 Burt, H. J., S. Neuhoff, L. Almond, L. Gaohua, M. D. Harwood, M. Jamei,
 A. Rostami-Hodjegan, G. T. Tucker, and K. Rowland-Yeo. 2016. \'Metformin
 and cimetidine: Physiologically based pharmacokinetic modelling to
-investigate transporter mediated drug-drug interactions\', *Eur J Pharm
+investigate transporter media-07ted drug-drug interactions\', *Eur J Pharm
 Sci*, 88: 70-82.
 
 EMA. 2012. \"Guideline on the investigation of drug interactions.\" In.:

@@ -2,7 +2,6 @@
 
 \Large\hfill
 최수인
-
 \normalsize
 
 ```{r include=FALSE}

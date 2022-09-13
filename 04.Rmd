@@ -1,15 +1,11 @@
----
-subtitle: |
-  신약개발을 위한 실전 약동학​ II
-
-  (Phamacokinetics for pharmaceutical scientists​)
----
 
 # 대사 기질로의 후보 물질 특성 평가
 
+\Large\hfill
 배수현
+\normalsize
 
-1.  **서론**
+## 서론
 
 대사 과정은 체내에서 약물을 체외로 배출하는 주요한 과정 중 하나이다.
 체내에 흡수되어 혈액을 따라 전신 순환하는 약물은 조직으로 이행되며,
@@ -22,7 +18,7 @@ subtitle: |
 약동학에서 약물의 제거(elimination)과정은 대사와 배설을 포함하며, 이
 단원에서는 대사 과정에 관하여 자세히 다룰 예정이다.
 
-2.  **대사 과정**
+## 대사 과정
 
 대사 과정은 체내에서 약물이 제거되는데 필수적인 과정이며, 대사 효소에
 의하여 약물이 대사체 형태로 변환(biotransformation)되는 일련의 과정을
@@ -42,10 +38,15 @@ NAPQI가 phase II 대사를 거쳐 글루타치온 포합체를 생성하지 못
 내의 단백질 및 핵산과 결합하여 궁극적으로 세포를 파괴하여 간 독성을
 나타낸다.
 
-![](./media/image1.png){width="3.7397298775153107in"
-height="4.859154636920385in"}
 
-그림 5.1 아세트아미노펜의 대사과정. (위키피디아 NAPQI 검색 후, 발췌)
+<!--[](./media-04/image1.png){width="3.7397298775153107in"
+height="4.859154636920385in"} -->
+
+```{r 04-01, fig.cap = "(ref:04-01)"}
+knitr::include_graphics('media-04/image1.png')
+```
+
+(ref:04-01) 아세트아미노펜의 대사과정. (위키피디아 NAPQI 검색 후, 발췌)
 
 대사 과정에는 phase I 대사와 phase II 대사가 있으며, 각각의 과정에
 관여하는 대사 효소의 종류와 생성되는 대사체의 성질도 다르다. 일반적으로
@@ -59,11 +60,11 @@ phase I 대사를 통해 약물은 산화, 환원, 또는 가수분해 등의 �
 phase I 대사과정을 거치는 등 다양한 방법으로 변환되어 체외 배설된다.
 다음 장에서 대사 효소에 대하여 자세히 알아보자.
 
-3.  **대사 효소**
+## 대사 효소
 
 앞서 말했듯이, 대사 과정은 크게 phase I 대사 및 phase II 대사로 나뉜다.
 
-1.  Phase I 대사
+### Phase I 대사
 
 Phase I 대사는 약물을 산화, 환원, 또는 가수분해 시켜 약물의 반응성을
 증가시키는 과정이다. Phase I 대사의 가장 중요한 대사 효소는 cytochrome
@@ -86,12 +87,13 @@ isozyme)임을 명명한다. 그리고 'allele number'를 통해 CYP 동효소�
 CYP2C19, CYP2D6, CYP3A4/5이며, 신약개발 시 미국 Food and Drug
 Administration (FDA) 및 European Medicines Agency (EMA)에서는 위의
 동효소에 대한 대사능 및 저해(유도)능을 확인하도록 가이던스에 권고하고
-있다 \[1,2\].
+있다 [@studies2020cytochrome;@european2012guideline].
 
-![](./media/image2.png){width="5.28712489063867in"
-height="1.6601443569553807in"}
+```{r 04-02, fig.cap = "(ref:04-02)"}
+knitr::include_graphics('media-04/image2.png')
+```
 
-그림 5.2 CYP 동효소의 명명법
+(ref:04-02) CYP 동효소의 명명법
 
 Phase I 대사 효소 중 하나인 flavin-containing monooxygenase (FMO)에
 의해서도 약물이 대사된다. FMO를 매개하는 약물상호작용의 경우는 흔지
@@ -104,107 +106,39 @@ Phase I 대사 효소 중 하나인 flavin-containing monooxygenase (FMO)에
 Phase I 대사 중 산화 과정에 대하여 알아보자. 주로 CYP 동효소에 의해
 oxidation, dealkylation, hydroxylation 등이 일어나며, CYP 외의 FMO와
 monoamine oxidase (MAO) 등에 의한 산화 과정도 이에 포함된다. 이 과정들에
-대한 예는 표 5.1에 자세히 나와 있다.
+대한 예는 표 \@ref(tab:table04-01)에 자세히 나와 있다.
 
-표 5.1 약물의 대사 과정 -- 산화 과정
+Table: (\#tab:table04-01) 약물의 대사 과정 - 산화 과정
 
-+-------------+-----------------------------------------+-------------+
-| Reaction    | Structural formula                      | Drugs       |
-+=============+=========================================+=============+
-| I.          |                                         |             |
-| CY          |                                         |             |
-| P-dependent |                                         |             |
-| oxidations  |                                         |             |
-+-------------+-----------------------------------------+-------------+
-| Aliphatic   | ![](./media/i                           | Ba          |
-| hy          | mage3.png){width="1.5285804899387576in" | rbiturates, |
-| droxylation | height="0.7972812773403325in"}          |             |
-|             |                                         | cy          |
-|             |                                         | closporine, |
-|             |                                         |             |
-|             |                                         | ibuprofen   |
-+-------------+-----------------------------------------+-------------+
-|             | ![                                      |             |
-|             | ](./media/image4.png){width="2.98125in" |             |
-|             | height="0.7648797025371828in"}          |             |
-+-------------+-----------------------------------------+-------------+
-| Aromatic    | ![                                      | Phenytoin,  |
-| hy          | ](./media/image5.png){width="2.98125in" | propranolol |
-| droxylation | height="0.8904571303587051in"}          |             |
-+-------------+-----------------------------------------+-------------+
-| N-d         | ![](./media/                            | Sildenafil, |
-| ealkylation | image6.png){width="2.855540244969379in" | diazepam    |
-|             | height="1.2188812335958006in"}          |             |
-+-------------+-----------------------------------------+-------------+
-| O-d         | ![](./media/i                           | Codeine     |
-| ealkylation | mage7.png){width="3.3229166666666665in" |             |
-|             | height="0.7604166666666666in"}          |             |
-+-------------+-----------------------------------------+-------------+
-| S-oxidation | !                                       | Cimetidine, |
-|             | [](./media/image8.png){width="2.4375in" | ph          |
-|             | height="0.78125in"}                     | enothiazine |
-+-------------+-----------------------------------------+-------------+
-| N-oxidation | ![](./media/i                           | Quinidine   |
-|             | mage9.png){width="2.3854166666666665in" |             |
-|             | height="0.59375in"}                     |             |
-+-------------+-----------------------------------------+-------------+
-| De          | ![](./media/im                          | Thiopental  |
-| sulfuration | age10.png){width="2.5520833333333335in" |             |
-|             | height="0.78125in"}                     |             |
-+-------------+-----------------------------------------+-------------+
-| Epoxidation | ![](./media/i                           | Ca          |
-|             | mage11.png){width="3.505265748031496in" | rbamazepine |
-|             | height="1.178996062992126in"}           |             |
-+-------------+-----------------------------------------+-------------+
-| II\.        |                                         |             |
-| CYP-        |                                         |             |
-| independent |                                         |             |
-| oxidations  |                                         |             |
-+-------------+-----------------------------------------+-------------+
-| Alcohol     | ![](./media/im                          | Ethanol,    |
-| dehyd       | age12.emf){width="3.1203871391076117in" | pyridoxine  |
-| rogenation/ | height="0.7055818022747157in"}          |             |
-|             |                                         |             |
-| Aldehyde    |                                         |             |
-| dehy        |                                         |             |
-| drogenation |                                         |             |
-+-------------+-----------------------------------------+-------------+
-| Oxidative   | ![](./media/im                          | Histamine,  |
-| deamination | age12.emf){width="2.7197779965004374in" |             |
-|             | height="0.6431222659667541in"}          | Nor         |
-|             |                                         | epinephrine |
-+-------------+-----------------------------------------+-------------+
-| Deca        | ![](./media/im                          | Levodopa    |
-| rboxylation | age12.emf){width="2.8480872703412072in" |             |
-|             | height="0.711994750656168in"}           |             |
-+-------------+-----------------------------------------+-------------+
+| Reaction | Structural formula | Drugs |
+| --- | --- | --- |
+| I. CYP-dependent oxidations  |  |  |
+| Aliphatic hydroxylation   | ![](./media-04/image3.png) | Barbiturates, cyclosporine, ibuprofen |
+| | ![](./media-04/image4.png) | |
+| Aromatic hydroxylation | ![](./media-04/image5.png)              | Phenytoin, propranolol |
+| N-dealkylation | ![](./media-04/image6.png)              | Sildenafil, diazepam |
+| O-dealkylation | ![](./media-04/image7.png)              | Codeine     |
+| S-oxidation | ![](./media-04/image8.png)              | Cimetidine, phenothiazine |
+| N-oxidation | ![](./media-04/image9.png)              | Quinidine   |
+| Desulfuration | ![](./media-04/image10.png)             | Thiopental  |
+| Epoxidation | ![](./media-04/image11.png)             | Carbamazepine |
+| II. CYP-independent oxidations  | | |
+| Alcohol dehydrogenation, Aldehyde dehydrogenation | ![](./media-04/image12.emf)             | Ethanol, pyridoxine |
+| Oxidative deamination | ![](./media-04/image12.emf)             | Histamine, norepinephrine |
+| Decarboxylation | ![](./media-04/image12.emf)             | Levodopa    |
 
 약물의 구조에 따라 산화 과정 뿐만 아니라, 환원 및 가수분해 과정을
-통해서도 약물이 대사된다(표 5.2). 환원에 의한 대사과정은 산화 및
-가수분해 보다 흔치 않다. 가수분해는 주로 간에 존재하는 esterase (ES)에
-의해 ester hydrolysis 되며, 약물의 구조 상 amide hydrolysis, epoxide
-hydrolysis 될 수 있다.
+통해서도 약물이 대사된다(표 \@ref(tab:table04-02)). 환원에 의한 대사과정은 산화 및 가수분해 보다 흔치 않다. 
+가수분해는 주로 간에 존재하는 esterase (ES)에 의해 ester hydrolysis 되며, 약물의 구조 상 amide hydrolysis, epoxide hydrolysis 될 수 있다.
 
-표 5.2 약물의 대사 과정 -- 환원, 가수분해 과정
+Table: (\#tab:table04-02) 약물의 대사 과정 - 환원, 가수분해 과정
 
-+------------+------------------------------------------+-------------+
 | Reaction   | Structural formula                       | Drugs       |
-+============+==========================================+=============+
-| I.         | ![](./media/                             | Chlor       |
-| Reduction  | image13.emf){width="2.865959098862642in" | amphenicol, |
-|            | height="1.777130358705162in"}            | methadone,  |
-|            |                                          | naloxone    |
-+------------+------------------------------------------+-------------+
-| II\.       | ![](./media/i                            | Aspirin,    |
-| Hydrolysis | mage14.emf){width="2.8652777777777776in" | procaine,   |
-|            | height="2.0656736657917762in"}           | lidocaine,  |
-|            |                                          | in          |
-|            |                                          | domethacin, |
-|            |                                          |             |
-|            |                                          | irinotecan  |
-+------------+------------------------------------------+-------------+
+| --- | --- | --- |
+| I. Reduction | ![](./media-04/image13.emf) | Chloramphenicol, methadone, naloxone |
+| II. Hydrolysis       | ![](./media-04/image14.emf)              | Aspirin, procaine, lidocaine, indomethacin, irinotecan |
 
-2.  Phase II 대사
+### Phase II 대사
 
 Phase II 대사는 모약물 및 대사체의 작용기에 glucuronide, sulfate,
 acetate, glutathione 등의 포합체를 붙여 약물의 수용성을 증가시킨다. 이
@@ -232,29 +166,29 @@ UGT2의 2개의 family로 분류된다. 기질로는 bilirubin, irinotecan의
   ------------------------------------------------------------------------------------------
   Reaction          Structural formula                                      Drugs
   ----------------- ------------------------------------------------------- ----------------
-  I.                ![](./media/image15.png){width="3.6041666666666665in"   Diazepam,
+  I.                ![](./media-04/image15.png){width="3.6041666666666665in"   Diazepam,
   Glucuronidation   height="0.8645833333333334in"}                          digoxin,
                                                                             acetaminophen,
                                                                             SN-38, efavirenz
 
-                    ![](./media/image16.png){width="2.941431539807524in"    
+                    ![](./media-04/image16.png){width="2.941431539807524in"    
                     height="1.8168383639545056in"}                          
 
-  II\. Acetylation  ![](./media/image17.png){width="3.1354166666666665in"   Isoniazid,
+  II\. Acetylation  ![](./media-04/image17.png){width="3.1354166666666665in"   Isoniazid,
                     height="0.5416666666666666in"}                          sulfonamide
 
-                    ![](./media/image18.png){width="3.209925634295713in"    
+                    ![](./media-04/image18.png){width="3.209925634295713in"    
                     height="1.145132327209099in"}                           
 
-  III\. Sulfation   ![](./media/image19.png){width="3.125in"                Methyldopa
+  III\. Sulfation   ![](./media-04/image19.png){width="3.125in"                Methyldopa
                     height="0.65625in"}                                     
 
-  IV\. Glutathione  ![](./media/image20.png){width="2.7157360017497814in"   Acetaminophen,
+  IV\. Glutathione  ![](./media-04/image20.png){width="2.7157360017497814in"   Acetaminophen,
   conjugation       height="1.3023468941382328in"}                          valproic acid,
                                                                             busulfan
   ------------------------------------------------------------------------------------------
 
-4.  **대사 특성 평가**
+## 대사 특성 평가
 
 약물 대사는 주로 간에서 일어나며, 다양한 *in vitro* 실험을 통해 약물이
 어떤 대사효소를 통해 얼마나 대사되는지 확인할 수 있다. 이 단원에서는 *in
@@ -262,13 +196,13 @@ vitro* 실험에 사용되는 다양한 시험계의 종류와 그 특성, 대�
 평가하는 시험법, 시험에서 얻을 수 있는 파라미터와 각 파라미터가 의미하는
 바에 대하여 순차적으로 알아보자.
 
-1.  In vitro systems
+### In vitro systems
 
 약물의 대사를 확인하는 시험계는 세포계(intact cell system),
 준세포분획(subcellular fractions), 재조합 효소(recombinant enzyme)
 등으로 나눌 수 있다.
 
-1)  Intact cell systems
+#### Intact cell systems
 
 대사를 확인하는 세포계는 주로 간세포((cryopreserved) primary
 hepatocytes)를 일컫는다. 간세포 자체는 계대 배양이 불가능하여 시험
@@ -292,7 +226,7 @@ hepatocytes)를 일컫는다. 간세포 자체는 계대 배양이 불가능하�
 Sandwich-cultured hepatocytes)에 따라 약물의 담즙 배설도
 확인(CL~int,bile~) 할 수 있다.
 
-2)  Subcellular fraction
+#### Subcellular fraction
 
 준세포분획(subcellular fractions)은 세포를 homogenate하여 원심분리 후,
 얻은 분획을 말한다(그림 5.3). 간 대사에 주로 사용되는 분획은 microsome,
@@ -304,17 +238,15 @@ cytosol, S9 등이며, 각각의 분획에는 들어있는 대사효소의 종�
 사용하여야 한다. 각 준세포분획에 포함되어 있는 대사효소는 그림 5.4에 잘
 정리되어 있다.
 
-![](./media/image21.png){width="3.7922058180227474in" height="4.1in"}
+![](./media-04/image21.png){width="3.7922058180227474in" height="4.1in"}
 
 그림 5.3 준세포분획(subcellular fraction)
 
-![텍스트이(가) 표시된 사진 자동 생성된
-설명](./media/image22.png){width="6.268055555555556in"
-height="3.3569444444444443in"}
+![](./media-04/image22.png){width="6.268055555555556in" height="3.3569444444444443in"}
 
 그림 5.4 각 준세포분획(subcellular fraction)에 발현되어 있는 대사효소
 
-3)  Recombinant enzyme
+#### Recombinant enzyme
 
 재조합효소(recombinant enzyme)는 특정 대사효소를 인위적으로 과발현시켜
 만든 실험계이다. 약물이 특정 대사효소로 얼마나 대사되는가를 평가할
@@ -343,8 +275,7 @@ hepatocyte에서 실험 후, 아래의 결과를 얻었다면, 시험약물은 �
 대사되는 약물이다. 이런 식으로, 실험 목적에 맞게 in vitro system을
 선택하여 실험 후, 시험물질의 대사를 확인할 수 있다.
 
-![](./media/image23.png){width="6.268055555555556in"
-height="1.9903849518810148in"}
+![](./media-04/image23.png){width="6.268055555555556in" height="1.9903849518810148in"}
 
 그림 5.5 Substrate-depletion 법을 이용하여 얻을 수 있는 data (예)
 
@@ -355,9 +286,7 @@ Substrate-depletion 법을 통해서, 어떤 대사효소로 대사되는지 확
 제거속도상수(k)이며, 여기에 실험에 사용된 buffer의 양(mL)과 실험에
 사용된 단백질의 양(mg)을 반영하면, CL~int~를 구할 수 있다.
 
-![텍스트, 안테나이(가) 표시된 사진 자동 생성된
-설명](./media/image24.png){width="3.783018372703412in"
-height="1.0147156605424321in"}
+![](./media-04/image24.png){width="3.783018372703412in" height="1.0147156605424321in"}
 
 이 때, 기질은 K~m~ 이하의 농도를 선택하는 것이 중요하다. 대부분의
 기질-효소 반응은 Michaelis -Menten (M-M) kinetic을 따르며, K~m~ 이하의
@@ -386,7 +315,7 @@ Substrate-depletion 법은 약물의 대사속도를 일차반응속도로 가�
 개발단계에서 metabolite profiling을 통한 대사체 동정 이후에 수행되는
 경우가 일반적이다.
 
-![](./media/image25.png){width="2.4166666666666665in"
+![](./media-04/image25.png){width="2.4166666666666665in"
 height="1.9166666666666667in"}
 
 그림 5.6 Metabolite-formation법을 이용하여 얻을 수 있는 data (예)
@@ -430,15 +359,13 @@ chemical inhibitor인 SKF525A를 첨가하여, CYP에 의한 대사능을 배제
 | NADPH      | X      | X      | O      | X      | O      | O      |
 +------------+--------+--------+--------+--------+--------+--------+
 | UDPGA      | X      | X      | X      | O      | X      | X      |
-|            |        |        |        |        |        |        |
-| (+         |        |        |        |        |        |        |
-| al         |        |        |        |        |        |        |
-| amethicin) |        |        |        |        |        |        |
+| (+ala-     |        |        |        |        |        |        |
+| methicin)  |        |        |        |        |        |        |
 +------------+--------+--------+--------+--------+--------+--------+
 | SKF525A    | \-     | \-     | \-     | \-     | \-     | O      |
 +------------+--------+--------+--------+--------+--------+--------+
-| **Pre-in   | 37℃,   | 37℃,   | 37℃,   | Ice,   | 45℃,   | 37℃,   |
-| cubation** |        |        |        |        |        |        |
+| Pre-       | 37℃,   | 37℃,   | 37℃,   | Ice,   | 45℃,   | 37℃,   |
+| incubation |        |        |        |        |        |        |
 |            | 5 min  | 5 min  | 5 min  | 30 min | 30 min | 5 min  |
 +------------+--------+--------+--------+--------+--------+--------+
 | 평가가능한 | X      | ES,    | ES,    | ES,    | ES,    | ES,    |
@@ -457,7 +384,7 @@ Substrate-depletion 법을 사용하기에, 시험물질의 농도는 가능한 
 있는 대사효소를 평가할 수 있도록, 실험 조건을 적절히 변경하여 평가에
 활용할 수 있다.
 
-![](./media/image26.png){width="6.268055555555556in"
+![](./media-04/image26.png){width="6.268055555555556in"
 height="2.7319444444444443in"}
 
 그림 5.5 대사안정성 평가 실험 결과 (예)
@@ -492,7 +419,7 @@ Recombinant CYP 동효소를 이용한 reaction phenotyping의 예를
 같은 방법을 사용할 수 있다. 그림 5.6의 결과에서는 실험에 사용된 물질은
 주로 CYP3A4와 CYP3A5를 통해 대사됨을 확인할 수 있다.
 
-![](./media/image27.png){width="3.6306036745406822in"
+![](./media-04/image27.png){width="3.6306036745406822in"
 height="3.591221566054243in"}
 
 그림 5.6 Recombinant CYP 동효소를 이용한 reaction phenotyping 예
@@ -504,7 +431,7 @@ microsome
 절대 생성량을 측정한 것이 아니라, 분석기기에서 생성된 대사체의 peak
 면적을 확인한 것이므로, y축이 relative intensity임을 참고하자.
 
-![](./media/image28.png){width="3.8555041557305336in"
+![](./media-04/image28.png){width="3.8555041557305336in"
 height="2.9802635608048993in"}
 
 그림 5.7 Recombinant CYP 동효소를 이용한 reaction phenotyping 예
@@ -522,13 +449,13 @@ CL~int~), 이를 통해 f~m~을 계산할 수 있다. 여기서 한가지 주의
 *in vitro* extrapolation (IVIVE)를 통해 in vivo CL 계산에 활용하고자 할
 때에는 ISEF 또는 RAF 등의 적절한 환산계수를 반영하여야 한다.
 
-![](./media/image29.png){width="6.268055555555556in"
+![](./media-04/image29.png){width="6.268055555555556in"
 height="2.323611111111111in"}
 
 그림 5.8 Recombinant CYP 동효소를 이용한 reaction phenotyping 예
 (metabolite-formation method) \[3\]. 대사체의 표준품 확보가 가능한 경우
 
-3.  **맺음말**
+## 맺음말
 
 신약개발 과정에서 in vitro 약물대사를 평가 실험은 필수적이다. 임상진입
 전, 후보물질의 대사 특성을 잘 파악하고 질 높은 정량적인 파라미터들을
@@ -539,18 +466,3 @@ height="2.323611111111111in"}
 신장 기능 저하 환자군, 등)에서의 약동학 평가, 및 인종간의 약동학 차이
 등의 평가에 사용될 수 있다.
 
-참고문헌
-
-\[1\] U.S. Food and Drug Administration. 2020. In vitro drug interaction
-studies -- Cytochrome P450 enzyme- and transporter- mediated drug
-interactions. Guidance for Industry \[Internet\].
-https://www.fda.gov/media/134582/download.
-
-\[2\] European Medicines Agency. 2012. Guideline on the investigation of
-drug interactions \[Internet\].
-https://www.ema.europa.eu/en/documents/scientific-guideline/guideline-investigation-drug-interactions-revision-1_en.pdf.
-
-\[3\]. Yanakakis LJ and Bumpus NN. 2012. Biotransformation of the
-antiretroviral drug etravirine: Metabolite identification, reaction
-phenotyping, and characterization of autoinduction of cytochrome
-P450-dependent metabolism. 40:803-814.
