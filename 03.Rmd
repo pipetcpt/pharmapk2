@@ -1,6 +1,8 @@
 # 혈장단백결합 
 
+\Large\hfill
 원상범
+\normalsize
 
 ## 서론
 
@@ -13,8 +15,6 @@ knitr::include_graphics('media-03/image1.png')
 ```
 
 (ref:03-01) 자유약물가설의 개략도
-
-<!--![텍스트, 장치, 측정기, 스크린샷이(가) 표시된 사진 자동 생성된 설명](./media-03/image1.png){width="5.333333333333333in" height="3.1192847769028873in"}-->
 
 약물의 단백결합 평가는 약물동태의 분포와 관련된 평가 중 하나이지만, 그 외 약효의 설명 또는 유효농도 예측, 안전성 평가 및 약물상호작용의 위험도를 평가하는데도 활용된다. 약물의 단백결합은 plasma, tissue 그리고 microsome 등 여러 종류의 단백질에 대하여 평가하지만, 이번 장에서는 혈장에서의 단백결합 평가 방법 및 평가 시 고려해야할 사항에 대해 기술하여 이해를 돕고자 한다.
 
@@ -44,7 +44,7 @@ albumin은 혈장 내 단백질 구성 성분 중 50% 이상을 차지하고 있
 ### 평형투석법 (Equilibrium Dialysis)
 
 평형투석법 (Equilibrium Dialysis)은 여러 단백결합 평가 방법 중 gold
-standard로 알려져 있다. 아래의 그림 3.2은 평형투석법으로 약물의 혈장
+standard로 알려져 있다. 아래의 그림 \@ref(fig:03-02)은 평형투석법으로 약물의 혈장
 단백결합을 평가할 때 많이 사용되는 RED (Rapid Equilibrium Dialysis)
 device를 이용한 시험 방법을 나타낸 것이다. Plasma chamber (Red)에
 시험물질을 첨가한 혈장을 넣고, Buffer chamber (White)에는 phosphate
@@ -52,17 +52,22 @@ buffer를 넣어준 후 평형상태에 도달할 수 있도록 충분한 시간
 4-24시간)동안 37 ℃에서 배양시킨다. 이 과정에서 Plasma chamber 내 약물은
 혈장 내 단백질과 결합을 하게 되고, 결합하지 않은 약물만이 반투과성 막을
 통과하여 Buffer chamber로 확산 이동을 하게 된다. 그리고 배양이 끝난 후
-Plasma 및 Buffer chamber에서의 약물 농도를 측정하여 식 3.1과 같이
+Plasma 및 Buffer chamber에서의 약물 농도를 측정하여 식 \@ref(eq:eq03-01)과 같이
 계산하면, 단백결합율 (fraction bound, f~b~) 및 비결합 분획 (fraction
 unbound, f~u~)을 산출할 수 있다.
 
-![](./media-03/image2.png){width="6.268055555555556in" height="1.7145833333333333in"}
+```{r 03-02, fig.cap = "(ref:03-02)"}
+knitr::include_graphics('media-03/image2.png')
+```
 
-그림 3.2 평형투석법 (Equilibrium Dialysis)
+(ref:03-02) 평형투석법 (Equilibrium Dialysis)
 
-$\% Bound = \frac{Conc.of\ \mathbf{buffer}\ chamber}{Conc.of\ \mathbf{sample}\ chamber} \times 100(\%)$,
-%$Unbound = 100 - \% Bound,{\ \ \ \mathbf{f}}_{\mathbf{u}} = \ \frac{\%_{\mathbf{unbound}}}{\mathbf{100}}$
-(식 3.1)
+\begin{equation}
+\% Bound = \frac{Conc.\ of\ \mathbf{buffer}\ chamber}{Conc.of\ \mathbf{sample}\ chamber} \times 100\ (\%)
+\\ \%\ Unbound = 100 - \%\ Bound
+\\ f_u = \ \frac{\%\ Unbound}{100}
+(\#eq:eq03-01) 
+\end{equation}
 
 반투과성 막을 기준으로 Plasma와 Buffer chamber가 구분되어 있기는 하지만,
 결합하지 않은 유리 상태의 약물이 막을 자유롭게 이동할 수 있어
@@ -79,21 +84,31 @@ $\% Bound = \frac{Conc.of\ \mathbf{buffer}\ chamber}{Conc.of\ \mathbf{sample}\ c
 통과한다는 점이 앞서 설명하였던 평형투석법과 유사하지만, 평형상태에서
 Buffer 내 약물 농도를 측정하는 평형투석법과 달리 일정 시간이 지난 후
 원심분리를 통해 막을 통과한 여과액 (filtrate)에서의 약물 농도를
-측정한다는 차이가 있다. 아래 그림 3.3과 같이 평가 장치의 하단부에
+측정한다는 차이가 있다. 그림 \@ref(fig:03-03)과 같이 평가 장치의 하단부에
 반투과성 막이 있으며 막의 위쪽에 약물과 혈장을 함께 넣은 후 원심분리를
 하면 유리 상태의 약물만이 막을 통과한 여과액에 모이게 된다. 분자량이 큰
 혈장 내 단백질 및 이와 결합한 약물은 막을 투과할 수 없다. 이렇게 얻어진
 여과액에서의 약물 농도를 측정하고, 원심분리 전 완충액 내 약물 농도를
-측정하여 식 3.2에 따라 계산하면, 비특이적 결합 (non-specific binding,
+측정하여 식 \@ref(eq:eq03-02)에 따라 계산하면, 비특이적 결합 (non-specific binding,
 NSB) 및 비결합 분획 (fraction unbound, f~u~)을 산출할 수 있다.
 
-![텍스트, 시험관, 머그이(가) 표시된 사진 자동 생성된
-설명](./media-03/image3.png){width="4.833333333333333in"
-height="2.2945253718285215in"}
+```{r 03-03, fig.cap = "(ref:03-03)"}
+knitr::include_graphics('media-03/image3.png')
+```
 
-그림 3.3 한여과 (ultrafiltration) 평가법
+(ref:03-03) 한여과 (ultrafiltration) 평가법
 
-, (식 3.2)
+\begin{equation}
+NSB = \frac{C_{pre} - C_{post}}{C_{pre}} \\
+f_u = \frac{F_f}{[(1-NSB) \times F_e]}
+(\#eq:eq03-01) 
+\end{equation}
+
+C~pre~: initial conc. of compound before filtration in buffer  
+C~post~: recovered conc. of compound after ultrafiltration in buffer  
+Ff: the area ratio of compound after ultrafiltration  
+Fe: the area ratio of compound before ultrafiltration  
+NSB: non-specific binding
 
 한여과 평가법의 장점은 평형투석법과 달리 빠른 시간 내 평가가 가능하므로,
 비교적 혈장에서 불안정한 약물도 평가가 가능하다는 것이다. 반면
@@ -105,7 +120,7 @@ height="2.2945253718285215in"}
 초원심분리 (Ultracentrifugation) 평가법은 초원심분리용 tube에 약물과
 혈장을 넣고, 장기간 동안 초원심분리 (예: 500,000 g, 10-24 시간) 하여
 단백질을 바닥에 침전시킨 후 aqueous layer 내 결합하지 않은 약물의 농도를
-측정한다 (그림 3.4). 이 방법은 앞서 설명한 평형투석법이나 한여과
+측정한다 (그림 \@ref(fig:03-04)). 이 방법은 앞서 설명한 평형투석법이나 한여과
 평가법과는 달리 비특이적 결합이 없다는 장점이 있으나, 초원심분리 후
 생기는 upper layer (지질층)에 약물이 결합할 수 있어 이보다 아래의
 aqueous layer를 취하는 과정에서 시료가 오염될 수 있다. 그리고 고가의
@@ -113,9 +128,11 @@ aqueous layer를 취하는 과정에서 시료가 오염될 수 있다. 그리�
 있으며, 다른 방법과 비교했을 때 상대적으로 단백결합율이 낮게 평가되는
 경향이 있다.
 
-![](./media-03/image4.png){width="5.325in" height="2.243036964129484in"}
+```{r 03-04, fig.cap = "(ref:03-04)"}
+knitr::include_graphics('media-03/image4.png')
+```
 
-그림 3.4 초원심분리 (Ultracentrifugation) 평가법
+(ref:03-04) 초원심분리 (Ultracentrifugation) 평가법
 
 ## 혈장단백결합 결과 해석 및 활용
 
@@ -170,30 +187,30 @@ NSB)이 있다. 회수율은 해당 시험계에서의 평가 결과에 대한 �
 농도를 낮추어 재시험을 수행할 수 있고, 약물의 혈장 내 안정성이 낮았기
 때문이라면 평형투석법이 아닌 한여과법 등의 다른 방법으로 평가하는 것을
 고려할 수 있다. 다만 문헌에 따르면, 평형투석법의 경우 회수율이
-비결합분획 값에 미치는 영향은 없는 것으로 나타났다 (표 3.1). 따라서
+비결합분획 값에 미치는 영향은 없는 것으로 나타났다 (그림 \@ref(fig:fig2table)). 따라서
 적어도 전임상 개발 단계가 아닌 lead optimization 단계의 과제라면,
 평형투석법 평가 시 낮은 회수율로 재시험을 수행하거나, 이를 해결하기 위해
 많은 시간적, 물적 및 인적 자원을 사용하는 것은 바람직하지 않다고
 보여진다.
 
-표 3.1 회수율이 비결합분획에 미치는 영향
+```{r fig2table, fig.cap = "(ref:fig2table)"}
+knitr::include_graphics('media-03/image5.png')
+```
 
-![테이블이(가) 표시된 사진 자동 생성된
-설명](./media-03/image5.png){width="6.268055555555556in"
-height="1.40625in"}
+(ref:fig2table) 회수율이 비결합분획에 미치는 영향
 
 ### 높은 혈장단백결합을 가진 약물의 혈장단백결합 평가방법
 
 가장 많이 처방되고 있는 100개 약물들의 혈장단백결합율은 98%이고 (Smith,
 Dennis A, 2010), FDA에서 승인된 189개의 약물들 중 많은 약물들의
 혈장단백결합율이 99% 이상인 것과 같이 최근 매우 높은 혈장단백결합율을
-가진 약물들이 많이 개발되고 있는 추세이다 (그림 3.5).
+가진 약물들이 많이 개발되고 있는 추세이다 (그림 \@ref(fig:03-05)).
 
-![](./media-03/image6.png){width="3.377351268591426in"
-height="2.682872922134733in"}
+```{r 03-05, fig.cap = "(ref:03-05)"}
+knitr::include_graphics('media-03/image6.png')
+```
 
-그림 3.5 US FDA에서 승인된 189개 약물의 혈장단백결합율 (Xingrong Liu,
-2014)
+(ref:03-05)  US FDA에서 승인된 189개 약물의 혈장단백결합율 [@liu2014rational]
 
 이 같은 약물을 평형투석법으로 평가 시 Buffer chamber로 이행되는 약물의
 양이 너무 적어, Buffer chamber 내 약물 농도를 분석할 때 정량한계의
@@ -201,54 +218,31 @@ height="2.682872922134733in"}
 희석하여 단백결합율을 평가하는 방법을 고려해볼 수 있다. 주의할 점은 기존
 평형투석법과 동일하게 RED device를 이용해 평가를 수행하되, 희석한 혈장을
 첨가하여 평가를 진행하므로 비결합분획을 계산할 때 반드시 희석배수를
-보정하여 산출해야 한다는 것이다. 아래의 식 3.3은 혈장을 10배 희석하여
+보정하여 산출해야 한다는 것이다. 아래의 식 \@ref(eq:eq03-03)은 혈장을 10배 희석하여
 사용했을 때 비결합분획을 계산하는 수식을 나타낸 예시이다.
 
-$\% Bound = \frac{Conc.of\ \mathbf{buffer}\ chamber}{Conc.of\ \mathbf{sample}\ chamber} \times 100(\%)$,
-%$Unbound = 100 - \% Bound$
-
-${\ \ \ f}_{u\ 10\%} = \ \frac{\%_{unbound}}{100}\ \ ,\ \ \ \ \ \ \ {\ \ \ f}_{u\ 100\%} = \ \frac{{\ \ \ f}_{u\ 10\%}}{10\  - 9*f_{u\ 10\%}}\ \ \ \ \ \ \ \ $(식
-3.3)
+\begin{equation}
+\% Bound = \frac{Conc.of\ \mathbf{buffer}\ chamber}{Conc.of\ \mathbf{sample}\ chamber} \times 100(\%) \\
+\% Unbound = 100 - \% Bound \\
+f_{u\ 10\%} = \ \frac{\%_{unbound}}{100} \\ 
+f_{u\ 100\%} = \ \frac{{\ \ \ f}_{u\ 10\%}}{10\  - 9*f_{u\ 10\%}}
+(\#eq:eq03-03) 
+\end{equation}
 
 최근에는 이처럼 매우 높은 혈장단백결합율을 보이는 화합물의 비결합분획을 산출할 수 있도록 고안된 제품 (TRANSIL High Sensitivity Binding Kit^[https://sovicell.com/products/tpb-0400-0135]) 도 있어, 높은 단백결합율로 인해 어려움을 겪을 때 이러한 장치를 활용하는 것도 추천한다.
 
 ## 맺음말
 
-이상으로 ADME의 기초자료: Physicochemical properties에서 혈장단백결합
-평가 방법 및 평가 시 고려사항에 대해 알아보았다. 혈장단백결합 평가는
-분포에 관련된 평가 중 하나이며 단백결합율의 높고 낮음이 약물의 우수성을
-나타내지는 않는다. 하지만 혈장단백결합율은 약효, 독성, 약물상호작용,
-임상 PK 예측 등 신약개발의 다양한 영역에서 결과의 해석, 용량결정 및
-예측에 활용된다. 따라서, 혈장단백결합을 이해하고 적절한 방법으로
-평가하는 것이 필요하겠다.
+이상으로 ADME의 기초자료: Physicochemical properties에서 혈장단백결합 평가 방법 및 평가 시 고려사항에 대해 알아보았다. 혈장단백결합 평가는 분포에 관련된 평가 중 하나이며 단백결합율의 높고 낮음이 약물의 우수성을 나타내지는 않는다. 하지만 혈장단백결합율은 약효, 독성, 약물상호작용, 임상 PK 예측 등 신약개발의 다양한 영역에서 결과의 해석, 용량결정 및 예측에 활용된다. 따라서, 혈장단백결합을 이해하고 적절한 방법으로 평가하는 것이 필요하겠다.
 
 **참고문헌**
 
-\[1\] Tonika; Gan, Liang-Shang. Plasma protein binding: From discovery
-to development. Journal of Pharmaceutical Sciences, 102(9), 2953--2994,
-2013.
+(편집자: 이 참고문헌은 모두 인용 위치가 본문 내에서 구체적으로 표시되어야 합니다.)
 
-\[2\] Van Liempd, Sebastiaan; Morrison, Denise; Sysmans, Leen; Nelis,
-Paul; Mortishire-Smith, Russell. Development and Validation of a
-Higher-Throughput Equilibrium Dialysis Assay for Plasma Protein Binding.
-Journal of Laboratory Automation, 16(1), 56--67, 2011.
-
-\[3\] Li Di; John P. Umland; Patrick E. Trapa; Tristan S. Maurer. Impact
-of recovery on fraction unbound using equilibrium dialysis. 101(3),
-1327--1335, 2012.
-
-\[4\] Liu, Xingrong; Wright, Matthew; Hop, Cornelis E. C. A. Rational
-Use of Plasma Protein and Tissue Binding Data in Drug Design. Journal of
-Medicinal Chemistry, 57(20), 8238--8248, 2014.
-
-\[5\] Buscher, Brigitte; Laakso, Sirpa; Mascher, Hermann; Pusecker,
-Klaus; Doig, Mira; Dillen, Lieve; Wagner-Redeker, Winfried; Pfeifer,
-Thomas; Delrat, Pascal; Timmerman, Philip. Bioanalysis for plasma
-protein binding studies in drug discovery and drug development: views
-and recommendations of the European Bioanalysis Forum. Bioanalysis,
-6(5), 673--682, 2014.
-
-\[6\] Edward H. Kerns and Li Di, Drug-like properties: Concepts,
-Structure Design and Methods.
-
-\[7\] Everything you need to know about ADME, 3rd Edition, Cyprotex
+1. Tonika; Gan, Liang-Shang. Plasma protein binding: From discovery to development. Journal of Pharmaceutical Sciences, 102(9), 2953--2994, 2013. 
+2. Van Liempd, Sebastiaan; Morrison, Denise; Sysmans, Leen; Nelis, Paul; Mortishire-Smith, Russell. Development and Validation of a Higher-Throughput Equilibrium Dialysis Assay for Plasma Protein Binding. Journal of Laboratory Automation, 16(1), 56--67, 2011. 
+3. Li Di; John P. Umland; Patrick E. Trapa; Tristan S. Maurer. Impact of recovery on fraction unbound using equilibrium dialysis. 101(3), 1327--1335, 2012. 
+4. Liu, Xingrong; Wright, Matthew; Hop, Cornelis E. C. A. Rational Use of Plasma Protein and Tissue Binding Data in Drug Design. Journal of Medicinal Chemistry, 57(20), 8238--8248, 2014. 
+5. Buscher, Brigitte; Laakso, Sirpa; Mascher, Hermann; Pusecker, Klaus; Doig, Mira; Dillen, Lieve; Wagner-Redeker, Winfried; Pfeifer, Thomas; Delrat, Pascal; Timmerman, Philip. Bioanalysis for plasma protein binding studies in drug discovery and drug development: views and recommendations of the European Bioanalysis Forum. Bioanalysis, 6(5), 673--682, 2014. 
+6. Edward H. Kerns and Li Di, Drug-like properties: Concepts, Structure Design and Methods. 
+7. Everything you need to know about ADME, 3rd Edition, Cyprotex 

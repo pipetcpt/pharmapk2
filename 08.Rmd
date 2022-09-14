@@ -1,4 +1,10 @@
+# (PART) ADME 기초 자료의 translation {-} 
+
 # Translation
+
+\Large\hfill
+임동석
+\normalsize
 
 ## 서론
 
@@ -14,13 +20,13 @@ In vitro ADME 실험의 또다른 목적이라 할 수 있는 것으로 약물-�
 물론 이는 사람의 약동학을 예측하는 작업과 상당부분 겹치지만, 특히 내가 약으로 개발하고자 하는 물질이 병용하는 약물의 PK에 영향을 미칠지, 그 반대로 영향을 받을지 여부를 미리 알아보기 위해 하는 것인데 in vitro 실험데이터를 바탕으로 정교한 PBPK 소프트웨어를 이용하여 예측을 시행한다. 
 이런 예측이 중요한 것은 개발과정에서 관청이 부과하는 사람에서의 DDI 임상시험들의 일부 또는 상당 부분을 타당한 예측과정을 통해 구한 값들로 면제받을 수 있기 때문이다.
 
-본 장에 나오는 내용들은 교육논문(tutorial)으로 n차에 걸쳐 게재된 것을 바탕으로 작성되었으며 더 자세한 내용을 알기 위해 이 논문들을 참조할 수 있다.
+본 장에 나오는 내용들은 교육논문(tutorial)으로 3차에 걸쳐 게재된 것을 바탕으로 작성되었으며 더 자세한 내용을 알기 위해 이 논문들을 참조할 수 있다.
 
-- 흡수 Transl Clin Pharmacol. 2020 Sep;28(3):126-135 <https://doi.org/10.12793/tcp.2020.28.e14>
-- 분포 Transl Clin Pharmacol. 2020 Dec;28(4):169-174 <https://doi.org/10.12793/tcp.2020.28.e19>
-- 청소율 Transl Clin Pharmacol. 2021 Jun;29(2):78-87 <https://doi.org/10.12793/tcp.2021.29.e12>
+- 흡수 Transl Clin Pharmacol. 2020 Sep;28(3):126-135 [@yimabsorption] ^[https://doi.org/10.12793/tcp.2020.28.e14]
+- 분포 Transl Clin Pharmacol. 2020 Dec;28(4):169-174 [@yim2020predicting] ^[https://doi.org/10.12793/tcp.2020.28.e19]
+- 청소율 Transl Clin Pharmacol. 2021 Jun;29(2):78-87 [@yim2021predicting] ^[https://doi.org/10.12793/tcp.2021.29.e12]
 
-비임상 데이터로부터 사람의 PK를 추정하는데 있어 명심해야 할 사항 중 하나는 종간 예측에는한계가 있음을 인정하는 것이다. 
+비임상 데이터로부터 사람의 PK를 추정하는데 있어 명심해야 할 사항 중 하나는 종간 예측에는 한계가 있음을 인정하는 것이다. 
 기본적인 in vitro, in vivo 실험들을 수행하고 그로부터 추정된 사람 PK 파라미터 값들에 남아있는 불확실성을 다른 추가적인 실험들로 줄일 수 있다는 기대 하에 시간과 비용을 계속 쓰는 것 보다는 임상에 신속히 진입하여 1상 결과를 얻고 이후 전략을 수정하는 것이 나은 경우가 많다. 
 즉, 비임상 자료들로부터 얻어진 사람 PK 파라미터 추정값은 불가피하게 상당한 불확실성이 포함되어 있음을 받아들여야 한다는 것이다.
 
@@ -138,14 +144,17 @@ CL은 대사효소의 종들 사이의 차이가 커서 우선적으로 권장�
 방법으로 만든 사람의 CYP 등을 이용하여 in vitro 실험으로 대사속도를
 측정하고. 이를 여러 단계의 계산을 거쳐 성인에서의 CL를 구한다. 그
 방법들은 이 장의 서두에서 소개한 문헌(Transl Clin Pharmacol. 2021
-Jun;29(2):78-87 <https://doi.org/10.12793/tcp.2021.29.e12>)에 정리되어
+Jun;29(2):78-87 [@yim2021predicting] ^[https://doi.org/10.12793/tcp.2021.29.e12])에 정리되어
 있으며 간략히 정리하면 다음과 같다.
 
 약물의 사람에서의 간청소율은 흔히 간 혈류량(Q~HB~), 혈액에서의
 비결합분율(f~uB~) intrinsic CL 등(CL~u,int,H~)으로부터 아래 Well-stirred
 model를 이용하여 구하게 된다.
 
-$${CL}_{H}(L/h) = \frac{Q_{HB} \bullet f_{uB} \bullet {CL}_{u,int,H}}{Q_{HB} + f_{uB} \bullet {CL}_{u,int,H}}$$
+\begin{equation}
+{CL}_{H}(L/h) = \frac{Q_{HB} \cdot f_{uB} \cdot {CL}_{u,int,H}}{Q_{HB} + f_{uB} \cdot {CL}_{u,int,H}}
+(\#eq:eq08-01) 
+\end{equation}
 
 이 식에 들어가는 CL~u,int,H~는 간 세포 백만개 (무게로 환산하면 1그램)
 단위에서 구한 CL~u,int~에 성인 간의 무게(1200그램 내외)를 곱하여 구한다.
@@ -195,18 +204,17 @@ K~m~, EC~50~ 등보다 높게 유지되어야 한다고 가정하고 유효용�
 극히 높게 산출되므로 신약의 discovery 단계에서부터 혈장단백결합률이 높은
 물질들은 미리 탈락시켜야 하는지 등에 대한 우려가 있어 왔다. 그러나 이런
 우려는 과장된 것이다. 현재 허가된 의약품의 30\~40%가량이 fu 0.1이하이며,
-0.01이하인 약들도 5\~10%에 달한다는 보고도 있다(ref: Current Topics in
-Medicinal Chemistry 2011; 11:450-466). 65가지 성분의 약들의 실제 시판
+0.01이하인 약들도 5\~10%에 달한다는 보고도 있다. [@liu2011we] 65가지 성분의 약들의 실제 시판
 허가된 치료용량에서 얻어질 것으로 예상되는 C~u,ss~와 해당 약물들의 in
 vitro 유효농도 파라미터들(IC~50~, K~m~, EC~50~)의 비(ratio)를 조사한
 결과에 의하면 일반적인 예상과 달리 C~u,ss~가 IC~50~ 등보다 낮은 경우가
-69%에 달했다. (Korean J Physiol Pharmacol 2019;23(4):231-236)
+69%에 달했다. (그림 \@ref(fig:08-02)) [@yim2019potency]
 
 ```{r 08-02, fig.cap = "(ref:08-02)"}
 knitr::include_graphics('media-08/image3.png')
 ```
 
-(ref:08-02) In vitro 실험으로 측정한potency(IC~50~, EC~50~ 등)와 실제 시판용량 투여 후 예측된 C~u,ss~의 관계. [@yim2019potency]
+(ref:08-02) In vitro 실험으로 측정한 potency(IC~50~, EC~50~ 등)와 실제 시판용량 투여 후 예측된 C~u,ss~의 관계. [@yim2019potency]
 
 이런 현상은 전신순환혈로 제대로 흡수되기 이전에 타겟 장기에 고농도로
 분포하는 statin 계 약물들이나 타겟에 비가역적으로 결합하는

@@ -1,0 +1,26 @@
+Gene,Aliases,Tissue,Substrate,Inhibitor
+ABCB1,"P-gp, MDR1","intestine, liver, kidney, brain, placenta, adrenal, testes","digoxin, fexofenadine, indinavir, vincristine, colchicine, topotecan, paclitaxel, loperamide, doxorubicin, vinblastine","ritonavir, cyclosporine, verapamil, erythromycin, ketocoanzole, itraconazole, quinidine, elacridar (GF120918), LY335979, valspodar (PSC833)"
+ABCB4,MDR3,liver,"digoxin, paclitaxel, vinblastine","verapamil, cyclosporine"
+ABCB11,BSEP,liver,"pravastatin, taurocholic acid, bile acids","cyclosporine, rifampicin, glibenclamide"
+ABCC1,MRP1,"intestine, liver, kidney, brain","adefovir, indinavir",
+ABCC2,"MRP2, CMOAT","intestine, liver, kidney, brain","methotrexate, glucuronides, valsartan, indinavir, cisplatin,","cyclosporine, delavirdine, efavirenz, emtricitabine"
+ABCC3,"MRP3, CMOAT2","intestine, liver, kidney, placenta, adrenal","etoposide, methotrexate, tenoposide, glucoronides, fexofenadine","delavirdine, efavirenz, emtricitabine"
+ABCC4,MRP4,"liver, brain","adeforvir, tenofovir, methotrexate, topotecan, furosemide, cAMP,","celecoxib, diclofenac"
+ABCC5,MRP5,brain,,
+ABCC6,MRP6,"liver, kidney","cisplatin, daunorubicin",
+ABCG2,BCRP,"intestine, liver, mammary glands, placenta","daunorubicin, doxorubicin, topotecan, rosuvastatin, sulfasalazine, imatinib, methotrexate","elacridar (GF120918), gefitinib, fumitremorgin C, novobiocin"
+SLCO1A2,"OATP1A2, OATP-A","brain, liver, kidney","E3S, statins, fexofenadine, bile salts, digoxin, methotrexate","naringin, ritonavir, lopinavir, saquinavir, rifampicin"
+SLCO1B1,"OATP1B1, OATP- C, OATP2",liver,"rifampin, rosuvastatin, methotrexate, pravastatin, thyroxine, bilirubin, E17BG,","cyclosporine, rifampicin, saquinavir, ritonavir, lopinavir"
+SLCO1B3,"OATP1B3, OATP8",liver,"digoxin, fexofenadine, telmisartan, E17BG, bile acids, statins,","rifampicin, cyclosporine, ritonavir, lopinavir"
+SLCO2B1,"OATP2B1, OATP-B","intestine, liver, kidney, brain","E3S, statins, taurocholate, fexofenadine, glyburide","rifampicin, cyclosporine"
+SLC10A1,NTCP,"liver, pancreas","rosuvastatin, chlorambucil taurocholate",
+SLC15A1,PEPT1,"intestine, kidney","gly-sar, cephalexin, amoxicillin, captopril,",gly-pro
+SLC15A2,PEPT2,"kidney, brain, lung","gly-sar, cephalexin, amoxicillin, captopril,","fosinopril, zofenopril"
+SLC22A1,OCT1,"liver, intestine","tetraethylammonium, oxaliplatin, metformin, N-methylpyridinium","disopyramide, disopyraminde, quinidine, ritonavir, verapamil"
+SLC22A2,OCT2,"kidney, brain","tetraethylammonium, oxaliplatin, metformin, N-methylpyridinium, pindolol,","cimetidine, cetirizine, testosterone, quinine"
+SLC22A4,OCTN1,"kidney, muscle, lung","quinidine, verapamil, ipatriopium",
+SLC22A5,OCTN2,"kidney, muscle, lung","quinidine, verapamil, ipatriopium",
+SLC22A6,OAT1,"kidney, brain","para-aminohippurate, ciprofloxacine, acyclovir, adefovir, methotrexate,","probenecid, cefadroxil, novobiocin"
+SLC22A8,OAT3,"kidney, brain","E3S, NSAIDs, cefaclor, furosemide, bumetanide","probenecid, novobiocin"
+SLC47A1,MATE1,"kidney, liver, muscle","metformine, N-methylpyridinium,","quinidine, cimetidine, procainamide"
+SLC47A2,MATE2-K,kidney,"metformine, N-methylpyridinium,","quinidine, cimetidine, procainamide"

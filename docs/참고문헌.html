@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>참고문헌 | pharmapk.knit</title>
   <meta name="description" content="약동학은 신약의 발견부터 시판허가 이후의 관리에 이르기까지 모든 단계에서 쓰이는 가장 기본적이고 필수적인 지식이며 도구입니다. 저자들은 지난 20여년간 대학과 기업의 연구원들을 대상으로 약동학을 가르치며 겪은 학습자들의 질문과 반응들을 토대로 꼭 필요한 내용들을 이해하기 쉽게 설명하고자 영상 제작과 함께, 이 교재를 만들게 되었습니다. 약동학 책이라면 흔히 떠올리는, 맥락을 알 수 없는 미분방정식들로 가득 찬 책이 아니라, 학위과정 중에 약동학을 공부할 기회가 없었던 제약/바이오 연구자 분들도 정독하면 이해할 수 있는 책이 될 수 있도록 꼭 필요한만큼의 수식들만 넣었습니다. 대신 약동학 파라미터들 각자의 의미와 해석, 자칫하면 오해하거나 혼동하기 쉬워서 주의할 측면 등을 독자들을 위해 드러내고자 하였습니다." />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="참고문헌 | pharmapk.knit" />
   <meta property="og:type" content="book" />
@@ -23,14 +23,14 @@
 <meta name="author" content="가톨릭대학교 계량약리학연구소(PIPET), AIMS BioScience, Q-fitter - Ver 0.0.1 (2022-06-03)" />
 
 
-<meta name="date" content="2022-06-03" />
+<meta name="date" content="2022-09-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="plasma-protein-binding.html"/>
+<link rel="prev" href="translation.html"/>
 
 <script src="libs/jquery/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -52,9 +52,33 @@
 <link href="libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections/anchor-sections.js"></script>
+<script src="libs/kePrint/kePrint.js"></script>
+<link href="libs/lightable/lightable.css" rel="stylesheet" />
 
 
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
@@ -74,9 +98,146 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>머리말</a></li>
-<li class="chapter" data-level="1" data-path="solubility.html"><a href="solubility.html"><i class="fa fa-check"></i><b>1</b> Solubility</a></li>
-<li class="chapter" data-level="2" data-path="permeability.html"><a href="permeability.html"><i class="fa fa-check"></i><b>2</b> Permeability</a></li>
-<li class="chapter" data-level="3" data-path="plasma-protein-binding.html"><a href="plasma-protein-binding.html"><i class="fa fa-check"></i><b>3</b> Plasma protein binding</a></li>
+<li class="part"><span><b>I 물리화학적 성질</b></span></li>
+<li class="chapter" data-level="1" data-path="용해도.html"><a href="용해도.html"><i class="fa fa-check"></i><b>1</b> 용해도</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="용해도.html"><a href="용해도.html#서론"><i class="fa fa-check"></i><b>1.1</b> 서론</a></li>
+<li class="chapter" data-level="1.2" data-path="용해도.html"><a href="용해도.html#용해도-분류-기준"><i class="fa fa-check"></i><b>1.2</b> 용해도 분류 기준</a></li>
+<li class="chapter" data-level="1.3" data-path="용해도.html"><a href="용해도.html#용해도에-영향을-주는-인자"><i class="fa fa-check"></i><b>1.3</b> 용해도에 영향을 주는 인자</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="용해도.html"><a href="용해도.html#약물의-물리화학적-특성"><i class="fa fa-check"></i><b>1.3.1</b> 약물의 물리화학적 특성</a></li>
+<li class="chapter" data-level="1.3.2" data-path="용해도.html"><a href="용해도.html#용매-종류"><i class="fa fa-check"></i><b>1.3.2</b> 용매 종류</a></li>
+<li class="chapter" data-level="1.3.3" data-path="용해도.html"><a href="용해도.html#bio-relevant-media"><i class="fa fa-check"></i><b>1.3.3</b> Bio-relevant media</a></li>
+<li class="chapter" data-level="1.3.4" data-path="용해도.html"><a href="용해도.html#용해도-측정법"><i class="fa fa-check"></i><b>1.3.4</b> 용해도 측정법</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="용해도.html"><a href="용해도.html#맺음말"><i class="fa fa-check"></i><b>1.4</b> 맺음말</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="투과도.html"><a href="투과도.html"><i class="fa fa-check"></i><b>2</b> 투과도</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="투과도.html"><a href="투과도.html#서론-1"><i class="fa fa-check"></i><b>2.1</b> 서론</a></li>
+<li class="chapter" data-level="2.2" data-path="투과도.html"><a href="투과도.html#기본-개념"><i class="fa fa-check"></i><b>2.2</b> 기본 개념</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="투과도.html"><a href="투과도.html#막-투과-기전"><i class="fa fa-check"></i><b>2.2.1</b> 막 투과 기전</a></li>
+<li class="chapter" data-level="2.2.2" data-path="투과도.html"><a href="투과도.html#투과도에-영향을-주는-인자"><i class="fa fa-check"></i><b>2.2.2</b> 투과도에 영향을 주는 인자</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="투과도.html"><a href="투과도.html#투과도-평가-시험"><i class="fa fa-check"></i><b>2.3</b> 투과도 평가 시험</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="투과도.html"><a href="투과도.html#pampa-parallel-artificial-membrane-permeability-assay"><i class="fa fa-check"></i><b>2.3.1</b> PAMPA (Parallel Artificial Membrane Permeability Assay)</a></li>
+<li class="chapter" data-level="2.3.2" data-path="투과도.html"><a href="투과도.html#caco-2-cell-based-permeability-assay"><i class="fa fa-check"></i><b>2.3.2</b> Caco-2 cell-based permeability assay</a></li>
+<li class="chapter" data-level="2.3.3" data-path="투과도.html"><a href="투과도.html#mdck-cell-based-permeability-assay"><i class="fa fa-check"></i><b>2.3.3</b> MDCK cell-based permeability assay</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="투과도.html"><a href="투과도.html#투과도-평가-결과의-해석-및-활용"><i class="fa fa-check"></i><b>2.4</b> 투과도 평가 결과의 해석 및 활용</a></li>
+<li class="chapter" data-level="2.5" data-path="투과도.html"><a href="투과도.html#투과도-평가-시-고려사항"><i class="fa fa-check"></i><b>2.5</b> 투과도 평가 시 고려사항</a></li>
+<li class="chapter" data-level="2.6" data-path="투과도.html"><a href="투과도.html#맺음말-1"><i class="fa fa-check"></i><b>2.6</b> 맺음말</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="혈장단백결합.html"><a href="혈장단백결합.html"><i class="fa fa-check"></i><b>3</b> 혈장단백결합</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="혈장단백결합.html"><a href="혈장단백결합.html#서론-2"><i class="fa fa-check"></i><b>3.1</b> 서론</a></li>
+<li class="chapter" data-level="3.2" data-path="혈장단백결합.html"><a href="혈장단백결합.html#혈장-내-주요-약물-결합-단백질"><i class="fa fa-check"></i><b>3.2</b> 혈장 내 주요 약물 결합 단백질</a></li>
+<li class="chapter" data-level="3.3" data-path="혈장단백결합.html"><a href="혈장단백결합.html#혈장-단백결합-평가-방법"><i class="fa fa-check"></i><b>3.3</b> 혈장 단백결합 평가 방법</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="혈장단백결합.html"><a href="혈장단백결합.html#평형투석법-equilibrium-dialysis"><i class="fa fa-check"></i><b>3.3.1</b> 평형투석법 (Equilibrium Dialysis)</a></li>
+<li class="chapter" data-level="3.3.2" data-path="혈장단백결합.html"><a href="혈장단백결합.html#한여과-ultrafiltration-평가법"><i class="fa fa-check"></i><b>3.3.2</b> 한여과 (ultrafiltration) 평가법</a></li>
+<li class="chapter" data-level="3.3.3" data-path="혈장단백결합.html"><a href="혈장단백결합.html#초원심분리-ultracentrifugation-평가법"><i class="fa fa-check"></i><b>3.3.3</b> 초원심분리 (Ultracentrifugation) 평가법</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="혈장단백결합.html"><a href="혈장단백결합.html#혈장단백결합-결과-해석-및-활용"><i class="fa fa-check"></i><b>3.4</b> 혈장단백결합 결과 해석 및 활용</a></li>
+<li class="chapter" data-level="3.5" data-path="혈장단백결합.html"><a href="혈장단백결합.html#혈장단백결합-평가-시-고려사항"><i class="fa fa-check"></i><b>3.5</b> 혈장단백결합 평가 시 고려사항</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="혈장단백결합.html"><a href="혈장단백결합.html#낮은-회수율-low-recovery"><i class="fa fa-check"></i><b>3.5.1</b> 낮은 회수율 (Low recovery)</a></li>
+<li class="chapter" data-level="3.5.2" data-path="혈장단백결합.html"><a href="혈장단백결합.html#높은-혈장단백결합을-가진-약물의-혈장단백결합-평가방법"><i class="fa fa-check"></i><b>3.5.2</b> 높은 혈장단백결합을 가진 약물의 혈장단백결합 평가방법</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="혈장단백결합.html"><a href="혈장단백결합.html#맺음말-2"><i class="fa fa-check"></i><b>3.6</b> 맺음말</a></li>
+</ul></li>
+<li class="part"><span><b>II 대사 및 수용체</b></span></li>
+<li class="chapter" data-level="4" data-path="대사-기질로의-후보-물질-특성-평가.html"><a href="대사-기질로의-후보-물질-특성-평가.html"><i class="fa fa-check"></i><b>4</b> 대사 기질로의 후보 물질 특성 평가</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="대사-기질로의-후보-물질-특성-평가.html"><a href="대사-기질로의-후보-물질-특성-평가.html#서론-3"><i class="fa fa-check"></i><b>4.1</b> 서론</a></li>
+<li class="chapter" data-level="4.2" data-path="대사-기질로의-후보-물질-특성-평가.html"><a href="대사-기질로의-후보-물질-특성-평가.html#대사-과정"><i class="fa fa-check"></i><b>4.2</b> 대사 과정</a></li>
+<li class="chapter" data-level="4.3" data-path="대사-기질로의-후보-물질-특성-평가.html"><a href="대사-기질로의-후보-물질-특성-평가.html#대사-효소"><i class="fa fa-check"></i><b>4.3</b> 대사 효소</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="대사-기질로의-후보-물질-특성-평가.html"><a href="대사-기질로의-후보-물질-특성-평가.html#phase-i-대사"><i class="fa fa-check"></i><b>4.3.1</b> Phase I 대사</a></li>
+<li class="chapter" data-level="4.3.2" data-path="대사-기질로의-후보-물질-특성-평가.html"><a href="대사-기질로의-후보-물질-특성-평가.html#phase-ii-대사"><i class="fa fa-check"></i><b>4.3.2</b> Phase II 대사</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="대사-기질로의-후보-물질-특성-평가.html"><a href="대사-기질로의-후보-물질-특성-평가.html#대사-특성-평가"><i class="fa fa-check"></i><b>4.4</b> 대사 특성 평가</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="대사-기질로의-후보-물질-특성-평가.html"><a href="대사-기질로의-후보-물질-특성-평가.html#in-vitro-systems"><i class="fa fa-check"></i><b>4.4.1</b> In vitro systems</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="대사-기질로의-후보-물질-특성-평가.html"><a href="대사-기질로의-후보-물질-특성-평가.html#대사평가-실험을-통해-얻을-수-있는-in-vitro-대사-파라미터"><i class="fa fa-check"></i><b>4.5</b> 대사평가 실험을 통해 얻을 수 있는 in vitro 대사 파라미터</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="대사-기질로의-후보-물질-특성-평가.html"><a href="대사-기질로의-후보-물질-특성-평가.html#substrate-depletion-법"><i class="fa fa-check"></i><b>4.5.1</b> Substrate-depletion 법</a></li>
+<li class="chapter" data-level="4.5.2" data-path="대사-기질로의-후보-물질-특성-평가.html"><a href="대사-기질로의-후보-물질-특성-평가.html#metabolite-formation-법"><i class="fa fa-check"></i><b>4.5.2</b> Metabolite-formation 법</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="대사-기질로의-후보-물질-특성-평가.html"><a href="대사-기질로의-후보-물질-특성-평가.html#대사평가-실험법"><i class="fa fa-check"></i><b>4.6</b> 대사평가 실험법</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="대사-기질로의-후보-물질-특성-평가.html"><a href="대사-기질로의-후보-물질-특성-평가.html#대사안정성metabolic-stability-평가-실험"><i class="fa fa-check"></i><b>4.6.1</b> 대사안정성(metabolic stability) 평가 실험</a></li>
+<li class="chapter" data-level="4.6.2" data-path="대사-기질로의-후보-물질-특성-평가.html"><a href="대사-기질로의-후보-물질-특성-평가.html#reaction-phenotyping-평가-실험"><i class="fa fa-check"></i><b>4.6.2</b> Reaction phenotyping 평가 실험</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="대사-기질로의-후보-물질-특성-평가.html"><a href="대사-기질로의-후보-물질-특성-평가.html#맺음말-3"><i class="fa fa-check"></i><b>4.7</b> 맺음말</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="후보-물질의-대사-억제-특성-평가.html"><a href="후보-물질의-대사-억제-특성-평가.html"><i class="fa fa-check"></i><b>5</b> 후보 물질의 대사 억제 특성 평가</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="후보-물질의-대사-억제-특성-평가.html"><a href="후보-물질의-대사-억제-특성-평가.html#개요"><i class="fa fa-check"></i><b>5.1</b> 개요</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="Induction.html"><a href="Induction.html"><i class="fa fa-check"></i><b>6</b> 후보 물질의 대사 유도 특성 평가</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="Induction.html"><a href="Induction.html#서론-4"><i class="fa fa-check"></i><b>6.1</b> 서론</a></li>
+<li class="chapter" data-level="6.2" data-path="Induction.html"><a href="Induction.html#유도체의-작용-메커니즘"><i class="fa fa-check"></i><b>6.2</b> 유도체의 작용 메커니즘</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="Induction.html"><a href="Induction.html#특징"><i class="fa fa-check"></i><b>6.2.1</b> 특징</a></li>
+<li class="chapter" data-level="6.2.2" data-path="Induction.html"><a href="Induction.html#유도체에-의한-활성효소의-변화"><i class="fa fa-check"></i><b>6.2.2</b> 유도체에 의한 활성효소의 변화</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="Induction.html"><a href="Induction.html#후보-물질의-유도-가능-여부-평가를-위한-in-vitro-study-디자인"><i class="fa fa-check"></i><b>6.3</b> 후보 물질의 유도 가능 여부 평가를 위한 In vitro study 디자인</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="약물-수송체에-대한-후보물질의-작용평가.html"><a href="약물-수송체에-대한-후보물질의-작용평가.html"><i class="fa fa-check"></i><b>7</b> 약물 수송체에 대한 후보물질의 작용평가</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="약물-수송체에-대한-후보물질의-작용평가.html"><a href="약물-수송체에-대한-후보물질의-작용평가.html#서론-5"><i class="fa fa-check"></i><b>7.1</b> 서론</a></li>
+<li class="chapter" data-level="7.2" data-path="약물-수송체에-대한-후보물질의-작용평가.html"><a href="약물-수송체에-대한-후보물질의-작용평가.html#약물수송체의-종류와-역할"><i class="fa fa-check"></i><b>7.2</b> 약물수송체의 종류와 역할</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="약물-수송체에-대한-후보물질의-작용평가.html"><a href="약물-수송체에-대한-후보물질의-작용평가.html#mdr1과-bcrp"><i class="fa fa-check"></i><b>7.2.1</b> MDR1과 BCRP</a></li>
+<li class="chapter" data-level="7.2.2" data-path="약물-수송체에-대한-후보물질의-작용평가.html"><a href="약물-수송체에-대한-후보물질의-작용평가.html#oatps"><i class="fa fa-check"></i><b>7.2.2</b> OATPs</a></li>
+<li class="chapter" data-level="7.2.3" data-path="약물-수송체에-대한-후보물질의-작용평가.html"><a href="약물-수송체에-대한-후보물질의-작용평가.html#mrps"><i class="fa fa-check"></i><b>7.2.3</b> MRPs</a></li>
+<li class="chapter" data-level="7.2.4" data-path="약물-수송체에-대한-후보물질의-작용평가.html"><a href="약물-수송체에-대한-후보물질의-작용평가.html#bsep"><i class="fa fa-check"></i><b>7.2.4</b> BSEP</a></li>
+<li class="chapter" data-level="7.2.5" data-path="약물-수송체에-대한-후보물질의-작용평가.html"><a href="약물-수송체에-대한-후보물질의-작용평가.html#mates"><i class="fa fa-check"></i><b>7.2.5</b> MATEs</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="약물-수송체에-대한-후보물질의-작용평가.html"><a href="약물-수송체에-대한-후보물질의-작용평가.html#수송체를-매개한-약물의-세포-내-분포"><i class="fa fa-check"></i><b>7.3</b> 수송체를 매개한 약물의 세포 내 분포</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="약물-수송체에-대한-후보물질의-작용평가.html"><a href="약물-수송체에-대한-후보물질의-작용평가.html#세포-투과도가-큰-경우-high-passive-permeability"><i class="fa fa-check"></i><b>7.3.1</b> 세포 투과도가 큰 경우 (high passive permeability)</a></li>
+<li class="chapter" data-level="7.3.2" data-path="약물-수송체에-대한-후보물질의-작용평가.html"><a href="약물-수송체에-대한-후보물질의-작용평가.html#세포-투과도가-작은-경우-low-passive-permeability"><i class="fa fa-check"></i><b>7.3.2</b> 세포 투과도가 작은 경우 (low passive permeability)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="약물-수송체에-대한-후보물질의-작용평가.html"><a href="약물-수송체에-대한-후보물질의-작용평가.html#수송체를-매개한-약물상호작용의-예"><i class="fa fa-check"></i><b>7.4</b> 수송체를 매개한 약물상호작용의 예</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="약물-수송체에-대한-후보물질의-작용평가.html"><a href="약물-수송체에-대한-후보물질의-작용평가.html#sitagliptin-cyclosporin"><i class="fa fa-check"></i><b>7.4.1</b> Sitagliptin – cyclosporin</a></li>
+<li class="chapter" data-level="7.4.2" data-path="약물-수송체에-대한-후보물질의-작용평가.html"><a href="약물-수송체에-대한-후보물질의-작용평가.html#fimasartan-ketoconazolerifampicin"><i class="fa fa-check"></i><b>7.4.2</b> Fimasartan – ketoconazole/rifampicin</a></li>
+<li class="chapter" data-level="7.4.3" data-path="약물-수송체에-대한-후보물질의-작용평가.html"><a href="약물-수송체에-대한-후보물질의-작용평가.html#cerivastatin-gemfibrozil"><i class="fa fa-check"></i><b>7.4.3</b> Cerivastatin – gemfibrozil</a></li>
+<li class="chapter" data-level="7.4.4" data-path="약물-수송체에-대한-후보물질의-작용평가.html"><a href="약물-수송체에-대한-후보물질의-작용평가.html#metformin-cimetidine"><i class="fa fa-check"></i><b>7.4.4</b> Metformin – cimetidine</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="약물-수송체에-대한-후보물질의-작용평가.html"><a href="약물-수송체에-대한-후보물질의-작용평가.html#in-vitro-수송체-평가-방법"><i class="fa fa-check"></i><b>7.5</b> In vitro 수송체 평가 방법</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="약물-수송체에-대한-후보물질의-작용평가.html"><a href="약물-수송체에-대한-후보물질의-작용평가.html#vesicular-assays"><i class="fa fa-check"></i><b>7.5.1</b> Vesicular assays</a></li>
+<li class="chapter" data-level="7.5.2" data-path="약물-수송체에-대한-후보물질의-작용평가.html"><a href="약물-수송체에-대한-후보물질의-작용평가.html#sandwich-cultured-hepatocytes"><i class="fa fa-check"></i><b>7.5.2</b> Sandwich-cultured hepatocytes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="약물-수송체에-대한-후보물질의-작용평가.html"><a href="약물-수송체에-대한-후보물질의-작용평가.html#맺음말-4"><i class="fa fa-check"></i><b>7.6</b> 맺음말</a></li>
+</ul></li>
+<li class="part"><span><b>III ADME 기초 자료의 translation</b></span></li>
+<li class="chapter" data-level="8" data-path="translation.html"><a href="translation.html"><i class="fa fa-check"></i><b>8</b> Translation</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="translation.html"><a href="translation.html#서론-6"><i class="fa fa-check"></i><b>8.1</b> 서론</a></li>
+<li class="chapter" data-level="8.2" data-path="translation.html"><a href="translation.html#생체이용률f의-추정"><i class="fa fa-check"></i><b>8.2</b> 생체이용률(F)의 추정</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="translation.html"><a href="translation.html#fa의-추정"><i class="fa fa-check"></i><b>8.2.1</b> F<sub>a</sub>의 추정</a></li>
+<li class="chapter" data-level="8.2.2" data-path="translation.html"><a href="translation.html#fg의-추정"><i class="fa fa-check"></i><b>8.2.2</b> F<sub>g</sub>의 추정</a></li>
+<li class="chapter" data-level="8.2.3" data-path="translation.html"><a href="translation.html#fh의-추정"><i class="fa fa-check"></i><b>8.2.3</b> F<sub>h</sub>의 추정</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="translation.html"><a href="translation.html#경구흡수-속도의-추정"><i class="fa fa-check"></i><b>8.3</b> 경구흡수 속도의 추정</a></li>
+<li class="chapter" data-level="8.4" data-path="translation.html"><a href="translation.html#vd의-추정"><i class="fa fa-check"></i><b>8.4</b> V<sub>d</sub>의 추정</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="translation.html"><a href="translation.html#pbpk-방법"><i class="fa fa-check"></i><b>8.4.1</b> PBPK 방법</a></li>
+<li class="chapter" data-level="8.4.2" data-path="translation.html"><a href="translation.html#allometry-방법"><i class="fa fa-check"></i><b>8.4.2</b> Allometry 방법</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="translation.html"><a href="translation.html#cl의-추정"><i class="fa fa-check"></i><b>8.5</b> CL의 추정</a></li>
+<li class="chapter" data-level="8.6" data-path="translation.html"><a href="translation.html#약물상호작용-실험-결과의-translation"><i class="fa fa-check"></i><b>8.6</b> 약물상호작용 실험 결과의 translation</a></li>
+<li class="chapter" data-level="8.7" data-path="translation.html"><a href="translation.html#혈장단백결합률의-의미에-관한-해석"><i class="fa fa-check"></i><b>8.7</b> 혈장단백결합률의 의미에 관한 해석</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="참고문헌.html"><a href="참고문헌.html"><i class="fa fa-check"></i>참고문헌</a></li>
 <li class="divider"></li>
 <li><a href="https://pipetcpt.github.io/pharmapk/pharmapk.pdf">PDF 보기</a></li>
@@ -94,7 +255,6 @@
             <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><center>
 신약개발을 위한 실전 약동학 II
 </center>
-
 <center>
 (ADME의 기초 자료)
 </center></a>
@@ -108,7 +268,53 @@
 <div id="참고문헌" class="section level1 unnumbered hasAnchor">
 <h1>참고문헌<a href="참고문헌.html#참고문헌" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div class="csl-entry">
+Agency, European Medicines. 2012. <span>“Guideline on the Investigation of Drug Interactions.”</span> <em>Committee for Human Medicinal Products (CHMP)</em>. European Medicines Agency London, United Kingdom.
 </div>
+<div class="csl-entry">
+Brouwer, Kim LR, Dietrich Keppler, Keith A Hoffmaster, Daniel AJ Bow, Yaofeng Cheng, Yurong Lai, Johan E Palm, Bruno Stieger, Raymond Evers, and International Transporter Consortium. 2013. <span>“In Vitro Methods to Support Transporter Evaluation in Drug Discovery and Development.”</span> <em>Clinical Pharmacology &amp; Therapeutics</em> 94 (1): 95–112.
+</div>
+<div class="csl-entry">
+Di, Li, and Edward Kerns. 2015. <em>Drug-Like Properties: Concepts, Structure Design and Methods from ADME to Toxicity Optimization</em>. Academic press.
+</div>
+<div class="csl-entry">
+Liu, Xingrong, Cuiping Chen, and Cornelis ECA Hop. 2011. <span>“Do We Need to Optimize Plasma Protein and Tissue Binding in Drug Discovery?”</span> <em>Current Topics in Medicinal Chemistry</em> 11 (4): 450–66.
+</div>
+<div class="csl-entry">
+Liu, Xingrong, Matthew Wright, and Cornelis ECA Hop. 2014. <span>“Rational Use of Plasma Protein and Tissue Binding Data in Drug Design: Miniperspective.”</span> <em>Journal of Medicinal Chemistry</em> 57 (20): 8238–48.
+</div>
+<div class="csl-entry">
+Studies, In Vitro Drug Interaction. 2020. <span>“Cytochrome P450 Enzyme-and Transporter-Mediated Drug Interactions Guidance for Industry US Department of Health and Human Services.”</span> <em>Food and Drug Administration, Center for Drug Evaluation and Research (CDER)</em>.
+</div>
+<div class="csl-entry">
+Sun, Duxin, Hans Lennernas, Lynda S Welage, Jeffery L Barnett, Christopher P Landowski, David Foster, David Fleisher, Kyung-Dall Lee, and Gordon L Amidon. 2002. <span>“Comparison of Human Duodenum and Caco-2 Gene Expression Profiles for 12,000 Gene Sequences Tags and Correlation with Permeability of 26 Drugs.”</span> <em>Pharmaceutical Research</em> 19 (10): 1400–1416.
+</div>
+<div class="csl-entry">
+Usansky, Helen H, and Patrick J Sinko. 2005. <span>“Estimating Human Drug Oral Absorption Kinetics from Caco-2 Permeability Using an Absorption-Disposition Model: Model Development and Evaluation and Derivation of Analytical Solutions for Ka and Fa.”</span> <em>Journal of Pharmacology and Experimental Therapeutics</em> 314 (1): 391–99.
+</div>
+<div class="csl-entry">
+Yanakakis, Lindsay J, and Namandjé N Bumpus. 2012. <span>“Biotransformation of the Antiretroviral Drug Etravirine: Metabolite Identification, Reaction Phenotyping, and Characterization of Autoinduction of Cytochrome P450-Dependent Metabolism.”</span> <em>Drug Metabolism and Disposition</em> 40 (4): 803–14.
+</div>
+<div class="csl-entry">
+Yim, Dong-Seok. 2019. <span>“Potency and Plasma Protein Binding of Drugs in Vitro—a Potentially Misleading Pair for Predicting in Vivo Efficacious Concentrations in Humans.”</span> <em>The Korean Journal of Physiology &amp; Pharmacology</em> 23 (4): 231–36.
+</div>
+<div class="csl-entry">
+Yim, Dong-Seok, Soo Hyeon Bae, and Suein Choi. 2021. <span>“Predicting Human Pharmacokinetics from Preclinical Data: Clearance.”</span> <em>Translational and Clinical Pharmacology</em> 29 (2): 78.
+</div>
+<div class="csl-entry">
+Yim, Dong-Seok, and Suein Choi. 2020. <span>“Predicting Human Pharmacokinetics from Preclinical Data: Volume of Distribution.”</span> <em>Translational and Clinical Pharmacology</em> 28 (4): 169.
+</div>
+<div class="csl-entry">
+Yim, Dong-Seok, Suein Choi, and Soo Hyeon Bae. 2020. <span>“Predicting Human Pharmacokinetics from Preclinical Data: Absorption.”</span> <em>Translational and Clinical Pharmacology</em> 28 (3): 126.
+</div>
+</div>
+</div>
+
+
+
+
+
 
 
 
@@ -121,7 +327,7 @@
           </div>
         </div>
       </div>
-<a href="plasma-protein-binding.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="translation.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
@@ -187,7 +393,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
