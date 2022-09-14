@@ -3,7 +3,7 @@ title: |
   <center> 신약개발을 위한 실전 약동학 II</center>
   <center> (ADME의 기초 자료)  </center>
 #"신약개발을 위한 실전 약동학\newline(I-이론과 자료해석)"\index{약동학}
-author: "가톨릭대학교 계량약리학연구소(PIPET), AIMS BioScience, Q-fitter - Ver 0.0.1 (2022-06-03)"
+author: "가톨릭대학교 계량약리학연구소(PIPET), AIMS BioScience, Q-fitter - Ver 0.0.1"
 #author: "가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필, 최수인 - Ver 1.1.0 (2022-05-13)"
 #date: "Ver. `r gsub('-', '', Sys.Date())`"
 date: "`r Sys.Date()`"
@@ -14,8 +14,8 @@ linestretch: 1.30 # https://github.com/jgm/pandoc/issues/5179
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 description: "약동학은 신약의 발견부터 시판허가 이후의 관리에 이르기까지 모든 단계에서 쓰이는 가장 기본적이고 필수적인 지식이며 도구입니다. 저자들은 지난 20여년간 대학과 기업의 연구원들을 대상으로 약동학을 가르치며 겪은 학습자들의 질문과 반응들을 토대로 꼭 필요한 내용들을 이해하기 쉽게 설명하고자 영상 제작과 함께, 이 교재를 만들게 되었습니다. 약동학 책이라면 흔히 떠올리는, 맥락을 알 수 없는 미분방정식들로 가득 찬 책이 아니라, 학위과정 중에 약동학을 공부할 기회가 없었던 제약/바이오 연구자 분들도 정독하면 이해할 수 있는 책이 될 수 있도록 꼭 필요한만큼의 수식들만 넣었습니다. 대신 약동학 파라미터들 각자의 의미와 해석, 자칫하면 오해하거나 혼동하기 쉬워서 주의할 측면 등을 독자들을 위해 드러내고자 하였습니다."
-url: 'http\://pipet.or.kr/books/pharmapk'
-github-repo: pipetcpt/pharmapk
+url: 'http\://pipet.or.kr/books/pharmapk2'
+github-repo: pipetcpt/pharmapk2
 cover-image: images/cover-pdf.jpg
 bibliography: ["bib/references.bib", "bib/packages.bib", "bib/pharmapk.bib"]
 biblio-style: apalike
@@ -81,7 +81,7 @@ Sys.setenv(RSTUDIO_PDFLATEX = "latexmk")
 
 # 머리말 {-}
 
-<!--`r if (knitr::is_html_output()) ' [<img src="images/cover-pdf.jpg" style="max-width:40%;min-width:80px;float:right;margin: 10px 10px 5px 5px" alt="표지" />](https://pipetcpt.github.io/pharmapk/pharmapk2.pdf)'`-->
+<!--`r if (knitr::is_html_output()) ' [<img src="images/cover-pdf.jpg" style="max-width:40%;min-width:80px;float:right;margin: 10px 10px 5px 5px" alt="표지" />](https://pipetcpt.github.io/pharmapk2/pharmapk2.pdf)'`-->
 
 \normalsize
 
@@ -114,7 +114,7 @@ Sys.setenv(RSTUDIO_PDFLATEX = "latexmk")
 효율적으로 학습할 수 있도록 오래된 지식들을 새로운 방식으로 자르고 묶고
 다듬어 내놓고자 노력했습니다. 약동학 책에는 수식들이 꽤 등장하기 때문에, 이 책의 내용 역시 어렵게 느껴질 수 있으므로 온라인상에 공개되어 있는 강의 동영상을 책과 함께 공부하시기를 권합니다. 
 이 책은 제약/바이오 기업의 연구자를 대상으로 쓰여진 것이지만, 관련된 전공을 공부하는 대학원생들에게도 도움이 될 것입니다.
-그러므로 학생들의 책값 부담을 덜어주기 위해 책 전체를 웹북과 pdf로 온라인 상에 공개하였습니다. ^[http://pipet.or.kr/books/pharmapk]
+그러므로 학생들의 책값 부담을 덜어주기 위해 책 전체를 웹북과 pdf로 온라인 상에 공개하였습니다. ^[http://pipet.or.kr/books/pharmapk2]
 종이책은 print on demand 방식으로 출판하면서 저자들은 인세를 받지 않음으로써 복사/제본비 수준의 책값을 책정하였습니다. 
 
 이를 위해 원고 집필 뿐 아니라 책의 조판에까지 많은 시간과 수고를 쏟아야 했던 한성필 교수님께 고마움을 전합니다. 
@@ -2130,100 +2130,6 @@ Stocker, Jashvant D Unadkat, and Matthias B Wittwer. 2018.
 \'Transporters in drug development: 2018 ITC recommendations for
 transporters of emerging clinical importance\', *Clinical Pharmacology &
 Therapeutics*, 104: 890-99.
-@article{burt2016metformin,
-  title={Metformin and cimetidine: Physiologically based pharmacokinetic modelling to investigate transporter mediated drug--drug interactions},
-  author={Burt, HJ and Neuhoff, Sybille and Almond, L and Gaohua, L and Harwood, MD and Jamei, Masoud and Rostami-Hodjegan, A and Tucker, GT and Rowland-Yeo, K},
-  journal={European Journal of Pharmaceutical Sciences},
-  volume={88},
-  pages={70--82},
-  year={2016},
-  publisher={Elsevier}
-}
-@article{ogilvie2006glucuronidation,
-  title={Glucuronidation converts gemfibrozil to a potent, metabolism-dependent inhibitor of CYP2C8: implications for drug-drug interactions},
-  author={Ogilvie, Brian W and Zhang, Donglu and Li, Wenying and Rodrigues, A David and Gipson, Amy E and Holsapple, Jeff and Toren, Paul and Parkinson, Andrew},
-  journal={Drug Metabolism and Disposition},
-  volume={34},
-  number={1},
-  pages={191--197},
-  year={2006},
-  publisher={ASPET}
-}
-
-@article{backman2002gemfibrozil,
-  title={Gemfibrozil greatly increases plasma concentrations of cerivastatin},
-  author={Backman, Janne T and Kyrklund, Carl and Neuvonen, Mikko and Neuvonen, Pertti J},
-  journal={Clinical Pharmacology \& Therapeutics},
-  volume={72},
-  number={6},
-  pages={685--691},
-  year={2002},
-  publisher={Wiley Online Library}
-}
-
-@article{kim2013increased,
-  title={Increased systemic exposure of fimasartan, an angiotensin II receptor antagonist, by ketoconazole and rifampicin},
-  author={Kim, Jung Won and Yi, SoJeong and Kim, Tae-Eun and Lim, Kyoung Soo and Yoon, Seo Hyun and Cho, Joo-Youn and Lee, Min Goo and Song, Im-Sook and Shin, Sang-Goo and Jang, In-Jin and others},
-  journal={The Journal of Clinical Pharmacology},
-  volume={53},
-  number={1},
-  pages={75--81},
-  year={2013},
-  publisher={Wiley Online Library}
-}
-
-@article{kim2017quantitative,
-  title={Quantitative analysis of complex drug--drug interactions between repaglinide and cyclosporin a/gemfibrozil using physiologically based pharmacokinetic models with in vitro transporter/enzyme inhibition data},
-  author={Kim, Soo-Jin and Toshimoto, Kota and Yao, Yoshiaki and Yoshikado, Takashi and Sugiyama, Yuichi},
-  journal={Journal of Pharmaceutical Sciences},
-  volume={106},
-  number={9},
-  pages={2715--2726},
-  year={2017},
-  publisher={Elsevier}
-}
-@article{varma2015predicting,
-  title={Predicting clearance mechanism in drug discovery: extended clearance classification system (ECCS)},
-  author={Varma, Manthena V and Steyn, Stefanus J and Allerton, Charlotte and El-Kattan, Ayman F},
-  journal={Pharmaceutical research},
-  volume={32},
-  number={12},
-  pages={3785--3802},
-  year={2015},
-  publisher={Springer}
-}
-
-@article{kenna2020sc1,
-  title={SC1. 4-Can BSEP inhibition testing in drug discovery and development reduce liver injury risk? An international transporter consortium perspective},
-  author={Kenna, Gerry},
-  journal={Drug Metabolism and Pharmacokinetics},
-  volume={35},
-  number={1},
-  pages={S1--S2},
-  year={2020},
-  publisher={Elsevier BV}
-}
-
-@article{zamek2018transporters,
-  title={Transporters in drug development: 2018 ITC recommendations for transporters of emerging clinical importance},
-  author={Zamek-Gliszczynski, Maciej J and Taub, Mitchell E and Chothe, Paresh P and Chu, Xiaoyan and Giacomini, Kathleen M and Kim, Richard B and Ray, Adrian S and Stocker, Sophie L and Unadkat, Jashvant D and Wittwer, Matthias B and others},
-  journal={Clinical Pharmacology \& Therapeutics},
-  volume={104},
-  number={5},
-  pages={890--899},
-  year={2018},
-  publisher={Wiley Online Library}
-}
-
-@article{krishna2007effect,
-  title={Effect of a single cyclosporine dose on the single-dose pharmacokinetics of sitagliptin (MK-0431), a dipeptidyl peptidase-4 inhibitor, in healthy male subjects},
-  author={Krishna, Rajesh and Bergman, Arthur and Larson, Patrick and Cote, Josee and Lasseter, Kenneth and Dilzer, Stacey and Wang, Amy and Zeng, Wei and Chen, Li and Wagner, John and others},
-  journal={The Journal of clinical pharmacology},
-  volume={47},
-  number={2},
-  pages={165--174},
-  year={2007},
-  publisher={Wiley Online Library}
 }
 
 <!--chapter:end:07.Rmd-->
