@@ -14,14 +14,14 @@
 %\usepackage{ctex}
 %\usepackage{fontspec}
 %\usepackage{xetexko}
-%\setmainfont{NanumMyeongjo}
-\setmainfont{Noto Serif CJK KR}
+\setmainfont{NanumMyeongjo}
+%\setmainfont{Noto Serif CJK KR}
 %\setmainhangulfont{Noto Serif CJK KR} 
 %\setmainhangulfont{NanumMyeongjo}
 %\setmainhanjafont{Noto Serif CJK KR}[Language=Chinese Simplified]
 %\setmainhanjafont{Noto Serif CJK KR}
 \usepackage{kotex}
-\setmonohangulfont{NanumGothicCoding}
+%\setmonohangulfont{NanumGothicCoding}
 
 %sungpil defined above
 
@@ -62,6 +62,7 @@
 \renewcommand{\floatpagefraction}{0.75}
 
 \renewenvironment{quote}{\begin{VF}}{\end{VF}}
+\usepackage{hyperref}
 \let\oldhref\href
 \renewcommand{\href}[2]{#2\footnote{\url{#1}}}
 

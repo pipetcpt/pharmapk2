@@ -299,13 +299,13 @@ Metformin -- cimetidine의 약물상호작용의 예를 살펴보자. 임상적�
 약물상호작용은 신장에 존재하는 수송체를 매개한다. Cimetidine은 신장에서
 metformin의 배설에 관여하는 OCT2와 MATE1/2-k를 저해하여, metformin의
 소변으로의 배설을 감소시켰다[@burt2016metformin]. 그 결과, metformin의
-C~max~와 AUC는 cimetidine과 병용 시 각각 1.5배 및 1.6배 증가하였다. [@wang2007oct2] (그림 \@ref(fig:07-09))
+C~max~와 AUC는 cimetidine과 병용 시 각각 1.5배 및 1.6배 증가하였다. [@wang2008oct2] (그림 \@ref(fig:07-09))
 
 ```{r 07-09, fig.cap = "(ref:07-09)"}
 knitr::include_graphics('media-07/image12.png')
 ```
 
-(ref:07-09) Metformin -- cimetidine 약물상호작용. Metformin -- cimetidine의 신장에서의 약물상호작용 기전 [@burt2016metformin] (좌)와 metformin의 cimetidine 병용에 따른 혈중농도 프로파일 변화 [@wang2007oct2]  (우)
+(ref:07-09) Metformin -- cimetidine 약물상호작용. Metformin -- cimetidine의 신장에서의 약물상호작용 기전 [@burt2016metformin] (좌)와 metformin의 cimetidine 병용에 따른 혈중농도 프로파일 변화 [@wang2008oct2]  (우)
 
 ## In vitro 수송체 평가 방법
 

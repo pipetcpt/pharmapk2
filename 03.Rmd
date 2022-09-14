@@ -63,9 +63,11 @@ knitr::include_graphics('media-03/image2.png')
 (ref:03-02) 평형투석법 (Equilibrium Dialysis)
 
 \begin{equation}
-\% Bound = \frac{Conc.\ of\ \mathbf{buffer}\ chamber}{Conc.of\ \mathbf{sample}\ chamber} \times 100\ (\%)
-\\ \%\ Unbound = 100 - \%\ Bound
-\\ f_u = \ \frac{\%\ Unbound}{100}
+\begin{split}
+\% Bound = \frac{Conc.\ of\ \mathbf{buffer}\ chamber}{Conc.of\ \mathbf{sample}\ chamber} \times 100\ (\%) \\
+\%\ Unbound = 100 - \%\ Bound \\
+f_u = \ \frac{\%\ Unbound}{100}
+\end{split}
 (\#eq:eq03-01) 
 \end{equation}
 
@@ -99,9 +101,11 @@ knitr::include_graphics('media-03/image3.png')
 (ref:03-03) 한여과 (ultrafiltration) 평가법
 
 \begin{equation}
+\begin{split}
 NSB = \frac{C_{pre} - C_{post}}{C_{pre}} \\
 f_u = \frac{F_f}{[(1-NSB) \times F_e]}
-(\#eq:eq03-01) 
+\end{split}
+(\#eq:eq03-02) 
 \end{equation}
 
 C~pre~: initial conc. of compound before filtration in buffer  
