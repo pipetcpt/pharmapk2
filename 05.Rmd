@@ -1,7 +1,8 @@
-
 # 후보 물질의 대사 억제 특성 평가
 
+\Large\hfill
 이소진
+\normalsize
 
 ## 개요
 
@@ -20,12 +21,11 @@ study 시작에서부터 함께 탐색되는 것을 추천한다. 이와 같은 
 단게에서의 DDI 평가는 FDA 가이던스와 EMA 가이드 라인에서도 추천되어
 진다.
 
-![](./media/image1.emf){width="2.591666666666667in"
-height="1.6898272090988626in"}![](./media/image2.png){width="2.7054713473315837in"
-height="1.6979166666666667in"}
+```{r 05-01, fig.cap = "(ref:05-01)"}
+knitr::include_graphics('media-05/image-1-2.png')
+```
 
-그림 . Perpetrator(inhibitor 또는 inducer) 와 victim drug 병용투여 시의
-약물농도
+(ref:05-01) Perpetrator(inhibitor 또는 inducer) 와 victim drug 병용투여 시의 약물농도
 
 Victim (substrate) : Drug whose PK is affected
 Perpetrator : Drug that is affecting PK of victim
