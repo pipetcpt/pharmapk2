@@ -131,8 +131,8 @@ knitr::include_graphics('media-02/image6.png')
 
 \begin{equation}
 \begin{split}
-P_{app} = \frac{\frac{dQ}{dt}}{A \cdot C_0} \\
-Efflux\ ratio = \frac{P_{app (B to A)}}{P_{app (A to B)}}
+P_{app} &= \frac{\frac{dQ}{dt}}{A \cdot C_0} \\
+Efflux\ ratio &= \frac{P_{app (B to A)}}{P_{app (A to B)}}
 \end{split}
 (\#eq:eq02-02) 
 \end{equation}
@@ -243,8 +243,8 @@ P~app~ (A to B): permeability coefficient in apical to basolateral direction, P~
 
 \begin{equation}
 \begin{split}
-\mathbf{Recovery\ }\left( \mathbf{\%} \right) = \frac{total\ compound\ in\ both\ of\ A/B\ sides\ at\ the\ end\ of\ experiment\ (nmol)}{initial\ compound\ present\ (nmol)}\  \times \ 100 \\
-A:\ apical,\ B:\ basolateral
+\mathbf{Recovery\ }\left( \mathbf{\%} \right) &= \frac{total\ compound\ in\ both\ of\ A/B\ sides\ at\ the\ end\ of\ experiment\ (nmol)}{initial\ compound\ present\ (nmol)}\  \times \ 100 \\
+A:\ apical,&\ B:\ basolateral
 \end{split}
 (\#eq:eq02-03)
 \end{equation}

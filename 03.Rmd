@@ -64,9 +64,9 @@ knitr::include_graphics('media-03/image2.png')
 
 \begin{equation}
 \begin{split}
-\% Bound = \frac{Conc.\ of\ \mathbf{buffer}\ chamber}{Conc.of\ \mathbf{sample}\ chamber} \times 100\ (\%) \\
-\%\ Unbound = 100 - \%\ Bound \\
-f_u = \ \frac{\%\ Unbound}{100}
+\% Bound &= \frac{Conc.\ of\ \mathbf{buffer}\ chamber}{Conc.of\ \mathbf{sample}\ chamber} \times 100\ (\%) \\
+\%\ Unbound &= 100 - \%\ Bound \\
+f_u &= \ \frac{\%\ Unbound}{100}
 \end{split}
 (\#eq:eq03-01) 
 \end{equation}
@@ -102,8 +102,8 @@ knitr::include_graphics('media-03/image3.png')
 
 \begin{equation}
 \begin{split}
-NSB = \frac{C_{pre} - C_{post}}{C_{pre}} \\
-f_u = \frac{F_f}{[(1-NSB) \times F_e]}
+NSB &= \frac{C_{pre} - C_{post}}{C_{pre}} \\
+f_u &= \frac{F_f}{[(1-NSB) \times F_e]}
 \end{split}
 (\#eq:eq03-02) 
 \end{equation}
@@ -226,10 +226,12 @@ knitr::include_graphics('media-03/image6.png')
 사용했을 때 비결합분획을 계산하는 수식을 나타낸 예시이다.
 
 \begin{equation}
-\% Bound = \frac{Conc.of\ \mathbf{buffer}\ chamber}{Conc.of\ \mathbf{sample}\ chamber} \times 100(\%) \\
-\% Unbound = 100 - \% Bound \\
-f_{u\ 10\%} = \ \frac{\%_{unbound}}{100} \\ 
-f_{u\ 100\%} = \ \frac{{\ \ \ f}_{u\ 10\%}}{10\  - 9*f_{u\ 10\%}}
+\begin{split}
+\% Bound &= \frac{Conc.of\ \mathbf{buffer}\ chamber}{Conc.of\ \mathbf{sample}\ chamber} \times 100(\%) \\
+\% Unbound &= 100 - \% Bound \\
+f_{u\ 10\%} &= \ \frac{\%_{unbound}}{100} \\ 
+f_{u\ 100\%} &= \ \frac{{\ \ \ f}_{u\ 10\%}}{10\  - 9*f_{u\ 10\%}}
+\end{split}
 (\#eq:eq03-03) 
 \end{equation}
 

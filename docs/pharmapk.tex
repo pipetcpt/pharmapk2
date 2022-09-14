@@ -281,7 +281,7 @@
 
 (ADME의 기초 자료)}
 \author{가톨릭대학교 계량약리학연구소(PIPET), AIMS BioScience, Q-fitter - Ver 0.0.1}
-\date{2022-09-14}
+\date{2022-09-15}
 
 \begin{document}
 \maketitle
@@ -1025,8 +1025,8 @@ Basolateral side 모두에서 약물 농도를 측정한다.
 
 \begin{equation}
 \begin{split}
-P_{app} = \frac{\frac{dQ}{dt}}{A \cdot C_0} \\
-Efflux\ ratio = \frac{P_{app (B to A)}}{P_{app (A to B)}}
+P_{app} &= \frac{\frac{dQ}{dt}}{A \cdot C_0} \\
+Efflux\ ratio &= \frac{P_{app (B to A)}}{P_{app (A to B)}}
 \end{split}
 \label{eq:eq02-02} 
 \end{equation}
@@ -1192,8 +1192,8 @@ P\textsubscript{app} (A to B): permeability coefficient in apical to basolateral
 
 \begin{equation}
 \begin{split}
-\mathbf{Recovery\ }\left( \mathbf{\%} \right) = \frac{total\ compound\ in\ both\ of\ A/B\ sides\ at\ the\ end\ of\ experiment\ (nmol)}{initial\ compound\ present\ (nmol)}\  \times \ 100 \\
-A:\ apical,\ B:\ basolateral
+\mathbf{Recovery\ }\left( \mathbf{\%} \right) &= \frac{total\ compound\ in\ both\ of\ A/B\ sides\ at\ the\ end\ of\ experiment\ (nmol)}{initial\ compound\ present\ (nmol)}\  \times \ 100 \\
+A:\ apical,&\ B:\ basolateral
 \end{split}
 \label{eq:eq02-03}
 \end{equation}
@@ -1331,9 +1331,9 @@ unbound, f\textsubscript{u})을 산출할 수 있다.
 
 \begin{equation}
 \begin{split}
-\% Bound = \frac{Conc.\ of\ \mathbf{buffer}\ chamber}{Conc.of\ \mathbf{sample}\ chamber} \times 100\ (\%) \\
-\%\ Unbound = 100 - \%\ Bound \\
-f_u = \ \frac{\%\ Unbound}{100}
+\% Bound &= \frac{Conc.\ of\ \mathbf{buffer}\ chamber}{Conc.of\ \mathbf{sample}\ chamber} \times 100\ (\%) \\
+\%\ Unbound &= 100 - \%\ Bound \\
+f_u &= \ \frac{\%\ Unbound}{100}
 \end{split}
 \label{eq:eq03-01} 
 \end{equation}
@@ -1375,8 +1375,8 @@ NSB) 및 비결합 분획 (fraction unbound, f\textsubscript{u})을 산출할 �
 
 \begin{equation}
 \begin{split}
-NSB = \frac{C_{pre} - C_{post}}{C_{pre}} \\
-f_u = \frac{F_f}{[(1-NSB) \times F_e]}
+NSB &= \frac{C_{pre} - C_{post}}{C_{pre}} \\
+f_u &= \frac{F_f}{[(1-NSB) \times F_e]}
 \end{split}
 \label{eq:eq03-02} 
 \end{equation}
@@ -1519,10 +1519,12 @@ Dennis A, 2010), FDA에서 승인된 189개의 약물들 중 많은 약물들의
 사용했을 때 비결합분획을 계산하는 수식을 나타낸 예시이다.
 
 \begin{equation}
-\% Bound = \frac{Conc.of\ \mathbf{buffer}\ chamber}{Conc.of\ \mathbf{sample}\ chamber} \times 100(\%) \\
-\% Unbound = 100 - \% Bound \\
-f_{u\ 10\%} = \ \frac{\%_{unbound}}{100} \\ 
-f_{u\ 100\%} = \ \frac{{\ \ \ f}_{u\ 10\%}}{10\  - 9*f_{u\ 10\%}}
+\begin{split}
+\% Bound &= \frac{Conc.of\ \mathbf{buffer}\ chamber}{Conc.of\ \mathbf{sample}\ chamber} \times 100(\%) \\
+\% Unbound &= 100 - \% Bound \\
+f_{u\ 10\%} &= \ \frac{\%_{unbound}}{100} \\ 
+f_{u\ 100\%} &= \ \frac{{\ \ \ f}_{u\ 10\%}}{10\  - 9*f_{u\ 10\%}}
+\end{split}
 \label{eq:eq03-03} 
 \end{equation}
 
@@ -2322,18 +2324,15 @@ CAR (Constitutive androstane receptor) mediated control & CYP2B6, CYP2C9, CYP3A4
 \hypertarget{uxc11cuxb860-5}{%
 \section{서론}\label{uxc11cuxb860-5}}
 
-세포내 물질 이동은 그림 \ref{fig:07-01}과 같다. 크게 수동수송과 능동수송으로 구분할
-수 있다. 수동수송은 세포막 사이의 물질의 농도 차이에 의해 발생한다. 즉,
-물질의 농도가 높은 곳에서 낮은 곳으로 농도 구배에 따라 이동하며,
-에너지를 사용하지 않는다. 비극성 물질은 단순확산(passive diffusion)
-되며, 극성을 띄는 물질은 촉진 확산(facilitated diffusion)을 통해
-세포막을 통과한다. 반면, 능동수송은 물질이 농도에 역행하여 이동하며
-이때, 에너지를 사용한다. 낮은 농도에서 높은 농도로 물질이 이동하기
-때문에 지속적으로 에너지를 사용하게 되며, 수송체를 통해 물질이 이동한다.
-수송체의 종류에 따라 Solute carrier (SLC) transporter와 ATP-binding
-cassette (ABC) transporter로 나뉜다. 이 단원에서는 약물을 세포 내외로
-이동시키는데 관여하는 수송체의 종류와 특성을 살펴보고, 신약후보물질의
-수송체 기질 및 저해능 평가 방법에 대하여 기술한다.
+세포내 물질 이동은 그림 \ref{fig:07-01}과 같다.
+크게 수동수송과 능동수송으로 구분할 수 있다.
+수동수송은 세포막 사이의 물질의 농도 차이에 의해 발생한다.
+즉, 물질의 농도가 높은 곳에서 낮은 곳으로 농도 구배에 따라 이동하며, 에너지를 사용하지 않는다.
+비극성 물질은 단순확산(passive diffusion) 되며, 극성을 띄는 물질은 촉진 확산(facilitated diffusion)을 통해 세포막을 통과한다.
+반면, 능동수송은 물질이 농도에 역행하여 이동하며 이때, 에너지를 사용한다.
+낮은 농도에서 높은 농도로 물질이 이동하기 때문에 지속적으로 에너지를 사용하게 되며, 수송체를 통해 물질이 이동한다.
+수송체의 종류에 따라 Solute carrier (SLC) transporter와 ATP-binding cassette (ABC) transporter로 나뉜다.
+이 단원에서는 약물을 세포 내외로 이동시키는데 관여하는 수송체의 종류와 특성을 살펴보고, 신약후보물질의 수송체 기질 및 저해능 평가 방법에 대하여 기술한다.
 
 \begin{figure}
 
@@ -2549,9 +2548,10 @@ In vitro transporter assay를 통해 약물이 특정 수송체의 기질임을
 약물의 대사 및 배설에 영향을 미칠 수 있다. 간 클리어런스는 아래의 식과
 같이 나타낼 수 있다. 그림 \ref{fig:07-05}의 경우를 통해 자세히 살펴보자. (\protect\hyperlink{ref-varma2015predicting}{Varma et al. 2015})
 
-\[
+\begin{equation}
 {CL}_{int,organ} = \ \frac{({PS}_{\inf}\  + {PS}_{pd})}{{PS}_{\inf} + {PS}_{pd} + {CL}_{int,met} + {CL}_{int,exc}} \cdot {(CL}_{int,met} + {CL}_{int,exc})
-\]
+\label{eq:eq07-00} 
+\end{equation}
 
 \begin{figure}
 
@@ -2578,10 +2578,13 @@ PS\textsubscript{eff}는 각각 능동 수송에 의한 세포 내 유입
 efflux clearance)를 의미하며, PS\textsubscript{pd}는 수동확산 클리어런스(passive
 diffusion clearance)를 의미한다.
 
-\[
-C_{u,\ intracellular} = \ C_{u,\ extracellular} \\
-{CL}_{int,organ} = \ {CL}_{int,met} + \ {CL}_{int,exc}
-\]
+\begin{equation}
+\begin{split}
+C_{u,\ intracellular} &= \ C_{u,\ extracellular} \\
+{CL}_{int,organ} &= \ {CL}_{int,met} + \ {CL}_{int,exc}
+\end{split}
+\label{eq:eq07-01} 
+\end{equation}
 
 \hypertarget{uxc138uxd3ec-uxd22cuxacfcuxb3c4uxac00-uxc791uxc740-uxacbduxc6b0-low-passive-permeability}{%
 \subsection{세포 투과도가 작은 경우 (low passive permeability)}\label{uxc138uxd3ec-uxd22cuxacfcuxb3c4uxac00-uxc791uxc740-uxacbduxc6b0-low-passive-permeability}}
@@ -2592,11 +2595,14 @@ C_{u,\ intracellular} = \ C_{u,\ extracellular} \\
 보다 느리면, 간 클리어런스는 세포 내 약물의 능동수송 속도에 의하여
 좌우된다.
 
-\[
-C_{u,\ intracellular} \neq \ C_{u,\ extracellular} \\
-{If,\ (CL}_{int,met} + \ {CL}_{int,exc}) \gg \left( {PS}_{pd} + {PS}_{eff} \right)\ then, \\
-{CL}_{int,organ} = {PS}_{pd} + {PS}_{\inf}
-\]
+\begin{equation}
+\begin{split}
+C_{u,\ intracellular} &\neq \ C_{u,\ extracellular} \\
+{If,\ (CL}_{int,met} + \ {CL}_{int,exc}) &\gg \left( {PS}_{pd} + {PS}_{eff} \right)\ then, \\
+{CL}_{int,organ} &= {PS}_{pd} + {PS}_{\inf}
+\end{split}
+\label{eq:eq07-02} 
+\end{equation}
 
 \hypertarget{uxc218uxc1a1uxccb4uxb97c-uxb9e4uxac1cuxd55c-uxc57duxbb3cuxc0c1uxd638uxc791uxc6a9uxc758-uxc608}{%
 \section{수송체를 매개한 약물상호작용의 예}\label{uxc218uxc1a1uxccb4uxb97c-uxb9e4uxac1cuxd55c-uxc57duxbb3cuxc0c1uxd638uxc791uxc6a9uxc758-uxc608}}
@@ -2742,7 +2748,7 @@ ATPase assay라고도 한다. Efflux 수송체의 기질 여부를 평가하기 
 평가하여야 하는데, 특히, 세포막 투과도가 낮은 약물의 경우에는 세포내로
 uptake 되는 속도가 약물의 세포 외 이동 속도를 좌우할 수 있기 때문에,
 whole-cell system을 사용한 efflux 수송체의 기질평가는 적절하지 않을 수
-있다. 이러한 경우에 vesicular assay를 사용할 수 있다. 그림 7-10에서와
+있다. 이러한 경우에 vesicular assay를 사용할 수 있다. 그림 \ref{fig:07-10}에서와
 같이, ABC 수송체가 발현되어 있는 세포에서 원형질막을 분리하면
 정방향(right-side-out) 또는 뒤집힌 방향(inside-out)의 membrane
 vesicles이 만들어진다. 이 중에서 inside-out membrane vesicle만이 ATP와
@@ -2801,7 +2807,7 @@ uptake 속도를 측정하여야 한다.
 
 Efflux 수송체의 기질성을 평가할 때에는 극성 세포 단층(polarized cell
 monolayers)을 이용한 양방향성 수송체 시험법(bidirectional transport
-assays)을 주로 사용한다. 그림 7-11에서처럼 양방향성 수송체 시스템은
+assays)을 주로 사용한다. 그림 \ref{fig:07-11}에서처럼 양방향성 수송체 시스템은
 apical (A) 부분과 basolateral (B) 부분이 있으며, 시험약물을 A 부분에
 처리 후, A에서 B로 이동하는 약물의 이동속도를 확인하거나 (A-B
 transport), 반대로 시험약물을 B부분에 처리 후, B에서 A로 이동하는 약물의
@@ -2815,11 +2821,23 @@ B-A/A-B 비가 차이날 수 있다. 일반적으로, B-A/A-B 비가 2 이상이
 수송체가 과발현된 세포주를 이용하여, 수송체에 의해 능동 수송되는
 P\textsubscript{app}를 확인할 수 있다. P\textsubscript{app}를 구하는 식은 아래와 같다.
 
-\[
+\begin{equation}
+\begin{split}
 P_{app} = \ \frac{Volume\ of\ receptor\ chamber\ (mL)\ }{Membrane\ area\ ({cm}^{2}) \times \ {Concentration}_{initial}(\mu M)}\  \times \ \frac{\mathrm{\Delta}\ Concentration\ (\mu M)\ }{\mathrm{\Delta}\ time\ (s)}
-\]
+\end{split}
+\label{eq:eq07-03} 
+\end{equation}
 
-\includegraphics{./media-07/image14.png}
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{media-07/image14} 
+
+}
+
+\caption{In vitro bidirectional transport system (좌)와 CaCO-2 세포 단층 (우)}\label{fig:07-11}
+\end{figure}
+
+
 
 시험에 사용될 수 있는 세포주는 대표적으로 CaCO-2, MDCKII, LLC-PK1 등이
 있다. CaCO-2의 경우, 투과도 확인을 위한 세포 배양 기간이 최소 2\textasciitilde3주로
@@ -2837,13 +2855,21 @@ P_{app} = \ \frac{Volume\ of\ receptor\ chamber\ (mL)\ }{Membrane\ area\ ({cm}^{
 B-A/A-B 비가 test만 처리했을 때와 거의 비슷하였다. 이 결과를 통해 test는
 efflux 수송체, 특히, P-gp 수송체의 기질일 가능성이 매우 높다.
 
-\includegraphics[width=5.17083in,height=1.84306in]{./media-07/image18.png}표 .. CaCO-2 세포주를 이용한 P\textsubscript{app} 산출
-데이터의 예
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{media-07/image18} 
+
+}
+
+\caption{CaCO-2 세포주를 이용한 P\textsubscript{app} 산출 데이터의 예}\label{fig:07-12}
+\end{figure}
+
+
 
 \hypertarget{sandwich-cultured-hepatocytes}{%
 \subsection{Sandwich-cultured hepatocytes}\label{sandwich-cultured-hepatocytes}}
 
-간세포를 그림 7-12와 같이 콜라겐 층 사이에서 배양(Sandwich-cultured
+간세포를 그림 \ref{fig:07-13}와 같이 콜라겐 층 사이에서 배양(Sandwich-cultured
 hepatocytes, SCH)시키게 되면, 간세포들이 시간이 흐름에 따라
 polarization되고, canalicular system을 만들게 된다. 이러한 시스템이
 만들어지는데에 사람 간세포의 경우 대략 6\textasciitilde7일 정도의 배양 시간이
@@ -2856,11 +2882,23 @@ polarization되고, canalicular system을 만들게 된다. 이러한 시스템�
 변화량과 시간 차, 그리고 시험약물의 농도인 Concentration\textsubscript{medium}이
 필요하다.
 
-\[
+\begin{equation}
+\begin{split}
 {CL}_{uptake} = \ \frac{\mathrm{\Delta}\ Accumulation\ }{\mathrm{\Delta}\ time \times \ {Concentration}_{medium}}
-\]
+\end{split}
+\label{eq:eq07-04} 
+\end{equation}
 
-\includegraphics[width=6.26806in,height=3.25278in]{./media-07/image19.png}
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{media-07/image19} 
+
+}
+
+\caption{Sandwich-cultured hepatocytes (Brower et al., CTP (2013) 94:95-112)}\label{fig:07-13}
+\end{figure}
+
+
 
 또한, 칼슘과 마그네슘 이온이 포함되어 있지 않은 배양액을 사용하여 SCH를
 incubation하면, 그림 7-12 (우)에서처럼, canalicular system의 tight
@@ -2872,9 +2910,12 @@ junction이 헐거워지게 된다. 그렇게 되면 담즙 배설된 시험 약
 칼슘과 마그네슘 이온이 포함되어 있지 않은 배지에서의 약물의 축척량을
 의미한다.
 
-\[
+\begin{equation}
+\begin{split}
 {CL}_{bile,\ int} = \ \frac{{Accumulation}_{Std} - {Accumulation}_{{Ca}^{2 +}free}\ }{{AUC}_{cell}}
-\]
+\end{split}
+\label{eq:eq07-05} 
+\end{equation}
 
 \hypertarget{uxb9fauxc74cuxb9d0-4}{%
 \section{맺음말}\label{uxb9fauxc74cuxb9d0-4}}
@@ -2890,17 +2931,20 @@ junction이 헐거워지게 된다. 그렇게 되면 담즙 배설된 시험 약
 perfusion-limited를 가정하고 있으므로 투과도가 낮으면서 수송체의 기질인
 후보물질의 간 클리어런스 계산에는 적합하지 않을 수 있다. 이런 경우에는
 수동확산 및 능동수송에 의한 세포 내외 이동을 반영한 아래와 같은 식을
-이용하여 간 클리어런스를 구할 수 있다(Varma et al.~2017). 아래 식에서
+이용하여 간 클리어런스를 구할 수 있다(Varma et al.~2017). 식 \eqref{eq:eq07-06}에서
 CL\textsubscript{uptake}, CL\textsubscript{efflux}, CL\textsubscript{PD}, CL\textsubscript{int}는 각각 sinusoidal uptake
 수송체에 의한 클리어런스, sinusoidal efflux 수송체에 의한 클리어런스,
 수동확산 클리어런스, 대사 및 담즙배설 클리어런스를 의미하며, Q\textsubscript{h}, f\textsubscript{B},
 E\textsubscript{h}는 각각 간 혈류 속도, 혈액에서의 약물의 비결합분율, 및 extraction
 ratio를 의미한다.
 
-\[
+\begin{equation}
+\begin{split}
 {CL}_{int,h} = \ \frac{{(CL}_{uptake} + {CL}_{PD})\  \cdot \ {CL}_{int}}{{(CL}_{efflux} + {CL}_{PD} + {CL}_{int})} \\
 {CL}_{h} = \ Q_{h} \cdot \frac{f_{B} \cdot {(CL}_{uptake} + {CL}_{PD})\  \cdot \ {CL}_{int}}{{Q_{h} \cdot (CL}_{efflux} + {CL}_{PD} + {CL}_{int}) + \ f_{B} \cdot {(CL}_{uptake} + {CL}_{PD})\  \cdot \ {CL}_{int}\ } = \ Q_{h} \cdot E_{h}
-\]
+\end{split}
+\label{eq:eq07-06} 
+\end{equation}
 
 신약개발 과정에서 약물의 수송체의 기질 및 저해성 여부를 평가하는 것은
 약물의 약동학 및 더 나아가 병용약물과의 약물상호작용을 평가하는데 있어
