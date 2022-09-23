@@ -1,0 +1,24 @@
+---
+title: '05'
+output: html_document
+date: "2022-09-22"
+---
+
+#Competitive
+
+$$
+v=\frac{V_{max}[S]}{[S]}+K_m(\left(1+\frac{[I]}{K_i}\right)
+$$
+#Non-competitive
+$$
+v=\frac{V_{max}[S]}{K_m(\left(1+\frac{[I]}{K_i}\right)+[S](\left(1+\frac{[I]}{K_i})\right)}
+$$
+#Uncompetitive
+$$
+
+$$
+
+#Mixed
+$$
+
+$$
