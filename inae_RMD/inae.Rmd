@@ -1,0 +1,32 @@
+---
+title: "inae"
+output: html_document
+date: "2022-09-23"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#수식 1. Rate equation for different inhibition model types
+
+##Competitive
+
+$$
+v=\frac{V_{max}[S]}{[S]}+K_m(\left(1+\frac{[I]}{K_i}\right)
+$$ 
+
+##Non-competitive 
+$$
+v=\frac{V_{max}[S]}{K_m(\left(1+\frac{[I]}{K_i}\right)+[S](\left(1+\frac{[I]}{K_i})\right)}
+$$ 
+
+##Uncompetitive 
+$$
+v=\frac{V_{max}[S]}{K_m+[S](\left(1+\frac{[I]}{K_i}\right)}
+$$
+
+##Mixed 
+$$
+v=\frac{V_{max}[S]}{K_m(\left(1+\frac{[I]}{K_i}\right)+[S](\left(1+\frac{[I]}{aK_i}\right)}
+$$
