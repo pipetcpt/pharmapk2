@@ -17,16 +17,30 @@ v=\frac{V_{max}[S]}{[S]}+K_m(\left(1+\frac{[I]}{K_i}\right)
 $$ 
 
 ##Non-competitive 
+
 $$
 v=\frac{V_{max}[S]}{K_m(\left(1+\frac{[I]}{K_i}\right)+[S](\left(1+\frac{[I]}{K_i})\right)}
 $$ 
 
 ##Uncompetitive 
+
 $$
 v=\frac{V_{max}[S]}{K_m+[S](\left(1+\frac{[I]}{K_i}\right)}
 $$
 
 ##Mixed 
+
 $$
 v=\frac{V_{max}[S]}{K_m(\left(1+\frac{[I]}{K_i}\right)+[S](\left(1+\frac{[I]}{aK_i}\right)}
+$$
+
+# 수식2. Estimation of Ki value based on IC50 value
+
+$$
+K_i=\frac{IC_{50}}{(S/K_m+1)}(\left\right)
+$$
+
+#수식 3. Percent inhibition calculation for single point aasy in TDI
+$$
+percent inhibition=100*
 $$
