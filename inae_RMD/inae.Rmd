@@ -8,39 +8,54 @@ date: "2022-09-23"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-#수식 1. Rate equation for different inhibition model types
 
-##Competitive
 
+# 수식 1. Rate equation for different inhibition model types
+
+## Competitive
 $$
 v=\frac{V_{max}[S]}{[S]}+K_m(\left(1+\frac{[I]}{K_i}\right)
 $$ 
 
-##Non-competitive 
-
+## Non-competitive 
 $$
 v=\frac{V_{max}[S]}{K_m(\left(1+\frac{[I]}{K_i}\right)+[S](\left(1+\frac{[I]}{K_i})\right)}
 $$ 
 
-##Uncompetitive 
-
+## Uncompetitive 
 $$
 v=\frac{V_{max}[S]}{K_m+[S](\left(1+\frac{[I]}{K_i}\right)}
 $$
 
-##Mixed 
-
+## Mixed 
 $$
 v=\frac{V_{max}[S]}{K_m(\left(1+\frac{[I]}{K_i}\right)+[S](\left(1+\frac{[I]}{aK_i}\right)}
 $$
-
+  
+  
 # 수식2. Estimation of Ki value based on IC50 value
-
 $$
-K_i=\frac{IC_{50}}{(S/K_m+1)}(\left\right)
+K_i=\frac{IC_{50}}{(S/K_m+1)}
+\left\{
+\begin{align*}
+&ifS=K_m,&K_i &=IC_{50}/2&
+\\ 
+&ifS>>K_m,&K_i &=<<IC_{50}&
+\\ 
+&ifS<<K_m,&K_i &\cong IC_{50}&
+\end{align*}
+\right.
 $$
 
-#수식 3. Percent inhibition calculation for single point aasy in TDI
+
+
+  
+  
+    
+
+# 수식 3. Percent inhibition calculation for single point aasy in TDI
 $$
 percent inhibition=100*
+(1-\left(\left(\frac{R_{Testcmpd + NADPH}}{R_{Vehicle + NADPH}}\right) 
+/ \left(\frac{R_{Testcmpd - NADPH}}{R_{Vehicle -NADPH}}\right)\right)
 $$
