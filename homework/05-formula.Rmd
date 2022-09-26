@@ -1,0 +1,67 @@
+---
+title: "05-formula"
+output: html_document
+date: "2022-09-26"
+---
+
+
+
+# 수식 1. Rate equation for different inhibition model types
+
+\br
+
+- Competitive
+
+$$
+v=\frac{V_{max}[S]}{[S]}+K_m(\left(1+\frac{[I]}{K_i}\right)
+$$
+
+\br
+
+- Non-competitive
+
+$$
+v=\frac{V_{max}[S]}{K_m(\left(1+\frac{[I]}{K_i}\right)+[S](\left(1+\frac{[I]}{K_i})\right)}
+$$
+
+\br
+
+- Uncompetitive
+
+$$
+v=\frac{V_{max}[S]}{K_m+[S](\left(1+\frac{[I]}{K_i}\right)}
+$$
+
+- Mixed
+
+$$
+v=\frac{V_{max}[S]}{K_m(\left(1+\frac{[I]}{K_i}\right)+[S](\left(1+\frac{[I]}{aK_i}\right)}
+$$
+
+\br
+
+# 수식2. Estimation of Ki value based on IC50 value
+
+$$
+K_i=\frac{IC_{50}}{(S/K_m+1)}
+\left\{
+\begin{align*}
+&ifS=K_m,&K_i &=IC_{50}/2&
+\\ 
+&ifS>>K_m,&K_i &=<<IC_{50}&
+\\ 
+&ifS<<K_m,&K_i &\cong IC_{50}&
+\end{align*}
+\right.
+$$
+
+\br
+\br
+
+# 수식 3. Percent inhibition calculation for single point aasy in TDI
+
+$$
+percent inhibition=100*
+(1-\left(\left(\frac{R_{Testcmpd + NADPH}}{R_{Vehicle + NADPH}}\right) 
+/ \left(\frac{R_{Testcmpd - NADPH}}{R_{Vehicle -NADPH}}\right)\right)
+$$
