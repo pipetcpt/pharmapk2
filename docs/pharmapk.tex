@@ -7,7 +7,6 @@
   11pt,
   krantz2, a4paper, twoside]{krantz}
 \usepackage{amsmath,amssymb}
-\usepackage{lmodern}
 \usepackage{setspace}
 \usepackage{iftex}
 \ifPDFTeX
@@ -15,9 +14,13 @@
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math}
+  \usepackage{unicode-math} % this also loads fontspec
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -267,7 +270,7 @@
 \fi
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
+\urlstyle{same}
 \hypersetup{
   pdfauthor={가톨릭대학교 계량약리학연구소(PIPET), AIMS BioScience, Q-fitter - Ver 0.0.1},
   colorlinks=true,
@@ -281,7 +284,7 @@
 
 (ADME의 기초 자료)}
 \author{가톨릭대학교 계량약리학연구소(PIPET), AIMS BioScience, Q-fitter - Ver 0.0.1}
-\date{2022-09-15}
+\date{2023-03-21}
 
 \begin{document}
 \maketitle
@@ -416,26 +419,27 @@ Drug discovery 단계에서 화합물을 합성하는 연구자들은 통상적�
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.3056}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.3056}}@{}}
 \caption{\label{tab:table01-01} Drug discovery 단계에서의 용해도 분류 기준}\tabularnewline
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Solubility (μg/mL)
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Solubility (μg/mL)
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Criteria
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \textless10 & Low \\
 10-60 & Moderate \\
 \textgreater60 & High \\
-\bottomrule()
 \end{longtable}
 
 Drug development 단계에서는 대한약전 및 USP에 용해도의 분류 기준이 다음과 같이 정의되어 있다. ``고체의 경우, 가루로 한 다음 용매 중에 넣고 20±5℃에서 5분마다 30초간씩 세게 흔들어 섞을 때 30분 이내에 녹는 정도''가 용해도이며, 용질 1 g 또는 1 mL를 녹이는데 필요한 용매의 양에 따라 다음과 같이 용해도를 분류할 수 있다 (표 \ref{tab:table01-02}).
@@ -445,7 +449,7 @@ Drug development 단계에서는 대한약전 및 USP에 용해도의 분류 기
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3056}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3750}}@{}}
 \caption{\label{tab:table01-02} 대한약전 및 USP에서의 용해도 분류 기준}\tabularnewline
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 대한약전 용어
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -455,9 +459,9 @@ USP 용어
 녹이는데
 필요한 용매의 양
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 대한약전 용어
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -467,8 +471,10 @@ USP 용어
 녹이는데
 필요한 용매의 양
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 썩 잘 녹는다 & Very soluble & 1 mL 미만 \\
 잘 녹는다 & Freely soluble & 1 mL 이상 10 mL 미만 \\
 녹는다 & Soluble & 10 mL 이상 30 mL 미만 \\
@@ -478,7 +484,6 @@ USP 용어
 soluble & 1000 mL 이상 10000 mL
 미만 \\
 거의 녹지 않는다 & Practically soluble & 10000 mL 이상 \\
-\bottomrule()
 \end{longtable}
 
 마지막으로 신약개발 과정에서 전반적으로 활용되는 용해도의 기준은 Biopharmaceutics Classification System (BCS)에 따른 분류이다 (그림 \ref{fig:01-02}). 이는 용해도 및 투과도에 따라 다음과 같이 4개의 class로서 약물의 특성을 분류한다.
@@ -577,7 +582,7 @@ Class I과 Class III로 분류되기 위한 ``높은 용해도''란 ``37℃ 및 
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4306}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4306}}@{}}
 \caption{\label{tab:table01-03} 인공 위액 및 인공 장액의 비교}\tabularnewline
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 종류
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -589,9 +594,9 @@ Fluid)
 (SIF, Stimulated Gastric
 Fluid)
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 종류
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -603,8 +608,10 @@ Fluid)
 (SIF, Stimulated Gastric
 Fluid)
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 정의 & USP에 의해 정의된
 
 절식 상태의 인공 위액 & USP에 의해 정의된
@@ -614,7 +621,6 @@ pH & 1.2 & 6.7 \\
 구성
 성분 & Pepsin, HCl, NaCl, water & Pancreatin, KH\textsubscript{2}PO\textsubscript{4},
 NaOH, water \\
-\bottomrule()
 \end{longtable}
 
 \hypertarget{bio-relevant-media}{%
@@ -660,7 +666,7 @@ Bio-relevant media는 compendial media의 한계점인 '오스몰 농도, 이온
   >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1121}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1121}}@{}}
 \caption{\label{tab:table01-04} Compendial Media 및 Bio-relevant Media의 특성}\tabularnewline
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \textbf{Parameters}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -675,9 +681,9 @@ Media}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \textbf{Parameters}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -692,8 +698,10 @@ Media}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 & & \textbf{SGF} & \textbf{SIF} & \textbf{FaSSGF} & \textbf{FeSSGF} & \textbf{FaSSIF} & \textbf{FeSSIF} \\
 Osmolality
 (mOsmol/kg) & & Cannot mimic
@@ -711,7 +719,6 @@ neutral & 6.5 & 5.0 \\
 Composition & Enzyme & Pepsin & Pancreatin & Pepsin & Pepsin & Pancreatin & Pancreatin \\
 & Bile acid & N.A. & N.A. & ↓ & ↑ & ↓ & ↑ \\
 & Phospholipid & N.A. & N.A. & ↓ & ↑ & ↓ & ↑ \\
-\bottomrule()
 \end{longtable}
 
 \hypertarget{uxc6a9uxd574uxb3c4-uxce21uxc815uxbc95}{%
@@ -748,7 +755,7 @@ Kinetic solubility는 DMSO 등의 유기용매에 약물을 완전히 용해시�
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3691}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2685}}@{}}
 \caption{\label{tab:table01-05} Kinetic solubility의 침전을 검출하는 방법}\tabularnewline
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Nephelometry
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -756,9 +763,9 @@ Turbidimetry
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Direct measurement
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Nephelometry
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -766,10 +773,11 @@ Turbidimetry
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Direct measurement
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \includegraphics{./media-01/image4.png} & \includegraphics{./media-01/image5.png} & \includegraphics{./media-01/image6.png} \\
-\bottomrule()
 \end{longtable}
 
 \hypertarget{thermodynamic-solubility}{%
@@ -1057,7 +1065,7 @@ Caco-2 투과도 시험계에서는 약물의 수동수송 뿐만 아니라 능�
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2222}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2222}}@{}}
 \caption{\label{tab:table02-01} 투과도 평가 시험 방법 별 특성 비교}\tabularnewline
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 \textbf{PAMPA}
@@ -1068,9 +1076,9 @@ cell-based}
 \textbf{MDCK
 cell-based}
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 \textbf{PAMPA}
@@ -1081,8 +1089,10 @@ cell-based}
 \textbf{MDCK
 cell-based}
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \textbf{Cell origin} & Artificial
 membrane & Human
 colorectal
@@ -1135,7 +1145,6 @@ MRP1,
 
 MRP2 and MRP5 \\
 \textbf{Metabolism} & No & Yes & Yes \\
-\bottomrule()
 \end{longtable}
 
 -: not applicable.
@@ -1652,7 +1661,7 @@ monoamine oxidase (MAO) 등에 의한 산화 과정도 이에 포함된다. 이 
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
 \caption{\label{tab:table04-01} 약물의 대사 과정 - 산화 과정}\tabularnewline
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Reaction
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -1660,9 +1669,9 @@ Structural formula
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Drugs
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Reaction
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -1670,8 +1679,10 @@ Structural formula
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Drugs
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 I. CYP-dependent oxidations & & \\
 Aliphatic hydroxylation & \includegraphics{./media-04/image3.png} & Barbiturates, cyclosporine, ibuprofen \\
 & \includegraphics{./media-04/image4.png} & \\
@@ -1686,7 +1697,6 @@ II. CYP-independent oxidations & & \\
 Alcohol dehydrogenation, Aldehyde dehydrogenation & \includegraphics{./media-04/cap01.png} & Ethanol, pyridoxine \\
 Oxidative deamination & \includegraphics{./media-04/cap02.png} & Histamine, norepinephrine \\
 Decarboxylation & \includegraphics{./media-04/cap03.png} & Levodopa \\
-\bottomrule()
 \end{longtable}
 
 약물의 구조에 따라 산화 과정 뿐만 아니라, 환원 및 가수분해 과정을
@@ -1698,7 +1708,7 @@ Decarboxylation & \includegraphics{./media-04/cap03.png} & Levodopa \\
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
 \caption{\label{tab:table04-02} 약물의 대사 과정 - 환원, 가수분해 과정}\tabularnewline
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Reaction
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -1706,9 +1716,9 @@ Structural formula
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Drugs
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Reaction
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -1716,11 +1726,12 @@ Structural formula
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Drugs
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 I. Reduction & \includegraphics{./media-04/cap04.png} & Chloramphenicol, methadone, naloxone \\
 II. Hydrolysis & \includegraphics{./media-04/cap05.png} & Aspirin, procaine, lidocaine, indomethacin, irinotecan \\
-\bottomrule()
 \end{longtable}
 
 \hypertarget{phase-ii-uxb300uxc0ac}{%
@@ -1752,7 +1763,7 @@ UGT2의 2개의 family로 분류된다. 기질로는 bilirubin, irinotecan의
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.6022}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1828}}@{}}
 \caption{\label{tab:table04-03} 약물의 대사 과정 - Phase II}\tabularnewline
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Reaction
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -1760,9 +1771,9 @@ Structural formula
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Drugs
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Reaction
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -1770,8 +1781,10 @@ Structural formula
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Drugs
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 I.
 Glucuronidation & \includegraphics[width=3.60417in,height=0.86458in]{./media-04/image15.png} & Diazepam,
 digoxin,
@@ -1786,7 +1799,6 @@ IV. Glutathione
 conjugation & \includegraphics[width=2.71574in,height=1.30235in]{./media-04/image20.png} & Acetaminophen,
 valproic acid,
 busulfan \\
-\bottomrule()
 \end{longtable}
 
 \hypertarget{uxb300uxc0ac-uxd2b9uxc131-uxd3c9uxac00}{%
@@ -1995,7 +2007,7 @@ chemical inhibitor인 SKF525A를 첨가하여, CYP에 의한 대사능을 배제
   >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1250}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1250}}@{}}
 \caption{\label{tab:table04-04} 대사안정성 평가 실험법의 예}\tabularnewline
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 \textbf{G1}
@@ -2010,9 +2022,9 @@ chemical inhibitor인 SKF525A를 첨가하여, CYP에 의한 대사능을 배제
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 \textbf{G6}
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 \textbf{G1}
@@ -2027,8 +2039,10 @@ chemical inhibitor인 SKF525A를 첨가하여, CYP에 의한 대사능을 배제
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 \textbf{G6}
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Buffer & O & O & O & O & O & O \\
 Microsomes & X & O & O & O & O & O \\
 NADPH & X & X & O & X & O & O \\
@@ -2062,7 +2076,6 @@ CES,
 CYP & ES,
 CES,
 FMO \\
-\bottomrule()
 \end{longtable}
 
 위의 방법을 통해 수행된 실험 결과는 그림 \ref{fig:04-07}와 같이 얻을 수 있다. 각
@@ -2181,28 +2194,29 @@ CL\textsubscript{int}), 이를 통해 f\textsubscript{m}을 계산할 수 있다
 \hypertarget{uxd6c4uxbcf4-uxbb3cuxc9c8uxc758-uxb300uxc0ac-uxc5b5uxc81c-uxd2b9uxc131-uxd3c9uxac00}{%
 \chapter{후보 물질의 대사 억제 특성 평가}\label{uxd6c4uxbcf4-uxbb3cuxc9c8uxc758-uxb300uxc0ac-uxc5b5uxc81c-uxd2b9uxc131-uxd3c9uxac00}}
 
-\Large\hfill
-
 이소진
-\normalsize
 
-\hypertarget{uxac1cuxc694}{%
-\section{개요}\label{uxac1cuxc694}}
+\hypertarget{uxc11cuxb860-4}{%
+\section{서론}\label{uxc11cuxb860-4}}
 
-이 장에서는 개발하는 약물이 과연 inhibitor 역할을 하는 약물인지
-확인하고, 어떤 inhibition 특성을 가지는지 확인하는 방법을 살펴보기로
-한다. Inhibition의 종류는 크게 두가지로 분류되며, Reversible inhibition
-과 Time-dependent inhibition으로 나뉜다. 각각의 inhibition 종류에 따른
-inhibition assay 실험 방법과 이를 통해 얻은 데이터를 해석하는 방법,
-그리고 이 정보를 DDI prediction에 적용하는 방법에 대해 살펴보겠다.
+이 장에서는 개발하는 약물이 과연 대사 억제제(inhibitor) 역할을 하는
+약물인지 확인하고, 어떤 대사억제(inhibition) 특성을 가지는지 확인하는
+방법을 살펴보기로 한다. Inhibition의 종류는 크게 두가지로 구분되며, 이는
+reversible inhibition 과 time-dependent inhibition으로 나뉜다. 각각의
+inhibition 종류에 따른 inhibition assay 및 실험 방법들과 이를 통해
+얻어지는 핵심 정보들(i.e.~inhibition type, inhibition parameters)이
+무엇인지 알아보자. 그리고, 그 결과를 해석하는 방법 및 활용(i.e.~DDI
+prediction)에 대해 살펴보겠다.
+
+\hypertarget{uxc2e0uxc57d-uxac1cuxbc1c-uxc8fcuxae30-uxc548uxc5d0uxc11cuxc758-in-vitro-inhibition-assayuxc758-uxc911uxc694uxc131uxd65cuxc6a9uxc704uxce58}{%
+\section{신약 개발 주기 안에서의 in vitro inhibition assay의 중요성/활용/위치}\label{uxc2e0uxc57d-uxac1cuxbc1c-uxc8fcuxae30-uxc548uxc5d0uxc11cuxc758-in-vitro-inhibition-assayuxc758-uxc911uxc694uxc131uxd65cuxc6a9uxc704uxce58}}
 
 DDI 평가는 중요하며, 특히 여러 종류의 약물을 장기간 병용 투약하는
-만성질환을 가진 환자에서 조심해야한다. Inhibitior 역할을 하는 약물은
-victim drug 와 병용투여시 victim drug의 체내 약물 농도를 높게 만들고,
-이에 따른 이상반응이나 독성이 나타날 수 있다. DDI 평가는 in vitro ADME
-study 시작에서부터 함께 탐색되는 것을 추천한다. 이와 같은 in vitro
-단게에서의 DDI 평가는 FDA 가이던스와 EMA 가이드 라인에서도 추천되어
-진다.
+만성질환을 가진 환자에서 눈여겨 보아야 한다. Inhibitor 역할을 하는
+약물은 victim drug 와 병용투여시 victim drug의 체내 약물 농도를 높게
+만들고, 이에 따른 이상반응이나 독성이 나타날 수 있다. 따라서 후보물질의
+대사 억제 특성 평가는 환자의 안전한 약물 치료를 위해 반드시 선행적으로
+수행되어야 하는 부분이다.
 
 \begin{figure}
 
@@ -2215,8 +2229,352 @@ study 시작에서부터 함께 탐색되는 것을 추천한다. 이와 같은 
 
 
 
-Victim (substrate) : Drug whose PK is affected
-Perpetrator : Drug that is affecting PK of victim
+Victim (substrate): Drug whose PK is affected,\\
+Perpetrator: Drug that is affecting PK of victim
+
+Inhibition 은 크게 두 종류로 나뉘어 지며, 이는 reversible inhibition 과
+time-dependent inhibition이다. Reversible inhibition 은 또 한 번
+competitive, noncompetitive, 그리고 uncompetitive 로 세분화할 수 있다.
+각 종류 별 어떠한 inhibitor 로써 약물이 역할을 하는지 그리고 얼마나 그
+역할을 하는지에 대하여 다양한 확인 법 및 assay를 통해 확인할 수 있고,
+우리는 inhibition 과 관련된 parameter값을 수치화 하여 얻을 수 있다. 이는
+DDI prediction을 위해 사용되며, DDI prediction 시 다양한 방법(static
+model, mechanistic static model, 그리고/또는 PBPK model)을 통해
+inhibition parameter 값들을 적용하고 궁극적으로 DDI prediction에
+사용한다.
+
+In vitro 정보를 기반으로 한 DDI 평가는 In vitro ADME study 내에서
+metabolism study에 해당하는 부분으로, metabolism study 범주 내에는 DDI
+평가 외에도 metabolic stability test, metabolite profiling, 그리고 CYP
+isozyme profiling 등이 있다. 이와 같은 metabolic DDI 평가에는Cytochrome
+P450 inhibition 평가, induction 평가 및 activation/suppression 평가가
+포함된다.
+
+신약개발 주기에서 in vitro DDI 평가, 특히 inhibition 평가는 언제 이루어
+지는지 알아보자. In vitro inhibition assay는 drug discovery 단계에서부터
+수행되어야 한다. Drug discovery의 lead optimization 과정에서 수많은 약물
+후보를 기반으로 개발약물이 inhibitor 인지 대규모로 screening 하는 과정을
+거친다(i.e.~일반적으로 combined approach를 사용하여inhibition 평가하며,
+potent 한 TDI는 개발에서 제외하는 전략을 많이 취함). 이후에 drug
+development 단계로 와서 선택된 몇 개의 lead compound에 대해서는 보다 더
+구체적인 정보를 얻기 위한 inhibition assay를 진행해야 한다. 임상 시험에
+가까워질수록 in vitro inhibition assay 들은 GLP 와 비슷한 수준에서
+수행되어져야 한다. 이와 같은 약물개발 주기에서의 in vitro 정보를 활용한
+DDI 평가는 FDA 가이던스와 EMA 가이드 라인에서도 추천되어 진다.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{media-05/image3} 
+
+}
+
+\caption{신약 개발 주기에 따른 in vitro DDI 평가}\label{fig:05-02}
+\end{figure}
+
+
+
+\hypertarget{uxb300uxc0ac-uxc5b5uxc81c-uxc791uxc6a9-uxba54uxcee4uxb2c8uxc998}{%
+\section{대사 억제 작용 메커니즘}\label{uxb300uxc0ac-uxc5b5uxc81c-uxc791uxc6a9-uxba54uxcee4uxb2c8uxc998}}
+
+FDA에서 확인하기를 권고하는 주요 CYP isoform 은 7가지이며, 이는 아래와
+같다:
+
+CYP1A2, CYP2B6, CYP2C8, CYP2C9, CYP2C19, CYP2D6, CYP3A
+
+대사 억제 작용의 종류는 크게 두가지로 나눌 수 있으며, 이는 reversible
+inhibition 과 mechanism-based inhibition이다. Reversible inhibition 은
+direct inhibition이라고도 불리우며, inhibitor 와 enzyme이 covalent 하게
+결합한 경우로, 빠른 시간 내에 dissociation 이 일어난다. 그리고 바로
+enzyme activity 가 restore 된다. Reversible inhibition 은 inhibitor 와
+enzyme의 결합 양상에 따라 여러 종류로 아래와 같이 세분화될 수 있다:
+
+\begin{itemize}
+\tightlist
+\item
+  Competitive inhibition: inhibitor 와 substrate 이 동일한 active
+  binding site를 놓고 경쟁하는 경우이다. Inhibitor 와 enzyme 이
+  결합하는 경우 더 이상 기존 enzyme은 반응하지 않는다. Inhibitor의
+  효과가 Km에 반영되어 있으며 (Vmax 값은 동일), inhibitor 농도가
+  증가할수록 Km 값이 증가한다.
+\item
+  Noncompetitive inhibition: inhibitor 가 free enzyme 과 결합하며,
+  enzyme + substrate complex 와도 결합이 가능하다. 이 경우, inhibitor
+  농도가 증가할수록 Vmax는 감소하고 Km 은 그대로이다.
+\item
+  Uncompetitive inhibition: inhibitor 가 enzyme + substrate complex
+  에만 결합이 가능하다. 약물 대사 반응에서 흔히 관측되지 않는
+  inhibition 종류이며, inhibitor 농도가 증가할수록 Vmax, Km 이 모두
+  감소한다.
+\end{itemize}
+
+Mechanism-based inhibition (MBI)은 흔히 time-dependent inhibition
+(TDI)라고도 불리우나, TDI 이 조금 더 큰 범주라고 할 수 있다. TDI은
+preincubation 시간을 거치면서 inhibition potency 가 더 좋아지는 경우를
+일컬으며, MBI는 TDI의 한 종류로 볼 수 있다. MBI에서는 inhibitor 와
+enzyme 이 결합하여 reactive metabolite을 생성하고, enzyme 이 activity를
+잃고 inactive 한 상태로 변한다. 따라서 이를 irreversible
+inhibition이라고도 부른다.
+
+\hypertarget{uxb300uxc0ac-uxc5b5uxc81c-uxd2b9uxc131-uxd3c9uxac00-uxc2e4uxd5d8-in-vitro-inhibition-assay}{%
+\section{대사 억제 특성 평가 실험 (in vitro inhibition assay)}\label{uxb300uxc0ac-uxc5b5uxc81c-uxd2b9uxc131-uxd3c9uxac00-uxc2e4uxd5d8-in-vitro-inhibition-assay}}
+
+후보물질의 대사 억제 특성을 평가하기 위해서 각 inhibition 종류
+(reversible vs.~time-dependent inhibition)에 따라 핵심 in vitro assay를
+수행하여 핵심 inhibition parameter를 구해야 한다.
+
+우선, reversible inhibition의 경우 핵심 assay 로는 IC50 와 Ki를 결정하는
+시험들이 있다. Time-dependent inhibition assay 로는 Single point assay,
+IC50 shift assay, 그리고 Kinact, KI를 결정하는 assay 가 주요하다(IC50:
+drug concentration achieving 50\% of maximal reversible inhibition, Ki:
+reversible inhibition constant, Kinact: drug concentration achieving 50\%
+of maximal inhibition of TDI, KI: TDI constant).
+
+이와 같은 핵심 inhibition assay를 수행하기 전에 무엇보다 우선적으로
+수행되어야 하는 것은 substrate saturation experiment(또는 metabolic
+stability test)이다. 이를 통해 substrate의 enzyme kinetic parameter(Km,
+Vmax)를 구할 수 있고 특히, 이때 얻은 Km 값을 참고하여 in vitro
+inhibition assay에서 사용할 적합한 substrate의 농도를 설정할 수
+있다(Vmax: maximum reaction rate, Km: substrate concentration at
+half-maximum reaction rate (velocity))
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{media-05/image4} 
+
+}
+
+\caption{Typical example of substrate saturation experiment results for enzyme kinetic parameters (Vmax, Km): Reaction rate vs.~substrate concentration. Vmax: maximum reaction rate, Km: substrate concentration at half-maximum reaction rate (velocity)}\label{fig:05-03}
+\end{figure}
+
+
+
+\hypertarget{reversible-inhibition-assay}{%
+\subsection{Reversible inhibition assay}\label{reversible-inhibition-assay}}
+
+\hypertarget{cyp-inhibition-assay-for-ic50-determination}{%
+\subsubsection{CYP inhibition assay for IC50 determination}\label{cyp-inhibition-assay-for-ic50-determination}}
+
+FDA의 가이던스에 따라 7종류의 주요 CYP isoform에 대하여 평가를
+수행해야한다.
+
+Reversible inhibition을 하는지 평가하기 위해 우선 IC50를 구해야 한다.
+이는CYP inhibition assay (IC50)로 구할 수 있다. 이때의 IC50는 50\%
+inhibition을 나타낸 inhibitor의 농도를 의미하며, 다양한 test compound를
+재료로 inhibitor 농도에서 metabolite formation을 측정하여, 궁극적으로
+inhibitor 농도에 따라 metabolite formation 이 얼마나 inhibit 됐는지를
+plotting 확인하여 IC50를 구한다.
+
+Inhibitor, substrate 그리고 HLM을 preincubate 시킨 후, cofactor 인
+NADPH를 넣고 incubation을 거친다. 각 inhibitor의 농도에서 metabolite
+formation을 LC-MS/MS를 통해 관측한다.
+
+IC50 값은 extrinsic constant 로 lab-to-lab variability 가 존재하고,
+재생산하기 어려운 값일 수 있다. Substrate의 종류, 농도 그리고 incubation
+condition에 따라 달라질 수 있다. 이때 얻어지는 IC50 값은 각각의 CYP
+isoform에 대해서 얻을 수 있으며, IC50 값의 해석은 아래와 같다.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{media-05/image5} 
+
+}
+
+\caption{Metabolite formation depending on the various inhibitor concentration}\label{fig:05-04}
+\end{figure}
+
+
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{media-05/image7} 
+
+}
+
+\caption{(ref:05-05)}\label{fig:05-05}
+\end{figure}
+
+Metabolite formation depending on the various inhibitor concentration Interpretation of IC50 values
+
+\hypertarget{cyp-inhibition-assay-for-ki-determination}{%
+\subsubsection{CYP inhibition assay for Ki determination}\label{cyp-inhibition-assay-for-ki-determination}}
+
+앞에 소개된 IC50 값을 실험을 통해 구한 후 이를 활용하여 각 CYP isoform
+별로 Ki 값을 구할 수 있다. 미리 산출된 IC50 값은 실험에 적합한 inhibitor
+농도를 구하기 위해 사용되며, 산출된 IC50 농도와 근접하게 inhibitor
+농도를 설정한다.
+
+실험은 다양한 substrate 과 inhibitor 농도로 수행된다. 아래와 같이 다양한
+inhibitor 농도에 따른 reaction rate vs.~substrate concentration 그래프를
+얻을 수 있다(그림 5). 그래프의 양상을 통해 reversible inhibition 종류를
+알아낼 수 있다(i.e.~competitive, noncompetitive, uncompetitive, or
+mixed). Ki를 구하는 방법은 여러가지로, regression을 통해서 모델 식에
+fitting 한 후 Ki를 값을 계산하여 얻을 수 있다(수식1). 또는, 얻어진 IC50
+값을 기반으로 간단하게 계산하는 방법이 있다(수식 2). First-order kinetic
+이 가장 잘 관측되는 구간은 substrate 농도가 Km 값과 비슷하거나 작을
+때이며, 따라서 대부분의 경우 Ki 값은 IC50 와 유사하거나, IC50/2 로
+계산할 수 있다(수식 2).
+
+Ki 값은 intrinsic constant 로 inhibitor 가 enzyme 과 결합하는 affinity를
+나타낸다. Ki 값은 inhibition potency를 나타낸다. 이는 특정 inhibitor 와
+enzyme의 고유한 값이며, 어떠한 substrate을 사용하던지 달라지지 않는다.
+Ki 값은 IC50 보다 재생산하기 쉬운 값으로, in vivo 단계에서의 DDI 평가가
+필요할지 알려주는 더 정확한 값이라고 할 수 있다.
+
+\(A\)
+
+\includegraphics[width=5.15317in,height=1.50288in]{./media-05/image8.png}
+
+\includegraphics[width=2.91667in,height=2.70176in]{./media-05/image9.png}
+
+\textbf{그림 5. Reaction rate vs.~substrate concentration}
+
+\(A\) (b) and (B) plot: Y-intercept = Vmax, Slope = Km
+
+\includegraphics[width=4.09236in,height=3in]{./media-05/image10.png}
+
+수식 . Rate equations for different inhibition model types
+
+\includegraphics[width=2.55556in,height=0.73259in]{./media-05/image11.png}
+
+수식 . Estimation of Ki value based on IC50 value
+
+\hypertarget{time-dependent-inhibition-assay}{%
+\subsection{Time-dependent inhibition assay}\label{time-dependent-inhibition-assay}}
+
+TDI는 reversible inhibition 보다 안전성 측면에서 더 심각한 결과를 초래할
+수 있는 inhibition으로 in vitro inhibition assay 단계에서 potent TDI 로
+평가될 경우, 약물 개발이 중단되기도 하며, 설령 허가가 된다고 해도 해당
+약물 사용시 강력한 제제가 동반되는 경우가 많다. 따라서 최대한 빠르게
+drug discovery 단계에서 TDI 여부를 탐색하기를 추천한다. 일반적으로
+수행되는 TDI assay는 아래와 같다:
+
+\textbf{Common practice to address TDI (tiered approach):}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Single point assay}: reversible CYP inhibition assay 와 동시에 병행하여 진행할 수 있으나, reversible assay를 먼저 수행하기를 추천한다. ADME assay 초기 단계에 약물 후보가 많을 때 진행한다.
+\item
+  \textbf{IC50 shift assay}: 약물 개발 주기 뒷 단계에 진행되는 경우가 많으며, 더 많은 정보를 획득할 수 있다. 3. 실험을 계획하는데 결과가 활용된다.
+\item
+  \textbf{New thorough inactivation studies (Kinact, KI):} kinetic study 로 TDI parameter를 구할 수 있다.
+\end{enumerate}
+
+\textbf{CYP TDI single point assay}
+
+In vitro ADME assay 초기의 단계에 TDI potential을 screening 하기 위해 수행된다. 단일의 inhibitor 농도를 가지고 실험하며, 고농도의 inhibitor 농도(reversible inhibition assay 에서의 최고농도)와 substrate 농도(일반적으로 Km 값의 5배)를 가지고 진행한다(reversible inhibition을 최소화하기 위함).
+
+Preincubation을 거쳐(inhibitor + cofactor (NADPH) in HLM), substrate을 투여한 후 incubation을 수행한다.
+
+후보 약물이 TDI 일 경우, enzyme의 active site에 결합하게 된다. 대사체가 생성되는 반응이 측정되고, 수식에 따라 percent inhibition(\%) 이 계산된다(수식3).
+
+\includegraphics[width=4.02778in,height=0.52163in]{./media-05/image12.png}
+
+수식 . Percent inhibition calculation for single point assay in TDI
+
+\textbf{CYP TDI assay for IC50 shift determination}
+
+ADME assay 후기 단계에서 수행되며 reversible inhibition 과 irreversible
+inhibition을 구분할 수 있도록 도와준다. 다양한 inhibitor 농도로 실험을
+진행하며, 30분 정도의 preincubation period를 거치고 이 때 NADPH를
+포함하는 경우와 포함하지 않는 경우의 결과를 그래프 화하여 IC50 값을
+구하고 그 변화를 확인한다(그림 6).
+
+이때 얻어지는 그래프는 \%CYP activity vs.~inhibitor concentration이며,
+NADPH를 포함하여 preincubation 한 경우의 IC50 가 약 1.5배 작아지면(left
+shift of IC50), 해당 약물은 TDI을 나타내는 것으로 해석한다. 이와 같은
+IC50 값의 left shift는 preincubation을 통해 CYP activity를
+inhibition하는 potency 가 커짐을 의미한다.
+
+\includegraphics[width=4.62917in,height=3.63889in]{./media-05/image13.png}
+
+그림 . Example of IC50 shift profile of \%CYP activity vs.~inhibitor
+concentration plus/minus NADPH during preincubation period
+
+\textbf{CYP TDI assay for kinact/KI~determination}
+
+Kinact 와 KI를 구하는 실험을 수행하여 clinical interaction study 가
+필요한지 결정하는데 참고할 수 있다. 다양한 inhibitor 농도를 가지고
+preincubation time을 다양하게 설정하여 실험을 진행한다 (Kinact: Maximal
+rate of enzyme inactivation at saturating concentration of inhibitor
+(/min), KI: Concentration of inhibitor which gives half the maximal rate
+of inactivation (uM)). 이를 통해 다양한 inhibitor 농도에 따른 \%CYP
+activity remaining vs.~preincubation time 그래프 얻고, 이를 해당
+그래프의 -slope vs.~inhibitor 농도로 변환한다(그림 7 (a), (b)). 변환한
+그래프를 가지고 수식에 fitting 하여 non-linear regression을 통해 kinetic
+constant for TDI 라고 일컬어 지는 Kinact 와 KI를 구할 수 있다(수식 4
+(a)). 또는 Linewever-Burk plot을 활용하여 각 파라미터의 역수를 취해
+그래프화하고 X, Y-intercept 로 1/KI, 1/Kinact 를 구할 수 있다(수식 4
+(b)).
+
+\(a\)
+
+\includegraphics[width=4.552in,height=2.85075in]{./media-05/image14.png}
+
+\(b\)
+
+\includegraphics[width=3.72222in,height=2.8986in]{./media-05/image15.png}
+
+그림 . Example of (a) \%CYP activity remaining vs.~preincubation time,
+(b) -slope (of (a) graph) vs.~inhibitor concentration
+
+\includegraphics[width=3.64372in,height=4.5463in]{./media-05/image16.png}
+
+수식 . (a) Observed rate (Kobs) model, (b) Linewever-Burk plot
+
+\hypertarget{in-vitro-inhibition-parameteruxc758-uxd65cuxc6a9}{%
+\section{In vitro inhibition parameter의 활용}\label{in-vitro-inhibition-parameteruxc758-uxd65cuxc6a9}}
+
+위에 소개된 다양한 In vitro inhibition assay를 통해 우리는 결국
+inhibition parameter 값들을 산출하였다. 이 값들을 활용하여 각 inhibition
+type별 model별로 수식에 적용하여, 각 CYP의 inhibition 정도를 나타내는 R
+값을 계산할 수 있다(표 2. static model).
+
+또한, in vitro inhibition parameter 값들과 그 외의 실험값 및 문헌값을
+기반으로 mechanistic static model 또는 PBPK model을 활용하여 여러 CYP의
+영향을 종합적으로 고려한, inhibitor를 substrate 과 병용 투여하는 경우의,
+약물 노출 값의 변화(fold-change in AUC)를 구할 수 있다(표2, 수식 5).
+
+이와 같이 in vitro inhibition assay에서 얻은 결과는 약물의 inhibition
+능력을 수치화 하여 나타내는 핵심 inhibition parameter 로써, 임상 시험
+돌입 전 DDI 예측 및 평가에 있어 반드시 필요한 값들이며, 이 값들을
+사용하여DDI 예측이 가능하다. 이 과정을 통해 DDI 로 발생하는 임상에서의
+위험성을 최대로 낮출 수 있다.
+
+\includegraphics[width=4.32943in,height=2.36617in]{./media-05/image17.png}
+
+표 . Various DDI prediction models for reversible inhibition and
+time-dependent inhibition
+
+\[
+AUCR = \frac{AUC_i}{AUC} = \frac{CLu_{int}}{CLu_{int,i}} = 
+\frac{1}{\sum_{j=1}^{n} (\frac{fm_{CYPj}}{1+\frac{[I]}{K_i}}) 
++ (1-\sum_{j=1}^{n}fm_{CYPj})}
+\]
+
+\textbf{수식 5. AUC fold-change calculation for mechanistic static model}
+
+\textbf{References}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Wang, Binghe.~\emph{Drug-drug interactions in pharmaceutical
+  development}. Vol. 6. John Wiley \& Sons, 2008.
+\item
+  \url{https://bio.libretexts.org/}
+\item
+  \url{https://www.cyprotex.com/admepk}
+\item
+  Cayen, Mitchell N., ed.~\emph{Early drug development: strategies and
+  routes to first-in-human trials}. John Wiley \& Sons, 2011.
+\item
+  Grimm, Scott W., et al.~"The conduct of in vitro studies to address
+  time-dependent inhibition of drug-metabolizing enzymes: a
+  perspective of the pharmaceutical research and manufacturers of
+  America."~\emph{Drug Metabolism and Disposition}~37.7 (2009): 1355-1370.
+\end{enumerate}
 
 \hypertarget{Induction}{%
 \chapter{후보 물질의 대사 유도 특성 평가}\label{Induction}}
@@ -2226,8 +2584,8 @@ Perpetrator : Drug that is affecting PK of victim
 최수인
 \normalsize
 
-\hypertarget{uxc11cuxb860-4}{%
-\section{서론}\label{uxc11cuxb860-4}}
+\hypertarget{uxc11cuxb860-5}{%
+\section{서론}\label{uxc11cuxb860-5}}
 
 대사 유도란 주로 약이나 화학물질에 의해서 효소의 대사 능력이 증가하는 현상을 말한다. 특히 약동학적 약물상호작용 측면에서는 이러한 대사 유도의 양이 많아져서 기질의 청소율이 증가하는 것을 의미한다.
 따라서 유도체(inducer)란 특정 효소를 이러한 방식으로 유도할 수 있는 능력이 있는 물질을 말한다.
@@ -2248,7 +2606,7 @@ Perpetrator : Drug that is affecting PK of victim
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3143}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3143}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3714}}@{}}
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 유도 메커니즘
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -2256,8 +2614,10 @@ CYP isoform
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 특징
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 AhR (Aryl hydrocarbon receptor) mediated control & CYP1A1, CYP1A2, CYP1B1 & 수용체와의 결합은 주로 세포질에서 일어나며 결합체가 Nucleus 안으로 이동하여 유전자 전사를 증가시킴. 모든 조직에 분포해 있으며 CYP 효소 외에도 NADPH reductase, glutathion S-transference, Aldehyde dehydrogenase의 생성에도 관여하기 때문에 조직의 발달에 영향을 미칠 수 있음 \\
 CAR (Constitutive androstane receptor) mediated control & CYP2B6, CYP2C9, CYP3A4 & 주로 핵내에서 결합하며 결합한 수용체는 해당 수용체의 expression 정도가 사람간의 차이가 커서 유도능력의 차이를 일으킴. \\
 물리화학적 특성 & 규명이 쉬움 & 복잡한 특성 \\
@@ -2268,7 +2628,6 @@ CAR (Constitutive androstane receptor) mediated control & CYP2B6, CYP2C9, CYP3A4
 대사 & Phase I/II 대사로 인한 다른 물질로 변환 & 펩타이드/아미노산으로 분해 \\
 배설 & 담즙 또는 소변 배설. 궁극적인 제거 경로 & 거의 배설되지 않음 \\
 면역유발 & 흔치 않음. 과민반응 형태의 독성 작용 & 비교적 흔함. 항약물항체(ADA)에 의해 약물 제거될 수 있음 \\
-\bottomrule()
 \end{longtable}
 
 \hypertarget{uxd2b9uxc9d5}{%
@@ -2321,8 +2680,8 @@ CAR (Constitutive androstane receptor) mediated control & CYP2B6, CYP2C9, CYP3A4
 배수현
 \normalsize
 
-\hypertarget{uxc11cuxb860-5}{%
-\section{서론}\label{uxc11cuxb860-5}}
+\hypertarget{uxc11cuxb860-6}{%
+\section{서론}\label{uxc11cuxb860-6}}
 
 세포내 물질 이동은 그림 \ref{fig:07-01}과 같다.
 크게 수동수송과 능동수송으로 구분할 수 있다.
@@ -3055,8 +3414,8 @@ Therapeutics}, 104: 890-99.
 임동석
 \normalsize
 
-\hypertarget{uxc11cuxb860-6}{%
-\section{서론}\label{uxc11cuxb860-6}}
+\hypertarget{uxc11cuxb860-7}{%
+\section{서론}\label{uxc11cuxb860-7}}
 
 In vitro, in vivo 데이터로 사람에서의 PK, PD를 예측한다는 것은 데이터를 translation하는 것이로서 방법론에 관해서는 이후 출간될 책에서 자세히 다룰 예정이므로 이 장에서는 간략히 개념을 소개한다.
 In vitro ADME 실험을 하는 목적은 결국 사람의 약동학을 파악하기 위함인데 사람의 약동학을 파악하기 위해서이다.

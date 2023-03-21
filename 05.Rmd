@@ -160,16 +160,17 @@ IC50 값은 extrinsic constant 로 lab-to-lab variability 가 존재하고,
 condition에 따라 달라질 수 있다. 이때 얻어지는 IC50 값은 각각의 CYP
 isoform에 대해서 얻을 수 있으며, IC50 값의 해석은 아래와 같다.
 
-![](./media/image5.png){width="4.624873140857392in"
-height="2.392749343832021in"}
+```{r 05-04, fig.cap = "(ref:05-04)"}
+knitr::include_graphics('media-05/image5.png')
+```
 
-그림 . Metabolite formation depending on the various inhibitor
-concentration
+(ref:05-04) Metabolite formation depending on the various inhibitor concentration
 
-![](./media/image7.png){width="4.5462959317585305in"
-height="0.7766885389326335in"}
+```{r 05-05, fig.cap = "(ref:05-05)"}
+knitr::include_graphics('media-05/image7.png')
+```
 
-표 . Interpretation of IC50 values
+(ref:05-04) Interpretation of IC50 values
 
 #### CYP inhibition assay for Ki determination
 
@@ -197,28 +198,26 @@ Ki 값은 IC50 보다 재생산하기 쉬운 값으로, in vivo 단계에서의 
 
 \(A\)
 
-![](./media/image8.png){width="5.153167104111986in"
+![](./media-05/image8.png){width="5.153167104111986in"
 height="1.50288167104112in"}
 
-\(B\)
-
-![](./media/image9.png){width="2.9166666666666665in"
+![](./media-05/image9.png){width="2.9166666666666665in"
 height="2.701755249343832in"}
 
 **그림 5. Reaction rate vs. substrate concentration**
 
 \(A\) (b) and (B) plot: Y-intercept = Vmax, Slope = Km
 
-![](./media/image10.png){width="4.092361111111111in" height="3.0in"}
+![](./media-05/image10.png){width="4.092361111111111in" height="3.0in"}
 
 수식 . Rate equations for different inhibition model types
 
-![](./media/image11.png){width="2.5555555555555554in"
+![](./media-05/image11.png){width="2.5555555555555554in"
 height="0.7325918635170604in"}
 
 수식 . Estimation of Ki value based on IC50 value
 
-**5.4.2 Time-dependent inhibition assay**
+### Time-dependent inhibition assay
 
 TDI는 reversible inhibition 보다 안전성 측면에서 더 심각한 결과를 초래할
 수 있는 inhibition으로 in vitro inhibition assay 단계에서 potent TDI 로
@@ -229,34 +228,19 @@ drug discovery 단계에서 TDI 여부를 탐색하기를 추천한다. 일반�
 
 **Common practice to address TDI (tiered approach):**
 
-1.  **Single point assay**: reversible CYP inhibition assay 와 동시에
-    병행하여 진행할 수 있으나, reversible assay를 먼저 수행하기를
-    추천한다. ADME assay 초기 단계에 약물 후보가 많을 때 진행한다.
-
-2.  **IC50 shift assay**: 약물 개발 주기 뒷 단계에 진행되는 경우가
-    많으며, 더 많은 정보를 획득할 수 있다. 3. 실험을 계획하는데 결과가
-    활용된다.
-
-3.  **New thorough inactivation studies (Kinact, KI):** kinetic study 로
-    TDI parameter를 구할 수 있다.
+1.  **Single point assay**: reversible CYP inhibition assay 와 동시에 병행하여 진행할 수 있으나, reversible assay를 먼저 수행하기를 추천한다. ADME assay 초기 단계에 약물 후보가 많을 때 진행한다.
+2.  **IC50 shift assay**: 약물 개발 주기 뒷 단계에 진행되는 경우가 많으며, 더 많은 정보를 획득할 수 있다. 3. 실험을 계획하는데 결과가 활용된다.
+3.  **New thorough inactivation studies (Kinact, KI):** kinetic study 로 TDI parameter를 구할 수 있다.
 
 **CYP TDI single point assay**
 
-In vitro ADME assay 초기의 단계에 TDI potential을 screening 하기 위해
-수행된다. 단일의 inhibitor 농도를 가지고 실험하며, 고농도의 inhibitor
-농도(reversible inhibition assay 에서의 최고농도)와 substrate
-농도(일반적으로 Km 값의 5배)를 가지고 진행한다(reversible inhibition을
-최소화하기 위함).
+In vitro ADME assay 초기의 단계에 TDI potential을 screening 하기 위해 수행된다. 단일의 inhibitor 농도를 가지고 실험하며, 고농도의 inhibitor 농도(reversible inhibition assay 에서의 최고농도)와 substrate 농도(일반적으로 Km 값의 5배)를 가지고 진행한다(reversible inhibition을 최소화하기 위함).
 
-Preincubation을 거쳐(inhibitor + cofactor (NADPH) in HLM), substrate을
-투여한 후 incubation을 수행한다.
+Preincubation을 거쳐(inhibitor + cofactor (NADPH) in HLM), substrate을 투여한 후 incubation을 수행한다.
 
-후보 약물이 TDI 일 경우, enzyme의 active site에 결합하게 된다. 대사체가
-생성되는 반응이 측정되고, 수식에 따라 percent inhibition(%) 이
-계산된다(수식3).
+후보 약물이 TDI 일 경우, enzyme의 active site에 결합하게 된다. 대사체가 생성되는 반응이 측정되고, 수식에 따라 percent inhibition(%) 이 계산된다(수식3).
 
-![](./media/image12.png){width="4.027777777777778in"
-height="0.5216305774278215in"}
+![](./media-05/image12.png){width="4.027777777777778in" height="0.5216305774278215in"}
 
 수식 . Percent inhibition calculation for single point assay in TDI
 
@@ -274,7 +258,7 @@ shift of IC50), 해당 약물은 TDI을 나타내는 것으로 해석한다. 이
 IC50 값의 left shift는 preincubation을 통해 CYP activity를
 inhibition하는 potency 가 커짐을 의미한다.
 
-![](./media/image13.png){width="4.629166666666666in"
+![](./media-05/image13.png){width="4.629166666666666in"
 height="3.638888888888889in"}
 
 그림 . Example of IC50 shift profile of %CYP activity vs. inhibitor
@@ -298,23 +282,23 @@ constant for TDI 라고 일컬어 지는 Kinact 와 KI를 구할 수 있다(수�
 
 \(a\)
 
-![](./media/image14.png){width="4.552002405949256in"
+![](./media-05/image14.png){width="4.552002405949256in"
 height="2.850746937882765in"}
 
 \(b\)
 
-![](./media/image15.png){width="3.7222222222222223in"
+![](./media-05/image15.png){width="3.7222222222222223in"
 height="2.8986023622047243in"}
 
 그림 . Example of (a) %CYP activity remaining vs. preincubation time,
 (b) -slope (of (a) graph) vs. inhibitor concentration
 
-![](./media/image16.png){width="3.6437226596675414in"
+![](./media-05/image16.png){width="3.6437226596675414in"
 height="4.5462959317585305in"}
 
 수식 . (a) Observed rate (Kobs) model, (b) Linewever-Burk plot
 
-**5.5 In vitro inhibition parameter의 활용**
+## In vitro inhibition parameter의 활용
 
 위에 소개된 다양한 In vitro inhibition assay를 통해 우리는 결국
 inhibition parameter 값들을 산출하였다. 이 값들을 활용하여 각 inhibition
@@ -332,8 +316,7 @@ type별 model별로 수식에 적용하여, 각 CYP의 inhibition 정도를 나�
 사용하여DDI 예측이 가능하다. 이 과정을 통해 DDI 로 발생하는 임상에서의
 위험성을 최대로 낮출 수 있다.
 
-![](./media/image17.png){width="4.329432414698163in"
-height="2.3661734470691163in"}
+![](./media-05/image17.png){width="4.329432414698163in" height="2.3661734470691163in"}
 
 표 . Various DDI prediction models for reversible inhibition and
 time-dependent inhibition
