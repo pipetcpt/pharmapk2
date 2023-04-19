@@ -37,9 +37,9 @@ knitr::include_graphics('media-02/image2.jpg')
 (ref:02-02) 생체막의 구조: 인지질 이중층
 
 막 투과 기전을 이해하기 위하여 경구 투여된 약물이 장 상피세포를 투과하여 혈액으로 들어가는 과정을 생각해보자. 
-약물이 점막 상피세포의 brush border막을 통과하여 세포 내로 유입되고, 세포 내 확산 이동한 다음 측저막 (basolateral membrane)을 투과하여 모세혈관에 도달한다. 
-이러한 transcellular 수송은 막 내외의 농도 구배에 따른 수동수송 (passive transport) 뿐만 아니라 담체 (carrier), 펌프, 채널 등과 같은 막 단백질이 관여하여 농도 구배에 역행하는 능동수송 (active transport) 방식에 의해서도 이루어진다. 
-반면 세포 간극 (tight junction)을 통과하는 paracellular 수송은 수동수송 방식으로만 행하여진다 (그림 \@ref(fig:02-03)).
+약물이 점막 상피세포의 brush border막을 통과하여 상피세포 속으로 유입되고, 확산 이동하여 측저막(basolateral membrane)을 투과하여 모세혈관에 도달한다. 
+이러한 transcellular 수송은 막 내외의 농도 구배에 따른 수동수송(passive transport) 뿐만 아니라 담체(carrier), 펌프, 채널 등과 같은 막 단백질이 관여하여 농도 경사에 역행하는 능동수송(active transport) 방식에 의해서도 이루어진다. 
+반면 세포 간극(tight junction)을 통과하는 paracellular 수송은 수동수송 방식으로만 행하여진다(그림 \@ref(fig:02-03)).
 수동수송과 능동수송의 차이는 생체 대사에너지에 대한 의존성으로, 후자는 수송 시 생체 대사에너지를 필요로 한다. 
 따라서 능동수송의 경우 대사 저해제 혹은 저온 환경에 의해 대사가 억제되면 투과도가 낮아질 수 있으며, 관여하는 막 단백질의 양에 한계가 있어 투과도의 포화 현상이 나타날 수 있다.
 
@@ -52,9 +52,9 @@ knitr::include_graphics('media-02/image3.png')
 ### 투과도에 영향을 주는 인자
 
 앞서 살펴본 바와 같이 생체막은 인지질 이중층으로 구성되어 있어 약물의 지용성이 높을수록 세포막을 투과하기 쉽다. 
-그리고 해리형에 비해 비해리형은 지용성이 높으므로 더욱 잘 투과할 수 있으며, 따라서 약물의 pKa 및 막 내외의 pH 조건에 따라 투과도가 결정될 수 있다. 
-또한 soluble한 약물만이 투과할 수 있기에 약물의 용해도 역시 투과도에 영향을 주는 요인이다. 
-막 단백질과의 상호작용 또한 약물의 투과도를 결정하는 인자로, 가장 대표적인 예로서 uptake 혹은 efflux transporter의 발현 정도 및 그에 대한 약물의 친화도 (affinity)에 의해 약물의 투과도가 결정되기도 한다 (그림 \@ref(fig:02-04)).
+그리고 해리형에 비해 비해리형은 지용성이 높으므로 더욱 잘 투과할 수 있으며, 따라서 약물의 pKa 및 막 안팎의 pH 조건에 따라 투과도가 결정될 수 있다. 
+또한 용해된 약물만이 투과할 수 있기에 약물의 용해도 역시 투과도에 영향을 주는 요인이다. 
+막 단백질과의 상호작용 또한 약물의 투과도를 결정하는 인자로, 가장 대표적인 예로서 uptake 혹은 efflux transporter의 발현 정도 및 그에 대한 약물의 친화도(affinity)에 의해 약물의 투과도가 결정되기도 한다(그림 \@ref(fig:02-04)).
 
 높은 투과도를 보이는 약물의 특성을 요약하면 다음과 같다.
 
@@ -70,14 +70,14 @@ knitr::include_graphics('media-02/image4.png')
 
 (ref:02-04) 약물의 투과도에 영향을 주는 인자
 
-## 투과도 평가 시험
+## 투과도 평가 
 
-### PAMPA (Parallel Artificial Membrane Permeability Assay)
+### PAMPA(Parallel Artificial Membrane Permeability Assay)
 
 인공지질막을 이용한 시험법으로, 여러 막 투과 기전 중 수동수송에 대한 평가만이 가능하다는 특징이 있다. 
 주된 흡수 장기인 소장에서 약물은 주로 수동수송에 의해 장 상피세포를 투과하는 것으로 알려져 있으며, 이에 신약 개발 초기 단계에서 다수의 화합물에 대하여 빠르게 투과도를 평가하기 위하여 PAMPA 시험법이 널리 활용되고 있다.
 
-PAMPA 시험은 그림 \@ref(fig:02-05)와 같이 인공지질막이 있는 Kit를 사용하여 평가한다.
+PAMPA 시험은 그림 \@ref(fig:02-05)와 같이 인공지질막이 있는 키트를 사용하여 평가한다.
 
 ```{r 02-05, fig.cap = "(ref:02-05)"}
 knitr::include_graphics('media-02/image5.png')
@@ -86,7 +86,7 @@ knitr::include_graphics('media-02/image5.png')
 (ref:02-05) PAMPA 시험의 모식도
 
 먼저 DMSO 등의 유기용매에 약물을 완전히 용해시켜 stock solution을 만든다. 
-그리고 Donor plate의 well에는 약물을 평가하고자 하는 농도가 되도록 PBS buffer를 이용해 희석한 후 넣고, Acceptor plate의 well에는 PBS buffer를 넣어 25 ˚C에서 5시간 이상 배양한 후 Donor 및 Acceptor plate에서의 약물 농도를 LC-MS/MS와 같은 분석 기기로 측정하여 아래와 같은 식으로 P~e~값을 산출한다.
+그리고 donor plate의 well에는 약물을 평가하고자 하는 농도가 되도록 PBS buffer를 이용해 희석한 후 넣고, acceptor plate의 well에는 PBS buffer를 넣어 25˚C에서 5시간 이상 배양한 후 donor 및 acceptor plate에서의 약물 농도를 LC-MS/MS와 같은 분석 기기로 측정하여 아래와 같은 식으로 P~e~값을 산출한다.
 
 \begin{equation}
 P_{e} = C\  \times \left\lbrack - Ln\mspace{6mu}\left( 1 - \frac{\lbrack drug\rbrack_{acceptor}}{\lbrack drug\rbrack_{equilibrium}} \right) \right\rbrack
@@ -103,8 +103,8 @@ t = incubation time (in seconds)
 [drug]~donor~ = Concentration of compound in the donor compartment at the assay completion  
 [drug]~equilibrium~ = Concentration of compound at theoretical equilibrium  
 
-별도의 세포 배양 과정이 필요 없고, 약물의 농도를 UV plate reader를 활용하여 측정할 경우 대량의 화합물을 빠르게 평가할 수 있다는 것이 PAMPA의 가장 큰 장점이라 할 수 있다. 
-또한 세포주를 이용한 시험법 (cell-based assay)과 비교하였을 때 더욱 넓은 pH 범위에서 평가가 가능하므로, 보다 다양한 막 투과도 평가에 활용되고 있다. 
+별도의세포배양 과정이 필요 없고, 약물의 농도를 UV plate reader를 활용하여 측정할 경우 대량의 화합물을 빠르게 평가할 수 있다는 것이 PAMPA의 가장 큰 장점이라 할 수 있다. 
+또한 세포주를 이용한 시험법(cell-based assay)과 비교하였을 때 더욱 넓은 pH 범위에서 평가가 가능하므로, 보다 다양한 막 투과도 평가에 활용되고 있다. 
 그 예로 PAMPA-BBB를 활용하여 Brain-Blood Barrier에 대한 약물의 투과도를 평가할 수 있다. 
 그러나, 만약 UV plate reader를 활용하는 경우 약물의 평가 농도가 비교적 고농도에서 수행되어야 하는데, 이 때 용해도가 매우 낮은 약물인 경우 시험이 불가능할 수 있다. 
 그리고 수동수송 방식만이 구현되어 있어 실제로 약물이 막을 투과하는 기전을 완전히 재현하지는 못한 시험계로서 특히 transporter와 약물 간 상호작용을 평가할 수 없다는 단점이 있다.
@@ -112,12 +112,12 @@ t = incubation time (in seconds)
 ### Caco-2 cell-based permeability assay
 
 사람 대장암 세포에서 유래한 Caco-2 세포주를 이용한 시험법으로, Caco-2
-세포는 분화되면서 형태학적 및 기능학적으로 사람의 소장 상피세포와 유사한
+세포는 분화되면서 모양이나 기능에서 사람의 소장 상피세포와 유사한
 특성 (예: microvilli을 가지며 tight junction을 형성)을 보이므로 경구용
 약물의 투과도 평가 시 많이 활용되고 있다.
 
 Caco-2 투과도 시험은 그림 \@ref(fig:02-06)에 나타낸 바와 같이, well plate에
-monolayer로 Caco-2 세포를 배양하고, Apical 및 Basolateral side에 각각
+단일층으로 Caco-2 세포를 배양하고, apical 및 basolateral side에 각각
 약물을 처리한 후 약물의 양방향성 수송능을 측정하기 위하여 Apical 및
 Basolateral side 모두에서 약물 농도를 측정한다.
 
@@ -127,7 +127,7 @@ knitr::include_graphics('media-02/image6.png')
 
 (ref:02-06) Caco-2 cell-based permeability assay 방법
 
-그리고 아래와 같은 식을 이용하여 세포막 투과 계수 (P~app~, Apparent permeability coefficient) 및 Efflux ratio를 산출한다.
+그리고 아래와 같은 식을 이용하여 세포막 투과 계수 (P~app~, apparent permeability coefficient) 및 efflux ratio를 산출한다.
 
 \begin{equation}
 \begin{split}
@@ -137,7 +137,7 @@ Efflux\ ratio &= \frac{P_{app (B to A)}}{P_{app (A to B)}}
 (\#eq:eq02-02) 
 \end{equation}
 
-여기서 dQ/dt는 초기 약물 수송 속도 (initial transport rate, μmol/s), A는 well의 표면적 (the surface area of the monolayer, cm^2^), C~0~는 처리한 약물의 농도 (initial concentration in the donor chamber, μmol/cm^3^)를 의미한다.
+여기서 dQ/dt는 초기 약물수송속도 (initial transport rate, μmol/s), A는 well의 표면적 (the surface area of the monolayer, cm^2^), C~0~는 처리한 약물의 농도 (initial concentration in the donor chamber, μmol/cm^3^)를 의미한다.
 
 Caco-2 투과도 시험계에서는 약물의 수동수송 뿐만 아니라 능동수송 방식에 의한 막 투과도 행하여 지며, 내강막 (Apical membrane) 및 측저막 (Basolateral membrane) 간 양방향의 수송이 모두 일어난다. 또한 장에 많이 발현되어 있으며 약물의 흡수를 저해하는 P-glycoprotein (P-gp) 및 Breast cancer resistant protein (BCRP)와 같은 efflux transporter의 기질성 여부까지 판단할 수 있다 (기질인 경우 Efflux ratio \> 2).  그러나 세포 배양 시 3주 이상이 소요되고, 시험 1주일 전 antibiotics-free media로 배양하는 과정 중 contamination의 가능성도 있으며 시험 수행에 숙련된 기술이 필요하기 때문에 수행자나 기관에 따라 그 값의 편차가 심하다는 단점이 있다. 또한 Caco-2 세포주가 사람의 대장세포라 실제 약물의 흡수가 많이 이루어지는 소장과는 다소 차이가 있을 수 있다.
 
