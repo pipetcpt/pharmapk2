@@ -103,7 +103,7 @@ t = incubation time (in seconds)
 [drug]~donor~ = Concentration of compound in the donor compartment at the assay completion  
 [drug]~equilibrium~ = Concentration of compound at theoretical equilibrium  
 
-별도의세포배양 과정이 필요 없고, 약물의 농도를 UV plate reader를 활용하여 측정할 경우 대량의 화합물을 빠르게 평가할 수 있다는 것이 PAMPA의 가장 큰 장점이라 할 수 있다. 
+별도의 세포배양 과정이 필요 없고, 약물의 농도를 UV plate reader를 활용하여 측정할 경우 대량의 화합물을 빠르게 평가할 수 있다는 것이 PAMPA의 가장 큰 장점이라 할 수 있다. 
 또한 세포주를 이용한 시험법(cell-based assay)과 비교하였을 때 더욱 넓은 pH 범위에서 평가가 가능하므로, 보다 다양한 막 투과도 평가에 활용되고 있다. 
 그 예로 PAMPA-BBB를 활용하여 Brain-Blood Barrier에 대한 약물의 투과도를 평가할 수 있다. 
 그러나, 만약 UV plate reader를 활용하는 경우 약물의 평가 농도가 비교적 고농도에서 수행되어야 하는데, 이 때 용해도가 매우 낮은 약물인 경우 시험이 불가능할 수 있다. 
