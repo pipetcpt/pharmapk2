@@ -8,12 +8,12 @@
 
 ## 서론
 
-용해도(solubility)는 약물의 흡수에 관여하는 요소로 생체이용률에 영향을 줄 수 있어 신약개발 과정에서 매우 중요하다. 우리가 정제 혹은 캡슐 등의 형태인 약을 경구로 투여했을 때 유효 성분의 약물은 붕해(disintegration), 용해(dissolution) 및 확산(diffusion) 과정을 거쳐 전신 순환혈에 흡수된다 (그림 \@ref(fig:01-01)).
+용해도(solubility)는 약물의 흡수에 관여하는 요소로 생체이용률에 영향을 줄 수 있어 신약개발 과정에서 매우 중요하다. 우리가 정제 혹은 캡슐 등의 형태인 약을 경구로 투여했을 때 유효 성분의 약물은 붕해(disintegration), 용해(dissolution) 및 확산(diffusion) 과정을 거쳐 전신 순환혈에 흡수된다 (그림 \@ref(fig:figure-first)).
 
 
 <!--![](./media-01/image1.png){width="5.887119422572178in" height="2.940298556430446in"}-->
 
-```{r 01-01, fig.cap = "(ref:01-01)"}
+```{r figure-first, fig.cap = "(ref:01-01)"}
 knitr::include_graphics('media-01/image1.png')
 ```
 
