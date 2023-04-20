@@ -127,7 +127,7 @@ knitr::include_graphics('media-02/image6.png')
 
 (ref:02-06) Caco-2 cell-based permeability assay 방법
 
-그리고 아래와 같은 식을 이용하여 세포막 투과 계수 (P~app~, apparent permeability coefficient) 및 efflux ratio를 산출한다.
+그리고 아래와 같은 식을 이용하여 세포막 투과계수(P~app~, apparent permeability coefficient) 및 efflux ratio를 산출한다.
 
 \begin{equation}
 \begin{split}
