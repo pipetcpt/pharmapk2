@@ -118,8 +118,8 @@ t = incubation time (in seconds)
 
 Caco-2 투과도 시험은 그림 \@ref(fig:02-06)에 나타낸 바와 같이, well plate에
 단일층으로 Caco-2 세포를 배양하고, apical 및 basolateral side에 각각
-약물을 처리한 후 약물의 양방향성 수송능을 측정하기 위하여 Apical 및
-Basolateral side 모두에서 약물 농도를 측정한다.
+약물을 처리한 후 약물의 양방향성 수송능을 측정하기 위하여 apical 및
+basolateral side 모두에서 약물 농도를 측정한다.
 
 ```{r 02-06, fig.cap = "(ref:02-06)"}
 knitr::include_graphics('media-02/image6.png')
