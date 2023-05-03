@@ -145,14 +145,14 @@ European Medicine Agency (EMA) 및 International Transporter Consortium(ITC)에�
 
 Multidrug and toxin extrusion (MATE) 수송체는 주로 간의 canalicular
 membrane (MATE1)과 신장 proximal tubule cells의 brush-border membrane
-(MATE1, MATE2-K)에 존재하는 efflux 수송체이다 (그림 \@ref(fig:07-04)). 주로 양이온이나 zwitter 이온 물질을 수송시키며, 신장에서 약물을 배설시키는
+(MATE1/ MATE2-K)에 존재하는 efflux 수송체이다 (그림 \@ref(fig:07-04)). 주로 양이온이나 zwitter 이온 물질을 수송시키며, 신장에서 약물을 배설시키는
 역할을 한다.
 
 ```{r 07-04, fig.cap = "(ref:07-04)"}
 knitr::include_graphics('media-07/image6.png')
 ```
 
-(ref:07-04) 신장 proximal tubule cell에 발현되어 있는 수송체
+(ref:07-04) 신장 근위세뇨관 세포에 발현되어 있는 수송체
 
 ## 수송체를 매개한 약물의 세포 내 분포
 
