@@ -492,8 +492,8 @@ ratio를 의미한다.
 
 \begin{equation}
 \begin{split}
-{CL}_{int,h} = \ \frac{{(CL}_{uptake} + {CL}_{PD})\  \cdot \ {CL}_{int}}{{(CL}_{efflux} + {CL}_{PD} + {CL}_{int})} \\
-{CL}_{h} = \ Q_{h} \cdot \frac{f_{B} \cdot {(CL}_{uptake} + {CL}_{PD})\  \cdot \ {CL}_{int}}{{Q_{h} \cdot (CL}_{efflux} + {CL}_{PD} + {CL}_{int}) + \ f_{B} \cdot {(CL}_{uptake} + {CL}_{PD})\  \cdot \ {CL}_{int}\ } = \ Q_{h} \cdot E_{h}
+{CL}_{int,h} = \ \frac{{(CL}_{uptake} + {CL}_{pd})\  \cdot \ {CL}_{int}}{{(CL}_{efflux} + {CL}_{pd} + {CL}_{int})} \\
+{CL}_{h} = \ Q_{h} \cdot \frac{f_{B} \cdot {(CL}_{uptake} + {CL}_{pd})\  \cdot \ {CL}_{int}}{{Q_{h} \cdot (CL}_{efflux} + {CL}_{pd} + {CL}_{int}) + \ f_{B} \cdot {(CL}_{uptake} + {CL}_{pd})\  \cdot \ {CL}_{int}\ } = \ Q_{h} \cdot E_{h}
 \end{split}
 (\#eq:eq07-06) 
 \end{equation}
