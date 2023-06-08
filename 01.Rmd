@@ -135,7 +135,7 @@ Table: (\#tab:table01-03) 인공 위액 및 인공 장액의 비교
 
 +--------+------------------------------+------------------------------+
 | 종류   | 인공 위액                    | 인공 장액                    |
-|        | (SGF, Stimulated Gastric     | (SIF, Stimulated Gastric     |
+|        | (SGF, Simulated Gastric     | (SIF, Simulated Gastric     |
 |        | Fluid)                       | Fluid)                       |
 +========+==============================+==============================+
 | 정의   | USP에 의해 정의된            | USP에 의해 정의된            |
