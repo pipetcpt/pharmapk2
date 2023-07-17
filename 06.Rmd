@@ -29,7 +29,7 @@ opts_chunk$set(echo=FALSE)
 또한, 유도체(inducer)란 이러한 방식으로 특성 효소를 유도할 수 있는 능력이 있는 물질을 의미한다.
 유도 작용은 주로 핵 내 수용체 결합에 의해 유전자 발현을 조절하는 방식으로 일어나며 동물간 리간드 결합 도메인의 차이가 있기 때문에 동물 실험의 결과로 인간에서의 결과를 예측하기 어렵다.
 또한, 유전자 발현 조절을 통해 효소의 양을 증가시키는 방식이기 때문에 유도 작용은 다른 약물 상호작용에 비해 최대 효과가 나타나는 데에 시간이 걸리며 (7일 이상),
-약물을 중단한 후에도 당분간 유지되는 특성이 있다./
+약물을 중단한 후에도 당분간 유지되는 특성이 있다.
 
 대사 유도는 
 1) 약물의 노출을 감소 시켜 약물의 효과를 감소시킬 수 있고 (Efficacy 감소)
@@ -72,7 +72,7 @@ knitr::include_graphics('media-06/image1.png')
 
 ### 유도체에 의한 활성효소의 변화
 
-효소는 체내에서 평형을 이루고 있으며 아래 그림과 같이 일정한 생성속도와 제거속도에 의해 결정되는 turnover model을 따른다(그림 \@ref(fig:turnover)). turnover model을 표현한 식은 아래 식\@ref(eq:eq10-1)과 같으며 유도체가 없는 상황에서는 생성속도(R~syn~)와 제거속도(k~deg~ * Enz(0))가 동일한 동적 평형 상태($\frac{dEnz(t)}{dt}$)를 이룬다. 
+효소는 체내에서 평형을 이루고 있으며 아래 그림과 같이 일정한 생성속도와 제거속도에 의해 결정되는 turnover model을 따른다(그림 \@ref(fig:turnover)). turnover model을 표현한 식은 아래 식\@ref(eq:eq10-1)과 같으며 유도체가 없는 상황에서는 생성속도($R{syn}$)와 제거속도($k{deg} /cdot Enz{(0)}$)가 동일한 동적 평형 상태($\frac{dEnz(t)}{dt}$)를 이룬다. 
 
 ```{r turnover, fig.cap = "(ref:turnover)", echo = FALSE}
 knitr::include_graphics('media-06/image2.png')
@@ -183,8 +183,15 @@ R3는 다소 복잡한 식으로 아래와 같이 계산한다.
 
 ## In vitro-in vivo extrapolation (IVIVE)
 
-Induction 실험에서의 결과를 통해 in vivo에서의 결과를 정량적으로 예측할 수 있다.
+Induction 실험에서의 결과를 통해 in vivo에서의 결과를 정량적으로 예측할 수 있다. 이를 위해서는 Mechanistic static model을 사용하거나 PBPK model을 사용할 수 있다.
+Mechanistic static model을 사용하는 경우, 병용하는 약물의 각 Enzyme 별 대사 정도($F{m, enzyme}$)와 후보 물질의 해당 Enzyme에 대한 Induction 실험을 통해 얻은 파라미터(E~max~, EC~50~)를 사용하여
+AUCR, 즉 AUC의 변화량을 계산하게 되며 해당 방법은 아래와 같다.
 
-## 후보 약물에서의 유도 가능성 평가를 위한 animal model
+\begin{equation}
+\AUCR = frac{1}{(1 + d \cdot \frac{E{max} \cdot I{max,u,gut}}{EC{50} + I{max,u,gut}}) \cdot f{g} + (1 - f{g})} /cdot frac{1}{(1 + d \cdot \frac{E{max} \cdot I{max,u,hep}}{EC{50} + I{max,u,hep}}) \cdot f{m} + (1 - f{m})} 
+(\#eq:eq06-5)
+\end{equation}
 
-일반적으로 
+해당 방법은 병용 약물의 대사 수준을 고려하며 후보 약물의 각 장기에서의 농도를 고려하기 때문에 기존의 Basic kinetic model보다 더 정확한 예측을 할 수 있다. 단, 시간에 따른 농도의 변화를 고려하고 있지 않고
+가장 높은 시점의 농도를 사용하고 있기 때문에 약물 상호작용 수준이 과대 추정될 가능성이 있기 때문에 더 정확한 결과를 원하는 경우 PBPK modeling을 통해서 예측해 보는 것이 좋다.
+
