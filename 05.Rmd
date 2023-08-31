@@ -44,17 +44,17 @@ isozyme profiling 등이 있다. 이와 같은 metabolic DDI 평가에는 Cytoch
 P450 억제평가, 유도평가 및 activation/suppression 평가가
 포함된다.
 
-신약개발 주기에서 in vitro DDI 평가, 특히 inhibition 평가는 언제 이루어
+신약개발 주기에서 in vitro DDI 평가, 특히 대사 억제 평가는 언제 이루어
 지는지 알아보자. In vitro inhibition assay는 drug discovery 단계에서부터
 수행되어야 한다. Drug discovery의 lead optimization 과정에서 수많은 약물
-후보를 기반으로 개발약물이 inhibitor 인지 대규모로 screening 하는 과정을
-거친다(i.e. 일반적으로 combined approach를 사용하여inhibition 평가하며,
-potent 한 TDI는 개발에서 제외하는 전략을 많이 취함). 이후에 drug
+후보를 기반으로 개발약물이 대사 억제제 인지 대규모로 스크리닝하는 과정을
+거친다(i.e. 일반적으로 combined approach를 사용하여 대사 억제를 평가하며,
+강한 시간 의존적 억제제(Time-dependent inhibitor)는 개발에서 제외하는 전략을 많이 취함). 이후에 drug
 development 단계로 와서 선택된 몇 개의 lead compound에 대해서는 보다 더
 구체적인 정보를 얻기 위한 inhibition assay를 진행해야 한다. 임상 시험에
-가까워질수록 in vitro inhibition assay 들은 GLP 와 비슷한 수준에서
-수행되어져야 한다. 이와 같은 약물개발 주기에서의 in vitro 정보를 활용한
-DDI 평가는 FDA 가이던스와 EMA 가이드 라인에서도 추천되어 진다.
+가까워질수록 in vitro inhibition assay는 GLP 와 비슷한 수준에서
+수행되어야 한다. 이와 같은 약물개발 주기에서의 in vitro 정보를 활용한
+DDI 평가는 FDA 가이던스와 EMA 가이드 라인에서도 추천하고 있다.
 
 ```{r 05-02, fig.cap = "(ref:05-02)"}
 knitr::include_graphics('media-05/image3.png')
@@ -72,19 +72,16 @@ height="3.3409722222222222in"}
 
 ## 대사 억제 작용 메커니즘
 
-FDA에서 확인하기를 권고하는 주요 CYP isoform 은 7가지이며, 이는 아래와
+FDA에서 확인하기를 권고하는 주요 CYP isoform 은 7가지로 아래와
 같다:
 
 CYP1A2, CYP2B6, CYP2C8, CYP2C9, CYP2C19, CYP2D6, CYP3A
 
-대사 억제 작용의 종류는 크게 두가지로 나눌 수 있으며, 이는 reversible
-inhibition 과 mechanism-based inhibition이다. Reversible inhibition 은
-direct inhibition이라고도 불리우며, inhibitor 와 enzyme이 covalent 하게
-결합한 경우로, 빠른 시간 내에 dissociation 이 일어난다. 그리고 바로
-enzyme activity 가 restore 된다. Reversible inhibition 은 inhibitor 와
-enzyme의 결합 양상에 따라 여러 종류로 아래와 같이 세분화될 수 있다:
+대사 억제 작용의 종류는 크게 두가지로 나눌 수 있으며, 가역적 억제는 direct inhibition이라고도 불리우며,억제제-효소가
+약하게 결합한 경우로, 빠른 시간 내에 분리가 일어난다. 그리고 바로 효소 활성이 회복된다. 
+가역적 억제는 억제제와 대사 효소의 결합 양상에 따라 여러 종류로 아래와 같이 세분화될 수 있다:
 
--   Competitive inhibition: inhibitor 와 substrate 이 동일한 active
+-   경쟁적 저해(Competitive inhibition):  억제제와 기질이 동일한 active
     binding site를 놓고 경쟁하는 경우이다. Inhibitor 와 enzyme 이
     결합하는 경우 더 이상 기존 enzyme은 반응하지 않는다. Inhibitor의
     효과가 Km에 반영되어 있으며 (Vmax 값은 동일), inhibitor 농도가
