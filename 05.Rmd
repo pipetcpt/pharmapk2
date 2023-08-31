@@ -81,48 +81,45 @@ CYP1A2, CYP2B6, CYP2C8, CYP2C9, CYP2C19, CYP2D6, CYP3A
 약하게 결합한 경우로, 빠른 시간 내에 분리가 일어난다. 그리고 바로 효소 활성이 회복된다. 
 가역적 억제는 억제제와 대사 효소의 결합 양상에 따라 여러 종류로 아래와 같이 세분화될 수 있다:
 
--   경쟁적 저해(Competitive inhibition):  억제제와 기질이 동일한 active
-    binding site를 놓고 경쟁하는 경우이다. Inhibitor 와 enzyme 이
-    결합하는 경우 더 이상 기존 enzyme은 반응하지 않는다. Inhibitor의
-    효과가 Km에 반영되어 있으며 (Vmax 값은 동일), inhibitor 농도가
-    증가할수록 Km 값이 증가한다.
--   Noncompetitive inhibition: inhibitor 가 free enzyme 과 결합하며,
-    enzyme + substrate complex 와도 결합이 가능하다. 이 경우, inhibitor
-    농도가 증가할수록 Vmax는 감소하고 Km 은 그대로이다.
--   Uncompetitive inhibition: inhibitor 가 enzyme + substrate complex
-    에만 결합이 가능하다. 약물 대사 반응에서 흔히 관측되지 않는
-    inhibition 종류이며, inhibitor 농도가 증가할수록 Vmax, Km 이 모두
-    감소한다.
+-   경쟁적 저해(Competitive inhibition):  억제제와 기질이 동일한 활성 부위(active
+    binding site)에 결합이 가능하며 이를 놓고 경쟁하는 경우이다. 억제제와 대사 효소가 결합하면
+    더 이상 기존 대사 효소는 반응하지 않는다. 억제제의
+    효과가 Km에 반영되어 있으며 (Vmax 값은 동일), 억제제 농도가
+    증가할수록 Km 값이 증가하며 특정 시점 부터는 증가하지 않으며, 효소의 활성 결합 부위를 완전히 포화되도록 채우는 충분한 기질이 있을 때에 이 시점에 도달한다.
 
-Mechanism-based inhibition (MBI)은 흔히 time-dependent inhibition
-(TDI)라고도 불리우나, TDI 이 조금 더 큰 범주라고 할 수 있다. TDI은
-preincubation 시간을 거치면서 inhibition potency 가 더 좋아지는 경우를
-일컬으며, MBI는 TDI의 한 종류로 볼 수 있다. MBI에서는 inhibitor 와
-enzyme 이 결합하여 reactive metabolite을 생성하고, enzyme 이 activity를
-잃고 inactive 한 상태로 변한다. 따라서 이를 irreversible
-inhibition이라고도 부른다.
+-   비경쟁적 저해(Noncompetitive inhibition): 억제제가 유리 효소(free enzyme)와 결합하며,
+    기질-효소 복합체(complex)에도 결합할 수 있다. 비경쟁적 저해제는 기질의 농도를 높여도 저해 효과가 상쇄되지 않는다. 이 경우, 억제제
+    농도가 증가할수록 효소와 결합시 효소의 활성 부위의 입체 구조가 변해 기질이 효소에 잘 결합하지 못해서 Vmax는 감소하지만, 기질은 평소의 친화력으로 효소와 결합하여 Km 은 그대로이다.
+-   불경쟁적 저해(Uncompetitive inhibition): 억제제는 기질-효소 복합체에만 결합한다.
+    불경쟁적 저해는 약물 대사 반응에서 매우 드문 효소 저해 유형이다. 
+    기질의 농도를 높이더라도 저해 효과가 상쇄나 감소되지 않는다. 복합체에 억제제가 결합하면 복합체 양은 줄어들며, 이러한 감소는 기질이 활성 부위를 떠나는데 오랜 시간이 걸리게 하므로 Vmax가 감소된다. 복합체 감소를 보상하기 위해 더 많은 유리 효소가 복합체 형태로 전환되고, 이는 효소와 기질의 높은 결합 친화도를 나타내며 Km은 감소된다.
+    
+Mechanism-based inhibition (MBI)은 흔히 시간 의존적 억제(time-dependent inhibition,TDI)
+라고도 불리우나, TDI 이 조금 더 큰 범주라고 할 수 있다. TDI은
+preincubation 시간을 거치면서 억제 효능(inhibition potency)이 더 좋아지는 경우를
+일컬으며, MBI는 TDI의 한 종류로 볼 수 있다. MBI에서는 억제제와
+enzyme 이 결합하여 reactive metabolite을 생성하고, 대사 효소가 활성을 잃고
+비활성(inactive) 상태로 변한다. 따라서 이를 비가역성 억제(irreversible
+inhibition)라고도 부른다.
 
 ## 대사 억제 특성 평가 실험 (in vitro inhibition assay)
 
-후보물질의 대사 억제 특성을 평가하기 위해서 각 inhibition 종류
-(reversible vs. time-dependent inhibition)에 따라 핵심 in vitro assay를
-수행하여 핵심 inhibition parameter를 구해야 한다.
+후보물질의 대사 억제 특성을 평가하기 위해서 각 억제 종류
+(가역적 억제 vs. 시간 의존적 억제)에 따라 핵심 in vitro assay를
+수행하여 핵심 억제 파라미터를 구해야 한다.
 
-우선, reversible inhibition의 경우 핵심 assay 로는 IC50 와 Ki를 결정하는
-시험들이 있다. Time-dependent inhibition assay 로는 Single point assay,
-IC50 shift assay, 그리고 Kinact, KI를 결정하는 assay 가 주요하다(IC50:
-drug concentration achieving 50% of maximal reversible inhibition, Ki:
-reversible inhibition constant, Kinact: drug concentration achieving 50%
+우선, 가역적 억제의 경우 핵심 assay 로는 IC50 와 Ki를 결정하는
+시험들이 중요하다.(IC50: drug concentration achieving 50% of maximal reversible inhibition, 
+Ki: reversible inhibition constant) 시간 의존적 억제 관련 assay로는 Single point assay,
+IC50 shift assay, 그리고 Kinact, KI를 결정하는 assay가 중요하다(Kinact: drug concentration achieving 50%
 of maximal inhibition of TDI, KI: TDI constant).
 
 이와 같은 핵심 inhibition assay를 수행하기 전에 무엇보다 우선적으로
 수행되어야 하는 것은 substrate saturation experiment(또는 metabolic
-stability test)이다. 이를 통해 substrate의 enzyme kinetic parameter(Km,
-Vmax)를 구할 수 있고 특히, 이때 얻은 Km 값을 참고하여 in vitro
-inhibition assay에서 사용할 적합한 substrate의 농도를 설정할 수
-있다(Vmax: maximum reaction rate, Km: substrate concentration at
-half-maximum reaction rate (velocity))
-
+stability test)이다. 이를 통해 기질의 enzyme kinetic parameter(Km,
+Vmax)를 구할 수 있고 intrinsic clearance(CLint)를 구할 수 있으며(이는 억제제가 없는 조건, in absence of inhibitor),
+이때 얻은 Km 값을 참고하여 in vitro inhibition assay에서 사용할 적합한 기질의 농도를 설정할 수
+있다.
 ```{r 05-03, fig.cap = "(ref:05-03)"}
 knitr::include_graphics('media-05/image4.png')
 ```
@@ -136,19 +133,17 @@ knitr::include_graphics('media-05/image4.png')
 FDA의 가이던스에 따라 7종류의 주요 CYP isoform에 대하여 평가를
 수행해야한다.
 
-Reversible inhibition을 하는지 평가하기 위해 우선 IC50를 구해야 한다.
-이는CYP inhibition assay (IC50)로 구할 수 있다. 이때의 IC50는 50%
-inhibition을 나타낸 inhibitor의 농도를 의미하며, 다양한 test compound를
-재료로 inhibitor 농도에서 metabolite formation을 측정하여, 궁극적으로
-inhibitor 농도에 따라 metabolite formation 이 얼마나 inhibit 됐는지를
-plotting 확인하여 IC50를 구한다.
+가역적 억제제인지 평가하기 위해 우선 IC50를 구해야 한다.
+이는 CYP inhibition assay(IC50)로 구할 수 있다. 이때의 IC50는 50%
+억제를 나타낸 억제제의 농도를 의미하며, 다양한 test compound를
+재료로 다양한 억제제 농도에서 생성되는 대사체의 양을 측정하여, 궁극적으로
+억제제의 농도에 따라 대사체 생성이 얼마나 억제 되었는지를 그래프화 하여 IC50를 구한다.
 
-Inhibitor, substrate 그리고 HLM을 preincubate 시킨 후, cofactor 인
-NADPH를 넣고 incubation을 거친다. 각 inhibitor의 농도에서 metabolite
-formation을 LC-MS/MS를 통해 관측한다.
+억제제와 기질을 Human liver microsome(HLM)과 함께 preincubate 시킨 후, 조효소(cofactor)인
+NADPH를 넣고 incubation을 거친다. 각 억제제의 농도에서 대사체 생성 양을 LC-MS/MS를 통해 관측한다.
 
 IC50 값은 extrinsic constant 로 lab-to-lab variability 가 존재하고,
-재생산하기 어려운 값일 수 있다. Substrate의 종류, 농도 그리고 incubation
+재생산하기 어려운 값일 수 있으며, 기질의 종류, 농도 그리고 incubation
 condition에 따라 달라질 수 있다. 이때 얻어지는 IC50 값은 각각의 CYP
 isoform에 대해서 얻을 수 있으며, IC50 값의 해석은 아래와 같다.
 
@@ -167,25 +162,25 @@ knitr::include_graphics('media-05/image7.png')
 #### CYP inhibition assay for Ki determination
 
 앞에 소개된 IC50 값을 실험을 통해 구한 후 이를 활용하여 각 CYP isoform
-별로 Ki 값을 구할 수 있다. 미리 산출된 IC50 값은 실험에 적합한 inhibitor
-농도를 구하기 위해 사용되며, 산출된 IC50 농도와 근접하게 inhibitor
+별로 Ki 값을 구할 수 있다. 미리 산출된 IC50 값은 실험에 적합한 억제제
+농도를 구하기 위해 사용되며, 산출된 IC50 농도와 근접하게 억제제
 농도를 설정한다.
 
-실험은 다양한 substrate 과 inhibitor 농도로 수행된다. 아래와 같이 다양한
-inhibitor 농도에 따른 reaction rate vs. substrate concentration 그래프를
-얻을 수 있다(그림 5). 그래프의 양상을 통해 reversible inhibition 종류를
+실험은 다양한 기질과 억제제농도로 수행된다. 아래와 같이 다양한
+억제제 농도에 따른 반응속도(velocity)와 기질농도([S])의 그래프를 얻을 수 있다. reaction rate vs. substrate concentration 그래프를
+얻을 수 있다(그림 6). 그래프의 양상을 통해 가역적 억제의 종류를
 알아낼 수 있다(i.e. competitive, noncompetitive, uncompetitive, or
-mixed). Ki를 구하는 방법은 여러가지로, regression을 통해서 모델 식에
+mixed). Ki를 구하는 방법은 여러가지로, regression을 통해서 Rate equation 식에
 fitting 한 후 Ki를 값을 계산하여 얻을 수 있다(수식1). 또는, 얻어진 IC50
-값을 기반으로 간단하게 계산하는 방법이 있다(수식 2). First-order kinetic
-이 가장 잘 관측되는 구간은 substrate 농도가 Km 값과 비슷하거나 작을
+값을 기반으로 간단하게 계산하는 방법이 있다. 1차식에 의한 대사(first-order kinetic)
+가 가장 잘 관측되는 구간은 기질의 농도가 Km 값과 비슷하거나 작을
 때이며, 따라서 대부분의 경우 Ki 값은 IC50 와 유사하거나, IC50/2 로
 계산할 수 있다(수식 2).
 
-Ki 값은 intrinsic constant 로 inhibitor 가 enzyme 과 결합하는 affinity를
-나타낸다. Ki 값은 inhibition potency를 나타낸다. 이는 특정 inhibitor 와
-enzyme의 고유한 값이며, 어떠한 substrate을 사용하던지 달라지지 않는다.
-Ki 값은 IC50 보다 재생산하기 쉬운 값으로, in vivo 단계에서의 DDI 평가가
+Ki 값은 intrinsic constant 로 억제제가 효소와 결합하는 친화도를
+나타낸다. Ki 값은 inhibition potency를 나타낸다. 이는 특정 억제제와
+효소의 고유한 값이며, 어떠한 기질을 사용하던지 달라지지 않는다.
+Ki 값은 IC50 보다 실험에서 재현하기 쉬운 값으로, in vivo 단계에서의 DDI 평가가
 필요할지 알려주는 더 정확한 값이라고 할 수 있다.
 
 \(A\)
@@ -211,26 +206,28 @@ height="0.7325918635170604in"}
 
 ### Time-dependent inhibition assay
 
-TDI는 reversible inhibition 보다 안전성 측면에서 더 심각한 결과를 초래할
-수 있는 inhibition으로 in vitro inhibition assay 단계에서 potent TDI 로
-평가될 경우, 약물 개발이 중단되기도 하며, 설령 허가가 된다고 해도 해당
-약물 사용시 강력한 제제가 동반되는 경우가 많다. 따라서 최대한 빠르게
-drug discovery 단계에서 TDI 여부를 탐색하기를 추천한다. 일반적으로
+시간 의존적 억제(TDI)는 가역적 억제보다 안전성 측면에서 더 심각한 결과를 초래할
+수 있는 억제의 종류로 in vitro inhibition assay 단계에서 강한 시간 의존적 억제제(potent time-dependent)로
+평가될 경우, 약물 개발이 중단되기도 하며, 설령 시판 된다 하더라도 해당
+약물 사용시 까다로운 주의사항이 동반되는 경우가 많다. 따라서 최대한 빠르게
+discovery 단계에서 시간 의존적 억제제인지 여부를 탐색하기를 추천한다. 일반적으로
 수행되는 TDI assay는 아래와 같다:
 
 **Common practice to address TDI (tiered approach):**
 
-1.  **Single point assay**: reversible CYP inhibition assay 와 동시에 병행하여 진행할 수 있으나, reversible assay를 먼저 수행하기를 추천한다. ADME assay 초기 단계에 약물 후보가 많을 때 진행한다.
+1.  **Single point assay**: Reversible CYP inhibition assay 와 동시에 병행하여 진행할 수 있으나, reversible assay를 먼저 수행하기를 추천한다. ADME assay 초기 단계에 약물 후보가 많을 때 진행한다.
 2.  **IC50 shift assay**: 약물 개발 주기 뒷 단계에 진행되는 경우가 많으며, 더 많은 정보를 획득할 수 있다. 3. 실험을 계획하는데 결과가 활용된다.
-3.  **New thorough inactivation studies (Kinact, KI):** kinetic study 로 TDI parameter를 구할 수 있다.
+3.  **New thorough inactivation studies (Kinact, KI):** kinetic study 로 TDI parameter를 구할 수 있다.(Kinact: Maximal rate of enzyme
+inactivation at saturation concentration of inhibitor(/min), KI: Concentration of inhibitor which gives half the maximal rate of 
+inactivation
 
 **CYP TDI single point assay**
 
-In vitro ADME assay 초기의 단계에 TDI potential을 screening 하기 위해 수행된다. 단일의 inhibitor 농도를 가지고 실험하며, 고농도의 inhibitor 농도(reversible inhibition assay 에서의 최고농도)와 substrate 농도(일반적으로 Km 값의 5배)를 가지고 진행한다(reversible inhibition을 최소화하기 위함).
+In vitro ADME assay 초기의 단계에 TDI potential을 스크리닝하기 위해 수행된다. 단일의 억제제 농도를 가지고 실험하며, 고농도의 억제제 농도(Reversible inhibition assay 에서의 최고농도)와 기질의 농도(일반적으로 Km 값의 5배)를 가지고 진행한다. 이는 reversible inhibition을 최소화하기 위함이다. 
 
-Preincubation을 거쳐(inhibitor + cofactor (NADPH) in HLM), substrate을 투여한 후 incubation을 수행한다.
+Preincubation을 거쳐(억제제 + cofactor (NADPH) in HLM), 기질을 투여한 후 incubation을 수행한다.
 
-후보 약물이 TDI 일 경우, enzyme의 active site에 결합하게 된다. 대사체가 생성되는 반응이 측정되고, 수식에 따라 percent inhibition(%) 이 계산된다(수식3).
+후보 약물이 TDI 일 경우, 효소의 활성부위에 결합하게 된다. 대사체가 생성되는 반응이 측정되고, 수식에 따라 percent inhibition(%) 이 계산된다(수식3).
 
 ![](./media-05/image12.png){width="4.027777777777778in" height="0.5216305774278215in"}
 
@@ -238,17 +235,17 @@ Preincubation을 거쳐(inhibitor + cofactor (NADPH) in HLM), substrate을 투�
 
 **CYP TDI assay for IC50 shift determination**
 
-ADME assay 후기 단계에서 수행되며 reversible inhibition 과 irreversible
-inhibition을 구분할 수 있도록 도와준다. 다양한 inhibitor 농도로 실험을
-진행하며, 30분 정도의 preincubation period를 거치고 이 때 NADPH를
+ADME assay 후기 단계에서 수행되며 가역적 억제와 비가역적 억제를 구분할 수 있도록 도와준다. 
+다양한 억제제 농도로 실험을
+진행하며, 30분 정도의 preincubation period를 거치고 이 때 조효소인 NADPH를
 포함하는 경우와 포함하지 않는 경우의 결과를 그래프 화하여 IC50 값을
 구하고 그 변화를 확인한다(그림 6).
 
-이때 얻어지는 그래프는 %CYP activity vs. inhibitor concentration이며,
+이때 얻어지는 그래프는 억제제 농도에 따른 %CYP 활성이며,
 NADPH를 포함하여 preincubation 한 경우의 IC50 가 약 1.5배 작아지면(left
-shift of IC50), 해당 약물은 TDI을 나타내는 것으로 해석한다. 이와 같은
-IC50 값의 left shift는 preincubation을 통해 CYP activity를
-inhibition하는 potency 가 커짐을 의미한다.
+shift of IC50), 해당 약물은 TDI을 나타내는 것으로 해석될 수 있다. 다만, 해당 수치적 기준은 명확하게 수립된 바는 없으며
+IC50 shift가 대략 2.5-3배 이상이면 TDI를 나타내는 것으로 보기도 한다. 이와 같은 IC50 값의 left ship는 preincubation을 통해 CYP 활성을
+억제하는 능력이 커짐을 의미한다.
 
 ![](./media-05/image13.png){width="4.629166666666666in"
 height="3.638888888888889in"}
@@ -258,14 +255,14 @@ concentration plus/minus NADPH during preincubation period
 
 **CYP TDI assay for kinact/KI determination**
 
-Kinact 와 KI를 구하는 실험을 수행하여 clinical interaction study 가
-필요한지 결정하는데 참고할 수 있다. 다양한 inhibitor 농도를 가지고
+Kinact 와 KI를 구하는 실험을 수행하여 사람에서의 DDI 실험이 필요한지 결정하는데 참고할 수 있다.
+다양한 억제제 농도를 가지고
 preincubation time을 다양하게 설정하여 실험을 진행한다 (Kinact: Maximal
 rate of enzyme inactivation at saturating concentration of inhibitor
 (/min), KI: Concentration of inhibitor which gives half the maximal rate
-of inactivation (uM)). 이를 통해 다양한 inhibitor 농도에 따른 %CYP
-activity remaining vs. preincubation time 그래프 얻고, 이를 해당
-그래프의 -slope vs. inhibitor 농도로 변환한다(그림 7 (a), (b)). 변환한
+of inactivation (uM)). 이를 통해 다양한 억제제 농도에 따른 %CYP
+activity remaining vs. preincubation time 그래프 얻고, 이때의 기울기(Kobs:Observed rate of individual CYP inactivation)
+를 구할 수 있다.(그림 7 (a), (b)). 변환한
 그래프를 가지고 수식에 fitting 하여 non-linear regression을 통해 kinetic
 constant for TDI 라고 일컬어 지는 Kinact 와 KI를 구할 수 있다(수식 4
 (a)). 또는 Linewever-Burk plot을 활용하여 각 파라미터의 역수를 취해
@@ -293,17 +290,17 @@ height="4.5462959317585305in"}
 ## In vitro inhibition parameter의 활용
 
 위에 소개된 다양한 In vitro inhibition assay를 통해 우리는 결국
-inhibition parameter 값들을 산출하였다. 이 값들을 활용하여 각 inhibition
-type별 model별로 수식에 적용하여, 각 CYP의 inhibition 정도를 나타내는 R
+억제 파라미터 값들을 산출하였다. 이 값들을 활용하여 각 억제
+기전 별 모델별로 수식에 적용하여, 각 CYP의 inhibition 정도를 나타내는 R
 값을 계산할 수 있다(표 2. static model).
 
-또한, in vitro inhibition parameter 값들과 그 외의 실험값 및 문헌값을
-기반으로 mechanistic static model 또는 PBPK model을 활용하여 여러 CYP의
-영향을 종합적으로 고려한, inhibitor를 substrate 과 병용 투여하는 경우의,
+또한, in vitro 억제 파라미터 값들과 그 외의 실험값 및 문헌값을
+기반으로 mechanistic static 모델 또는 PBPK 모델을 활용하여 여러 CYP의
+영향을 종합적으로 고려한, 억제제를 기질과 병용 투여하는 경우의,
 약물 노출 값의 변화(fold-change in AUC)를 구할 수 있다(표2, 수식 5).
 
-이와 같이 in vitro inhibition assay에서 얻은 결과는 약물의 inhibition
-능력을 수치화 하여 나타내는 핵심 inhibition parameter 로써, 임상 시험
+이와 같이 in vitro inhibition assay에서 얻은 결과는 약물의 억제
+능력을 수치화 하여 나타내는 핵심 억제 파라미터로써, 임상시험
 돌입 전 DDI 예측 및 평가에 있어 반드시 필요한 값들이며, 이 값들을
 사용하여DDI 예측이 가능하다. 이 과정을 통해 DDI 로 발생하는 임상에서의
 위험성을 최대로 낮출 수 있다.
