@@ -172,11 +172,18 @@ knitr::include_graphics('media-05/image7.png')
 얻을 수 있다(그림 6). 그래프의 양상을 통해 가역적 억제의 종류를
 알아낼 수 있다(i.e. competitive, noncompetitive, uncompetitive, or
 mixed). Ki를 구하는 방법은 여러가지로, regression을 통해서 Rate equation 식에
-fitting 한 후 Ki를 값을 계산하여 얻을 수 있다(수식1). 또는, 얻어진 IC~50~
+fitting 한 후 Ki를 값을 계산하여 얻을 수 있다(표 \@ref(tab:rateequation)). 또는, 얻어진 IC~50~
 값을 기반으로 간단하게 계산하는 방법이 있다. 1차식에 의한 대사(first-order kinetic)
 가 가장 잘 관측되는 구간은 기질의 농도가 K~m~ 값과 비슷하거나 작을
 때이며, 따라서 대부분의 경우 Ki 값은 IC~50~ 와 유사하거나, IC~50~/2 로
-계산할 수 있다(수식 2).
+계산할 수 있다(수식 \@ref(eq:estimki)).
+
+\begin{equation}
+K_i = \frac{IC_{50}}{(\frac{S}{K_m} + 1)} 
+(\#eq:estimki) 
+\end{equation}
+
+*K~i~ : Reversible inhibition constant, S : Substrate concentration, K~m~ : Affinity constant, IC~50~ : Drug concentration achieving 50% of maximal reversible inhibition*
 
 Ki 값은 intrinsic constant 로 억제제가 효소와 결합하는 친화도를
 나타낸다. Ki 값은 inhibition potency를 나타낸다. 이는 특정 억제제와
@@ -184,26 +191,20 @@ Ki 값은 intrinsic constant 로 억제제가 효소와 결합하는 친화도�
 Ki 값은 IC~50~ 보다 실험에서 재현하기 쉬운 값으로, in vivo 단계에서의 DDI 평가가
 필요할지 알려주는 더 정확한 값이라고 할 수 있다.
 
-\(A\)
+```{r reactionrate, fig.cap = "(ref:reactionrate)"}
+knitr::include_graphics('media-05/image8.png')
+```
 
-![](./media-05/image8.png){width="5.153167104111986in"
-height="1.50288167104112in"}
+(ref:reactionrate) Reaction rate (velocity) vs [S] or v/[S]. (a),(b): Competitive inhibition mechanism, (c),(d): Noncompetitive inbition mechanism, (e),(f): Uncompetitive inhibition mechanism. (b),(d),(f): Linearized (Eadie-Hofstee) plot. Y-intercept: V~max~, Slope: K~m~ and [I]: Inhibitor concentration
 
-![](./media-05/image9.png){width="2.9166666666666665in"
-height="2.701755249343832in"}
+Table: (\#tab:rateequation) Rate equations for different inhibition model types. V~max~ : Maximal rate, K~m~ : Affinity constant, [S] : Substrance concentration, [I]: Inhibitor concentration, K~i~ : Inhibition contant, $\alpha$ : Interaction parameter which determines the degree to which the binding of inhibitor changes the affinity of the enzyme of the substrate 
 
-**그림 5. Reaction rate vs. substrate concentration**
-
-\(A\) (b) and (B) plot: Y-intercept = Vmax, Slope = Km
-
-![](./media-05/image10.png){width="4.092361111111111in" height="3.0in"}
-
-수식 . Rate equations for different inhibition model types
-
-![](./media-05/image11.png){width="2.5555555555555554in"
-height="0.7325918635170604in"}
-
-수식 . Estimation of Ki value based on IC50 value
+| Inhibition type | Rate equation |
+| :--- | :--- | 
+| Competitive | $v = \frac{V_{max}\cdot[S]}{[S] + K_{m}\cdot(1 + \frac{[I]}{K})}$|
+| Non-competitive| $v = \frac{V_{max}\cdot[S]}{K_{m}\cdot(1+\frac{[I]}{K_{i}})+{[S]\cdot(1+\frac{[I]}{K_{i}})}}$|
+| Uncompetitive| $v = \frac{V_{max}\cdot[S]}{K_{m} + {[S]\cdot(1+\frac{[I]}{K_{i}})}}$|
+| Mixed| $v = \frac{V_{max}\cdot[S]}{K_{m}\cdot(1+\frac{[I]}{K_{i}})+[S]\cdot(1+\frac{[I]}{\alpha{K_{i}}})}$|
 
 ### Time-dependent inhibition assay
 

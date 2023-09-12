@@ -186,6 +186,7 @@ In vitro transporter assay를 통해 약물이 특정 수송체의 기질임을
 (\#eq:eq07-00) 
 \end{equation}
 ```
+
 ```{r 07-05, fig.cap = "(ref:07-05)"}
 knitr::include_graphics('media-07/image7.png')
 ```
@@ -230,6 +231,7 @@ C_{u,\ intracellular} &\neq \ C_{u,\ extracellular} \\
 (\#eq:eq07-02) 
 \end{equation}
 ```
+
 ## 수송체를 매개한 약물상호작용의 예
 
 수송체를 매개한 약물상호작용은 다양한 상황을 고려하여야 한다. 수송체를
@@ -255,8 +257,7 @@ sitagliptin의 대사를 저해시켰으므로, sitagliptin의 혈중 노출이
 knitr::include_graphics('media-07/image8.png')
 ```
 
-(ref:07-06) Sitagliptin과 cyclosporine의 약물상호작용
-[@krishna2007effect]
+(ref:07-06) Sitagliptin과 cyclosporine의 약물상호작용 [@krishna2007effect]
 
 ### Fimasartan -- ketoconazole/rifampicin
 
@@ -282,15 +283,13 @@ rifampicin과 병용 시 fimasartan의 t~1/2~가 0.26배 작아진 것으로
 knitr::include_graphics('media-07/image9.png')
 ```
 
-(ref:07-07) Fimasartan과 ketoconazole/rifampicin의 약물상호작용
-[@kim2013increased]
+(ref:07-07) Fimasartan과 ketoconazole/rifampicin의 약물상호작용 [@kim2013increased]
 
 ```{r fig2table-fima, fig.cap = "(ref:fig2table-fima)"}
 knitr::include_graphics('media-07/image10.png')
 ```
 
-(ref:fig2table-fima) Fimasartan과 ketoconazole/rifampicin의 약물상호작용
-[@kim2013increased]
+(ref:fig2table-fima) Fimasartan과 ketoconazole/rifampicin의 약물상호작용 [@kim2013increased]
 
 ### Cerivastatin -- gemfibrozil
 
@@ -311,10 +310,7 @@ gemfibrozil 및 gemfibrozil-glucuronide의 OATP1B1과 CYP2C8 저해능으로
 knitr::include_graphics('media-07/image11.png')
 ```
 
-(ref:07-08) Cerivastatin-gemfibrozil 약물상호작용. Cerivastatin의
-gemfibrozil 병용에 따른 혈중농도 프로파일 변화(좌)와
-cerivastatin-gemfibrozil 약물상호작용 기전 (우)
-[@backman2002gemfibrozil]
+(ref:07-08) Cerivastatin-gemfibrozil 약물상호작용. Cerivastatin의 gemfibrozil 병용에 따른 혈중농도 프로파일 변화(좌)와 cerivastatin-gemfibrozil 약물상호작용 기전 (우) [@backman2002gemfibrozil]
 
 ### Metformin -- cimetidine
 
