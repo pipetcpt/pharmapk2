@@ -48,10 +48,13 @@ fig:05-01
 fig:05-02
 fig:05-03
 fig:05-04
-fig:05-05
+tab:interpretic50
 eq:estimki
 fig:reactionrate
 tab:rateequation
+eq:percenttdi
+eq:mbiddi
+tab:variousmodels
 fig:mechanism
 fig:turnover
 eq:eq06-1
@@ -151,6 +154,10 @@ reversible-inhibition-assay
 cyp-inhibition-assay-for-ic50-determination
 cyp-inhibition-assay-for-ki-determination
 time-dependent-inhibition-assay
+common-practice-to-address-tdi-tiered-approach-invitroadme
+cyp-tdi-single-point-assay
+cyp-tdi-assay-for-ic50-shift-determination
+cyp-tdi-assay-for-kinactki-determination
 in-vitro-inhibition-parameter의-활용
 Induction
 서론-5
