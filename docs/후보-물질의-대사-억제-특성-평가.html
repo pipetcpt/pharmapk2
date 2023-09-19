@@ -23,7 +23,7 @@
 <meta name="author" content="가톨릭대학교 계량약리학연구소(PIPET), AIMS BioScience, Q-fitter - Ver 0.0.1" />
 
 
-<meta name="date" content="2023-09-14" />
+<meta name="date" content="2023-09-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -319,16 +319,12 @@ prediction)에 대해 살펴보겠다.</p>
 평가는 환자의 안전한 약물 치료를 위해 반드시 먼저 수행되어야 하는
 부분이다.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:05-01"></span>
-<img src="media-05/image-1-2.png" alt="(ref:05-01)" width="100%" />
+<img src="media-05/image-1-2.png" alt="Perpetrator와 victim drug 병용투여 시의 victim drug의 약물농도. Perpetrator: 다른 약의 PK에 영향을 끼치는 약물(억제제 또는 유도제), (a)억제제(inhibitor)인 경우, (b)유도제(inducer)인 경우, Victim NCE: New Chemical Entity로 자신의 PK가 영향을 받는 약물(기질)" width="100%" />
 <p class="caption">
-그림 5.1: (ref:05-01)
+그림 5.1: Perpetrator와 victim drug 병용투여 시의 victim drug의 약물농도. Perpetrator: 다른 약의 PK에 영향을 끼치는 약물(억제제 또는 유도제), (a)억제제(inhibitor)인 경우, (b)유도제(inducer)인 경우, Victim NCE: New Chemical Entity로 자신의 PK가 영향을 받는 약물(기질)
 </p>
 </div>
-<p>(ref:05-01) Perpetrator와 victim drug 병용투여 시의 victim drug의
-약물농도</p>
-<p>Perpetrator: 다른 약의 PK에 영향을 끼치는 약물(억제제 또는 유도제),
-(a)억제제(inhibitor)인 경우, (b)유도제(inducer)인 경우, Victim NCE: New
-Chemical Entity로 자신의 PK가 영향을 받는 약물(기질)</p>
+
 <p>대사 억제는 크게 두 종류로 나뉘어진다. 가역적 억제는 competitive,
 noncompetitive 그리고 uncompetitive로 세분화할 수 있다. 각 종류 별 어떤
 억제제로서 작용하는지를 여러가지 실험으로 확인할 수 있다. DDI 예측시
@@ -340,7 +336,7 @@ model)을 통해 실험에서 얻어진 억제와 관련 파라미터 값들을 
 평가 외에도 metabolic stability test, metabolite profiling, 그리고 CYP
 isozyme profiling 등이 있다. 이와 같은 metabolic DDI 평가에는 Cytochrome
 P450 억제평가, 유도평가 및 activation/suppression 평가가 포함된다. (그림
-<a href="후보-물질의-대사-억제-특성-평가.html#fig:05-19">5.2</a>)</p>
+<a href="후보-물질의-대사-억제-특성-평가.html#fig:05-19">5.2</a>)<span class="citation">(<a href="#ref-cayen2011early">Cayen 2011</a>)</span></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:05-19"></span>
 <img src="media-05/image19.png" alt="In vitro ADME 연구 내의 대사 DDI 평가" width="100%" />
 <p class="caption">
@@ -408,21 +404,19 @@ V<sub>max</sub>가 감소된다. 복합체 감소를 보상하기 위해 더 많
 나타내며 K<sub>m</sub>은 감소된다.</li>
 </ul>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:05-03"></span>
-<img src="media-05/image4.png" alt="(ref:05-03)" width="100%" />
+<img src="media-05/image4.png" alt="Michaelis-Menton kinetics of typical enzyme-catalyzed reaction of one substrate Substrate saturation experiment results for enzyme kinetic parameters(Vmax, Km), plotting reaction rate vs substrate concentration. Vmax: Maximum reaction rate at saturating substrate concentration for a given enzyme concentration, Km: Substrate concentration at half-maximum reaction rate(Vmax), also known as Micahelis constant." width="100%" />
 <p class="caption">
-그림 5.4: (ref:05-03)
+그림 5.4: Michaelis-Menton kinetics of typical enzyme-catalyzed reaction of one substrate Substrate saturation experiment results for enzyme kinetic parameters(V<sub>max</sub>, K<sub>m</sub>), plotting reaction rate vs substrate concentration. V<sub>max</sub>: Maximum reaction rate at saturating substrate concentration for a given enzyme concentration, K<sub>m</sub>: Substrate concentration at half-maximum reaction rate(V<sub>max</sub>), also known as Micahelis constant.
 </p>
 </div>
-<p>(ref:05-03) Michaelis-Menton kinetics of typical enzyme-catalyzed reaction of one substrate
-Substrate saturation experiment results for enzyme kinetic parameters(V<sub>max</sub>, K<sub>m</sub>), plotting reaction rate vs substrate concentration. V<sub>max</sub>: Maximum reaction rate at saturating substrate concentration for a given enzyme concentration, K<sub>m</sub>: Substrate concentration at half-maximum reaction rate(V<sub>max</sub>), also known as Micahelis constant.</p>
+
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:05-20"></span>
-<img src="media-05/image20.png" alt="(ref:05-20)" width="100%" />
+<img src="media-05/image20.png" alt="Lineweaver-Burk plots for enzyme inhibition(Wikipedia 2023). 위의 그림은 Michaelis-Menton plot(그림 5.4)의 역수이며, 속도의 역수(1/V)에 대한 기질 농도의 역수(1/[S])의 비율을 나타냄" width="100%" />
 <p class="caption">
-그림 5.5: (ref:05-20)
+그림 5.5: Lineweaver-Burk plots for enzyme inhibition<span class="citation">(<a href="#ref-linearweaver">Wikipedia 2023</a>)</span>. 위의 그림은 Michaelis-Menton plot(그림 <a href="후보-물질의-대사-억제-특성-평가.html#fig:05-03">5.4</a>)의 역수이며, 속도의 역수(1/V)에 대한 기질 농도의 역수(1/[S])의 비율을 나타냄
 </p>
 </div>
-<p>(ref:05-20) Lineweaver-Burk plots for enzyme inhibition<span class="citation">(<a href="#ref-linearweaver">Wikipedia 2023</a>)</span>
-위의 그림은 Michaelis-Menton plot(그림 <a href="후보-물질의-대사-억제-특성-평가.html#fig:05-03">5.4</a>)의 역수이며, 속도의 역수(1/V)에 대한 기질 농도의 역수(1/[S])의 비율을 나타냄</p>
+
 <p>Mechanism-based inhibition (MBI)은 흔히 시간 의존적 억제(time-dependent
 inhibition,TDI) 라고도 불리우나, TDI가 조금 더 큰 범주라고 할 수 있다. TDI은 preincubation 시간을 거치면서 억제 효능(inhibition potency)이 더 좋아지는 경우를 일컬으며, MBI는 TDI의 한 종류로 볼 수 있다. MBI에서는 억제제와 enzyme 이 결합하여 reactive metabolite을 생성하고, 대사 효소가 활성을 잃고 비활성(inactive) 상태로 변한다. 따라서 이를 비가역성 억제(irreversible inhibition)라고도 부른다.</p>
 </div>
@@ -492,16 +486,12 @@ maximal reversible inhibition</em></p>
 IC<sub>50</sub> 보다 실험에서 재현하기 쉬운 값으로, in vivo 단계에서의 DDI 평가가
 필요할지 알려주는 더 정확한 값이라고 할 수 있다.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:reactionrate"></span>
-<img src="media-05/image8.png" alt="(ref:reactionrate)" width="100%" />
+<img src="media-05/image8.png" alt="Reaction rate (velocity) vs [S] or v/[S]. (a),(b): Competitive inhibition mechanism, (c),(d): Noncompetitive inbition mechanism, (e),(f): Uncompetitive inhibition mechanism. (b),(d),(f): Linearized (Eadie-Hofstee) plot. Y-intercept: Vmax, Slope: Km and [I]: Inhibitor concentration" width="100%" />
 <p class="caption">
-그림 5.7: (ref:reactionrate)
+그림 5.7: Reaction rate (velocity) vs [S] or v/[S]. (a),(b): Competitive inhibition mechanism, (c),(d): Noncompetitive inbition mechanism, (e),(f): Uncompetitive inhibition mechanism. (b),(d),(f): Linearized (Eadie-Hofstee) plot. Y-intercept: V<sub>max</sub>, Slope: K<sub>m</sub> and [I]: Inhibitor concentration
 </p>
 </div>
-<p>(ref:reactionrate) Reaction rate (velocity) vs [S] or v/[S]. (a),(b):
-Competitive inhibition mechanism, (c),(d): Noncompetitive inbition
-mechanism, (e),(f): Uncompetitive inhibition mechanism. (b),(d),(f):
-Linearized (Eadie-Hofstee) plot. Y-intercept: V<sub>max</sub>, Slope: K<sub>m</sub> and
-[I]: Inhibitor concentration</p>
+
 <table>
 <caption><span id="tab:rateequation">표 5.2: </span> Rate equations for different inhibition model
 types.<span class="citation">(<a href="#ref-invitroadme">Cyprotex 2023</a>)</span>
@@ -550,8 +540,8 @@ substrate</caption>
 주의사항이 동반되는 경우가 많다. 따라서 최대한 빠르게 discovery 단계에서
 시간 의존적 억제제인지 여부를 탐색하기를 추천한다. 일반적으로 수행되는
 TDI assay는 아래와 같다:</p>
-<div id="common-practice-to-address-tdi-tiered-approach-invitroadme" class="section level4 hasAnchor" number="5.4.2.1">
-<h4><span class="header-section-number">5.4.2.1</span> Common practice to address TDI (tiered approach) <span class="citation">(<a href="#ref-invitroadme">Cyprotex 2023</a>)</span><a href="후보-물질의-대사-억제-특성-평가.html#common-practice-to-address-tdi-tiered-approach-invitroadme" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="common-practice-to-address-tdi-tiered-approach-invitroadme-grimm2009conduct" class="section level4 hasAnchor" number="5.4.2.1">
+<h4><span class="header-section-number">5.4.2.1</span> Common practice to address TDI (tiered approach) <span class="citation">(<a href="#ref-invitroadme">Cyprotex 2023</a>)</span> <span class="citation">(<a href="#ref-grimm2009conduct">Grimm et al. 2009</a>)</span><a href="후보-물질의-대사-억제-특성-평가.html#common-practice-to-address-tdi-tiered-approach-invitroadme-grimm2009conduct" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ol style="list-style-type: decimal">
 <li><strong>Single point assay</strong>: Reversible CYP inhibition assay 와 동시에
 병행하여 진행할 수 있으나, reversible assay를 먼저 수행하기를
@@ -618,9 +608,9 @@ remaining vs. preincubation time 그래프 얻고, 이때의 기울기(K<sub>ob
 </div>
 
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:05-22"></span>
-<img src="media-05/image22.png" alt="-slope of (그림 5.9) vs. inhibitor concentration or Observed rate(Kobs)model)(Li 2008)" width="100%" />
+<img src="media-05/image22.png" alt="Slope of (그림 5.9) vs. inhibitor concentration or Observed rate(Kobs)model)(Li 2008)" width="100%" />
 <p class="caption">
-그림 5.10: -slope of (그림 <a href="후보-물질의-대사-억제-특성-평가.html#fig:05-21">5.9</a>) vs. inhibitor concentration or Observed rate(K<sub>obs</sub>)model)<span class="citation">(<a href="#ref-li2008drug">Li 2008</a>)</span>
+그림 5.10: Slope of (그림 <a href="후보-물질의-대사-억제-특성-평가.html#fig:05-21">5.9</a>) vs. inhibitor concentration or Observed rate(K<sub>obs</sub>)model)<span class="citation">(<a href="#ref-li2008drug">Li 2008</a>)</span>
 </p>
 </div>
 
@@ -691,29 +681,19 @@ inhibition assay를 통해 구해진 억제 파라미터를 의미. <span class=
 </tr>
 </tbody>
 </table>
-<!-- **수식 5. AUC fold-change calculation for mechanistic static model** -->
-<p><strong>References</strong></p>
-<ol style="list-style-type: decimal">
-<li><p>Wang, Binghe. <em>Drug-drug interactions in pharmaceutical
-development</em>. Vol. 6. John Wiley &amp; Sons, 2008.</p></li>
-<li><p><a href="https://bio.libretexts.org/" class="uri">https://bio.libretexts.org/</a></p></li>
-<li><p><a href="https://www.cyprotex.com/admepk" class="uri">https://www.cyprotex.com/admepk</a></p></li>
-<li><p>Cayen, Mitchell N., ed. <em>Early drug development: strategies and
-routes to first-in-human trials</em>. John Wiley &amp; Sons, 2011.</p></li>
-<li><p>Grimm, Scott W., et al. “The conduct of in vitro studies to address
-time-dependent inhibition of drug-metabolizing enzymes: a
-perspective of the pharmaceutical research and manufacturers of
-America.” <em>Drug Metabolism and Disposition</em> 37.7 (2009): 1355-1370.</p></li>
-<li><p><a href="https://m.blog.naver.com/PostView.naver?blogId=applepop&amp;logNo=222270983736&amp;categoryNo=13&amp;proxyReferer=" class="uri">https://m.blog.naver.com/PostView.naver?blogId=applepop&amp;logNo=222270983736&amp;categoryNo=13&amp;proxyReferer=</a></p></li>
-<li><p><a href="https://commons.wikimedia.org/wiki/File:Enzyme_Inhibition_lineweaver-burk_plots.gif" class="uri">https://commons.wikimedia.org/wiki/File:Enzyme_Inhibition_lineweaver-burk_plots.gif</a></p></li>
-</ol>
 
 </div>
 </div>
 <h3>참고문헌<a href="참고문헌.html#참고문헌" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-cayen2011early" class="csl-entry">
+Cayen, Mitchell N. 2011. <em>Early Drug Development: Strategies and Routes to First-in-Human Trials</em>. John Wiley &amp; Sons.
+</div>
 <div id="ref-invitroadme" class="csl-entry">
 Cyprotex. 2023. <span>“In Vitro ADME and PK.”</span> <a href="https://cyprotex.com/admepk" class="uri">https://cyprotex.com/admepk</a>.
+</div>
+<div id="ref-grimm2009conduct" class="csl-entry">
+Grimm, Scott W, Heidi J Einolf, Steven D Hall, Kan He, Heng-Keang Lim, Kah-Hiing John Ling, Chuang Lu, et al. 2009. <span>“The Conduct of in Vitro Studies to Address Time-Dependent Inhibition of Drug-Metabolizing Enzymes: A Perspective of the Pharmaceutical Research and Manufacturers of America.”</span> <em>Drug Metabolism and Disposition</em> 37 (7): 1355–70.
 </div>
 <div id="ref-li2008drug" class="csl-entry">
 Li, Albert P. 2008. <em>Drug-Drug Interactions in Pharmaceutical Development</em>. Wiley Online Library.

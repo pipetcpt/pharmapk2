@@ -160,7 +160,7 @@ reversible-inhibition-assay
 cyp-inhibition-assay-for-ic50-determination
 cyp-inhibition-assay-for-ki-determination
 time-dependent-inhibition-assay
-common-practice-to-address-tdi-tiered-approach-invitroadme
+common-practice-to-address-tdi-tiered-approach-invitroadme-grimm2009conduct
 cyp-tdi-single-point-assay
 cyp-tdi-assay-for-ic50-shift-determination
 cyp-tdi-assay-for-kinactki-determination
