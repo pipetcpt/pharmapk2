@@ -78,7 +78,7 @@ knitr::include_graphics('media-06/image1.png')
 ### 유도체에 의한 활성효소의 변화
 
 효소 및 mRNA는 평소에는 체내에서 평형을 이루고 있으며 아래 그림과 같이 일정한 생성속도(K~in~)와 제거속도(K~out~)에 의해 결정되는 
-turnover model을 따른다(그림 \@ref(fig:turnover)). Turnover model을 표현한 식은 아래 식\@ref(eq:eq10-1)과 같으며 
+turnover model을 따른다(그림 \@ref(fig:turnover)). Turnover model을 표현한 식은 아래 식\@ref(eq:eq06-1)과 같으며 
 유도체가 없는 상황에서는 생성속도($R{syn}$)와 제거속도($k{deg} /cdot Enz{(0)}$)가 동일한 동적 평형 상태($\frac{dEnz(t)}{dt}$)를 이룬다. 
 이때 농도는 평형상태의 농도($Enz{ss}$)로 유지한다.
 
@@ -99,7 +99,7 @@ knitr::include_graphics('media-06/image2.png')
 
 
 유도체는 위 그림의 오른쪽과 같이 수용체와의 결합을 통해 효소 mRNA의 전사속도를 증가시키기 때문에 해당 식의 생성속도(R~syn~)를 증가시키는 것으로 볼 수 있다. 
-이러한 생성속도의 증가 정도는 유도체의 유도 능력(E~50~, E~max~)과 농도에 영향을 받게 되기 때문에 일반적으로 아래의 식\@ref(eq:eq10-2)과 같이 유도로 인한 생성속도의 증가를 표현한다.
+이러한 생성속도의 증가 정도는 유도체의 유도 능력(E~50~, E~max~)과 농도에 영향을 받게 되기 때문에 일반적으로 아래의 식\@ref(eq:eq06-2)과 같이 유도로 인한 생성속도의 증가를 표현한다.
 
 ```{=tex}
 \begin{equation}
