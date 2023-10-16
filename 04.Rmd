@@ -77,8 +77,7 @@ Table: (\#tab:table04-01) 약물의 대사 과정 - 산화 과정
 | Reaction | Structural formula | Drugs |
 | --- | --- | --- |
 | I. CYP-dependent oxidations  |  |  |
-| Aliphatic hydroxylation   | ![](./media-04/image3.png) | Barbiturates, cyclosporine, ibuprofen |
-| | ![](./media-04/image4.png) | |
+| Aliphatic hydroxylation   | ![](./media-04/image3.png) ![](./media-04/image4.png) | Barbiturates, cyclosporine, ibuprofen |
 | Aromatic hydroxylation | ![](./media-04/image5.png)              | Phenytoin, propranolol |
 | N-dealkylation | ![](./media-04/image6.png)              | Sildenafil, diazepam |
 | O-dealkylation | ![](./media-04/image7.png)              | Codeine     |
@@ -129,25 +128,23 @@ Table: (\#tab:table04-03) 약물의 대사 과정 - Phase II
   ------------------------------------------------------------------------------------------
   Reaction          Structural formula                                      Drugs
   ----------------- ------------------------------------------------------- ----------------
-  I.                ![](./media-04/image15.png){width="3.6041666666666665in"   Diazepam,
-  Glucuronidation   height="0.8645833333333334in"}                          digoxin,
+  I.                ![](./media-04/image15.png)                             Diazepam,
+  Glucuronidation   ![](./media-04/image16.png)                             digoxin,
                                                                             acetaminophen,
                                                                             SN-38, efavirenz
+                                                    
+                                                                            
 
-                    ![](./media-04/image16.png){width="2.941431539807524in"    
-                    height="1.8168383639545056in"}                          
+  II\. Acetylation  ![](./media-04/image17.png)                             Isoniazid,
+                    ![](./media-04/image18.png)                             sulfonamide
 
-  II\. Acetylation  ![](./media-04/image17.png){width="3.1354166666666665in"   Isoniazid,
-                    height="0.5416666666666666in"}                          sulfonamide
+                                                    
+                                                                            
 
-                    ![](./media-04/image18.png){width="3.209925634295713in"    
-                    height="1.145132327209099in"}                           
+  III\. Sulfation   ![](./media-04/image19.png)                             Methyldopa
 
-  III\. Sulfation   ![](./media-04/image19.png){width="3.125in"                Methyldopa
-                    height="0.65625in"}                                     
-
-  IV\. Glutathione  ![](./media-04/image20.png){width="2.7157360017497814in"   Acetaminophen,
-  conjugation       height="1.3023468941382328in"}                          valproic acid,
+  IV\. Glutathione  ![](./media-04/image20.png)                             Acetaminophen,
+  conjugation                                                               valproic acid,
                                                                             busulfan
   ------------------------------------------------------------------------------------------
 
@@ -179,7 +176,7 @@ hepatocytes)를 일컫는다. 간세포 자체는 계대 배양이 불가능하�
 평가에 사용되기에는 현재까지 적절하지 않다.
 
 간세포에는 phase I 대사효소 뿐만 아니라, phase II 대사효소가 전부
-존재하기 때문에, 전반적인 대사능(intrinsic clearance, CL~int~)^\*^을
+존재하기 때문에, 전반적인 대사능(intrinsic clearance, CL~int~)^[간 대사능은 intrinsic clearance, CL~int~로 표현하는 것이 일반적이나, 간에서 약물의 disposition을 대사에 의한 부분 뿐만 아니라, 간세포 내외로 능동 수송 및 수동 확산되는 부분, 담즙으로 배설되는 부분으로 세분화하여 설명하거나, 각 과정을 구분짓기 위해 대사능을 CL~int,met~로 구체화하여 사용하기도 한다.]을
 관찰할 수 있다. 또한, 간세포 내로 약물이 수동확산 또는
 수송체(transporter)를 통해 간으로 능동수송(active transport)되어
 들어가는 속도(CL~int,pd~ 와 CL~int,uptake~)를 측정할 수 있다. 세포

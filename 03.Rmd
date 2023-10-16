@@ -93,7 +93,7 @@ NSB) 및 비결합 분획(fraction unbound, f~u~)을 산출할 수 있다.
 knitr::include_graphics('media-03/image3.png')
 ```
 
-(ref:03-03) 한여과 (ultrafiltration) 평가법
+(ref:03-03) 한여과 (ultrafiltration) 평가법 [@everythingadme]
 
 \begin{equation}
 \begin{split}
@@ -103,11 +103,11 @@ f_u &= \frac{F_f}{[(1-NSB) \times F_e]}
 (\#eq:eq03-02) 
 \end{equation}
 
-C~pre~: initial conc. of compound before filtration in buffer  
-C~post~: recovered conc. of compound after ultrafiltration in buffer  
-Ff: the area ratio of compound after ultrafiltration  
-Fe: the area ratio of compound before ultrafiltration  
-NSB: non-specific binding
+- C~pre~: initial conc. of compound before filtration in buffer  
+- C~post~: recovered conc. of compound after ultrafiltration in buffer  
+- Ff: the area ratio of compound after ultrafiltration  
+- Fe: the area ratio of compound before ultrafiltration  
+- NSB: non-specific binding
 
 한여과 평가법의 장점은 평형투석법과 달리 짧은 시간 내에 평가가 가능하므로,
 비교적 혈장에서 불안정한 물질에섣 적용하능하다는 것이다. 반면,
@@ -235,14 +235,14 @@ f_{u\ 100\%} &= \ \frac{{\ \ \ f}_{u\ 10\%}}{10\  - 9*f_{u\ 10\%}}
 
 혈장단백결합 평가는 분포에 관련된 평가 중 하나이며 단백결합율의 높고 낮음이 약물의 우수성을 나타내지는 않는다. 하지만 혈장단백결합율은 약효, 독성, 약물상호작용, 임상 PK 예측 등 신약개발의 다양한 영역에서 결과의 해석, 용량결정 및 예측에 활용된다. 따라서, 혈장단백결합을 이해하고 적절한 방법으로 평가하는 것이 필요하겠다.
 
-**참고문헌**
+<!-- **참고문헌** -->
 
-(편집자: 이 참고문헌은 모두 인용 위치가 본문 내에서 구체적으로 표시되어야 합니다.)
+<!-- (편집자: 이 참고문헌은 모두 인용 위치가 본문 내에서 구체적으로 표시되어야 합니다.) -->
 
-1. Tonika; Gan, Liang-Shang. Plasma protein binding: From discovery to development. Journal of Pharmaceutical Sciences, 102(9), 2953--2994, 2013. 
-2. Van Liempd, Sebastiaan; Morrison, Denise; Sysmans, Leen; Nelis, Paul; Mortishire-Smith, Russell. Development and Validation of a Higher-Throughput Equilibrium Dialysis Assay for Plasma Protein Binding. Journal of Laboratory Automation, 16(1), 56--67, 2011. 
-3. Li Di; John P. Umland; Patrick E. Trapa; Tristan S. Maurer. Impact of recovery on fraction unbound using equilibrium dialysis. 101(3), 1327--1335, 2012. 
-4. Liu, Xingrong; Wright, Matthew; Hop, Cornelis E. C. A. Rational Use of Plasma Protein and Tissue Binding Data in Drug Design. Journal of Medicinal Chemistry, 57(20), 8238--8248, 2014. 
-5. Buscher, Brigitte; Laakso, Sirpa; Mascher, Hermann; Pusecker, Klaus; Doig, Mira; Dillen, Lieve; Wagner-Redeker, Winfried; Pfeifer, Thomas; Delrat, Pascal; Timmerman, Philip. Bioanalysis for plasma protein binding studies in drug discovery and drug development: views and recommendations of the European Bioanalysis Forum. Bioanalysis, 6(5), 673--682, 2014. 
-6. Edward H. Kerns and Li Di, Drug-like properties: Concepts, Structure Design and Methods. 
-7. Everything you need to know about ADME, 3rd Edition, Cyprotex 
+<!-- 1. Tonika; Gan, Liang-Shang. Plasma protein binding: From discovery to development. Journal of Pharmaceutical Sciences, 102(9), 2953--2994, 2013.  -->
+<!-- 2. Van Liempd, Sebastiaan; Morrison, Denise; Sysmans, Leen; Nelis, Paul; Mortishire-Smith, Russell. Development and Validation of a Higher-Throughput Equilibrium Dialysis Assay for Plasma Protein Binding. Journal of Laboratory Automation, 16(1), 56--67, 2011.  -->
+<!-- 3. Li Di; John P. Umland; Patrick E. Trapa; Tristan S. Maurer. Impact of recovery on fraction unbound using equilibrium dialysis. 101(3), 1327--1335, 2012.  -->
+<!-- 4. Liu, Xingrong; Wright, Matthew; Hop, Cornelis E. C. A. Rational Use of Plasma Protein and Tissue Binding Data in Drug Design. Journal of Medicinal Chemistry, 57(20), 8238--8248, 2014.  -->
+<!-- 5. Buscher, Brigitte; Laakso, Sirpa; Mascher, Hermann; Pusecker, Klaus; Doig, Mira; Dillen, Lieve; Wagner-Redeker, Winfried; Pfeifer, Thomas; Delrat, Pascal; Timmerman, Philip. Bioanalysis for plasma protein binding studies in drug discovery and drug development: views and recommendations of the European Bioanalysis Forum. Bioanalysis, 6(5), 673--682, 2014.  -->
+<!-- 6. Edward H. Kerns and Li Di, Drug-like properties: Concepts, Structure Design and Methods.  -->
+<!-- 7. Everything you need to know about ADME, 3rd Edition, Cyprotex  -->

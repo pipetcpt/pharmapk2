@@ -19,7 +19,7 @@ editor_options:
 체외로 배설되기까지 여러 이행 과정을 거치게 되는데, 이 때도 여러
 생체막의 관문을 통과하게 된다. 따라서 투과도는 흡수, 분포, 대사, 배설
 과정 전반에 걸쳐 영향을 주는 인자로서 약동학의 가장 기초적인 자료라 할
-수 있다 (그림 \@ref(fig:figure-first)).
+수 있다 (그림 \@ref(fig:02-01)).
 
 ```{=html}
 <!--
@@ -27,13 +27,12 @@ editor_options:
 height="1.6929133858267718in"}
 -->
 ```
-<!-- ```{r 02-01, fig.cap = "(ref:02-01)"} -->
 
-<!-- knitr::include_graphics('media-01/image1.png') -->
+```{r 02-01, fig.cap = "(ref:02-01)"}
+knitr::include_graphics('media-02/image1.png')
+```
 
-<!-- ``` -->
-
-<!-- (ref:02-01) 생체막의 종류 및 관련 인자 -->
+(ref:02-01) 생체막의 종류 및 관련 인자
 
 이 장에서는 투과도의 개념과 막 투과 기전을 자세히 기술하고, 대표적인
 투과도 평가 시험의 특성을 비교하여 실제 신약 개발 과정에서 목적에 맞는
@@ -131,19 +130,17 @@ P_{e} = C\  \times \left\lbrack - Ln\mspace{6mu}\left( 1 - \frac{\lbrack drug\rb
 (\#eq:eq02-01) 
 \end{equation}
 ```
-[drug]~equilibrium~ = [drug]~donor~ V~D~ + [drug]~acceptor~ x V~A~ /
-(V~D~ + V~A~)\
-C = V~D~ × V~A~ / (V~D~ + V~A~) × t × A\
-V~D~ = volume of donor compartment\
-V~A~ = volume of acceptor compartment\
-A = filter area\
-t = incubation time (in seconds)\
-[drug]~acceptor~ = Concentration of compound in the acceptor compartment
-at the assay completion\
-[drug]~donor~ = Concentration of compound in the donor compartment at
-the assay completion\
-[drug]~equilibrium~ = Concentration of compound at theoretical
-equilibrium
+
+- [drug]~equilibrium~ = [drug]~donor~ V~D~ + [drug]~acceptor~ x V~A~ /
+- (V~D~ + V~A~)\
+- C = V~D~ × V~A~ / (V~D~ + V~A~) × t × A\
+- V~D~ = volume of donor compartment\
+- V~A~ = volume of acceptor compartment\
+- A = filter area\
+- t = incubation time (in seconds)\
+- [drug]~acceptor~ = Concentration of compound in the acceptor compartment at the assay completion\
+- [drug]~donor~ = Concentration of compound in the donor compartment at the assay completion\
+- [drug]~equilibrium~ = Concentration of compound at theoretical equilibrium
 
 별도의 세포배양 과정이 필요 없고, 약물의 농도를 UV plate reader를
 활용하여 측정할 경우 대량의 화합물을 빠르게 평가할 수 있다는 것이
@@ -173,7 +170,7 @@ basolateral side 모두에서 약물 농도를 측정한다.
 knitr::include_graphics('media-02/image6.png')
 ```
 
-(ref:02-06) Caco-2 cell-based permeability assay 방법
+(ref:02-06) Caco-2 cell-based permeability assay 방법 [@everythingadme]
 
 그리고 아래와 같은 식을 이용하여 세포막 투과계수(P~app~, apparent
 permeability coefficient) 및 efflux ratio를 산출한다.
@@ -187,6 +184,7 @@ P_{app} &= \frac{\frac{dQ}{dt}}{A \cdot C_0} \\
 (\#eq:eq02-02) 
 \end{equation}
 ```
+
 여기서 dQ/dt는 초기 약물수송속도 (initial transport rate, μmol/s), A는
 well의 표면적(the surface area of the monolayer, cm^2^), C~0~는 처리한
 약물의 농도(initial concentration in the donor chamber, μmol/cm^3^)를
@@ -233,25 +231,25 @@ knitr::include_graphics('media-02/image7.png')
 |                |               | carcinoma     | strain cells  |
 |                |               | cells         |               |
 +----------------+---------------+---------------+---------------+
-| **Cell         | \-            | Intestinal    | Distal tubule |
+| **Cell         | not applicable| Intestinal    | Distal tubule |
 | morphology**   |               | epithelium    | epithelium    |
 +----------------+---------------+---------------+---------------+
-| **Cell growing | \-            | \> 21 days    | 3\~4 days     |
+| **Cell growing | not applicable| \> 21 days    | 3\~4 days     |
 | time**         |               |               |               |
 +----------------+---------------+---------------+---------------+
-| **Permeation   | Passive       | Passive       |               |
-| mechanisms**   | diffusion     | diffusion,    |               |
-|                |               | Active        |               |
-|                |               | transport,    |               |
+| **Permeation   | Passive       | Passive       | Passive       |
+| mechanisms**   | diffusion     | diffusion,    | diffusion,    |
+|                |               | Active        | Active        |
+|                |               | transport,    | transport,    |
 |                |               |               |               |
-|                |               | Paracellular  |               |
-|                |               | and Efflux    |               |
+|                |               | Paracellular  | Paracellular  |
+|                |               | and Efflux    | and Efflux    |
 +----------------+---------------+---------------+---------------+
-| **Direction of | One-way       | B             |               |
-| transport**    |               | i-directional |               |
+| **Direction of | One-way       | Bi-           | Bi-           |
+| transport**    |               | directional   | directional   |
 |                | (Donor →      |               |               |
-|                | Acceptor)     | (Apical ↔     |               |
-|                |               | Basolateral)  |               |
+|                | Acceptor)     | (Apical ↔     | (Apical ↔     |
+|                |               | Basolateral)  | Basolateral)  |
 +----------------+---------------+---------------+---------------+
 | **Expression   |               |               |               |
 | of             |               |               |               |
@@ -272,8 +270,6 @@ knitr::include_graphics('media-02/image7.png')
 +----------------+---------------+---------------+---------------+
 
 : (#tab:table02-01) 투과도 평가 시험 방법 별 특성 비교
-
--: not applicable.
 
 ## 투과도 평가 결과의 해석 및 활용
 
@@ -298,7 +294,7 @@ knitr::include_graphics('media-02/image7.png')
 knitr::include_graphics('media-02/image8.png')
 ```
 
-(ref:02-08) Caco-2 투과도와 사람 소장 흡수율 간의 상관 관계
+(ref:02-08) Caco-2 투과도와 사람 소장 흡수율 간의 상관 관계 [@everythingadme]
 
 PAMPA 시험의 경우 투과도 결과를 해석하기 위한 절대적인 기준은 없으며
 시험기관 혹은 시험자마다 상이하다. 실무에서 흔히 사용되는 기준을
@@ -362,15 +358,18 @@ read_csv('data-raw/caco-2.csv', col_types="ccccccc") %>%
 설명하자면 최초 약물을 처리한 시점부터 배양액을 취하여 약물의 농도를
 분석하기까지 잔존하는 약물의 양이라고 할 수 있다.
 
-```{=tex}
+\footnotesize
+
 \begin{equation}
 \begin{split}
-\mathbf{Recovery\ }\left( \mathbf{\%} \right) &= \frac{total\ compound\ in\ both\ of\ A/B\ sides\ at\ the\ end\ of\ experiment\ (nmol)}{initial\ compound\ present\ (nmol)}\  \times \ 100 \\
-A:\ apical,&\ B:\ basolateral
+&\mathbf{Recovery\ }(\mathbf{\%}) = \frac{total\ compound\ in\ both\ of\ A/B\ sides\ at\ the\ end\ of\ experiment\ (nmol)}{initial\ compound\ present\ (nmol)}\  \times \ 100 \\
+&A:\ apical,\ B:\ basolateral
 \end{split}
 (\#eq:eq02-03)
 \end{equation}
-```
+
+\normalsize
+
 만약 어떤 약물의 투과도를 평가하였을 때 배양액 내 약물의 농도가 낮아서
 low-permeable한 약물로 분류되었으나 동시에 회수율이 매우 낮다면, 결과를
 해석함에 있어 정말 약물의 투과도가 낮았던 것인지 아니면 다른 원인에 의해
@@ -403,29 +402,16 @@ out하여 추출하여 그 농도를 분석함으로써 낮은 회수율을 개�
 결과를 얻을 수 있도록 시험을 잘 설계하고, 데이터를 정확히 해석하는 것
 역시 중요하다.
 
-**참고문헌**
+<!-- **참고문헌** -->
 
-(편집자: 이 참고문헌은 모두 인용 위치가 본문 내에서 구체적으로
-표시되어야 합니다.)
+<!-- (편집자: 이 참고문헌은 모두 인용 위치가 본문 내에서 구체적으로 -->
+<!-- 표시되어야 합니다.) -->
 
-1.  가톨릭대학교 계량약리학연구소. 신약개발을 위한 실전 약동학 I (2021).
-2.  약제학분과회. 생물약제학과 약물속도론: 약제학총서 3 (2005).
-3.  Di, Li, and Edward Kerns. *Drug-like properties: concepts, structure
-    design and methods from ADME to toxicity optimization*. Academic
-    press (2015).
-4.  Cyprotex Ltd. Everything you need to know about ADME, 3^rd^ Edition
-    (2017).
-5.  Volpe, Donna A. "Drug-permeability and transporter assays in Caco-2
-    and MDCK cell lines." *Future medicinal chemistry* 3.16 (2011):
-    2063-2077.
-6.  ICH Harmonised Guideline, M9 Biopharmaceutics Classification
-    System-Based Biowaivers (2018).
-7.  Saxena, Amrita, et al. "Pharmacokinetics, dose proportionality and
-    permeability of S002-333 and its enantiomers, a potent
-    antithrombotic agent, in rabbits." *Xenobiotica* 45.11 (2015):
-    1016-1023.
-8.  Masungi, C., et al. "Parallel artificial membrane permeability assay
-    (PAMPA) combined with a 10-day multiscreen Caco-2 cell culture as a
-    tool for assessing new drug candidates." *Die Pharmazie-An
-    International Journal of Pharmaceutical Sciences* 63.3 (2008):
-    194-199.
+<!-- 1.  가톨릭대학교 계량약리학연구소. 신약개발을 위한 실전 약동학 I (2021). -->
+<!-- 2.  약제학분과회. 생물약제학과 약물속도론: 약제학총서 3 (2005). -->
+<!-- 3.  Di, Li, and Edward Kerns. *Drug-like properties: concepts, structure design and methods from ADME to toxicity optimization*. Academic press (2015). -->
+<!-- 4.  Cyprotex Ltd. Everything you need to know about ADME, 3^rd^ Edition (2017). -->
+<!-- 5.  Volpe, Donna A. "Drug-permeability and transporter assays in Caco-2 and MDCK cell lines." *Future medicinal chemistry* 3.16 (2011): 2063-2077. -->
+<!-- 6.  ICH Harmonised Guideline, M9 Biopharmaceutics Classification System-Based Biowaivers (2018). -->
+<!-- 7.  Saxena, Amrita, et al. "Pharmacokinetics, dose proportionality and permeability of S002-333 and its enantiomers, a potent antithrombotic agent, in rabbits." *Xenobiotica* 45.11 (2015): 1016-1023. -->
+<!-- 8.  Masungi, C., et al. "Parallel artificial membrane permeability assay (PAMPA) combined with a 10-day multiscreen Caco-2 cell culture as a tool for assessing new drug candidates." *Die Pharmazie-An International Journal of Pharmaceutical Sciences* 63.3 (2008): 194-199. -->

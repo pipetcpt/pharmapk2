@@ -87,7 +87,7 @@ height="3.0930227471566054in"}
 knitr::include_graphics('media-01/image2.png')
 ```
 
-(ref:01-02) Biopharmaceutics Classification System (BCS)
+(ref:01-02) Biopharmaceutics Classification System (BCS) [@lubrizol]
 
 ## 용해도에 영향을 주는 인자
 
@@ -134,7 +134,7 @@ knitr::include_graphics('media-01/image2.png')
 Table: (\#tab:table01-03) 인공 위액 및 인공 장액의 비교
 
 | 종류   | 인공 위액 (SGF, Simulated Gastric Fluid)  | 인공 장액 (SIF, Simulated Intestinal Fluid)  |
-| :--- | :--- |
+| :--- | :--- | :--- |
 | 정의   | USP에 의해 정의된    절식 상태의 인공 위액         | USP에 의해 정의된  절식 상태의 인공 장액   | 
 | pH     | 1.2                          | 6.7                          |
 | 구성 성분  | Pepsin, HCl, NaCl, water     | Pancreatin, KH~2~PO~4~, NaOH, water |
@@ -213,7 +213,7 @@ Kinetic solubility는 DMSO 등의 유기용매에 약물을 완전히 용해시�
 knitr::include_graphics('media-01/image3.png')
 ```
 
-(ref:01-03) Kinetic solubility 측정법 모식도
+(ref:01-03) Kinetic solubility 측정법 모식도 [@everythingadme]
 
 <!--
 ![](./media-01/image3.png){width="5.948487532808399in"
@@ -225,7 +225,7 @@ height="2.0930227471566054in"}
 반대로 침전이 생기기 시작하는 농도부터 침전물에 의해 빛의 투과가 감소하는데, 이 변곡점을 확인하는 방법이 Turbidimetry이다. 
 마지막으로 Direct measurement란 UV 흡광도와 약물 농도는 선형 비례 관계에 있음을 이용하여 측정된 UV 흡광도로부터 미지의 약물 농도를 정량하는 방법이다.
 
-Table: (\#tab:table01-05) Kinetic solubility의 침전을 검출하는 방법
+Table: (\#tab:table01-05) Kinetic solubility의 침전을 검출하는 방법 [@di2015drug]
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 Nephelometry                                          Turbidimetry                                           Direct measurement
@@ -245,7 +245,7 @@ Thermodynamic solubility는 과량의 결정성 고체 약물을 특정 수용�
 knitr::include_graphics('media-01/image7.png')
 ```
 
-(ref:01-04) Thermodynamic solubility 측정법 모식도
+(ref:01-04) Thermodynamic solubility 측정법 모식도 [@everythingadme]
 
 <!--
 ![](./media-01/image7.png){width="5.841909448818898in"
@@ -263,12 +263,7 @@ Thermodynamic solubility는 Kinetic solubility에 비해 낮은 용해도 값을
 knitr::include_graphics('media-01/image8.png')
 ```
 
-(ref:01-05) Kinetic solubility와 Thermodynamic solubility의 비교
-
-<!--
-![](./media-01/image8.png){width="3.528966535433071in"
-height="2.7761198600174977in"}
--->
+(ref:01-05) Kinetic solubility와 Thermodynamic solubility의 비교 [@alskar2018improved]
 
 ## 맺음말
 
@@ -277,20 +272,3 @@ height="2.7761198600174977in"}
 또한 여러 용매 조건에서의 용해도 측정 결과는 임상시험 혹은 품목허가 등을 위해서도 필수적으로 제출해야 하는 자료이기도 하다. 
 최근 많은 개발사들이 효력(potency)이 높은 물질을 발굴하려 노력하면서, 화합물의 친지질성 또한 더욱 높아지는 경향을 보이고 있어 용해도의 중요성이 더욱 크게 여겨지고 있다. 
 따라서 수용액, 유기용매, pH별 완충액, compendial 및 bio-relevant media 등과 같은 다양한 용매 조건에서의 용해도 평가에 대하여 정확히 이해하고, 이를 적절히 활용하는 것이 중요하다.
-
-**참고문헌**
-
-(편집자: 이 참고문헌은 모두 인용 위치가 본문 내에서 구체적으로 표시되어야 합니다.)
-
-1. Edward H. Kerns and Li Di, Drug-like properties: Concepts, Structure Design and Methods.
-2. Lubrizol Life Science, Biopharmaceutical Classification System, 2019 https://3ehzg6104228bwtte1se19g6-wpengine.netdna-ssl.com/wp-content/uploads/2019/10/TB-28-Biopharmaceutical-Classification-System.pdf
-3. Everything you need to know about ADME, 3rd Edition, Cyprotex
-4. Alskär, L. C. et al., Improved molecular understanding of lipid-based formulations, Digital Comprehensive Summaries of Uppsala Dissertations from the Faculty of Pharmacy 262, 2018.
-5. Eleni Rinaki et al., Pharmaceutical Research, 20(12), 2003.
-6. Sandra Klein et al., The AAPS Journal, 12(3), 2010.
-7. Mark G. Papich and Marilyn N. Martinez, The AAPS Journal, 2015.
-8. Edward H. Kerns et al., Current Drug Metabolism, 9, 879-885, 2008.
-9. M9 Biopharmaceutics classification system based biowaivers, 2018.
-10. Jochen Maas et al., European Journal of Pharmaceutics and Biopharmaceutics, 66, 1-10, 2007.
-11. Prachi Shekhawat and Varsha Pokharkar, Acta Pharmaceutica Sinica B, 2016.
-
