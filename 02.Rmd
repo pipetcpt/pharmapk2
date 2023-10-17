@@ -131,15 +131,14 @@ P_{e} = C\  \times \left\lbrack - Ln\mspace{6mu}\left( 1 - \frac{\lbrack drug\rb
 \end{equation}
 ```
 
-- [drug]~equilibrium~ = [drug]~donor~ V~D~ + [drug]~acceptor~ x V~A~ /
-- (V~D~ + V~A~)\
-- C = V~D~ × V~A~ / (V~D~ + V~A~) × t × A\
-- V~D~ = volume of donor compartment\
-- V~A~ = volume of acceptor compartment\
-- A = filter area\
-- t = incubation time (in seconds)\
-- [drug]~acceptor~ = Concentration of compound in the acceptor compartment at the assay completion\
-- [drug]~donor~ = Concentration of compound in the donor compartment at the assay completion\
+- [drug]~equilibrium~ = [drug]~donor~ V~D~ + [drug]~acceptor~ x V~A~ / (V~D~ + V~A~)
+- C = V~D~ × V~A~ / (V~D~ + V~A~) × t × A
+- V~D~ = volume of donor compartment
+- V~A~ = volume of acceptor compartment
+- A = filter area
+- t = incubation time (in seconds)
+- [drug]~acceptor~ = Concentration of compound in the acceptor compartment at the assay completion
+- [drug]~donor~ = Concentration of compound in the donor compartment at the assay completion
 - [drug]~equilibrium~ = Concentration of compound at theoretical equilibrium
 
 별도의 세포배양 과정이 필요 없고, 약물의 농도를 UV plate reader를
