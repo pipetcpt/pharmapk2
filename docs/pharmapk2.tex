@@ -66,28 +66,38 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
 \newlength{\cslhangindent}
 \setlength{\cslhangindent}{1.5em}
 \newlength{\csllabelwidth}
 \setlength{\csllabelwidth}{3em}
-\newlength{\cslentryspacingunit} % times entry-spacing
-\setlength{\cslentryspacingunit}{\parskip}
-\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
- {% don't indent paragraphs
-  \setlength{\parindent}{0pt}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
   % turn on hanging indent if param 1 is 1
   \ifodd #1
-  \let\oldpar\par
-  \def\par{\hangindent=\cslhangindent\oldpar}
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
   \fi
   % set entry spacing
-  \setlength{\parskip}{#2\cslentryspacingunit}
- }%
- {}
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
 \usepackage{calc}
-\newcommand{\CSLBlock}[1]{#1\hfill\break}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 %\usepackage{tikz-cd} % \xleftrightarrow
 %\usepackage{amsmath} 
@@ -268,7 +278,7 @@
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
@@ -282,9 +292,9 @@
 
 \title{신약개발을 위한 실전 약동학 II
 
-(ADME의 기초 자료)}
+(흡수, 분포, 대사, 배설의 기초)}
 \author{가톨릭대학교 계량약리학연구소(PIPET), AIMS BioScience v0.2 (2023-10-16)}
-\date{2023-10-17}
+\date{2024-02-08}
 
 \begin{document}
 \maketitle
@@ -322,68 +332,39 @@
 \tableofcontents
 }
 \setstretch{1.3}
-\hypertarget{uxba38uxb9acuxb9d0}{%
-\chapter*{머리말}\label{uxba38uxb9acuxb9d0}}
+\chapter*{머리말}\label{uxba38uxb9acuxb9d0}
 
 
 \normalsize
 
-이 책은 제약·바이오 업계의 신약 연구자들이 약동학(pharmacokinetics)을 이해하는 것을 돕기 위해 만들어졌습니다.\index{약동학}
+(To be determined)
 
-\index{약동학}\index{약동학}\index{약력학} \index{임상개발} \index{의사결정}
-약동학은 신약의 발견부터 시판허가 이후의 관리에 이르기까지 모든 단계에서 쓰이는 가장 기본적이고 필수적인 지식이며 도구입니다.
-오늘날 다양한 생명과학 분야의 전문인력들이 우리나라에서 신약의 발견과 초기개발과정, 임상개발 과정에서 핵심적인 역할들을 수행하고 있습니다.
-그러나 학위과정 중에 약동학이나 약력학을 공부할 기회가 없었던 분들이 많아서 업무 수행 중 의사결정이나 소통에 있어서 늘 크고 작은 어려움을 겪고 있습니다.
-이런 현실은 본격적인 신약개발의 역사가 일천한 우리나라에서 거쳐갈 수밖에 없는 과정이지만, 소수의 전문가들이 제약회사에 가서 강의 몇시간 하는 식으로는 해결되지 않습니다.
+I권에서 소개된 기본원리에 이어, ``신약개발을 위한 실전 약동학 II (흡수, 분포, 대사, 배설의 기초)''에서는 혈장농도의 시간에 따른 변화를 일으키는 근본이라 할 수 있는 흡수, 분포, 대사, 배설 과정들을 시험관내 실험이나 동물실험 데이터를 통해 파악하고 이를 이용하여 사람에서의 약동학을 예측하는 방법론을 소개하였습니다. 신약으로 개발되는 물질의 종류는 핵산, 단백질, 각종 세포들에 이르기까지 다양하게 확대되었지만 지금까지 확립된 방법론을 소개하기 위해 소분자의약품을 기준으로 서술하였습니다. 저자들은 신약개발의 일선에서 오랫동안 활약해온 전문가들로서 날마다 쓰이고 있는 연구방법들을 이론과 함께 서술하여 독자의 이해를 돕고자 하였습니다.
 
-물론 `임상약동학' 또는 `약동학' 이라는 제목의 좋은 책들은 이미 국내에도\index{약동학}
-여러 권 나와 있습니다. 그러나 약동학 데이터를 직접 들여다보고 분석하는\index{약동학}
-학문(임상약리학, 약제학 등)을 대학원에서 전공하지 않은 이상, 그 두꺼운 교재들의 복잡한 수식을 다 읽어야 할 절박함도 없을 것이고, 설혹 읽어본다
-한들 쉽게 이해할 수도 없습니다.
-또한 많은 책들이 약동학 수식들을 충실히\index{약동학}
-다루고는 있지만 신약을 실제로 개발하는 과정에서 제약사 연구원들이 부딪히는 의문들을 해결하는데 주안점을 두고 저술된 것이 아니므로 현장의 답답함을 풀어주는 데에는 한계가 있어왔습니다.
-
-이런 현실을 조금이라도 타개하기 위해서는 국내 제약, 바이오 기업에서 신약개발 업무를 수행하고 있는 다양한 전공의 연구자들이 시공간의 제약없이 공부할 수 있는 온라인 강의 동영상, 그리고 그와 함께 읽을 수 있는 교재를 만드는 작업이 절실하였습니다.
-그래서 저자들은 지난 20여년간 대학과 기업의 연구원들을 대상으로 약동학을 가르치며 겪은 학습자들의 질문과 반응들을 토대로 꼭 필요한 내용들을 이해하기 쉽게 설명하고자 영상 제작과 함께, 이 교재를 만들게 되었습니다. \footnote{\url{http://pipetlms.or.kr}}
-
-저자들은 ``약동학''이라는 방법론 자체를 전공했다기 보다는 그것을 기본적인\index{약동학}
-도구로 사용하는 학문인 임상약리학을 공부해 온 사람들입니다. 이 책에 담긴
-지식들 중 저자들이 새롭게 만들어낸 것은 거의 없으므로 이 책은 오랜 세월
-동안 세상의 많은 학자들이 만들어 온 지식들을 모아서 시중에 유통시킨 것에
-지나지 않습니다. 다만 신약개발을 위해 임상약리학을 적용하는 과정에서,
-함께 일해왔던 기업들에서 만들어진 물질들의 약효, 독성, 약동학에 관한\index{약동학}
-비임상, 임상 연구자료들을 들여다보면서 수없이 토의하고 질문했던 내용들을
-책 속에 충실히 반영하고자 하였습니다. 그 내용을 독자들이 좀 더
-효율적으로 학습할 수 있도록 오래된 지식들을 새로운 방식으로 자르고 묶고
-다듬어 내놓고자 노력했습니다. 약동학 책에는 수식들이 꽤 등장하기 때문에, 이 책의 내용 역시 어렵게 느껴질 수 있으므로 온라인상에 공개되어 있는 강의 동영상을 책과 함께 공부하시기를 권합니다.
 이 책은 제약/바이오 기업의 연구자를 대상으로 쓰여진 것이지만, 관련된 전공을 공부하는 대학원생들에게도 도움이 될 것입니다.
 그러므로 학생들의 책값 부담을 덜어주기 위해 책 전체를 웹북과 pdf로 온라인 상에 공개하였습니다. \footnote{\url{http://pipet.or.kr/books/pharmapk2}}
 종이책은 print on demand 방식으로 출판하면서 저자들은 인세를 받지 않음으로써 복사/제본비 수준의 책값을 책정하였습니다.
 
 이 책과 강의동영상이 우리나라에서 신약의 비임상, 임상개발 과정에 참여하고 있는 각 분야 전문가들의 역량을 더욱 잘 발휘할 수 있게 돕는 디딤돌이 된다면 저자들 모두의 기쁨이겠습니다.
-\index{임상개발}
 
-\hfill 20XX년 9월, 성의교정 연구실에서
+\hfill 2023년 12월, 성의교정 연구실에서
 
-\hfill 대표저자 임동석 拜
+\hfill 대표저자 임동석
 
 \normalsize
 
 \mainmatter
 
-\hypertarget{part-uxbb3cuxb9acuxd654uxd559uxc801-uxc131uxc9c8}{%
-\part{물리화학적 성질}\label{part-uxbb3cuxb9acuxd654uxd559uxc801-uxc131uxc9c8}}
+\part{물리화학적 성질}\label{part-uxbb3cuxb9acuxd654uxd559uxc801-uxc131uxc9c8}
 
-\hypertarget{uxc6a9uxd574uxb3c4}{%
-\chapter{용해도}\label{uxc6a9uxd574uxb3c4}}
+\chapter{용해도}\label{uxc6a9uxd574uxb3c4}
 
 \Large\hfill
 
 전예린
 \normalsize
 
-\hypertarget{uxc11cuxb860}{%
-\section{서론}\label{uxc11cuxb860}}
+\section{서론}\label{uxc11cuxb860}
 
 용해도(solubility)는 약물의 흡수에 관여하는 요소로 생체이용률에 영향을 줄 수 있어 신약개발 과정에서 매우 중요하다. 우리가 정제 혹은 캡슐 등의 형태인 약을 경구로 투여했을 때 유효 성분의 약물은 붕해(disintegration), 용해(dissolution) 및 확산(diffusion) 과정을 거쳐 전신 순환혈에 흡수된다 (그림 \ref{fig:figure-first}).
 
@@ -393,7 +374,7 @@
 
 }
 
-\caption{약물의 흡수 과정 (\protect\hyperlink{ref-di2015drug}{Di and Kerns 2015})}\label{fig:figure-first}
+\caption{약물의 흡수 과정 (\citeproc{ref-di2015drug}{Di and Kerns 2015})}\label{fig:figure-first}
 \end{figure}
 
 
@@ -404,8 +385,7 @@
 
 이렇듯 용해도는 신약개발 과정에서 필수적으로 확인해야 할 약물의 특성이므로, 이 장에서는 용해도의 개념, 기준 및 영향을 줄 수 있는 인자 등에 대해 자세히 기술하여 이해를 돕고자 한다.
 
-\hypertarget{uxc6a9uxd574uxb3c4-uxbd84uxb958-uxae30uxc900}{%
-\section{용해도 분류 기준}\label{uxc6a9uxd574uxb3c4-uxbd84uxb958-uxae30uxc900}}
+\section{용해도 분류 기준}\label{uxc6a9uxd574uxb3c4-uxbd84uxb958-uxae30uxc900}
 
 ``개발하고자 하는 약물의 목표 용해도가 있는가?'' 또는 ``약물의 용해도의 좋고 나쁨의 기준이 있는가?''와 같은 질문이 있다면 이에 대한 대답은 ``명확한 기준은 없다''이다. 그 이유는 약물의 투과도 (permeability), 평가하고자 하는 약물의 농도나 용량, 시험 항목, 이나 목적 등과 같은 다양한 요인에 따라 목표로 하는 용해도와 그 기준이 결정될 것이기 때문이다. 따라서 이 절에서는 신약개발 단계 별로 용해도의 분류 기준을 나눠보고자 한다.
 
@@ -505,16 +485,14 @@ Class I과 Class III로 분류되기 위한 ``높은 용해도''란 ``37℃ 및 
 
 }
 
-\caption{Biopharmaceutics Classification System (BCS) (\protect\hyperlink{ref-lubrizol}{Lubrizol Life Science 2019})}\label{fig:01-02}
+\caption{Biopharmaceutics Classification System (BCS) (\citeproc{ref-lubrizol}{Lubrizol Life Science 2019})}\label{fig:01-02}
 \end{figure}
 
 
 
-\hypertarget{uxc6a9uxd574uxb3c4uxc5d0-uxc601uxd5a5uxc744-uxc8fcuxb294-uxc778uxc790}{%
-\section{용해도에 영향을 주는 인자}\label{uxc6a9uxd574uxb3c4uxc5d0-uxc601uxd5a5uxc744-uxc8fcuxb294-uxc778uxc790}}
+\section{용해도에 영향을 주는 인자}\label{uxc6a9uxd574uxb3c4uxc5d0-uxc601uxd5a5uxc744-uxc8fcuxb294-uxc778uxc790}
 
-\hypertarget{uxc57duxbb3cuxc758-uxbb3cuxb9acuxd654uxd559uxc801-uxd2b9uxc131}{%
-\subsection{약물의 물리화학적 특성}\label{uxc57duxbb3cuxc758-uxbb3cuxb9acuxd654uxd559uxc801-uxd2b9uxc131}}
+\subsection{약물의 물리화학적 특성}\label{uxc57duxbb3cuxc758-uxbb3cuxb9acuxd654uxd559uxc801-uxd2b9uxc131}
 
 용해도는 약물의 물리화학적 특성에 따라 달라진다. 일반적으로 약물의 분자량이 낮을수록 용해도가 크며, 수소결합이나 극성 구조를 가진 약물일수록 용해도가 크다.
 그리고 약물의 입자 크기가 작을수록 용매와 반응하는 표면적이 증가하여 용해도가 크다.
@@ -539,8 +517,7 @@ Class I과 Class III로 분류되기 위한 ``높은 용해도''란 ``37℃ 및 
   이온화도 (Ionizability): pKa
 \end{itemize}
 
-\hypertarget{uxc6a9uxb9e4-uxc885uxb958}{%
-\subsection{용매 종류}\label{uxc6a9uxb9e4-uxc885uxb958}}
+\subsection{용매 종류}\label{uxc6a9uxb9e4-uxc885uxb958}
 
 용해도란 용매 조건에서 최대로 용해될 수 있는 약물의 농도를 의미한다.
 즉, ``용매 조건''이 달라지면 ``용해도'' 역시 달라질 수 있으며, 하나의 약물은 용매 조건에 따라 여러 값의 용해도를 가질 수 있다.
@@ -565,8 +542,7 @@ Class I과 Class III로 분류되기 위한 ``높은 용해도''란 ``37℃ 및 
 약물이 주로 흡수되는 위장관의 다양한 조건 (넓은 pH 범위 : pH 1.4-8.0), 음식물의 영향 등)은 약물의 용해도에 많은 영향을 주며, 더 나아가 약물의 생체이용률을 변화시킨다.
 약물의 생체이용률을 예측하기 위해서는 수용액 및 유기용매에서의 용해도보다는, 생리학적 인자들이 반영된 용매에서의 용해도 결과를 활용하는 것이 더욱 적합하다. 따라서 이 절에서는 생리학적 인자들이 반영된 ``Compendial media'' 및 ``Bio-relevant media'' 에서의 용해도에 대하여 자세히 기술하고자 한다.
 
-\hypertarget{compendial-media}{%
-\subsubsection{Compendial media}\label{compendial-media}}
+\subsubsection{Compendial media}\label{compendial-media}
 
 위 내 pH는 1.0-3.0이고 소화효소로는 펩신 (pepsin)이 있으며, 장 내 pH 5.7-7.7이고 소화 효소로는 판크레아틴 (pancreatin)이 있다. Compendial media는 위장관의 pH 조건과 유사하면서 소화효소를 함유한 용매이다.
 ``규격화된 용매''인 compendial media는 USP에 의해 그 규격이 지정되어
@@ -605,8 +581,7 @@ pH & 1.2 & 6.7 \\
 구성 성분 & Pepsin, HCl, NaCl, water & Pancreatin, KH\textsubscript{2}PO\textsubscript{4}, NaOH, water \\
 \end{longtable}
 
-\hypertarget{bio-relevant-media}{%
-\subsection{Bio-relevant media}\label{bio-relevant-media}}
+\subsection{Bio-relevant media}\label{bio-relevant-media}
 
 Bio-relevant media는 compendial media의 한계점인 '오스몰농도, 이온강도,
 점도, 표면장력 그리고 음식물에 의한 영향 등'을 모두 반영하여 생체 내
@@ -703,15 +678,13 @@ Composition & Enzyme & Pepsin & Pancreatin & Pepsin & Pepsin & Pancreatin & Panc
 & Phospholipid & N.A. & N.A. & ↓ & ↑ & ↓ & ↑ \\
 \end{longtable}
 
-\hypertarget{uxc6a9uxd574uxb3c4-uxce21uxc815uxbc95}{%
-\subsection{용해도 측정법}\label{uxc6a9uxd574uxb3c4-uxce21uxc815uxbc95}}
+\subsection{용해도 측정법}\label{uxc6a9uxd574uxb3c4-uxce21uxc815uxbc95}
 
 용해도는 측정법에 따라서도 그 값이 달라질 수 있다.
 이에 용해도 데이터를 해석하고 활용하기 위해서는 용해도 측정법에 대해 정확히 이해하는 것이 중요하다.
 용해도 측정법은 크게 ``Kinetic solubility''와 ``Thermodynamic solubility''로 나눌 수 있다.
 
-\hypertarget{kinetic-solubility}{%
-\subsubsection{Kinetic solubility}\label{kinetic-solubility}}
+\subsubsection{Kinetic solubility}\label{kinetic-solubility}
 
 Kinetic solubility는 DMSO 등의 유기용매에 약물을 완전히 용해시킨 후, 수용성 buffer를 조금씩 첨가하면서 침전이 생기기 시작하는 농도를 측정한다. 소량의 화합물로도 빠르게 측정이 가능하기 때문에 많은 수의 화합물을 소량 합성하게 되는 Drug discovery 단계에서 주로 수행되는 방법이다.
 아래 그림 \ref{fig:01-03}과 같이 약물을 유기용매에 고농도로 용해한 stock solution을 시험계 완충액에 첨가하는 \emph{in vitro} 시험 방법과도 유사하기 때문에, Kinetic solubility 측정 결과는 \emph{in vitro} assay 농도 설정에도 유용하게 활용될 수 있다.
@@ -722,7 +695,7 @@ Kinetic solubility는 DMSO 등의 유기용매에 약물을 완전히 용해시�
 
 }
 
-\caption{Kinetic solubility 측정법 모식도 (\protect\hyperlink{ref-everythingadme}{Cyprotex 2022})}\label{fig:01-03}
+\caption{Kinetic solubility 측정법 모식도 (\citeproc{ref-everythingadme}{Cyprotex 2022})}\label{fig:01-03}
 \end{figure}
 
 
@@ -736,7 +709,7 @@ Kinetic solubility는 DMSO 등의 유기용매에 약물을 완전히 용해시�
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3624}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3691}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2685}}@{}}
-\caption{\label{tab:table01-05} Kinetic solubility의 침전을 검출하는 방법 (\protect\hyperlink{ref-di2015drug}{Di and Kerns 2015})}\tabularnewline
+\caption{\label{tab:table01-05} Kinetic solubility의 침전을 검출하는 방법 (\citeproc{ref-di2015drug}{Di and Kerns 2015})}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Nephelometry
@@ -762,8 +735,7 @@ Direct measurement
 \includegraphics{./media-01/image4.png} & \includegraphics{./media-01/image5.png} & \includegraphics{./media-01/image6.png} \\
 \end{longtable}
 
-\hypertarget{thermodynamic-solubility}{%
-\subsubsection{Thermodynamic solubility}\label{thermodynamic-solubility}}
+\subsubsection{Thermodynamic solubility}\label{thermodynamic-solubility}
 
 Thermodynamic solubility는 과량의 결정성 고체 약물을 특정 수용매에 직접
 첨가한 후, 평형상태에 도달했을 때 용해된 약물의 농도를 측정한다 (그림 \ref{fig:01-04}).
@@ -777,7 +749,7 @@ Thermodynamic solubility는 과량의 결정성 고체 약물을 특정 수용�
 
 }
 
-\caption{Thermodynamic solubility 측정법 모식도 (\protect\hyperlink{ref-everythingadme}{Cyprotex 2022})}\label{fig:01-04}
+\caption{Thermodynamic solubility 측정법 모식도 (\citeproc{ref-everythingadme}{Cyprotex 2022})}\label{fig:01-04}
 \end{figure}
 
 
@@ -795,13 +767,12 @@ Thermodynamic solubility는 Kinetic solubility에 비해 낮은 용해도 값을
 
 }
 
-\caption{Kinetic solubility와 Thermodynamic solubility의 비교 (\protect\hyperlink{ref-alskar2018improved}{Alskar 2018})}\label{fig:01-05}
+\caption{Kinetic solubility와 Thermodynamic solubility의 비교 (\citeproc{ref-alskar2018improved}{Alskar 2018})}\label{fig:01-05}
 \end{figure}
 
 
 
-\hypertarget{uxb9fauxc74cuxb9d0}{%
-\section{맺음말}\label{uxb9fauxc74cuxb9d0}}
+\section{맺음말}\label{uxb9fauxc74cuxb9d0}
 
 이상으로 ADME의 기초자료: Physicochemical properties에서 용해도에 대해 알아보았다.
 용해도는 약물의 흡수 및 생체이용률에 영향을 주는 약물의 특성 중 하나로, in vitro/in vivo 평가 시 평가 농도 혹은 용량의 결정과 평가 결과에 영향을 미치기도 한다.
@@ -809,15 +780,13 @@ Thermodynamic solubility는 Kinetic solubility에 비해 낮은 용해도 값을
 최근 많은 개발사들이 효력(potency)이 높은 물질을 발굴하려 노력하면서, 화합물의 친지질성 또한 더욱 높아지는 경향을 보이고 있어 용해도의 중요성이 더욱 크게 여겨지고 있다.
 따라서 수용액, 유기용매, pH별 완충액, compendial 및 bio-relevant media 등과 같은 다양한 용매 조건에서의 용해도 평가에 대하여 정확히 이해하고, 이를 적절히 활용하는 것이 중요하다.
 
-\hypertarget{uxd22cuxacfcuxb3c4}{%
-\chapter{투과도}\label{uxd22cuxacfcuxb3c4}}
+\chapter{투과도}\label{uxd22cuxacfcuxb3c4}
 
 \Large\hfill
 
 신초롱 \normalsize
 
-\hypertarget{uxc11cuxb860-1}{%
-\section{서론}\label{uxc11cuxb860-1}}
+\section{서론}\label{uxc11cuxb860-1}
 
 투과도 (permeability)란 물질이 세포막을 통하여 수송되는 속도로서
 정의된다. 경구 투여된 약물이 전신순환혈로 도달, 즉 흡수되기 위해서는
@@ -843,11 +812,9 @@ Thermodynamic solubility는 Kinetic solubility에 비해 낮은 용해도 값을
 투과도 평가 시험의 특성을 비교하여 실제 신약 개발 과정에서 목적에 맞는
 시험을 설계하고 결과를 적절히 해석 및 활용할 수 있도록 돕고자 한다.
 
-\hypertarget{uxae30uxbcf8-uxac1cuxb150}{%
-\section{기본 개념}\label{uxae30uxbcf8-uxac1cuxb150}}
+\section{기본 개념}\label{uxae30uxbcf8-uxac1cuxb150}
 
-\hypertarget{uxb9c9-uxd22cuxacfc-uxae30uxc804}{%
-\subsection{막 투과 기전}\label{uxb9c9-uxd22cuxacfc-uxae30uxc804}}
+\subsection{막 투과 기전}\label{uxb9c9-uxd22cuxacfc-uxae30uxc804}
 
 생체막은 단백질을 함유한 인지질 이중층 (phospholipid bilayer)으로
 구성되어 있으며, 인지질 분자의 소수성 꼬리는 안쪽으로, 친수성 머리는
@@ -889,8 +856,7 @@ transport) 뿐만 아니라 담체(carrier), 펌프, 채널 등과 같은 막 �
 
 
 
-\hypertarget{uxd22cuxacfcuxb3c4uxc5d0-uxc601uxd5a5uxc744-uxc8fcuxb294-uxc778uxc790}{%
-\subsection{투과도에 영향을 주는 인자}\label{uxd22cuxacfcuxb3c4uxc5d0-uxc601uxd5a5uxc744-uxc8fcuxb294-uxc778uxc790}}
+\subsection{투과도에 영향을 주는 인자}\label{uxd22cuxacfcuxb3c4uxc5d0-uxc601uxd5a5uxc744-uxc8fcuxb294-uxc778uxc790}
 
 앞서 살펴본 바와 같이 생체막은 인지질 이중층으로 구성되어 있어 약물의
 지용성이 높을수록 세포막을 투과하기 쉽다. 그리고 해리형에 비해
@@ -929,11 +895,9 @@ transport) 뿐만 아니라 담체(carrier), 펌프, 채널 등과 같은 막 �
 
 
 
-\hypertarget{uxd22cuxacfcuxb3c4-uxd3c9uxac00}{%
-\section{투과도 평가}\label{uxd22cuxacfcuxb3c4-uxd3c9uxac00}}
+\section{투과도 평가}\label{uxd22cuxacfcuxb3c4-uxd3c9uxac00}
 
-\hypertarget{pampaparallel-artificial-membrane-permeability-assay}{%
-\subsection{PAMPA(Parallel Artificial Membrane Permeability Assay)}\label{pampaparallel-artificial-membrane-permeability-assay}}
+\subsection{PAMPA(Parallel Artificial Membrane Permeability Assay)}\label{pampaparallel-artificial-membrane-permeability-assay}
 
 인공지질막을 이용한 시험법으로, 여러 막 투과 기전 중 수동수송에 대한
 평가만이 가능하다는 특징이 있다. 주된 흡수 장기인 소장에서 약물은 주로
@@ -1001,8 +965,7 @@ PAMPA-BBB를 활용하여 Brain-Blood Barrier에 대한 약물의 투과도를 �
 실제로 약물이 막을 투과하는 기전을 완전히 재현하지는 못한 시험계로서
 특히 transporter와 약물 간 상호작용을 평가할 수 없다는 단점이 있다.
 
-\hypertarget{caco-2-cell-based-permeability-assay}{%
-\subsection{Caco-2 cell-based permeability assay}\label{caco-2-cell-based-permeability-assay}}
+\subsection{Caco-2 cell-based permeability assay}\label{caco-2-cell-based-permeability-assay}
 
 사람 대장암 세포에서 유래한 Caco-2 세포주를 이용한 시험법으로, Caco-2
 세포는 분화되면서 모양이나 기능에서 사람의 소장 상피세포와 유사한 특성
@@ -1020,7 +983,7 @@ basolateral side 모두에서 약물 농도를 측정한다.
 
 }
 
-\caption{Caco-2 cell-based permeability assay 방법 (\protect\hyperlink{ref-everythingadme}{Cyprotex 2022})}\label{fig:02-06}
+\caption{Caco-2 cell-based permeability assay 방법 (\citeproc{ref-everythingadme}{Cyprotex 2022})}\label{fig:02-06}
 \end{figure}
 
 
@@ -1053,8 +1016,7 @@ resistant protein (BCRP)와 같은 efflux transporter의 기질성 여부까지
 세포주가 사람의 대장세포라 실제 약물의 흡수가 많이 이루어지는 소장과는
 다소 차이가 있을 수 있다.
 
-\hypertarget{mdck-cell-based-permeability-assay}{%
-\subsection{MDCK cell-based permeability assay}\label{mdck-cell-based-permeability-assay}}
+\subsection{MDCK cell-based permeability assay}\label{mdck-cell-based-permeability-assay}
 
 개의 콩팥에서 유래한 MDCK(Madin-Darby Canine Kidney) 세포주를 이용한
 시험법으로, 소장 상피세포의 tight junction과 유사한 구조의 cell
@@ -1178,8 +1140,7 @@ MRP2 and MRP5 \\
 \textbf{Metabolism} & No & Yes & Yes \\
 \end{longtable}
 
-\hypertarget{uxd22cuxacfcuxb3c4-uxd3c9uxac00-uxacb0uxacfcuxc758-uxd574uxc11d-uxbc0f-uxd65cuxc6a9}{%
-\section{투과도 평가 결과의 해석 및 활용}\label{uxd22cuxacfcuxb3c4-uxd3c9uxac00-uxacb0uxacfcuxc758-uxd574uxc11d-uxbc0f-uxd65cuxc6a9}}
+\section{투과도 평가 결과의 해석 및 활용}\label{uxd22cuxacfcuxb3c4-uxd3c9uxac00-uxacb0uxacfcuxc758-uxd574uxc11d-uxbc0f-uxd65cuxc6a9}
 
 앞서 설명한 \emph{in vitro} 시험들을 통해 약물의 세포막 투과계수를 산출할 수
 있으며, 이를 토대로 그 약물의 소장에서의 흡수 정도를 예측하게 된다. 또한
@@ -1204,7 +1165,7 @@ MRP2 and MRP5 \\
 
 }
 
-\caption{Caco-2 투과도와 사람 소장 흡수율 간의 상관 관계 (\protect\hyperlink{ref-everythingadme}{Cyprotex 2022})}\label{fig:02-08}
+\caption{Caco-2 투과도와 사람 소장 흡수율 간의 상관 관계 (\citeproc{ref-everythingadme}{Cyprotex 2022})}\label{fig:02-08}
 \end{figure}
 
 
@@ -1267,8 +1228,7 @@ test drug B & 12.6 & 22.5 & 1.78 & 11.8 & 24.3 & 2.05\\
 \end{tabular}
 \end{table}
 
-\hypertarget{uxd22cuxacfcuxb3c4-uxd3c9uxac00-uxc2dc-uxace0uxb824uxc0acuxd56d}{%
-\section{투과도 평가 시 고려사항}\label{uxd22cuxacfcuxb3c4-uxd3c9uxac00-uxc2dc-uxace0uxb824uxc0acuxd56d}}
+\section{투과도 평가 시 고려사항}\label{uxd22cuxacfcuxb3c4-uxd3c9uxac00-uxc2dc-uxace0uxb824uxc0acuxd56d}
 
 투과도 평가 시 회수율은 다음의 수식에 따라 산출되며, 그 개념을
 설명하자면 최초 약물을 처리한 시점부터 배양액을 취하여 약물의 농도를
@@ -1314,8 +1274,7 @@ low-permeable한 약물로 분류되었으나 동시에 회수율이 매우 낮�
 out하여 추출하여 그 농도를 분석함으로써 낮은 회수율을 개선시키는 방법이
 있다.
 
-\hypertarget{uxb9fauxc74cuxb9d0-1}{%
-\section{맺음말}\label{uxb9fauxc74cuxb9d0-1}}
+\section{맺음말}\label{uxb9fauxc74cuxb9d0-1}
 
 투과도는 약물의 흡수와 관련된 주요 인자 중 하나이므로, 신약개발 초기의
 후보물질 탐색 시 물질 스크리닝을 위한 평가 항목으로 여겨진다. 그 외에도
@@ -1326,16 +1285,14 @@ out하여 추출하여 그 농도를 분석함으로써 낮은 회수율을 개�
 결과를 얻을 수 있도록 시험을 잘 설계하고, 데이터를 정확히 해석하는 것
 역시 중요하다.
 
-\hypertarget{uxd608uxc7a5uxb2e8uxbc31uxacb0uxd569}{%
-\chapter{혈장단백결합}\label{uxd608uxc7a5uxb2e8uxbc31uxacb0uxd569}}
+\chapter{혈장단백결합}\label{uxd608uxc7a5uxb2e8uxbc31uxacb0uxd569}
 
 \Large\hfill
 
 원상범
 \normalsize
 
-\hypertarget{uxc11cuxb860-2}{%
-\section{서론}\label{uxc11cuxb860-2}}
+\section{서론}\label{uxc11cuxb860-2}
 
 약을 복용하게 되면 위장관에서 붕해, 용해되어 전신순환혈에 도달하는 흡수과정을 거치게 되고, 전신순환혈에 도달한 약물은 혈장단백질과 결합하거나 유리된 상태로 존재하게 된다.
 혈장 내 유리 상태의 약물은 생체막을 통과하여 신장이나 간 등 약물이 작용하는 여러 장기로 분포하는 과정을 거치게 되고, 이렇게 분포된 약물 또한 조직단백질과 결합하거나 유리된 상태로 존재한다.
@@ -1354,8 +1311,7 @@ out하여 추출하여 그 농도를 분석함으로써 낮은 회수율을 개�
 
 약물의 단백결합 평가는 약물의 분포와 관련된 평가 중 하나이지만, 그 외 약효의 설명 또는 유효농도 예측, 안전성 평가 및 약물상호작용의 위험도를 평가하는데도 활용된다. 약물이 결합할 수 있는 단백질은 혈장, 조직, microsome 등 여러 종류가 있지만, 이번 장에서는 혈장에서의 단백결합 평가방법과 평가 시 고려해야할 사항에 대해 기술하였다.
 
-\hypertarget{uxd608uxc7a5-uxb0b4-uxc8fcuxc694-uxc57duxbb3cuxacb0uxd569-uxb2e8uxbc31uxc9c8}{%
-\section{혈장 내 주요 약물결합 단백질}\label{uxd608uxc7a5-uxb0b4-uxc8fcuxc694-uxc57duxbb3cuxacb0uxd569-uxb2e8uxbc31uxc9c8}}
+\section{혈장 내 주요 약물결합 단백질}\label{uxd608uxc7a5-uxb0b4-uxc8fcuxc694-uxc57duxbb3cuxacb0uxd569-uxb2e8uxbc31uxc9c8}
 
 혈장에서 약물이 주로 결합할 수 있는 단백질로는 albumin,
 α1-acid-glycoprotein (AGP), lipoprotein 그리고 globulin 등이 있다. 이 중
@@ -1367,8 +1323,7 @@ albumin은 혈장 내 단백질 구성 성분 중 50\% 이상을 차지하고 �
 중성 및 염기성 약물이 일부 결합하며, globulin에는 비타민, 스테로이드가
 결합하는 것으로 알려져 있다.
 
-\hypertarget{uxd608uxc7a5-uxb2e8uxbc31uxacb0uxd569-uxd3c9uxac00uxbc29uxbc95}{%
-\section{혈장 단백결합 평가방법}\label{uxd608uxc7a5-uxb2e8uxbc31uxacb0uxd569-uxd3c9uxac00uxbc29uxbc95}}
+\section{혈장 단백결합 평가방법}\label{uxd608uxc7a5-uxb2e8uxbc31uxacb0uxd569-uxd3c9uxac00uxbc29uxbc95}
 
 혈장 내 단백질과 약물의 결합을 평가하는 방법으로는 형광분석법(fluorescence spectroscopy), 크로마토그래피 및 모세관 전기영동법(chromatography and capillary electrophoresis),
 미세투석법(microdialysis), 평형투석(equilibrium Dialysis), 한외여과(ultrafiltration), 초고속 원심분리(ultracentrifugation)과 같이
@@ -1376,8 +1331,7 @@ albumin은 혈장 내 단백질 구성 성분 중 50\% 이상을 차지하고 �
 평형투석, 한외여과 및 초고속 원심분리 방법이며, 이 세 가지 방법에 대해서
 자세히 기술해 보도록 하겠다.
 
-\hypertarget{uxd3c9uxd615uxd22cuxc11duxbc95equilibrium-dialysis}{%
-\subsection{평형투석법(Equilibrium Dialysis)}\label{uxd3c9uxd615uxd22cuxc11duxbc95equilibrium-dialysis}}
+\subsection{평형투석법(Equilibrium Dialysis)}\label{uxd3c9uxd615uxd22cuxc11duxbc95equilibrium-dialysis}
 
 평형투석법은 여러 단백결합 평가방법 중 가장 표준적인 방법으로 알려져 있다. 아래의 그림 \ref{fig:03-02}은 평형투석법으로 약물의 혈장
 단백결합을 평가할 때 많이 사용되는 RED(rapid equilibrium dialysis) 기구를 이용한 시험 방법을 나타낸 것이다. Plasma chamber (Red)에
@@ -1419,8 +1373,7 @@ f_u &= \ \frac{\%\ Unbound}{100}
 있으며, Plasma 및 Buffer chamber 간 용매의 이동으로 인해 부피의 변화가
 나타날 수 있다.
 
-\hypertarget{uxd55cuxc5ecuxacfc-ultrafiltration-uxd3c9uxac00uxbc95}{%
-\subsection{한여과 (ultrafiltration) 평가법}\label{uxd55cuxc5ecuxacfc-ultrafiltration-uxd3c9uxac00uxbc95}}
+\subsection{한여과 (ultrafiltration) 평가법}\label{uxd55cuxc5ecuxacfc-ultrafiltration-uxd3c9uxac00uxbc95}
 
 한여과 (ultrafiltration) 평가법은 결합하지 않은 약물이 반투과성 막을
 통과한다는 점이 앞서 설명하였던 평형투석법과 유사하지만, 평형상태에서
@@ -1440,7 +1393,7 @@ NSB) 및 비결합 분획(fraction unbound, f\textsubscript{u})을 산출할 수
 
 }
 
-\caption{한여과 (ultrafiltration) 평가법 (\protect\hyperlink{ref-everythingadme}{Cyprotex 2022})}\label{fig:03-03}
+\caption{한여과 (ultrafiltration) 평가법 (\citeproc{ref-everythingadme}{Cyprotex 2022})}\label{fig:03-03}
 \end{figure}
 
 
@@ -1472,8 +1425,7 @@ f_u &= \frac{F_f}{[(1-NSB) \times F_e]}
 원심분리에 의해 반투과성 막이 손상되는 경우도 있고 다른 평가 방법에
 비해 비특이적 결합이 높다는 단점이 있다.
 
-\hypertarget{uxcd08uxc6d0uxc2ecuxbd84uxb9ac-ultracentrifugation-uxd3c9uxac00uxbc95}{%
-\subsection{초원심분리 (Ultracentrifugation) 평가법}\label{uxcd08uxc6d0uxc2ecuxbd84uxb9ac-ultracentrifugation-uxd3c9uxac00uxbc95}}
+\subsection{초원심분리 (Ultracentrifugation) 평가법}\label{uxcd08uxc6d0uxc2ecuxbd84uxb9ac-ultracentrifugation-uxd3c9uxac00uxbc95}
 
 초원심분리 (ultracentrifugation) 평가법은 초원심분리용 시험관에 약물과
 혈장을 넣고, 장시간 동안 초원심분리(예: 500,000 g, 10-24 시간) 하여
@@ -1497,8 +1449,7 @@ aqueous layer를 취하는 과정에서 시료가 오염될 수 있다. 그리�
 
 
 
-\hypertarget{uxd608uxc7a5uxb2e8uxbc31uxacb0uxd569-uxc2e4uxd5d8uxacb0uxacfc-uxd574uxc11d-uxbc0f-uxd65cuxc6a9}{%
-\section{혈장단백결합 실험결과 해석 및 활용}\label{uxd608uxc7a5uxb2e8uxbc31uxacb0uxd569-uxc2e4uxd5d8uxacb0uxacfc-uxd574uxc11d-uxbc0f-uxd65cuxc6a9}}
+\section{혈장단백결합 실험결과 해석 및 활용}\label{uxd608uxc7a5uxb2e8uxbc31uxacb0uxd569-uxc2e4uxd5d8uxacb0uxacfc-uxd574uxc11d-uxbc0f-uxd65cuxc6a9}
 
 혈장단백결합 실험결과의 해석은 궁극적으로 혈장단백결합율의 높고 낮음을
 분류하는 것이다. 혈장단백결합율의 높고 낮음을 나누는 정형화된 기준은
@@ -1534,11 +1485,9 @@ assay에서 구한 IC\textsubscript{50}와 비교하여 약물의 심장 독성�
 클리어런스나 생체이용률을 예측하기 위한 IVIVE (In Vitro-In Vivo
 Extrapolation)에도 혈장단백결합율이 활용된다.
 
-\hypertarget{uxd608uxc7a5uxb2e8uxbc31uxacb0uxd569-uxd3c9uxac00-uxc2dc-uxace0uxb824uxc0acuxd56d}{%
-\section{혈장단백결합 평가 시 고려사항}\label{uxd608uxc7a5uxb2e8uxbc31uxacb0uxd569-uxd3c9uxac00-uxc2dc-uxace0uxb824uxc0acuxd56d}}
+\section{혈장단백결합 평가 시 고려사항}\label{uxd608uxc7a5uxb2e8uxbc31uxacb0uxd569-uxd3c9uxac00-uxc2dc-uxace0uxb824uxc0acuxd56d}
 
-\hypertarget{uxb0aeuxc740-uxd68cuxc218uxc728-low-recovery}{%
-\subsection{낮은 회수율 (Low recovery)}\label{uxb0aeuxc740-uxd68cuxc218uxc728-low-recovery}}
+\subsection{낮은 회수율 (Low recovery)}\label{uxb0aeuxc740-uxd68cuxc218uxc728-low-recovery}
 
 혈장단백결합을 평가하다 보면, 낮은 회수율 문제가 빈번하게 발생된다. 이
 때 회수율이 낮게 나타나는 이유로는 용해도가 낮거나 혈장 내
@@ -1569,8 +1518,7 @@ NSB)도 있다. 회수율은 해당 시험계에서의 평가 결과에 대한 �
 
 
 
-\hypertarget{uxb192uxc740-uxd608uxc7a5uxb2e8uxbc31uxacb0uxd569uxc728uxc744-uxac00uxc9c4-uxc57duxbb3cuxc758-uxd608uxc7a5uxb2e8uxbc31uxacb0uxd569-uxd3c9uxac00uxbc29uxbc95}{%
-\subsection{높은 혈장단백결합율을 가진 약물의 혈장단백결합 평가방법}\label{uxb192uxc740-uxd608uxc7a5uxb2e8uxbc31uxacb0uxd569uxc728uxc744-uxac00uxc9c4-uxc57duxbb3cuxc758-uxd608uxc7a5uxb2e8uxbc31uxacb0uxd569-uxd3c9uxac00uxbc29uxbc95}}
+\subsection{높은 혈장단백결합율을 가진 약물의 혈장단백결합 평가방법}\label{uxb192uxc740-uxd608uxc7a5uxb2e8uxbc31uxacb0uxd569uxc728uxc744-uxac00uxc9c4-uxc57duxbb3cuxc758-uxd608uxc7a5uxb2e8uxbc31uxacb0uxd569-uxd3c9uxac00uxbc29uxbc95}
 
 가장 많이 처방되고 있는 100개 약물들의 혈장단백결합율은 98\%이고 (Smith,
 Dennis A, 2010), FDA에서 승인된 189개의 약물들 중 많은 약물들의
@@ -1583,7 +1531,7 @@ Dennis A, 2010), FDA에서 승인된 189개의 약물들 중 많은 약물들의
 
 }
 
-\caption{US FDA에서 승인된 189개 약물의 혈장단백결합율 (\protect\hyperlink{ref-liu2014rational}{Liu, Wright, and Hop 2014})}\label{fig:03-05}
+\caption{US FDA에서 승인된 189개 약물의 혈장단백결합율 (\citeproc{ref-liu2014rational}{Liu, Wright, and Hop 2014})}\label{fig:03-05}
 \end{figure}
 
 
@@ -1609,29 +1557,24 @@ f_{u\ 100\%} &= \ \frac{{\ \ \ f}_{u\ 10\%}}{10\  - 9*f_{u\ 10\%}}
 
 최근에는 이처럼 매우 높은 혈장단백결합율을 보이는 화합물의 비결합분획을 산출할 수 있도록 고안된 제품 (TRANSIL High Sensitivity Binding Kit\footnote{\url{https://sovicell.com/products/tpb-0400-0135}}) 도 있어, 높은 단백결합율로 인해 어려움을 겪을 때 이러한 장치를 활용하는 것도 추천한다.
 
-\hypertarget{uxb9fauxc74cuxb9d0-2}{%
-\section{맺음말}\label{uxb9fauxc74cuxb9d0-2}}
+\section{맺음말}\label{uxb9fauxc74cuxb9d0-2}
 
 혈장단백결합 평가는 분포에 관련된 평가 중 하나이며 단백결합율의 높고 낮음이 약물의 우수성을 나타내지는 않는다. 하지만 혈장단백결합율은 약효, 독성, 약물상호작용, 임상 PK 예측 등 신약개발의 다양한 영역에서 결과의 해석, 용량결정 및 예측에 활용된다. 따라서, 혈장단백결합을 이해하고 적절한 방법으로 평가하는 것이 필요하겠다.
 
-\hypertarget{part-uxb300uxc0ac-uxbc0f-uxc218uxc6a9uxccb4}{%
-\part{대사 및 수용체}\label{part-uxb300uxc0ac-uxbc0f-uxc218uxc6a9uxccb4}}
+\part{대사 및 수용체}\label{part-uxb300uxc0ac-uxbc0f-uxc218uxc6a9uxccb4}
 
-\hypertarget{uxb300uxc0ac-uxae30uxc9c8uxb85cuxc758-uxd6c4uxbcf4-uxbb3cuxc9c8-uxd2b9uxc131-uxd3c9uxac00}{%
-\chapter{대사 기질로의 후보 물질 특성 평가}\label{uxb300uxc0ac-uxae30uxc9c8uxb85cuxc758-uxd6c4uxbcf4-uxbb3cuxc9c8-uxd2b9uxc131-uxd3c9uxac00}}
+\chapter{대사 기질로의 후보 물질 특성 평가}\label{uxb300uxc0ac-uxae30uxc9c8uxb85cuxc758-uxd6c4uxbcf4-uxbb3cuxc9c8-uxd2b9uxc131-uxd3c9uxac00}
 
 \Large\hfill
 
 배수현
 \normalsize
 
-\hypertarget{uxc11cuxb860-3}{%
-\section{서론}\label{uxc11cuxb860-3}}
+\section{서론}\label{uxc11cuxb860-3}
 
 대사 과정은 체내에서 약물을 체외로 배출하는 주요한 과정 중 하나이다. 체내에 흡수되어 혈액을 따라 전신 순환하는 약물은 조직으로 이행되며, 간에서 대사(metabolism)되어 담즙이나 소변으로 배설되거나, 대사과정을 거치지 않고 곧바로 배설(excretion)되기도 한다. 대사는 약물의 제거뿐만 아니라, 흡수에도 중요한 역할을 한다. 경구로 약물을 복용하게 되면, 약은 위장관과 간을 통과한 후, 전신으로 흡수되어 조직으로 약물이 이행된다. 이 과정에서 위장관과 간에 존재하는 대사효소에 의해 제거되고 살아남은 약물만 전신으로 흡수될 수 있다. 이를 초회 통과효과(first-pass effect)라고 한다. 약동학에서 약물의 제거(elimination)과정은 대사와 배설을 포함하며, 이 단원에서는 대사 과정에 관하여 자세히 다룰 예정이다.
 
-\hypertarget{uxb300uxc0ac-uxacfcuxc815}{%
-\section{대사 과정}\label{uxb300uxc0ac-uxacfcuxc815}}
+\section{대사 과정}\label{uxb300uxc0ac-uxacfcuxc815}
 
 대사 과정은 체내에서 약물이 제거되는데 필수적인 과정이며, 대사 효소에 의하여 약물이 대사체 형태로 변환(biotransformation)되는 일련의 과정을 일컫는다. 약은 이물질(xenobiotics)이며, 대부분의 약물은 친유성(lipophilic)을 띄고 있어 혈장단백과의 결합률이 높은 편인데, 대사 과정을 통해 약물은 친수성(hydrophilic)이 증가하게 되며, 신장으로의 배설이 용이하게 된다. 대사 과정을 통해 대부분의 약은 약리활성 및 독성을 잃게 되나, 때때로 생성된 대사체가 약효 및 부작용을 나타내는 경우가 있다. 이를 reactive metabolite (또는 reactive intermediate)이라고 하며, 주로 생체 내 고분자인 단백질이나 핵산과 공유 결합하여 세포독성, 유전독성 등을 일으킨다. 잘 알려진 예로 아세트아미노펜의 대사과정을 살펴보자(그림 \ref{fig:04-01}). 아세트아미노펜은 대부분 간에서 phase II 대사를 통해 독성 및 활성이 없는 대사체를 생성하여 체외로 배출되는데, 아세트아미노펜을 과량 복용하게 되면, phase I 대사를 거쳐 높은 반응성을 지닌 reactive metabolite인 \emph{N}-acetyl-\emph{p}-benzoquinone imine (NAPQI)를 생성하게 된다. 생성된 NAPQI가 phase II 대사를 거쳐 글루타치온 포합체를 생성하지 못하면, 간세포 내의 단백질 및 핵산과 결합하여 궁극적으로 세포를 파괴하여 간 독성을 나타낸다.
 
@@ -1648,11 +1591,9 @@ f_{u\ 100\%} &= \ \frac{{\ \ \ f}_{u\ 10\%}}{10\  - 9*f_{u\ 10\%}}
 
 대사 과정에는 phase I 대사와 phase II 대사가 있으며, 각각의 과정에 관여하는 대사 효소의 종류와 생성되는 대사체의 성질도 다르다. 일반적으로 phase I 대사를 통해 약물은 산화, 환원, 또는 가수분해 등의 반응을 거치게 되고, 이로 인해 배설 및 다음 대사과정에 용이한 작용기를 가지게 되고, 반응성이 증가하게 된다. 그리고 phase II 대사를 통해 glucuronide, sulfate 등의 포합체가 생성되어 수용성이 증가하게 되며, 신장이나 담즙을 통해 배설되게 된다. 일반적으로 phase I → phase II 대사를 순차적으로 거쳐 약물이 체외로 배설된다고 알려져 있으나, 약물의 구조와 작용기의 유무에 따라 phase I 대사 또는 phase II 대사를 거치거나, phase II 대사 이후 phase I 대사과정을 거치는 등 다양한 방법으로 변환되어 체외 배설된다.
 
-\hypertarget{uxb300uxc0ac-uxd6a8uxc18c}{%
-\section{대사 효소}\label{uxb300uxc0ac-uxd6a8uxc18c}}
+\section{대사 효소}\label{uxb300uxc0ac-uxd6a8uxc18c}
 
-\hypertarget{phase-i-uxb300uxc0ac}{%
-\subsection{Phase I 대사}\label{phase-i-uxb300uxc0ac}}
+\subsection{Phase I 대사}\label{phase-i-uxb300uxc0ac}
 
 Phase I 대사는 약물을 산화, 환원, 또는 가수분해시켜 약물의 반응성을
 증가시키는 과정이다. Phase I 대사의 가장 중요한 대사 효소는 cytochrome
@@ -1674,7 +1615,7 @@ isozyme)임을 명명한다. 그리고 'allele number'를 통해 CYP 동효소�
 약물 대사에 관여하는 주요한 CYP 동효소는 CYP1A2, CYP2B6, CYP2C8, CYP2C9,
 CYP2C19, CYP2D6, CYP3A4/5이며, 신약개발 시 FDA 와 EMA에서는 위의
 동효소에 대한 대사능 및 저해(유도)능을 확인하도록 가이던스에 권고하고
-있다 (\protect\hyperlink{ref-studies2020cytochrome}{In Vitro Drug Interaction Studies 2020}; \protect\hyperlink{ref-european2012guideline}{European Medicines Agency 2012}).
+있다 (\citeproc{ref-studies2020cytochrome}{In Vitro Drug Interaction Studies 2020}; \citeproc{ref-european2012guideline}{European Medicines Agency 2012}).
 
 \begin{figure}
 
@@ -1777,8 +1718,7 @@ I. Reduction & \includegraphics{./media-04/cap04.png} & Chloramphenicol, methado
 II. Hydrolysis & \includegraphics{./media-04/cap05.png} & Aspirin, procaine, lidocaine, indomethacin, irinotecan \\
 \end{longtable}
 
-\hypertarget{phase-ii-uxb300uxc0ac}{%
-\subsection{Phase II 대사}\label{phase-ii-uxb300uxc0ac}}
+\subsection{Phase II 대사}\label{phase-ii-uxb300uxc0ac}
 
 Phase II 대사는 모약물과 대사체의 작용기에 glucuronide, sulfate,
 acetate, glutathione 등의 포합체를 붙여 약물의 수용성을 증가시킨다. 이
@@ -1843,8 +1783,7 @@ valproic acid,
 busulfan \\
 \end{longtable}
 
-\hypertarget{uxb300uxc0ac-uxd2b9uxc131-uxd3c9uxac00}{%
-\section{대사 특성 평가}\label{uxb300uxc0ac-uxd2b9uxc131-uxd3c9uxac00}}
+\section{대사 특성 평가}\label{uxb300uxc0ac-uxd2b9uxc131-uxd3c9uxac00}
 
 약물 대사는 주로 간에서 일어나며, 다양한 \emph{in vitro} 실험을 통해 약물이
 어떤 대사효소를 통해 얼마나 대사되는지 확인할 수 있다. 이 단원에서는 \emph{in
@@ -1852,15 +1791,13 @@ vitro} 실험에 사용되는 다양한 시험계의 종류와 그 특성, 대�
 평가하는 시험법, 시험에서 얻을 수 있는 파라미터와 각 파라미터가 의미하는
 바에 대하여 순차적으로 알아보자.
 
-\hypertarget{in-vitro-systems}{%
-\subsection{In vitro systems}\label{in-vitro-systems}}
+\subsection{In vitro systems}\label{in-vitro-systems}
 
 약물의 대사를 확인하는 시험계는 세포계(intact cell system),
 준세포분획(subcellular fractions), 재조합 효소(recombinant enzyme)
 등으로 나눌 수 있다.
 
-\hypertarget{intact-cell-systems}{%
-\subsubsection{Intact cell systems}\label{intact-cell-systems}}
+\subsubsection{Intact cell systems}\label{intact-cell-systems}
 
 대사를 확인하는 세포계는 주로 간세포((cryopreserved) primary
 hepatocytes)를 일컫는다. 간세포 자체는 계대 배양이 불가능하여 시험
@@ -1884,8 +1821,7 @@ hepatocytes)를 일컫는다. 간세포 자체는 계대 배양이 불가능하�
 sandwich-cultured hepatocytes)에 따라 약물의 담즙 배설도
 확인(CL\textsubscript{int,bile}) 할 수 있다.
 
-\hypertarget{subcellular-fraction}{%
-\subsubsection{Subcellular fraction}\label{subcellular-fraction}}
+\subsubsection{Subcellular fraction}\label{subcellular-fraction}
 
 준세포분획(subcellular fractions)은 세포를 homogenate하여 원심분리 후,
 얻은 분획을 말한다(그림 \ref{fig:04-03}). 간 대사에 주로 사용되는 분획은 microsome,
@@ -1918,8 +1854,7 @@ cytosol, S9 등이며, 각각의 분획에는 들어있는 대사효소의 종�
 
 
 
-\hypertarget{recombinant-enzyme}{%
-\subsubsection{Recombinant enzyme}\label{recombinant-enzyme}}
+\subsubsection{Recombinant enzyme}\label{recombinant-enzyme}
 
 재조합효소(recombinant enzyme)는 특정 대사효소를 인위적으로 과발현시켜
 만든 실험계이다. 약물이 특정 대사효소로 얼마나 대사되는가를 평가할
@@ -1931,14 +1866,12 @@ UGT 동효소, SULT, CES 등 다양한 재조합효소를 판매하고 있으며
 판매하는 제조사마다 다르기 때문에, 필요에 따라 환산계수를 반영하여
 CL\textsubscript{int}를 산출하여야 한다.
 
-\hypertarget{uxb300uxc0acuxd3c9uxac00-uxc2e4uxd5d8uxc744-uxd1b5uxd574-uxc5bbuxc744-uxc218-uxc788uxb294-in-vitro-uxb300uxc0ac-uxd30cuxb77cuxbbf8uxd130}{%
-\section{대사평가 실험을 통해 얻을 수 있는 in vitro 대사 파라미터}\label{uxb300uxc0acuxd3c9uxac00-uxc2e4uxd5d8uxc744-uxd1b5uxd574-uxc5bbuxc744-uxc218-uxc788uxb294-in-vitro-uxb300uxc0ac-uxd30cuxb77cuxbbf8uxd130}}
+\section{대사평가 실험을 통해 얻을 수 있는 in vitro 대사 파라미터}\label{uxb300uxc0acuxd3c9uxac00-uxc2e4uxd5d8uxc744-uxd1b5uxd574-uxc5bbuxc744-uxc218-uxc788uxb294-in-vitro-uxb300uxc0ac-uxd30cuxb77cuxbbf8uxd130}
 
 대사평가 실험을 통해 얻을 수 있는 in vitro 파라미터는 CL\textsubscript{int} 또는 K\textsubscript{m}
 및 V\textsubscript{max}이다. 각 파라미터들은 다음과 같은 방법으로 얻을 수 있다.
 
-\hypertarget{substrate-depletion-uxbc95}{%
-\subsection{Substrate-depletion 법}\label{substrate-depletion-uxbc95}}
+\subsection{Substrate-depletion 법}\label{substrate-depletion-uxbc95}
 
 In vitro 대사평가 실험에서 시간에 따른 기질약물의 소실량을 측정하는
 방법이다. 그림 \ref{fig:04-05}에서와 같이, 시간에 따라 기질 약물의 농도가
@@ -1983,8 +1916,7 @@ Substrate-depletion 법은 약물의 대사속도를 일차반응속도로 가�
 것이 좋다. 높은 농도에서 substrate-depletion법을 통해 CL\textsubscript{int}를
 산출하였다면, 그 약물의 대사능이 underprediction 될 수 있다.
 
-\hypertarget{metabolite-formation-uxbc95}{%
-\subsection{Metabolite-formation 법}\label{metabolite-formation-uxbc95}}
+\subsection{Metabolite-formation 법}\label{metabolite-formation-uxbc95}
 
 대사체를 정량분석기기(LC-MS/MS 등)를 통해 정량적으로 농도 분석할 수
 있다면, 기질 약물농도에 따른 대사체 생성량을 측정할 수 있다. 그림 \ref{fig:04-06}처럼, 기질-효소 반응은 M-M kinetic을 통해 대사체를 생성하며,
@@ -2010,34 +1942,12 @@ Substrate-depletion 법은 약물의 대사속도를 일차반응속도로 가�
 
 
 
-\hypertarget{uxb300uxc0acuxd3c9uxac00-uxc2e4uxd5d8uxbc95}{%
-\section{대사평가 실험법}\label{uxb300uxc0acuxd3c9uxac00-uxc2e4uxd5d8uxbc95}}
+\section{대사평가 실험법}\label{uxb300uxc0acuxd3c9uxac00-uxc2e4uxd5d8uxbc95}
 
 약물 대사 평가 방법에 대하여 알아보자. 평가하고자 하는 대사효소가
 포함되어 있는 실험계를 선택할 수 있다.
 
-\hypertarget{uxb300uxc0acuxc548uxc815uxc131metabolic-stability-uxd3c9uxac00-uxc2e4uxd5d8}{%
-\subsection{대사안정성(metabolic stability) 평가 실험}\label{uxb300uxc0acuxc548uxc815uxc131metabolic-stability-uxd3c9uxac00-uxc2e4uxd5d8}}
-
-신약개발 시 후보물질 도출을 위한 초기 단계에 많이 활용된다. 일반적으로
-microsome을 이용하지만, 평가하고자 하는 목적에 따라 다른 실험계를 선택할
-수 있다. Microsome을 이용할 경우, 첨가하는 cofactor와 chemical inhibitor
-종류 및 pre-incubation 조건에 따라 다양한 효소의 대사능을 선택적으로
-관찰할 수 있다. 각 실험 조건에 맞게 약물이 들어있는 시험관을 준비하여,
-37℃에서 incubation 하면서 시간에 따라 시험관내의 약물의 농도를 측정하여
-사라지는(대사되는) 약물의 양을 확인한다. 표 \ref{tab:table04-04}를 자세히
-살펴보자. G1은 평가약물과 buffer만 있으므로, 약물이 실험에 사용되는
-buffer에서 chemical degradation이 있는지 확인하는 대조군이다. G2는
-buffer와 microsome을 포함하고 있으며, cofactor 없이 가수분해가 가능한 ES
-및 CES에 의한 대사를 관찰할 수 있다. G3은 G2에 NADPH를 추가하였으며, 이
-경우는 가수분해효소 외 CYP와 FMO에 의한 대사를 관찰할 수 있다. G4는 G2에
-NADPH 대신 UDPGA (+alamethicin)을 첨가하였으며, 이는 UGT에 의한 대사를
-관찰하기 위함이다. G1\textasciitilde G4의 조건은 대사안정성 실험시 필수적으로 포함하여
-수행하기를 권장하며, 여기에 더하여, FMO 대사 가능성이 있다면, G5와 G6
-실험을 추가하는 것을 추천한다. G5는 45℃에서 30분간 pre-incubation하여
-열에 약한 microsome 내의 FMO를 비활성화 시키게 되며, G6는 CYP 동효소의
-chemical inhibitor인 SKF525A를 첨가하여, CYP에 의한 대사능을 배제시킬 수
-있다.
+\subsection{대사안정성(metabolic stability) 평가 실험}\label{uxb300uxc0acuxc548uxc815uxc131metabolic-stability-uxd3c9uxac00-uxc2e4uxd5d8}
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1806}}
@@ -2119,6 +2029,26 @@ CES,
 FMO \\
 \end{longtable}
 
+신약개발 시 후보물질 도출을 위한 초기 단계에 많이 활용된다. 일반적으로
+microsome을 이용하지만, 평가하고자 하는 목적에 따라 다른 실험계를 선택할
+수 있다. Microsome을 이용할 경우, 첨가하는 cofactor와 chemical inhibitor
+종류 및 pre-incubation 조건에 따라 다양한 효소의 대사능을 선택적으로
+관찰할 수 있다. 각 실험 조건에 맞게 약물이 들어있는 시험관을 준비하여,
+37℃에서 incubation 하면서 시간에 따라 시험관내의 약물의 농도를 측정하여
+사라지는(대사되는) 약물의 양을 확인한다. 표 \ref{tab:table04-04}를 자세히
+살펴보자. G1은 평가약물과 buffer만 있으므로, 약물이 실험에 사용되는
+buffer에서 chemical degradation이 있는지 확인하는 대조군이다. G2는
+buffer와 microsome을 포함하고 있으며, cofactor 없이 가수분해가 가능한 ES
+및 CES에 의한 대사를 관찰할 수 있다. G3은 G2에 NADPH를 추가하였으며, 이
+경우는 가수분해효소 외 CYP와 FMO에 의한 대사를 관찰할 수 있다. G4는 G2에
+NADPH 대신 UDPGA (+alamethicin)을 첨가하였으며, 이는 UGT에 의한 대사를
+관찰하기 위함이다. G1\textasciitilde G4의 조건은 대사안정성 실험시 필수적으로 포함하여
+수행하기를 권장하며, 여기에 더하여, FMO 대사 가능성이 있다면, G5와 G6
+실험을 추가하는 것을 추천한다. G5는 45℃에서 30분간 pre-incubation하여
+열에 약한 microsome 내의 FMO를 비활성화 시키게 되며, G6는 CYP 동효소의
+chemical inhibitor인 SKF525A를 첨가하여, CYP에 의한 대사능을 배제시킬 수
+있다.
+
 위의 방법을 통해 수행된 실험 결과는 그림 \ref{fig:04-07}와 같이 얻을 수 있다. 각
 군에서 특정 대사효소에 의해 대사가 일어난 경우, 시간에 따라 약물의
 농도가 줄어들기 때문에, 표 \ref{tab:table04-04}의 G6과 같은 결과가 나타나며, 그렇지
@@ -2140,8 +2070,7 @@ Substrate-depletion 법을 사용하기에, 시험물질의 농도는 가능한 
 
 
 
-\hypertarget{reaction-phenotyping-uxd3c9uxac00-uxc2e4uxd5d8}{%
-\subsection{Reaction phenotyping 평가 실험}\label{reaction-phenotyping-uxd3c9uxac00-uxc2e4uxd5d8}}
+\subsection{Reaction phenotyping 평가 실험}\label{reaction-phenotyping-uxd3c9uxac00-uxc2e4uxd5d8}
 
 Reaction phenotyping 실험은 일반적으로 metabolic stability 실험 후에
 수행한다. 이 실험은 특정 대사효소계에 의해 대사됨을 확인한 후, 그 중에
@@ -2152,11 +2081,11 @@ phenotyping 실험을 통해 CYP 동효소 중에서 어떠한 효소로 대사�
 대사효소에 의해 대사되는 정도(기여도) (i.e., the fraction of drug
 metabolized by a specific enzyme, f\textsubscript{m})를 확인할 수 있다. CYP에 의한
 약물 대사가 total in vivo CL의 25\% 이상을 차지하면, 특정 CYP 효소를
-확인(identification)하는 것이 권장된다{[}In Vitro Drug Interaction Studies (\protect\hyperlink{ref-studies2020cytochrome}{2020})\}. Reaction phenotyping
+확인(identification)하는 것이 권장된다{[}In Vitro Drug Interaction Studies (\citeproc{ref-studies2020cytochrome}{2020})\}. Reaction phenotyping
 평가에는 1) recombinant enzymes (i.e.~CYP 동효소, UGT 동효소 등) 이용,
 2) enzyme-selective chemical inhibitors or antibodies 이용 등의 실험법이
 사용될 수 있으며, 미국 FDA는 1)과 2)의 방법을 모두 사용하기를 권고하고
-있다{[}In Vitro Drug Interaction Studies (\protect\hyperlink{ref-studies2020cytochrome}{2020})\}.
+있다{[}In Vitro Drug Interaction Studies (\citeproc{ref-studies2020cytochrome}{2020})\}.
 
 재조합효소를 사용하는 실험법은 시험물질의 구조와 metabolic stability
 자료를 바탕으로 수행될 수 있다. CYP 동효소들, UGT 동효소들, MAO, FMO,
@@ -2193,7 +2122,7 @@ Recombinant CYP 동효소를 이용한 reaction phenotyping의 예를
 
 }
 
-\caption{Recombinant CYP 동효소를 이용한 reaction phenotyping 예 (metabolite-formation method) (\protect\hyperlink{ref-yanakakis2012biotransformation}{Yanakakis and Bumpus 2012}). 각 CYP 동효소를 이용해 생성되는 대사체의 상대량(relative intensity)를 확인할 수 있다.}\label{fig:04-09}
+\caption{Recombinant CYP 동효소를 이용한 reaction phenotyping 예 (metabolite-formation method) (\citeproc{ref-yanakakis2012biotransformation}{Yanakakis and Bumpus 2012}). 각 CYP 동효소를 이용해 생성되는 대사체의 상대량(relative intensity)를 확인할 수 있다.}\label{fig:04-09}
 \end{figure}
 
 
@@ -2214,13 +2143,12 @@ CL\textsubscript{int}), 이를 통해 f\textsubscript{m}을 계산할 수 있다
 
 }
 
-\caption{Recombinant CYP 동효소를 이용한 reaction phenotyping 예 (metabolite-formation method) (\protect\hyperlink{ref-yanakakis2012biotransformation}{Yanakakis and Bumpus 2012}). 대사체의 표준품 확보가 가능한 경우}\label{fig:04-10}
+\caption{Recombinant CYP 동효소를 이용한 reaction phenotyping 예 (metabolite-formation method) (\citeproc{ref-yanakakis2012biotransformation}{Yanakakis and Bumpus 2012}). 대사체의 표준품 확보가 가능한 경우}\label{fig:04-10}
 \end{figure}
 
 
 
-\hypertarget{uxb9fauxc74cuxb9d0-3}{%
-\section{맺음말}\label{uxb9fauxc74cuxb9d0-3}}
+\section{맺음말}\label{uxb9fauxc74cuxb9d0-3}
 
 신약개발 과정에서 in vitro 약물대사를 평가 실험은 필수적이다. 임상진입
 전, 후보물질의 대사 특성을 잘 파악하고 질 높은 정량적인 파라미터들을
@@ -2231,13 +2159,11 @@ CL\textsubscript{int}), 이를 통해 f\textsubscript{m}을 계산할 수 있다
 신장 기능 저하 환자군, 등)에서의 약동학 평가, 및 인종간의 약동학 차이
 등의 평가에 사용될 수 있다.
 
-\hypertarget{uxd6c4uxbcf4-uxbb3cuxc9c8uxc758-uxb300uxc0ac-uxc5b5uxc81c-uxd2b9uxc131-uxd3c9uxac00}{%
-\chapter{후보 물질의 대사 억제 특성 평가}\label{uxd6c4uxbcf4-uxbb3cuxc9c8uxc758-uxb300uxc0ac-uxc5b5uxc81c-uxd2b9uxc131-uxd3c9uxac00}}
+\chapter{후보 물질의 대사 억제 특성 평가}\label{uxd6c4uxbcf4-uxbb3cuxc9c8uxc758-uxb300uxc0ac-uxc5b5uxc81c-uxd2b9uxc131-uxd3c9uxac00}
 
 이소진
 
-\hypertarget{uxc11cuxb860-4}{%
-\section{서론}\label{uxc11cuxb860-4}}
+\section{서론}\label{uxc11cuxb860-4}
 
 이 장에서는 개발하는 약물이 과연 대사를 억제(metabolic inhibition)하는
 약물인지 확인하고, 억제제(inhibitor)라면 어떤 대사 억제 특성을 가지는지
@@ -2249,8 +2175,7 @@ CL\textsubscript{int}), 이를 통해 f\textsubscript{m}을 계산할 수 있다
 알아보기로 한다. 그리고, 그 결과를 해석하는 방법과 활용(i.e.~DDI
 prediction)에 대해 살펴보겠다.
 
-\hypertarget{uxc2e0uxc57d-uxac1cuxbc1c-uxc8fcuxae30-uxc548uxc5d0uxc11cuxc758-in-vitro-inhibition-assayuxc758-uxc911uxc694uxc131-uxbc0f-uxd65cuxc6a9}{%
-\section{신약 개발 주기 안에서의 in vitro inhibition assay의 중요성 및 활용}\label{uxc2e0uxc57d-uxac1cuxbc1c-uxc8fcuxae30-uxc548uxc5d0uxc11cuxc758-in-vitro-inhibition-assayuxc758-uxc911uxc694uxc131-uxbc0f-uxd65cuxc6a9}}
+\section{신약 개발 주기 안에서의 in vitro inhibition assay의 중요성 및 활용}\label{uxc2e0uxc57d-uxac1cuxbc1c-uxc8fcuxae30-uxc548uxc5d0uxc11cuxc758-in-vitro-inhibition-assayuxc758-uxc911uxc694uxc131-uxbc0f-uxd65cuxc6a9}
 
 약물 간 상호작용(Drug-Drug Interaction,DDI) 평가는 중요하며, 특히 여러
 종류의 약물(polypharmacy)을 장기간 병용 투약하는 만성질환을 가진
@@ -2266,19 +2191,30 @@ prediction)에 대해 살펴보겠다.
 
 }
 
-\caption{Perpetrator와 victim drug 병용투여 시의 victim drug의 약물농도. Perpetrator: 다른 약의 PK에 영향을 끼치는 약물(억제제 또는 유도제), (a)억제제(inhibitor)인 경우, (b)유도제(inducer)인 경우, Victim NCE: New Chemical Entity로 자신의 PK가 영향을 받는 약물(기질)}\label{fig:05-01}
+\caption{Perpetrator와 victim drug 병용투여 시의 victim drug의
+약물농도. Perpetrator: 다른 약의 PK에 영향을 끼치는 약물(억제제 또는
+유도제), (a)억제제(inhibitor)인 경우, (b)유도제(inducer)인 경우, Victim
+NCE: New Chemical Entity로 자신의 PK가 영향을 받는 약물(기질)}\label{fig:05-01}
 \end{figure}
 
 
 
-대사 억제는 크게 두 종류로 나뉘어진다. 가역적 억제는 competitive, noncompetitive 그리고 uncompetitive로 세분화할 수 있다. 각 종류 별 어떤 억제제로서 작용하는지를 여러가지 실험으로 확인할 수 있다. DDI 예측시 다양한 방법(static model, mechanistic static model, 그리고/또는 PBPK model)을 통해 실험에서 얻어진 억제와 관련 파라미터 값들을 적용하고 궁극적으로 DDI를 예측하는데 사용한다.
+
+
+
+대사 억제는 크게 두 종류로 나뉘어진다. 가역적 억제는 competitive,
+noncompetitive 그리고 uncompetitive로 세분화할 수 있다. 각 종류 별 어떤
+억제제로서 작용하는지를 여러가지 실험으로 확인할 수 있다. DDI 예측시
+다양한 방법(static model, mechanistic static model, 그리고/또는 PBPK
+model)을 통해 실험에서 얻어진 억제와 관련 파라미터 값들을 적용하고
+궁극적으로 DDI를 예측하는데 사용한다.
 
 In vitro 정보를 기반으로 한 DDI 평가는 In vitro ADME 연구내에서 대사
 연구(Metabolism study)에 해당하는 부분으로, 대사 연구 범주 내에는 DDI
 평가 외에도 metabolic stability test, metabolite profiling, 그리고 CYP
 isozyme profiling 등이 있다. 이와 같은 metabolic DDI 평가에는 Cytochrome
 P450 억제평가, 유도평가 및 activation/suppression 평가가 포함된다. (그림
-\ref{fig:05-19})(\protect\hyperlink{ref-cayen2011early}{Cayen 2011})
+\ref{fig:05-19})(\citeproc{ref-cayen2011early}{Cayen 2011})
 
 \begin{figure}
 
@@ -2310,41 +2246,78 @@ approach를 사용하여 대사 억제를 평가하며, 강한 시간 의존적
 
 }
 
-\caption{신약 개발 주기에 따른 in vitro DDI 평가(\protect\hyperlink{ref-li2008drug}{Li 2008})}\label{fig:05-02}
+\caption{신약 개발 주기에 따른 in vitro DDI 평가(\citeproc{ref-li2008drug}{Li 2008})}\label{fig:05-02}
 \end{figure}
 
 
 
-\hypertarget{uxb300uxc0ac-uxc5b5uxc81c-uxc791uxc6a9-uxba54uxcee4uxb2c8uxc998}{%
-\section{대사 억제 작용 메커니즘}\label{uxb300uxc0ac-uxc5b5uxc81c-uxc791uxc6a9-uxba54uxcee4uxb2c8uxc998}}
+\section{대사 억제 작용 메커니즘}\label{uxb300uxc0ac-uxc5b5uxc81c-uxc791uxc6a9-uxba54uxcee4uxb2c8uxc998}
 
-FDA에서 확인하기를 권고하는 주요 CYP isoform 은 7가지로 아래와 같다: CYP1A2, CYP2B6, CYP2C8, CYP2C9, CYP2C19, CYP2D6, CYP3A
+FDA에서 확인하기를 권고하는 주요 CYP isoform 은 7가지로 아래와 같다:
+CYP1A2, CYP2B6, CYP2C8, CYP2C9, CYP2C19, CYP2D6, CYP3A
 
-대사 억제 작용의 종류는 크게 두가지로 나눌 수 있으며, 가역적 억제는 direct inhibition이라고도 불리우며,억제제-효소가 약하게 결합한 경우로, 빠른 시간 내에 분리가 일어난다. 그리고 바로 효소 활성이 회복된다. 가역적 억제는 억제제와 대사 효소의 결합 양상에 따라 여러 종류로 아래와 같이 세분화될 수 있다.(그림 \ref{fig:05-03}) (그림 \ref{fig:05-20})(\protect\hyperlink{ref-li2008drug}{Li 2008})
+대사 억제 작용의 종류는 크게 두가지로 나눌 수 있으며, 가역적 억제는
+direct inhibition이라고도 불리우며,억제제-효소가 약하게 결합한 경우로,
+빠른 시간 내에 분리가 일어난다. 그리고 바로 효소 활성이 회복된다. 가역적
+억제는 억제제와 대사 효소의 결합 양상에 따라 여러 종류로 아래와 같이
+세분화될 수 있다.(그림 \ref{fig:05-03}) (그림
+\ref{fig:05-20})(\citeproc{ref-li2008drug}{Li 2008})
 
 \begin{itemize}
 \tightlist
 \item
-  경쟁적 저해(Competitive inhibition): 억제제와 기질이 동일한 활성 부위(active binding site)에 결합이 가능하며 이를 놓고 경쟁하는 경우이다. 억제제와 대사 효소가 결합하면 더 이상 기존 대사 효소는 반응하지 않는다. 억제제의 효과가 K\textsubscript{m}에 반영되어 있으며 (V\textsubscript{max} 값은 동일), 억제제 농도가 증가할수록 K\textsubscript{m} 값이 증가하며 특정 시점 부터는 증가하지 않으며, 효소의 활성 결합 부위를 완전히 포화되도록 채우는 충분한 기질이 있을 때에 이 시점에 도달한다.
+  경쟁적 저해(Competitive inhibition): 억제제와 기질이 동일한 활성
+  부위(active binding site)에 결합이 가능하며 이를 놓고 경쟁하는
+  경우이다. 억제제와 대사 효소가 결합하면 더 이상 기존 대사 효소는
+  반응하지 않는다. 억제제의 효과가 K\textsubscript{m}에 반영되어 있으며 (V\textsubscript{max} 값은
+  동일), 억제제 농도가 증가할수록 K\textsubscript{m} 값이 증가하며 특정 시점 부터는
+  증가하지 않으며, 효소의 활성 결합 부위를 완전히 포화되도록 채우는
+  충분한 기질이 있을 때에 이 시점에 도달한다.
 \item
-  비경쟁적 저해(Noncompetitive inhibition): 억제제가 유리 효소(free enzyme)와 결합하며, 기질-효소 복합체(complex)에도 결합할 수 있다. 비경쟁적 저해제는 기질의 농도를 높여도 저해 효과가 상쇄되지 않는다. 이 경우, 억제제 농도가 증가할수록 효소와 결합시 효소의 활성 부위의 입체 구조가 변해 기질이 효소에 잘 결합하지 못해서 V\textsubscript{max}는 감소하지만, 기질은 평소의 친화력으로 효소와 결합하여 K\textsubscript{m} 은 그대로이다.
+  비경쟁적 저해(Noncompetitive inhibition): 억제제가 유리 효소(free
+  enzyme)와 결합하며, 기질-효소 복합체(complex)에도 결합할 수 있다.
+  비경쟁적 저해제는 기질의 농도를 높여도 저해 효과가 상쇄되지 않는다.
+  이 경우, 억제제 농도가 증가할수록 효소와 결합시 효소의 활성 부위의
+  입체 구조가 변해 기질이 효소에 잘 결합하지 못해서 V\textsubscript{max}는
+  감소하지만, 기질은 평소의 친화력으로 효소와 결합하여 K\textsubscript{m} 은
+  그대로이다.
 \item
-  불경쟁적 저해(Uncompetitive inhibition): 억제제는 기질-효소 복합체에만 결합한다. 불경쟁적 저해는 약물 대사 반응에서 매우 드문 효소 저해 유형이다. 기질의 농도를 높이더라도 저해 효과가 상쇄나 감소되지 않는다. 복합체에 억제제가 결합하면 복합체 양은 줄어들며, 이러한 감소는 기질이 활성 부위를 떠나는데 오랜 시간이 걸리게 하므로 Vmax가 감소된다. 복합체 감소를 보상하기 위해 더 많은 유리 효소가 복합체 형태로 전환되고, 이는 효소와 기질의 높은 결합 친화도를 나타내며 Km은 감소된다.
+  불경쟁적 저해(Uncompetitive inhibition): 억제제는 기질-효소
+  복합체에만 결합한다. 불경쟁적 저해는 약물 대사 반응에서 매우 드문
+  효소 저해 유형이다. 기질의 농도를 높이더라도 저해 효과가 상쇄나
+  감소되지 않는다. 복합체에 억제제가 결합하면 복합체 양은 줄어들며,
+  이러한 감소는 기질이 활성 부위를 떠나는데 오랜 시간이 걸리게 하므로
+  Vmax가 감소된다. 복합체 감소를 보상하기 위해 더 많은 유리 효소가
+  복합체 형태로 전환되고, 이는 효소와 기질의 높은 결합 친화도를
+  나타내며 Km은 감소된다.
 \end{itemize}
 
-Mechanism-based inhibition (MBI)은 흔히 시간 의존적 억제(time-dependent inhibition,TDI) 라고도 불리우나, TDI가 조금 더 큰 범주라고 할 수 있다.
-TDI은 preincubation 시간을 거치면서 억제 효능(inhibition potency)이 더 좋아지는 경우를 일컬으며, MBI는 TDI의 한 종류로 볼 수 있다.
-MBI에서는 억제제와 enzyme 이 결합하여 reactive metabolite을 생성하고, 대사 효소가 활성을 잃고 비활성(inactive) 상태로 변한다.
-따라서 이를 비가역성 억제(irreversible inhibition)라고도 부른다.
+Mechanism-based inhibition (MBI)은 흔히 시간 의존적 억제(time-dependent
+inhibition,TDI) 라고도 불리우나, TDI가 조금 더 큰 범주라고 할 수 있다.
+TDI은 preincubation 시간을 거치면서 억제 효능(inhibition potency)이 더
+좋아지는 경우를 일컬으며, MBI는 TDI의 한 종류로 볼 수 있다. MBI에서는
+억제제와 enzyme 이 결합하여 reactive metabolite을 생성하고, 대사 효소가
+활성을 잃고 비활성(inactive) 상태로 변한다. 따라서 이를 비가역성
+억제(irreversible inhibition)라고도 부른다.
 
-\hypertarget{uxb300uxc0ac-uxc5b5uxc81c-uxd2b9uxc131-uxd3c9uxac00-uxc2e4uxd5d8-in-vitro-inhibition-assay}{%
-\section{대사 억제 특성 평가 실험 (in vitro inhibition assay)}\label{uxb300uxc0ac-uxc5b5uxc81c-uxd2b9uxc131-uxd3c9uxac00-uxc2e4uxd5d8-in-vitro-inhibition-assay}}
+\section{대사 억제 특성 평가 실험 (in vitro inhibition assay)}\label{uxb300uxc0ac-uxc5b5uxc81c-uxd2b9uxc131-uxd3c9uxac00-uxc2e4uxd5d8-in-vitro-inhibition-assay}
 
-후보물질의 대사 억제 특성을 평가하기 위해서 각 억제 종류 (가역적 억제 vs.~시간 의존적 억제)에 따라 핵심 in vitro assay를 수행하여 핵심 억제 파라미터를 구해야 한다.
+후보물질의 대사 억제 특성을 평가하기 위해서 각 억제 종류 (가역적 억제
+vs.~시간 의존적 억제)에 따라 핵심 in vitro assay를 수행하여 핵심 억제
+파라미터를 구해야 한다.
 
-우선, 가역적 억제의 경우 핵심 assay 로는 IC\textsubscript{50} 와 K\textsubscript{i}를 결정하는 시험들이 중요하다.(IC\textsubscript{50}: drug concentration achieving 50\% of maximal reversible inhibition, K\textsubscript{i}: reversible inhibition constant) 시간 의존적 억제 관련 assay로는 Single point assay, IC\textsubscript{50} shift assay, 그리고 K\textsubscript{inact}, K\textsubscript{I}를 결정하는 assay가 중요하다(K\textsubscript{inact}: drug concentration achieving 50\% of maximal inhibition of TDI, KI: TDI constant).
-이와 같은 핵심 inhibition assay를 수행하기 전에 무엇보다 우선적으로 수행되어야 하는 것은 substrate saturation experiment(또는 metabolic stability test)이다.
-이를 통해 기질의 enzyme kinetic parameter(K\textsubscript{m}, V\textsubscript{max})를 구할 수 있고 intrinsic clearance(CL\textsubscript{int})를 구할 수 있으며(이는 억제제가 없는 조건, in absence of inhibitor), 이때 얻은 K\textsubscript{m} 값을 참고하여 in vitro inhibition assay에서 사용할 적합한 기질의 농도를 설정할 수 있다.
+우선, 가역적 억제의 경우 핵심 assay 로는 IC\textsubscript{50} 와 K\textsubscript{i}를 결정하는
+시험들이 중요하다.(IC\textsubscript{50}: drug concentration achieving 50\% of maximal
+reversible inhibition, K\textsubscript{i}: reversible inhibition constant) 시간 의존적
+억제 관련 assay로는 Single point assay, IC\textsubscript{50} shift assay, 그리고
+K\textsubscript{inact}, K\textsubscript{I}를 결정하는 assay가 중요하다(K\textsubscript{inact}: drug concentration
+achieving 50\% of maximal inhibition of TDI, KI: TDI constant). 이와 같은
+핵심 inhibition assay를 수행하기 전에 무엇보다 우선적으로 수행되어야
+하는 것은 substrate saturation experiment(또는 metabolic stability
+test)이다. 이를 통해 기질의 enzyme kinetic parameter(K\textsubscript{m}, V\textsubscript{max})를
+구할 수 있고 intrinsic clearance(CL\textsubscript{int})를 구할 수 있으며(이는 억제제가
+없는 조건, in absence of inhibitor), 이때 얻은 K\textsubscript{m} 값을 참고하여 in
+vitro inhibition assay에서 사용할 적합한 기질의 농도를 설정할 수 있다.
 
 \begin{figure}
 
@@ -2352,8 +2325,20 @@ MBI에서는 억제제와 enzyme 이 결합하여 reactive metabolite을 생성�
 
 }
 
-\caption{Michaelis-Menton kinetics of typical enzyme-catalyzed reaction of one substrate Substrate saturation experiment results for enzyme kinetic parameters(V\textsubscript{max}, K\textsubscript{m}), plotting reaction rate vs substrate concentration. V\textsubscript{max}: Maximum reaction rate at saturating substrate concentration for a given enzyme concentration, K\textsubscript{m}: Substrate concentration at half-maximum reaction rate(V\textsubscript{max}), also known as Micahelis constant.}\label{fig:05-03}
+\caption{Michaelis-Menton kinetics of typical enzyme-catalyzed
+reaction of one substrate Substrate saturation experiment results for
+enzyme kinetic parameters(V\textsubscript{max}, K\textsubscript{m}), plotting reaction rate vs
+substrate concentration. V\textsubscript{max}: Maximum reaction rate at saturating
+substrate concentration for a given enzyme concentration, K\textsubscript{m}:
+Substrate concentration at half-maximum reaction rate(V\textsubscript{max}), also
+known as Micahelis constant.}\label{fig:05-03}
 \end{figure}
+
+
+
+
+
+
 
 
 
@@ -2363,30 +2348,63 @@ MBI에서는 억제제와 enzyme 이 결합하여 reactive metabolite을 생성�
 
 }
 
-\caption{Lineweaver-Burk plots for enzyme inhibition(\protect\hyperlink{ref-linearweaver}{Wikipedia 2023}). 위의 그림은 Michaelis-Menton plot(그림 \ref{fig:05-03})의 역수이며, 속도의 역수(1/V)에 대한 기질 농도의 역수(1/{[}S{]})의 비율을 나타냄}\label{fig:05-20}
+\caption{Lineweaver-Burk plots for enzyme inhibition(\citeproc{ref-linearweaver}{Wikipedia 2023}).
+위의 그림은 Michaelis-Menton plot(그림 \ref{fig:05-03})의 역수이며,
+속도의 역수(1/V)에 대한 기질 농도의 역수(1/{[}S{]})의 비율을 나타냄}\label{fig:05-20}
 \end{figure}
 
 
 
+
+
 Mechanism-based inhibition (MBI)은 흔히 시간 의존적 억제(time-dependent
-inhibition,TDI) 라고도 불리우나, TDI가 조금 더 큰 범주라고 할 수 있다. TDI은 preincubation 시간을 거치면서 억제 효능(inhibition potency)이 더 좋아지는 경우를 일컬으며, MBI는 TDI의 한 종류로 볼 수 있다. MBI에서는 억제제와 enzyme 이 결합하여 reactive metabolite을 생성하고, 대사 효소가 활성을 잃고 비활성(inactive) 상태로 변한다. 따라서 이를 비가역성 억제(irreversible inhibition)라고도 부른다.
+inhibition,TDI) 라고도 불리우나, TDI가 조금 더 큰 범주라고 할 수 있다.
+TDI은 preincubation 시간을 거치면서 억제 효능(inhibition potency)이 더
+좋아지는 경우를 일컬으며, MBI는 TDI의 한 종류로 볼 수 있다. MBI에서는
+억제제와 enzyme 이 결합하여 reactive metabolite을 생성하고, 대사 효소가
+활성을 잃고 비활성(inactive) 상태로 변한다. 따라서 이를 비가역성
+억제(irreversible inhibition)라고도 부른다.
 
-\hypertarget{uxb300uxc0ac-uxc5b5uxc81c-uxd2b9uxc131-uxd3c9uxac00-uxc2e4uxd5d8-in-vitro-inhibition-assay-1}{%
-\section{대사 억제 특성 평가 실험 (in vitro inhibition assay)}\label{uxb300uxc0ac-uxc5b5uxc81c-uxd2b9uxc131-uxd3c9uxac00-uxc2e4uxd5d8-in-vitro-inhibition-assay-1}}
+\section{대사 억제 특성 평가 실험 (in vitro inhibition assay)}\label{uxb300uxc0ac-uxc5b5uxc81c-uxd2b9uxc131-uxd3c9uxac00-uxc2e4uxd5d8-in-vitro-inhibition-assay-1}
 
-후보물질의 대사 억제 특성을 평가하기 위해서 각 억제 종류 (가역적 억제 vs.~시간 의존적 억제)에 따라 핵심 in vitro assay를 수행하여 핵심 억제 파라미터를 구해야 한다. 우선, 가역적 억제의 경우 핵심 assay 로는 IC\textsubscript{50} 와 K\textsubscript{i}를 결정하는 시험들이 중요하다.(IC\textsubscript{50}: drug concentration achieving 50\% of maximal reversible inhibition, K\textsubscript{i}: reversible inhibition constant) 시간 의존적 억제 관련 assay로는 Single point assay, IC\textsubscript{50} shift assay, 그리고 K\textsubscript{inact}, K\textsubscript{I}를 결정하는 assay가 중요하다(K\textsubscript{inact}: drug concentration achieving 50\% of maximal inhibition of TDI, KI: TDI constant).
+후보물질의 대사 억제 특성을 평가하기 위해서 각 억제 종류 (가역적 억제
+vs.~시간 의존적 억제)에 따라 핵심 in vitro assay를 수행하여 핵심 억제
+파라미터를 구해야 한다. 우선, 가역적 억제의 경우 핵심 assay 로는 IC\textsubscript{50}
+와 K\textsubscript{i}를 결정하는 시험들이 중요하다.(IC\textsubscript{50}: drug concentration
+achieving 50\% of maximal reversible inhibition, K\textsubscript{i}: reversible
+inhibition constant) 시간 의존적 억제 관련 assay로는 Single point assay,
+IC\textsubscript{50} shift assay, 그리고 K\textsubscript{inact}, K\textsubscript{I}를 결정하는 assay가
+중요하다(K\textsubscript{inact}: drug concentration achieving 50\% of maximal
+inhibition of TDI, KI: TDI constant).
 
-이와 같은 핵심 inhibition assay를 수행하기 전에 무엇보다 우선적으로 수행되어야 하는 것은 substrate saturation experiment(또는 metabolic stability test)이다. 이를 통해 기질의 enzyme kinetic parameter(K\textsubscript{m}, V\textsubscript{max})를 구할 수 있고 intrinsic clearance(CL\textsubscript{int})를 구할 수 있으며(이는 억제제가 없는 조건, in absence of inhibitor), 이때 얻은 K\textsubscript{m} 값을 참고하여 in vitro inhibition assay에서 사용할 적합한 기질의 농도를 설정할 수 있다.(그림 \ref{fig:05-03})
+이와 같은 핵심 inhibition assay를 수행하기 전에 무엇보다 우선적으로
+수행되어야 하는 것은 substrate saturation experiment(또는 metabolic
+stability test)이다. 이를 통해 기질의 enzyme kinetic parameter(K\textsubscript{m},
+V\textsubscript{max})를 구할 수 있고 intrinsic clearance(CL\textsubscript{int})를 구할 수
+있으며(이는 억제제가 없는 조건, in absence of inhibitor), 이때 얻은 K\textsubscript{m}
+값을 참고하여 in vitro inhibition assay에서 사용할 적합한 기질의 농도를
+설정할 수 있다.(그림 \ref{fig:05-03})
 
-\hypertarget{reversible-inhibition-assay}{%
-\subsection{Reversible inhibition assay}\label{reversible-inhibition-assay}}
+\subsection{Reversible inhibition assay}\label{reversible-inhibition-assay}
 
-\hypertarget{cyp-inhibition-assay-for-ic50-determination}{%
-\subsubsection{\texorpdfstring{CYP inhibition assay for IC\textsubscript{50} determination}{CYP inhibition assay for IC50 determination}}\label{cyp-inhibition-assay-for-ic50-determination}}
+\subsubsection{\texorpdfstring{CYP inhibition assay for IC\textsubscript{50} determination}{CYP inhibition assay for IC50 determination}}\label{cyp-inhibition-assay-for-ic50-determination}
 
-FDA의 가이던스에 따라 7종류의 주요 CYP isoform에 대하여 평가를 수행해야한다. 가역적 억제제인지 평가하기 위해 우선 IC\textsubscript{50}를 구해야 한다. 이는 CYP inhibition assay(IC\textsubscript{50})로 구할 수 있다. 이때의 IC\textsubscript{50}는 50\% 억제를 나타낸 억제제의 농도를 의미하며, 다양한 test compound를 재료로 다양한 억제제 농도에서 생성되는 대사체의 양을 측정하여, 궁극적으로 억제제의 농도에 따라 대사체 생성이 얼마나 억제 되었는지를 그래프화 하여 IC\textsubscript{50}를 구한다. (그림 \ref{fig:05-04})
+FDA의 가이던스에 따라 7종류의 주요 CYP isoform에 대하여 평가를
+수행해야한다. 가역적 억제제인지 평가하기 위해 우선 IC\textsubscript{50}를 구해야 한다.
+이는 CYP inhibition assay(IC\textsubscript{50})로 구할 수 있다. 이때의 IC\textsubscript{50}는 50\%
+억제를 나타낸 억제제의 농도를 의미하며, 다양한 test compound를 재료로
+다양한 억제제 농도에서 생성되는 대사체의 양을 측정하여, 궁극적으로
+억제제의 농도에 따라 대사체 생성이 얼마나 억제 되었는지를 그래프화 하여
+IC\textsubscript{50}를 구한다. (그림 \ref{fig:05-04})
 
-억제제와 기질을 Human liver microsome(HLM)과 함께 preincubate 시킨 후, 조효소(cofactor)인 NADPH를 넣고 incubation을 거친다. 각 억제제의 농도에서 대사체 생성 양을 LC-MS/MS를 통해 관측한다. IC\textsubscript{50} 값은 extrinsic constant 로 lab-to-lab variability 가 존재하고, 재생산하기 어려운 값일 수 있으며, 기질의 종류, 농도 그리고 incubation condition에 따라 달라질 수 있다. 이때 얻어지는 IC\textsubscript{50} 값은 각각의 CYP isoform에 대해서 얻을 수 있으며, IC\textsubscript{50} 값의 해석은 아래와 같다. (표 \ref{tab:interpretic50})
+억제제와 기질을 Human liver microsome(HLM)과 함께 preincubate 시킨 후,
+조효소(cofactor)인 NADPH를 넣고 incubation을 거친다. 각 억제제의
+농도에서 대사체 생성 양을 LC-MS/MS를 통해 관측한다. IC\textsubscript{50} 값은
+extrinsic constant 로 lab-to-lab variability 가 존재하고, 재생산하기
+어려운 값일 수 있으며, 기질의 종류, 농도 그리고 incubation condition에
+따라 달라질 수 있다. 이때 얻어지는 IC\textsubscript{50} 값은 각각의 CYP isoform에
+대해서 얻을 수 있으며, IC\textsubscript{50} 값의 해석은 아래와 같다. (표
+\ref{tab:interpretic50})
 
 \begin{figure}
 
@@ -2394,13 +2412,15 @@ FDA의 가이던스에 따라 7종류의 주요 CYP isoform에 대하여 평가�
 
 }
 
-\caption{Metabolite formation depending on the various inhibitor concentration (\protect\hyperlink{ref-invitroadme}{Cyprotex 2023})}\label{fig:05-04}
+\caption{Metabolite formation depending on the various inhibitor
+concentration (\citeproc{ref-invitroadme}{Cyprotex 2023})}\label{fig:05-04}
 \end{figure}
 
 
 
+
 \begin{longtable}[]{@{}ll@{}}
-\caption{\label{tab:interpretic50} Interpretation of IC50 values (\protect\hyperlink{ref-invitroadme}{Cyprotex 2023})}\tabularnewline
+\caption{\label{tab:interpretic50} Interpretation of IC50 values (\citeproc{ref-invitroadme}{Cyprotex 2023})}\tabularnewline
 \toprule\noalign{}
 Interpretation & Range \\
 \midrule\noalign{}
@@ -2416,19 +2436,24 @@ Moderate inhibition & IC\textsubscript{50} between 1 and 10uM \\
 No or weak inhibition & IC\textsubscript{50} \textgreater{} 10uM \\
 \end{longtable}
 
-\hypertarget{cyp-inhibition-assay-for-ki-determination}{%
-\subsubsection{CYP inhibition assay for Ki determination}\label{cyp-inhibition-assay-for-ki-determination}}
+\subsubsection{CYP inhibition assay for Ki determination}\label{cyp-inhibition-assay-for-ki-determination}
 
 앞에 소개된 IC\textsubscript{50} 값을 실험을 통해 구한 후 이를 활용하여 각 CYP isoform
 별로 Ki 값을 구할 수 있다. 미리 산출된 IC\textsubscript{50} 값은 실험에 적합한 억제제
 농도를 구하기 위해 사용되며, 산출된 IC\textsubscript{50} 농도와 근접하게 억제제 농도를
 설정한다.
 
-실험은 다양한 기질과 억제제농도로 수행된다. 아래와 같이 다양한 억제제 농도에 따른 반응속도(velocity)와 기질농도({[}S{]})의 그래프를 얻을 수 있다.(그림 \ref{fig:reactionrate}) 그래프의 양상을 통해 가역적 억제의 종류를 알아낼 수 있다(i.e.~competitive, noncompetitive, uncompetitive, or mixed).
-K\textsubscript{i}를 구하는 방법은 여러가지로, regression을 통해서 Rate equation 식에 fitting 한 후 K\textsubscript{i}를 값을 계산하여 얻을 수 있다(표 \ref{tab:rateequation}). 또는, 얻어진 IC\textsubscript{50} 값을 기반으로 간단하게 계산하는 방법이 있다. 1차식에 의한
-대사(first-order kinetic) 가 가장 잘 관측되는 구간은 기질의 농도가 K\textsubscript{m}
-값과 비슷하거나 작을 때이며, 따라서 대부분의 경우 Ki 값은 IC\textsubscript{50} 와
-유사하거나, IC\textsubscript{50}/2 로 계산할 수 있다(수식 \eqref{eq:estimki}).
+실험은 다양한 기질과 억제제농도로 수행된다. 아래와 같이 다양한 억제제
+농도에 따른 반응속도(velocity)와 기질농도({[}S{]})의 그래프를 얻을 수
+있다.(그림 \ref{fig:reactionrate}) 그래프의 양상을 통해 가역적 억제의
+종류를 알아낼 수 있다(i.e.~competitive, noncompetitive, uncompetitive,
+or mixed). K\textsubscript{i}를 구하는 방법은 여러가지로, regression을 통해서 Rate
+equation 식에 fitting 한 후 K\textsubscript{i}를 값을 계산하여 얻을 수 있다(표
+\ref{tab:rateequation}). 또는, 얻어진 IC\textsubscript{50} 값을 기반으로 간단하게
+계산하는 방법이 있다. 1차식에 의한 대사(first-order kinetic) 가 가장 잘
+관측되는 구간은 기질의 농도가 K\textsubscript{m} 값과 비슷하거나 작을 때이며, 따라서
+대부분의 경우 Ki 값은 IC\textsubscript{50} 와 유사하거나, IC\textsubscript{50}/2 로 계산할 수
+있다(수식 \eqref{eq:estimki}).
 
 \begin{equation}
 K_i = \frac{IC_{50}}{(\frac{S}{K_m} + 1)} 
@@ -2451,15 +2476,28 @@ IC\textsubscript{50} 보다 실험에서 재현하기 쉬운 값으로, in vivo 
 
 }
 
-\caption{Reaction rate (velocity) vs {[}S{]} or v/{[}S{]}. (a),(b): Competitive inhibition mechanism, (c),(d): Noncompetitive inbition mechanism, (e),(f): Uncompetitive inhibition mechanism. (b),(d),(f): Linearized (Eadie-Hofstee) plot. Y-intercept: V\textsubscript{max}, Slope: K\textsubscript{m} and {[}I{]}: Inhibitor concentration}\label{fig:reactionrate}
+\caption{Reaction rate (velocity) vs {[}S{]} or v/{[}S{]}. (a),(b):
+Competitive inhibition mechanism, (c),(d): Noncompetitive inbition
+mechanism, (e),(f): Uncompetitive inhibition mechanism. (b),(d),(f):
+Linearized (Eadie-Hofstee) plot. Y-intercept: V\textsubscript{max}, Slope: K\textsubscript{m} and
+{[}I{]}: Inhibitor concentration}\label{fig:reactionrate}
 \end{figure}
+
+
+
+
 
 
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
-\caption{\label{tab:rateequation} Rate equations for different inhibition model types.(\protect\hyperlink{ref-invitroadme}{Cyprotex 2023}) V\textsubscript{max} : Maximal rate, K\textsubscript{m} : Affinity constant, {[}S{]} : Substrance concentration, {[}I{]}: Inhibitor concentration, K\textsubscript{i} : Inhibition contant, \(\alpha\) : Interaction parameter which determines the degree to which the binding of inhibitor changes the affinity of the enzyme of the substrate}\tabularnewline
+\caption{\label{tab:rateequation} Rate equations for different inhibition model
+types.(\citeproc{ref-invitroadme}{Cyprotex 2023}) V\textsubscript{max} : Maximal rate, K\textsubscript{m} : Affinity constant,
+{[}S{]} : Substrance concentration, {[}I{]}: Inhibitor concentration, K\textsubscript{i} :
+Inhibition contant, \(\alpha\) : Interaction parameter which determines
+the degree to which the binding of inhibitor changes the affinity of the
+enzyme of the substrate}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Inhibition type
@@ -2484,8 +2522,7 @@ Uncompetitive & \(v = \frac{V_{max}\cdot[S]}{K_{m} + {[S]\cdot(1+\frac{[I]}{K_{i
 Mixed & \(v = \frac{V_{max}\cdot[S]}{K_{m}\cdot(1+\frac{[I]}{K_{i}})+[S]\cdot(1+\frac{[I]}{\alpha{K_{i}}})}\) \\
 \end{longtable}
 
-\hypertarget{time-dependent-inhibition-assay}{%
-\subsection{Time-dependent inhibition assay}\label{time-dependent-inhibition-assay}}
+\subsection{Time-dependent inhibition assay}\label{time-dependent-inhibition-assay}
 
 시간 의존적 억제(TDI)는 가역적 억제보다 안전성 측면에서 더 심각한 결과를
 초래할 수 있는 억제의 종류로 in vitro inhibition assay 단계에서 강한
@@ -2495,8 +2532,7 @@ Mixed & \(v = \frac{V_{max}\cdot[S]}{K_{m}\cdot(1+\frac{[I]}{K_{i}})+[S]\cdot(1+
 시간 의존적 억제제인지 여부를 탐색하기를 추천한다. 일반적으로 수행되는
 TDI assay는 아래와 같다:
 
-\hypertarget{common-practice-to-address-tdi-tiered-approach-invitroadme-grimm2009conduct}{%
-\subsubsection{\texorpdfstring{Common practice to address TDI (tiered approach) (\protect\hyperlink{ref-invitroadme}{Cyprotex 2023}) (\protect\hyperlink{ref-grimm2009conduct}{Grimm et al. 2009})}{Common practice to address TDI (tiered approach) (Cyprotex 2023) (Grimm et al. 2009)}}\label{common-practice-to-address-tdi-tiered-approach-invitroadme-grimm2009conduct}}
+\subsubsection{\texorpdfstring{Common practice to address TDI (tiered approach) (\citeproc{ref-invitroadme}{Cyprotex 2023}) (\citeproc{ref-grimm2009conduct}{Grimm et al. 2009})}{Common practice to address TDI (tiered approach) (Cyprotex 2023) (Grimm et al. 2009)}}\label{common-practice-to-address-tdi-tiered-approach-invitroadme-grimm2009conduct}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2517,8 +2553,7 @@ TDI assay는 아래와 같다:
   inactivation(uM))
 \end{enumerate}
 
-\hypertarget{cyp-tdi-single-point-assay}{%
-\subsubsection{CYP TDI single point assay}\label{cyp-tdi-single-point-assay}}
+\subsubsection{CYP TDI single point assay}\label{cyp-tdi-single-point-assay}
 
 In vitro ADME assay 초기의 단계에 TDI potential을 스크리닝하기 위해
 수행된다. 단일의 억제제 농도를 가지고 실험하며, 고농도의 억제제
@@ -2539,16 +2574,21 @@ percent\ inhibition = 100\cdot(1- (\frac{(\frac{R_{Testcmpd+NADPH}}{{R_{Vehicle+
 \label{eq:percenttdi}
 \end{equation}
 
-\hypertarget{cyp-tdi-assay-for-ic50-shift-determination}{%
-\subsubsection{CYP TDI assay for IC50 shift determination}\label{cyp-tdi-assay-for-ic50-shift-determination}}
+\subsubsection{CYP TDI assay for IC50 shift determination}\label{cyp-tdi-assay-for-ic50-shift-determination}
 
 ADME assay 후기 단계에서 수행되며 가역적 억제와 비가역적 억제를 구분할
 수 있도록 도와준다. 다양한 억제제 농도로 실험을 진행하며, 30분 정도의
 preincubation period를 거치고 이 때 조효소인 NADPH를 포함하는 경우와
 포함하지 않는 경우의 결과를 그래프 화하여 IC\textsubscript{50} 값을 구하고 그 변화를
-확인한다(그림 6).
+확인한다(그림 \ref{fig:IC50shift}).
 
-이때 얻어지는 그래프는 억제제 농도에 따른 \%CYP 활성이며, NADPH를 포함하여 preincubation 한 경우의 IC\textsubscript{50} 가 약 1.5배 작아지면(left shift of IC\textsubscript{50}), 해당 약물은 TDI을 나타내는 것으로 해석될 수 있다.(\protect\hyperlink{ref-invitroadme}{Cyprotex 2023}) 다만, 해당 수치적 기준은 명확하게 수립된 바는 없으며 IC\textsubscript{50} shift가 대략 2.5-3배 이상이면 TDI를 나타내는 것으로 보기도 한다. 이와 같은 IC\textsubscript{50} 값의 left shift는 preincubation을 통해 CYP 활성을 억제하는 능력이 커짐을 의미한다.
+이때 얻어지는 그래프는 억제제 농도에 따른 \%CYP 활성이며, NADPH를
+포함하여 preincubation 한 경우의 IC\textsubscript{50} 가 약 1.5배 작아지면(left shift
+of IC\textsubscript{50}), 해당 약물은 TDI을 나타내는 것으로 해석될 수
+있다.(\citeproc{ref-invitroadme}{Cyprotex 2023}) 다만, 해당 수치적 기준은 명확하게 수립된 바는 없으며
+IC\textsubscript{50} shift가 대략 2.5-3배 이상이면 TDI를 나타내는 것으로 보기도 한다.
+이와 같은 IC\textsubscript{50} 값의 left shift는 preincubation을 통해 CYP 활성을
+억제하는 능력이 커짐을 의미한다.
 
 \begin{figure}
 
@@ -2556,23 +2596,31 @@ preincubation period를 거치고 이 때 조효소인 NADPH를 포함하는 경
 
 }
 
-\caption{Example of IC50 shift profile of \%CYP activity vs.~inhibitor concentration plus/minus NADPH during preincubation period(\protect\hyperlink{ref-invitroadme}{Cyprotex 2023})}\label{fig:IC50shift}
+\caption{Example of IC50 shift profile of \%CYP activity vs.
+inhibitor concentration plus/minus NADPH during preincubation
+period(\citeproc{ref-invitroadme}{Cyprotex 2023})}\label{fig:IC50shift}
 \end{figure}
 
 
 
-\hypertarget{cyp-tdi-assay-for-kinactki-determination}{%
-\subsubsection{CYP TDI assay for kinact/KI~determination}\label{cyp-tdi-assay-for-kinactki-determination}}
+
+
+\subsubsection{\texorpdfstring{CYP TDI assay for k\textsubscript{inact}/KI~determination}{CYP TDI assay for kinact/KI~determination}}\label{cyp-tdi-assay-for-kinactki-determination}
 
 K\textsubscript{inact} 와 K\textsubscript{I}를 구하는 실험을 수행하여 사람에서의 DDI 실험이 필요한지
 결정하는데 참고할 수 있다. 다양한 억제제 농도를 가지고 preincubation
-time을 다양하게 설정하여 실험을 진행한다 (K\textsubscript{inact}: Maximal rate of enzyme
-inactivation at saturating concentration of inhibitor (/min), KI:
+time을 다양하게 설정하여 실험을 진행한다 (K\textsubscript{inact}: Maximal rate of
+enzyme inactivation at saturating concentration of inhibitor (/min), KI:
 Concentration of inhibitor which gives half the maximal rate of
 inactivation (uM)). 이를 통해 다양한 억제제 농도에 따른 \%CYP activity
-remaining vs.~preincubation time 그래프 얻고, 이때의 기울기(K\textsubscript{obs}:Observed rate of individual CYP inactivation) 를 구할 수 있다.
-
-(그림 \ref{fig:05-21})이어 K\textsubscript{obs} vs 억제제 농도 그래프를 그래고 비선형 회귀를 통해 K\textsubscript{inact}와 KI를 구할 수 있다. (그림 \ref{fig:05-22}) 또는 Linewever-Burk plot을 활용하여 각 x,y축에 역수를 취해, 그래프를 통해 x-intercept, y-intercept에 상응하는 1/KI, 1/K\textsubscript{inact}를 구할 수 있다.(그림 \ref{fig:05-23})(\protect\hyperlink{ref-li2008drug}{Li 2008})
+remaining vs.~preincubation time 그래프 얻고, 이때의
+기울기(K\textsubscript{obs}:Observed rate of individual CYP inactivation) 를 구할 수
+있다. (그림 \ref{fig:05-21} (a)) 이어 K\textsubscript{obs} vs 억제제 농도 그래프를
+그래고 비선형 회귀를 통해 K\textsubscript{inact}와 KI를 구할 수 있다. (그림
+\ref{fig:05-21} (b), 그림 내 수식) 또는 Lineweaver-Burk plot을 활용하여
+각 x,y축에 역수를 취해, 그래프를 통해 x-intercept, y-intercept에
+상응하는 1/KI, 1/K\textsubscript{inact}를 구할 수 있다.(그림 \ref{fig:05-21} (c),
+그림 내 수식)(\citeproc{ref-li2008drug}{Li 2008})
 
 \begin{figure}
 
@@ -2580,13 +2628,18 @@ remaining vs.~preincubation time 그래프 얻고, 이때의 기울기(K\textsub
 
 }
 
-\caption{(a) Example of (a) \%CYP activity remaining vs.~preincubation time, (b) -slope (of (a) graph) vs.~inhibitor concentration or Observed rate (Kobs) model, (c) Linewever-Burk plot, x-intercept: 1/KI, y-intercept: 1/Kinact (\protect\hyperlink{ref-li2008drug}{Li 2008})}\label{fig:05-21}
+\caption{(a) Example of (a) \%CYP activity remaining vs.~preincubation
+time, (b) -slope (of (a) graph) vs.~inhibitor concentration or Observed
+rate (Kobs) model, (c) Lineweaver-Burk plot, x-intercept: 1/KI,
+y-intercept: 1/Kinact (\citeproc{ref-li2008drug}{Li 2008})}\label{fig:05-21}
 \end{figure}
 
 
 
-\hypertarget{in-vitro-inhibition-parameteruxc758-uxd65cuxc6a9}{%
-\section{In vitro inhibition parameter의 활용}\label{in-vitro-inhibition-parameteruxc758-uxd65cuxc6a9}}
+
+
+
+\section{In vitro inhibition parameter의 활용}\label{in-vitro-inhibition-parameteruxc758-uxd65cuxc6a9}
 
 위에 소개된 다양한 In vitro inhibition assay를 통해 우리는 결국 억제
 파라미터 값들을 산출하였다. 이 값들을 활용하여 각 억제 기전 별 모델별로
@@ -2613,8 +2666,18 @@ AUCR = \frac{AUC_i}{AUC} = \frac{CLu_{int}}{CLu_{int,i}} =
 가능하다. 이 과정을 통해 DDI 로 발생하는 임상에서의 위험성을 최대로 낮출
 수 있다.
 
-\hypertarget{Induction}{%
-\chapter{후보 물질의 대사 유도 특성 평가}\label{Induction}}
+\[
+R_{1} = 1 + (\frac{I_{max,u}}{\color{red}{K_{i,u}}})\geq1.02 \\ R_{1,gut} = 1+(\frac{I_{gut}}{\color{red}{K_{i,u}}}) \geq11 \\
+R2 = \frac{(\color{red}{k_{obs}}+k_{deg})}{k_{deg}}\geq1.25 \\
+A_{g} = \frac{1}{1+\frac{[I]_{g}}{\color{red}{K_{i}}}} \\ A_{h} = \frac{1}{1+\frac{[I]_{h}}{\color{red}{K_{i}}}} \\
+B_{g} = \frac{k_{deg,g}}{k_{deg,g} + \frac{[I]_g\cdot \color{red}{k_{inact}}}{[I]_{g}+\color{red}{K_{I}}}} \\ B_{h} = \frac{k_{deg,h}}{k_{deg,h} + \frac{[I]_h\cdot \color{red}{k_{inact}}}{[I]_{h}+\color{red}{K_{I}}}}
+\]
+
+: \label{tab:variousmodels} Various DDI prediction models for reversible
+inhibition and time-dependent inhibition. 붉은 색 글씨는 in vitro
+inhibition assay를 통해 구해진 억제 파라미터를 의미. (\citeproc{ref-li2008drug}{Li 2008})
+
+\chapter{후보 물질의 대사 유도 특성 평가}\label{Induction}
 
 \Large\hfill
 
@@ -2622,8 +2685,7 @@ AUCR = \frac{AUC_i}{AUC} = \frac{CLu_{int}}{CLu_{int,i}} =
 
 \normalsize
 
-\hypertarget{uxc11cuxb860-5}{%
-\section{서론}\label{uxc11cuxb860-5}}
+\section{서론}\label{uxc11cuxb860-5}
 
 이 장에서는 개발하는 약물이 대사 유도체(Inducer)로써 작용할 가능성을
 확인하고, 해당 유도 수준을 평가하는 다양한 방법을 살펴보기로 한다. 유도
@@ -2640,8 +2702,7 @@ AUCR = \frac{AUC_i}{AUC} = \frac{CLu_{int}}{CLu_{int,i}} =
 파라미터를 얻고 평가한다. 이 장에서는 후보 물질의 유도제로써의 가능성을
 평가하는 방법과 평가 결과를 해석하는 방법에 대해서 살펴보기로 한다.
 
-\hypertarget{uxc720uxb3c4-uxc791uxc6a9}{%
-\section{유도 작용}\label{uxc720uxb3c4-uxc791uxc6a9}}
+\section{유도 작용}\label{uxc720uxb3c4-uxc791uxc6a9}
 
 대사 유도(Metabolic induction)란 주로 약이나 화학물질에 의해서 효소의
 활성 수준이 증가하여 대사 능력이 증가하는 현상을 말하며, 약동학적
@@ -2671,8 +2732,7 @@ AUCR = \frac{AUC_i}{AUC} = \frac{CLu_{int}}{CLu_{int,i}} =
   있기 때문에 (Safety 감소) 다양한 관점에서 주의해서 접근해야 한다.
 \end{enumerate}
 
-\hypertarget{uxc720uxb3c4uxccb4uxc758-uxc791uxc6a9-uxba54uxcee4uxb2c8uxc998}{%
-\subsection{유도체의 작용 메커니즘}\label{uxc720uxb3c4uxccb4uxc758-uxc791uxc6a9-uxba54uxcee4uxb2c8uxc998}}
+\subsection{유도체의 작용 메커니즘}\label{uxc720uxb3c4uxccb4uxc758-uxc791uxc6a9-uxba54uxcee4uxb2c8uxc998}
 
 \begin{figure}
 
@@ -2719,8 +2779,7 @@ CYP2E1)으로 작용하게 된다. 이 중 대부분의 경우 1)의 형태를 �
 \textbf{Enzyme stabilization} & CYP2E1 & mRNA 발현과 무관하게 Proteosome 으로부터의 보호를 통해 활성 효소가 증가함 \\
 \end{longtable}
 
-\hypertarget{uxd2b9uxc9d5}{%
-\subsection{특징}\label{uxd2b9uxc9d5}}
+\subsection{특징}\label{uxd2b9uxc9d5}
 
 유도체는 주로 Receptor와의 결합을 통해 해당 효소의 유전자의 전사를
 증가시키는 형태로 작용하기 때문에 전사 이후 효소 단백질이 만들어지기
@@ -2731,8 +2790,7 @@ CYP2E1)으로 작용하게 된다. 이 중 대부분의 경우 1)의 형태를 �
 변화가 드물게 나타날 수 있다. 유도체의 작용은 가역적으로 대부분 원래의
 수준으로 돌아오나 해당 과정은 비교적 천천히 진행된다.
 
-\hypertarget{uxc720uxb3c4uxccb4uxc5d0-uxc758uxd55c-uxd65cuxc131uxd6a8uxc18cuxc758-uxbcc0uxd654}{%
-\subsection{유도체에 의한 활성효소의 변화}\label{uxc720uxb3c4uxccb4uxc5d0-uxc758uxd55c-uxd65cuxc131uxd6a8uxc18cuxc758-uxbcc0uxd654}}
+\subsection{유도체에 의한 활성효소의 변화}\label{uxc720uxb3c4uxccb4uxc5d0-uxc758uxd55c-uxd65cuxc131uxd6a8uxc18cuxc758-uxbcc0uxd654}
 
 효소 및 mRNA는 평소에는 체내에서 평형을 이루고 있으며 아래 그림과 같이
 일정한 생성속도(K\textsubscript{in})와 제거속도(K\textsubscript{out})에 의해 결정되는 turnover
@@ -2780,11 +2838,9 @@ model을 따른다(그림 \ref{fig:turnover}). Turnover model을 표현한 식�
 유도체의 작용에 대한 활성 효소의 시간에 따른 변화량을 표현하여 해당
 수식을 사용한다.
 
-\hypertarget{uxd6c4uxbcf4-uxbb3cuxc9c8uxc758-uxc720uxb3c4-uxac00uxb2a5-uxc5ecuxbd80-uxd3c9uxac00uxb97c-uxc704uxd55c-study-uxb514uxc790uxc778}{%
-\section{후보 물질의 유도 가능 여부 평가를 위한 study 디자인}\label{uxd6c4uxbcf4-uxbb3cuxc9c8uxc758-uxc720uxb3c4-uxac00uxb2a5-uxc5ecuxbd80-uxd3c9uxac00uxb97c-uxc704uxd55c-study-uxb514uxc790uxc778}}
+\section{후보 물질의 유도 가능 여부 평가를 위한 study 디자인}\label{uxd6c4uxbcf4-uxbb3cuxc9c8uxc758-uxc720uxb3c4-uxac00uxb2a5-uxc5ecuxbd80-uxd3c9uxac00uxb97c-uxc704uxd55c-study-uxb514uxc790uxc778}
 
-\hypertarget{in-vitro-study-uxb514uxc790uxc778}{%
-\subsection{In vitro study 디자인}\label{in-vitro-study-uxb514uxc790uxc778}}
+\subsection{In vitro study 디자인}\label{in-vitro-study-uxb514uxc790uxc778}
 
 후보 물질의 유도체로써의 작용 가능성과 작용 정도에 대한 평가는 대부분
 해당 물질의 개발 과정에 따라 다르게 이루어진다.
@@ -2846,8 +2902,7 @@ change의 경우 약물의 억제 작용이 혼재되어 나타날 수 있기 �
 3일 이상 세포가 살아있지 않으면 관찰 기간을 축소하거나 조금 더 낮은
 농도를 사용하게 된다.
 
-\hypertarget{in-vivo-study-uxb514uxc790uxc778}{%
-\subsection{In vivo study 디자인}\label{in-vivo-study-uxb514uxc790uxc778}}
+\subsection{In vivo study 디자인}\label{in-vivo-study-uxb514uxc790uxc778}
 
 일반적으로 유도체의 작용은 수용체와의 결합을 통해 나타나며 동물 종마다
 해당 Binding site의 차이가 크기 때문에 동물 실험을 통한 유도 가능성
@@ -2874,8 +2929,7 @@ change의 경우 약물의 억제 작용이 혼재되어 나타날 수 있기 �
 
 
 
-\hypertarget{uxd6c4uxbcf4-uxbb3cuxc9c8uxc758-uxc720uxb3c4-uxac00uxb2a5uxc131-uxd3c9uxac00}{%
-\section{후보 물질의 유도 가능성 평가}\label{uxd6c4uxbcf4-uxbb3cuxc9c8uxc758-uxc720uxb3c4-uxac00uxb2a5uxc131-uxd3c9uxac00}}
+\section{후보 물질의 유도 가능성 평가}\label{uxd6c4uxbcf4-uxbb3cuxc9c8uxc758-uxc720uxb3c4-uxac00uxb2a5uxc131-uxd3c9uxac00}
 
 \begin{figure}
 
@@ -2918,8 +2972,7 @@ Calibration해서 판단하는 것이 중요하다.
 약물은 유도제로서의 가능성이 있는것으로 판단할 수 있으며 이를 위한 후속
 평가를 계획하고 수행해야 한다.
 
-\hypertarget{fold-change-method}{%
-\subsection{Fold-change method}\label{fold-change-method}}
+\subsection{Fold-change method}\label{fold-change-method}
 
 후보 약물을 넣었을 때 각 CYP Enzyme mRNA의 증가 수준(fold-change)을
 확인하여 음성 대조군 및 양성 대조군을 통해 설정된 cut-off를 이용해서
@@ -2933,8 +2986,7 @@ in vivo에서의 항정상태의 최대 혈장 농도(Imax,u)에 일정 배수 (
 이상의 반응을 보이는 경우에는 양성일 가능성을 배제하지 않으며 추가적인
 평가를 수행한다.
 
-\hypertarget{correlation-methods}{%
-\subsection{Correlation methods}\label{correlation-methods}}
+\subsection{Correlation methods}\label{correlation-methods}
 
 위의 Fold-change method와는 달리 in vivo에서의 수준을 예측하여 유도체
 가능성을 확인하는 방법으로 Induction 실험을 통해 구한 EC50와 Emax값을
@@ -2967,8 +3019,7 @@ RIS = frac{E{max} \cdot C{max,u}}{EC{50} + C{max,u}}
 
 다른 하나는 (\(\frac{I{max,u}}{EC{50}}\))를 사용한다.
 
-\hypertarget{basic-kinetic-model}{%
-\subsection{Basic kinetic model}\label{basic-kinetic-model}}
+\subsection{Basic kinetic model}\label{basic-kinetic-model}
 
 CYP450 효소 유도를 평가하는 방법 중 비교적 가장 최신에 정형화된 방법으로
 앞에서 5장에서 구한 효소 억제를 평가하는 파라미터인 R1, R2와 주로 함께
@@ -2988,11 +3039,9 @@ R{3} = frac{1}{1 + d \cdot \frac{E{max} \cdot I{max,u} \cdot 10}{EC{50} + 10 \cd
 기존의 동일한 실험 조건에서의 다른 유도체 및 양성 대조군의 결과를 통해
 설정할 수 있다.
 
-\hypertarget{in-vitro-in-vivo-extrapolation-ivive}{%
-\section{In vitro-in vivo extrapolation (IVIVE)}\label{in-vitro-in-vivo-extrapolation-ivive}}
+\section{In vitro-in vivo extrapolation (IVIVE)}\label{in-vitro-in-vivo-extrapolation-ivive}
 
-\hypertarget{mechanistic-static-model}{%
-\subsection{Mechanistic static model}\label{mechanistic-static-model}}
+\subsection{Mechanistic static model}\label{mechanistic-static-model}
 
 Induction 실험에서의 결과를 통해 in vivo에서의 결과를 정량적으로 예측할
 수 있다. 이를 위해서는 Mechanistic static model을 사용하거나 PBPK
@@ -3016,8 +3065,7 @@ model보다 더 정확한 예측을 할 수 있다. 단, 이 모델은 시간에
 있기 때문에 더 정확한 결과를 원하는 경우 PBPK modeling을 통해서 예측해
 보는 것이 좋다.
 
-\hypertarget{pbpk-modeling}{%
-\subsection{PBPK modeling}\label{pbpk-modeling}}
+\subsection{PBPK modeling}\label{pbpk-modeling}
 
 PBPK(Physiologically-based pharmacokinetic) 모델은 약물이 체내에서 흡수,
 분포, 대사 및 배설되는 과정을 수학적으로 모델링한 것으로 신체가 서로
@@ -3052,8 +3100,7 @@ EC\textsubscript{50}, E\textsubscript{max}와 같은 파라미터 뿐 아니라 
 결과를 예측할 수 있으며, 다양한 병용 약물 용량 용법에서의 약물 상호작용
 결과 역시 예측할 수 있다.
 
-\hypertarget{uxb9fauxc74cuxb9d0-4}{%
-\section{맺음말}\label{uxb9fauxc74cuxb9d0-4}}
+\section{맺음말}\label{uxb9fauxc74cuxb9d0-4}
 
 후보 물질의 효소 유도 작용은 주로 세포 내의 Nuclear receptor에 의해
 이루어지며, 다양한 실험방법을 통해 in vitro에서 EC50와 Emax와 같은
@@ -3068,15 +3115,13 @@ vivo로 외삽할 수 있으며, 이를 이용하여 유도체의 유도능을 �
 modeling을 통해 in vivo에서의 효소 유도를 통한 기질의 노출 변화의 보다
 정확한 예측을 기대할 수 있다.
 
-\hypertarget{uxc57duxbb3c-uxc218uxc1a1uxccb4uxc5d0-uxb300uxd55c-uxd6c4uxbcf4uxbb3cuxc9c8uxc758-uxc791uxc6a9uxd3c9uxac00}{%
-\chapter{약물 수송체에 대한 후보물질의 작용평가}\label{uxc57duxbb3c-uxc218uxc1a1uxccb4uxc5d0-uxb300uxd55c-uxd6c4uxbcf4uxbb3cuxc9c8uxc758-uxc791uxc6a9uxd3c9uxac00}}
+\chapter{약물 수송체에 대한 후보물질의 작용평가}\label{uxc57duxbb3c-uxc218uxc1a1uxccb4uxc5d0-uxb300uxd55c-uxd6c4uxbcf4uxbb3cuxc9c8uxc758-uxc791uxc6a9uxd3c9uxac00}
 
 \Large\hfill
 
 배수현 \normalsize
 
-\hypertarget{uxc11cuxb860-6}{%
-\section{서론}\label{uxc11cuxb860-6}}
+\section{서론}\label{uxc11cuxb860-6}
 
 세포내 물질 이동은 그림 \ref{fig:07-01}과 같다. 크게 수동수송과
 능동수송으로 구분할 수 있다. 수동수송은 세포막 사이의 물질의 농도 차이에
@@ -3102,8 +3147,7 @@ cassette (ABC) transporter로 나뉜다. 이 단원에서는 약물을 세포 �
 
 
 
-\hypertarget{uxc57duxbb3cuxc218uxc1a1uxccb4uxc758-uxc885uxb958uxc640-uxc5eduxd560}{%
-\section{약물수송체의 종류와 역할}\label{uxc57duxbb3cuxc218uxc1a1uxccb4uxc758-uxc885uxb958uxc640-uxc5eduxd560}}
+\section{약물수송체의 종류와 역할}\label{uxc57duxbb3cuxc218uxc1a1uxccb4uxc758-uxc885uxb958uxc640-uxc5eduxd560}
 
 약물 수송체의 종류는 크게 SLC transporter와 ABC transporter로 나뉜다.
 SLC 수송체는 주로 세포내로 물질을 수송(uptake)시키며, 나트륨(Na\textsuperscript{+}) 등의
@@ -3186,13 +3230,12 @@ HMG-CoA reductase 저해제 약물군이 OATP 수송체의 기질로 알려져 �
 
 }
 
-\caption{생체 내 조직에 분포하는 수송체의 종류 (\protect\hyperlink{ref-brouwer2013vitro}{Brouwer et al. 2013})}\label{fig:07-02}
+\caption{생체 내 조직에 분포하는 수송체의 종류 (\citeproc{ref-brouwer2013vitro}{Brouwer et al. 2013})}\label{fig:07-02}
 \end{figure}
 
 
 
-\hypertarget{mdr1uxacfc-bcrp}{%
-\subsection{MDR1과 BCRP}\label{mdr1uxacfc-bcrp}}
+\subsection{MDR1과 BCRP}\label{mdr1uxacfc-bcrp}
 
 Efflux 수송체인 MDR1 (P-gp)와 BCRP는 위장관, 간, 신장 등을 포함한 다양한
 조직에 분포하고 있다. 약물의 조직분포, 간과 신장으로의 배설 뿐만 아니라,
@@ -3218,8 +3261,7 @@ Efflux 수송체인 MDR1 (P-gp)와 BCRP는 위장관, 간, 신장 등을 포함�
 농도에서 약효를 보였지만, in vivo에서는 표적조직(뇌)에서의 약물 농도가
 높게 유지되지 않아 충분한 약효를 나타내지 못할 수 있다.
 
-\hypertarget{oatp}{%
-\subsection{OATP}\label{oatp}}
+\subsection{OATP}\label{oatp}
 
 OATPs 수송체는 세포내로 물질을 uptake 시킨다. 약물의 약동학에 영향을
 미치는 중요한 OATP는 간세포의 sinusoidal membrane에 발현되어 있는
@@ -3244,8 +3286,7 @@ OATP1B1은 유전적 다형성(genetic polymorphism)을 나타낸다. OATP1B1의
 
 
 
-\hypertarget{mrp}{%
-\subsection{MRP}\label{mrp}}
+\subsection{MRP}\label{mrp}
 
 MRP 수송체는 물질을 세포밖으로 efflux 시키는 수송체이며, 소장, 간,
 신장에 분포하고 있다. 이중에서도 MRP2는 장 상피의 내강쪽 세포막에
@@ -3263,8 +3304,7 @@ acids)은 MPR의 기질로 알려져 있으며, 담즙산은 MRP2를 통해 담�
 신장에는 근위세뇨관의 brush-border (apical) membrane에 MRP2가 발현되어
 있으며, 이는 약물을 소변으로 배설시키는 역할을 한다.
 
-\hypertarget{bsep}{%
-\subsection{BSEP}\label{bsep}}
+\subsection{BSEP}\label{bsep}
 
 Bile salt export pump (BSEP) 수송체는 이름에서도 알 수 있듯이 간세포의
 canalicular membrane에 위치하여 담즙산을 담즙으로 배설시키는
@@ -3274,10 +3314,9 @@ canalicular membrane에 위치하여 담즙산을 담즙으로 배설시키는
 drug-induced liver injury (DILI)를 일으킬 수 있다. 이러한 이유로,
 European Medicine Agency (EMA) 및 International Transporter
 Consortium(ITC)에서 신약후보물질에 대한 in vitro BSEP 저해능 연구를
-권고하고 있다. (\protect\hyperlink{ref-european2012guideline}{European Medicines Agency 2012}; \protect\hyperlink{ref-kenna2020sc1}{Kenna 2020}; \protect\hyperlink{ref-zamek2018transporters}{Zamek-Gliszczynski et al. 2018})
+권고하고 있다. (\citeproc{ref-european2012guideline}{European Medicines Agency 2012}; \citeproc{ref-kenna2020sc1}{Kenna 2020}; \citeproc{ref-zamek2018transporters}{Zamek-Gliszczynski et al. 2018})
 
-\hypertarget{mate}{%
-\subsection{MATE}\label{mate}}
+\subsection{MATE}\label{mate}
 
 Multidrug and toxin extrusion (MATE) 수송체는 주로 간의 canalicular
 membrane (MATE1)과 신장 proximal tubule cells의 brush-border membrane
@@ -3296,8 +3335,7 @@ membrane (MATE1)과 신장 proximal tubule cells의 brush-border membrane
 
 
 
-\hypertarget{uxc218uxc1a1uxccb4uxb97c-uxb9e4uxac1cuxd55c-uxc57duxbb3cuxc758-uxc138uxd3ec-uxb0b4-uxbd84uxd3ec}{%
-\section{수송체를 매개한 약물의 세포 내 분포}\label{uxc218uxc1a1uxccb4uxb97c-uxb9e4uxac1cuxd55c-uxc57duxbb3cuxc758-uxc138uxd3ec-uxb0b4-uxbd84uxd3ec}}
+\section{수송체를 매개한 약물의 세포 내 분포}\label{uxc218uxc1a1uxccb4uxb97c-uxb9e4uxac1cuxd55c-uxc57duxbb3cuxc758-uxc138uxd3ec-uxb0b4-uxbd84uxd3ec}
 
 In vitro transporter assay를 통해 약물이 특정 수송체의 기질임을
 확인하였더라도 약물의 세포 투과도가 빠르면, 수송체에 의한 약물의 세포
@@ -3306,7 +3344,7 @@ In vitro transporter assay를 통해 약물이 특정 수송체의 기질임을
 약물의 대사와 배설이 일어나는 간세포에서는 수송체에 의한 능동 수송이
 약물의 대사와 배설에 영향을 미칠 수 있다. 간 클리어런스는 아래의 식과
 같이 나타낼 수 있다. 그림 \ref{fig:07-05}의 경우를 통해 자세히
-살펴보자. (\protect\hyperlink{ref-varma2015predicting}{M. V. Varma et al. 2015})
+살펴보자. (\citeproc{ref-varma2015predicting}{M. V. Varma et al. 2015})
 
 \begin{equation}
 {CL}_{int,organ} = \ \frac{({PS}_{\inf}\  + {PS}_{pd})}{{PS}_{\inf} + {PS}_{pd} + {CL}_{int,met} + {CL}_{int,exc}} \cdot {(CL}_{int,met} + {CL}_{int,exc})
@@ -3324,8 +3362,7 @@ In vitro transporter assay를 통해 약물이 특정 수송체의 기질임을
 
 
 
-\hypertarget{uxc138uxd3ec-uxd22cuxacfcuxb3c4uxac00-uxd070-uxacbduxc6b0-high-passive-permeability}{%
-\subsection{세포 투과도가 큰 경우 (high passive permeability)}\label{uxc138uxd3ec-uxd22cuxacfcuxb3c4uxac00-uxd070-uxacbduxc6b0-high-passive-permeability}}
+\subsection{세포 투과도가 큰 경우 (high passive permeability)}\label{uxc138uxd3ec-uxd22cuxacfcuxb3c4uxac00-uxd070-uxacbduxc6b0-high-passive-permeability}
 
 세포 투과도가 큰 경우, 세포 내외의 비결합 약물농도(C\textsubscript{u})가 빠르게 평형에
 도달한다. 즉, 세포 내의 약물의 대사 및 배설속도 보다 약물의 세포내
@@ -3345,8 +3382,7 @@ C_{u,\ intracellular} &= \ C_{u,\ extracellular} \\
 \label{eq:eq07-01} 
 \end{equation}
 
-\hypertarget{uxc138uxd3ec-uxd22cuxacfcuxb3c4uxac00-uxc791uxc740-uxacbduxc6b0-low-passive-permeability}{%
-\subsection{세포 투과도가 작은 경우 (low passive permeability)}\label{uxc138uxd3ec-uxd22cuxacfcuxb3c4uxac00-uxc791uxc740-uxacbduxc6b0-low-passive-permeability}}
+\subsection{세포 투과도가 작은 경우 (low passive permeability)}\label{uxc138uxd3ec-uxd22cuxacfcuxb3c4uxac00-uxc791uxc740-uxacbduxc6b0-low-passive-permeability}
 
 세포 투과도가 작은 경우, 약물의 능동수송으로 인한 세포 내외 이동이
 약물의 조직에서의 클리어런스에 가장 큰 영향을 미칠 수 있다. 아래 식과
@@ -3362,21 +3398,19 @@ C_{u,\ intracellular} &\neq \ C_{u,\ extracellular} \\
 \label{eq:eq07-02} 
 \end{equation}
 
-\hypertarget{uxc218uxc1a1uxccb4uxb97c-uxb9e4uxac1cuxd55c-uxc57duxbb3cuxc0c1uxd638uxc791uxc6a9uxc758-uxc608}{%
-\section{수송체를 매개한 약물상호작용의 예}\label{uxc218uxc1a1uxccb4uxb97c-uxb9e4uxac1cuxd55c-uxc57duxbb3cuxc0c1uxd638uxc791uxc6a9uxc758-uxc608}}
+\section{수송체를 매개한 약물상호작용의 예}\label{uxc218uxc1a1uxccb4uxb97c-uxb9e4uxac1cuxd55c-uxc57duxbb3cuxc0c1uxd638uxc791uxc6a9uxc758-uxc608}
 
 수송체를 매개한 약물상호작용은 다양한 상황을 고려하여야 한다. 수송체를
 통한 약물의 세포 내 외 물질 이동은 약물의 흡수, 분포, 대사, 및 배설에
 영향을 미치며, 이로 인해 약물의 혈중농도 및 표적 조직에서의 농도 변화로
 인하여 약물의 약효 및 안전성에 영향을 미칠 수 있다.
 
-\hypertarget{sitagliptin-cyclosporin}{%
-\subsection{Sitagliptin -- cyclosporin}\label{sitagliptin-cyclosporin}}
+\subsection{Sitagliptin -- cyclosporin}\label{sitagliptin-cyclosporin}
 
 Sitagliptin -- cyclosporin 경우는 수송체를 경유하는 일반적인
 약물상호작용의 예이다. Sitagliptin 100 mg과 cyclosporin 600 mg을 단회
 병용 투여하였을 때, sitagliptin의 C\textsubscript{max}와 AUC는 각각 1.68 배와 1.29 배
-증가하였다(그림 \ref{fig:07-06}) (\protect\hyperlink{ref-krishna2007effect}{Krishna et al. 2007}). Cyclosporin이
+증가하였다(그림 \ref{fig:07-06}) (\citeproc{ref-krishna2007effect}{Krishna et al. 2007}). Cyclosporin이
 efflux 수송체인 MDR1을 저해하여, sitagliptin의 위장관 흡수를
 증가시켰으며, 동시에 cyclosporine이 위장간 및 간의 CYP3A4를 저해하여,
 sitagliptin의 대사를 저해시켰으므로, sitagliptin의 혈중 노출이
@@ -3391,18 +3425,17 @@ sitagliptin의 대사를 저해시켰으므로, sitagliptin의 혈중 노출이
 
 }
 
-\caption{Sitagliptin과 cyclosporine의 약물상호작용 (\protect\hyperlink{ref-krishna2007effect}{Krishna et al. 2007})}\label{fig:07-06}
+\caption{Sitagliptin과 cyclosporine의 약물상호작용 (\citeproc{ref-krishna2007effect}{Krishna et al. 2007})}\label{fig:07-06}
 \end{figure}
 
 
 
-\hypertarget{fimasartan-ketoconazolerifampicin}{%
-\subsection{Fimasartan -- ketoconazole/rifampicin}\label{fimasartan-ketoconazolerifampicin}}
+\subsection{Fimasartan -- ketoconazole/rifampicin}\label{fimasartan-ketoconazolerifampicin}
 
 앞선 sitagliptin -- cyclosporin 보다 복잡한 케이스이다. Fimasartan은
 OATP1B1/1B3를 통해 세포내로 유입되고, CYP3A4를 통해 대사된다. CYP3A4의
 강력한 저해제인 ketoconazole과 유도제인 rifampicin과 fimasartan의
-약물상호작용 평가 임상시험 결과가 보고되어 있다 (\protect\hyperlink{ref-kim2013increased}{Kim et al. 2013}).
+약물상호작용 평가 임상시험 결과가 보고되어 있다 (\citeproc{ref-kim2013increased}{Kim et al. 2013}).
 항정상태의 ketoconazole과 rifampicin에 fimasartan 240 mg을 단회 병용
 투여하였을 때, ketoconazole은 fimasartan의 C\textsubscript{max} 와 AUC를 각각 2.47배
 2.03배 증가시켰으며, rifampicin은 fimasartan의 C\textsubscript{max} 와 AUC를 각각
@@ -3423,7 +3456,7 @@ rifampicin과 병용 시 fimasartan의 t\textsubscript{1/2}가 0.26배 작아진
 
 }
 
-\caption{Fimasartan과 ketoconazole/rifampicin의 약물상호작용 (\protect\hyperlink{ref-kim2013increased}{Kim et al. 2013})}\label{fig:07-07}
+\caption{Fimasartan과 ketoconazole/rifampicin의 약물상호작용 (\citeproc{ref-kim2013increased}{Kim et al. 2013})}\label{fig:07-07}
 \end{figure}
 
 
@@ -3434,13 +3467,12 @@ rifampicin과 병용 시 fimasartan의 t\textsubscript{1/2}가 0.26배 작아진
 
 }
 
-\caption{Fimasartan과 ketoconazole/rifampicin의 약물상호작용 (\protect\hyperlink{ref-kim2013increased}{Kim et al. 2013})}\label{fig:fig2table-fima}
+\caption{Fimasartan과 ketoconazole/rifampicin의 약물상호작용 (\citeproc{ref-kim2013increased}{Kim et al. 2013})}\label{fig:fig2table-fima}
 \end{figure}
 
 
 
-\hypertarget{cerivastatin-gemfibrozil}{%
-\subsection{Cerivastatin -- gemfibrozil}\label{cerivastatin-gemfibrozil}}
+\subsection{Cerivastatin -- gemfibrozil}\label{cerivastatin-gemfibrozil}
 
 Cerivastatin은 부작용으로 치명적인 횡문근융해증 발병이 보고되어 2001년
 자발적으로 시장에서 철수하여, 현재는 판매되고 있지 않은 약물이다.
@@ -3449,11 +3481,11 @@ Cerivastatin은 부작용으로 치명적인 횡문근융해증 발병이 보고
 소개하도록 한다. Gemfibrozil과 그 대사체 gemfibrozil-glucuronide는
 OTAP1B1의 저해제이며, 동시에 간에서 CYP2C8을 저해한다. 특히,
 gemfibrozil-glucuronide는 CYP2C8를 비가역적으로 저해하는 것으로 알려져
-있다 (\protect\hyperlink{ref-ogilvie2006glucuronidation}{Ogilvie et al. 2006}). Cerivastatin은 OATP1B1의 기질이며,
+있다 (\citeproc{ref-ogilvie2006glucuronidation}{Ogilvie et al. 2006}). Cerivastatin은 OATP1B1의 기질이며,
 CYP2C8(61\%)과 CYP3A4(37\%)로 대사된다. Gemfibrozil과 함께 복용 시,
 gemfibrozil 및 gemfibrozil-glucuronide의 OATP1B1과 CYP2C8 저해능으로
 인해, cerivastatin의 C\textsubscript{max}와 AUC는 각각 2.5배와 4.36배
-증가하였다(\protect\hyperlink{ref-backman2002gemfibrozil}{Backman et al. 2002}). (그림 \ref{fig:07-08})
+증가하였다(\citeproc{ref-backman2002gemfibrozil}{Backman et al. 2002}). (그림 \ref{fig:07-08})
 
 \begin{figure}
 
@@ -3461,22 +3493,21 @@ gemfibrozil 및 gemfibrozil-glucuronide의 OATP1B1과 CYP2C8 저해능으로
 
 }
 
-\caption{Cerivastatin-gemfibrozil 약물상호작용. Cerivastatin의 gemfibrozil 병용에 따른 혈중농도 프로파일 변화(좌)와 cerivastatin-gemfibrozil 약물상호작용 기전 (우) (\protect\hyperlink{ref-backman2002gemfibrozil}{Backman et al. 2002})}\label{fig:07-08}
+\caption{Cerivastatin-gemfibrozil 약물상호작용. Cerivastatin의 gemfibrozil 병용에 따른 혈중농도 프로파일 변화(좌)와 cerivastatin-gemfibrozil 약물상호작용 기전 (우) (\citeproc{ref-backman2002gemfibrozil}{Backman et al. 2002})}\label{fig:07-08}
 \end{figure}
 
 
 
-\hypertarget{metformin-cimetidine}{%
-\subsection{Metformin -- cimetidine}\label{metformin-cimetidine}}
+\subsection{Metformin -- cimetidine}\label{metformin-cimetidine}
 
 Metformin -- cimetidine의 약물상호작용의 예를 살펴보자. 임상적으로
 보고되어 있는 ADME와 관련된 약물상호작용은 위장관과 간에 존재하는 수송체
 및 대사효소에 의한 것이 대부분이지만, metformin -- cimetidine의
 약물상호작용은 신장에 존재하는 수송체를 매개한다. Cimetidine은 신장에서
 metformin의 배설에 관여하는 OCT2와 MATE1/2-K를 저해하여, metformin의
-소변으로의 배설을 감소시켰다(\protect\hyperlink{ref-burt2016metformin}{Burt et al. 2016}). 그 결과, metformin의
+소변으로의 배설을 감소시켰다(\citeproc{ref-burt2016metformin}{Burt et al. 2016}). 그 결과, metformin의
 C\textsubscript{max}와 AUC는 cimetidine과 병용 시 각각 1.5배와 1.6배 증가하였다.
-(\protect\hyperlink{ref-wang2008oct2}{Wang et al. 2008}) (그림 \ref{fig:07-09})
+(\citeproc{ref-wang2008oct2}{Wang et al. 2008}) (그림 \ref{fig:07-09})
 
 \begin{figure}
 
@@ -3485,9 +3516,9 @@ C\textsubscript{max}와 AUC는 cimetidine과 병용 시 각각 1.5배와 1.6배 
 }
 
 \caption{Metformin -- cimetidine 약물상호작용. Metformin --
-cimetidine의 신장에서의 약물상호작용 기전 (\protect\hyperlink{ref-burt2016metformin}{Burt et al. 2016}) (좌)와
+cimetidine의 신장에서의 약물상호작용 기전 (\citeproc{ref-burt2016metformin}{Burt et al. 2016}) (좌)와
 metformin의 cimetidine 병용에 따른 혈중농도 프로파일 변화
-(\protect\hyperlink{ref-wang2008oct2}{Wang et al. 2008}) (우)}\label{fig:07-09}
+(\citeproc{ref-wang2008oct2}{Wang et al. 2008}) (우)}\label{fig:07-09}
 \end{figure}
 
 
@@ -3495,8 +3526,7 @@ metformin의 cimetidine 병용에 따른 혈중농도 프로파일 변화
 
 
 
-\hypertarget{in-vitro-uxc218uxc1a1uxccb4-uxd3c9uxac00-uxbc29uxbc95}{%
-\section{In vitro 수송체 평가 방법}\label{in-vitro-uxc218uxc1a1uxccb4-uxd3c9uxac00-uxbc29uxbc95}}
+\section{In vitro 수송체 평가 방법}\label{in-vitro-uxc218uxc1a1uxccb4-uxd3c9uxac00-uxbc29uxbc95}
 
 In vitro에서 약물의 수송체 기질 및 저해능 평가 방법은 다양하다.
 대사효소와 관련된 in vitro 평가방법과 달리, 허가기관에서 제시하는
@@ -3506,8 +3536,7 @@ In vitro에서 약물의 수송체 기질 및 저해능 평가 방법은 다양�
 세포주(transfected cell lines), 그리고 간세포이다. 각각의 실험계를
 이용한 평가법의 특성과 평가 방법, 장단점에 대하여 알아보자.
 
-\hypertarget{vesicular-assays}{%
-\subsection{Vesicular assays}\label{vesicular-assays}}
+\subsection{Vesicular assays}\label{vesicular-assays}
 
 Vesicular assays는 ATP를 사용하는 ABC 수송체 평가법에 사용되기 때문에,
 ATPase assay라고도 한다. Efflux 수송체의 기질 여부를 평가하기 위해서는
@@ -3553,8 +3582,7 @@ polarized cell monolayers)을 형성할 수 있기 때문에, efflux 수송체
 한다. 또한, oocyte에서 얻어진 수송체 파라미터를 in vivo PK 예측에
 활용(in vitro-in vivo extrapolation, IVIVE) 할 때에는 주의하여야 한다.
 
-\hypertarget{uptake-studies-using-recombinant-cell-lines}{%
-\subsubsection{Uptake studies using recombinant cell lines}\label{uptake-studies-using-recombinant-cell-lines}}
+\subsubsection{Uptake studies using recombinant cell lines}\label{uptake-studies-using-recombinant-cell-lines}
 
 수송체 과발현 세포주를 이용한 uptake 실험은 시험물질 처리 후, incubation
 시간을 10분 이내로 하는 것이 좋다. 과발현 되지 않은 세포주(wild-type
@@ -3570,8 +3598,7 @@ cells)에서의 결과와 비교하여, 과발현 세포주에서 시험물질�
 후, incubation 시간을 10분 이내로 하여, 기질약물의 초기 uptake 속도를
 측정하여야 한다.
 
-\hypertarget{bidirectional-transport-systems}{%
-\subsubsection{Bidirectional transport systems}\label{bidirectional-transport-systems}}
+\subsubsection{Bidirectional transport systems}\label{bidirectional-transport-systems}
 
 Efflux 수송체의 기질성을 평가할 때에는 극성 세포 단층(polarized cell
 monolayers)을 이용한 양방향성 수송체 시험법(bidirectional transport
@@ -3637,8 +3664,7 @@ efflux 수송체, 특히, P-gp 수송체의 기질일 가능성이 매우 높다
 
 
 
-\hypertarget{sandwich-cultured-hepatocytes}{%
-\subsection{Sandwich-cultured hepatocytes}\label{sandwich-cultured-hepatocytes}}
+\subsection{Sandwich-cultured hepatocytes}\label{sandwich-cultured-hepatocytes}
 
 간세포를 그림 \ref{fig:07-13}와 같이 콜라겐 층 사이에서
 배양(sandwich-cultured hepatocytes, SCH)시키게 되면, 간세포들이 시간이
@@ -3666,7 +3692,7 @@ efflux 수송체, 특히, P-gp 수송체의 기질일 가능성이 매우 높다
 
 }
 
-\caption{Sandwich-cultured hepatocytes (\protect\hyperlink{ref-brouwer2013vitro}{Brouwer et al. 2013})}\label{fig:07-13}
+\caption{Sandwich-cultured hepatocytes (\citeproc{ref-brouwer2013vitro}{Brouwer et al. 2013})}\label{fig:07-13}
 \end{figure}
 
 
@@ -3688,8 +3714,7 @@ junction이 헐거워지게 된다. 그렇게 되면 담즙 배설된 시험 약
 \label{eq:eq07-05} 
 \end{equation}
 
-\hypertarget{uxb9fauxc74cuxb9d0-5}{%
-\section{맺음말}\label{uxb9fauxc74cuxb9d0-5}}
+\section{맺음말}\label{uxb9fauxc74cuxb9d0-5}
 
 후보물질의 세포 내외의 이동은 수동 확산 또는 능동 수송을 통해
 이루어지며, 다양한 실험방법을 통해 in vitro에서 P\textsubscript{app}를 비롯하여 수송
@@ -3702,12 +3727,14 @@ junction이 헐거워지게 된다. 그렇게 되면 담즙 배설된 시험 약
 perfusion-limited를 가정하고 있으므로 투과도가 낮으면서 수송체의 기질인
 후보물질의 간 클리어런스 계산에는 적합하지 않을 수 있다. 이런 경우에는
 수동확산 및 능동수송에 의한 세포 내외 이동을 반영한 아래와 같은 식을
-이용하여 간 클리어런스를 구할 수 있다. (\protect\hyperlink{ref-varma2017extended}{M. Varma et al. 2017}) 식
+이용하여 간 클리어런스를 구할 수 있다. (\citeproc{ref-varma2017extended}{M. Varma et al. 2017}) 식
 \eqref{eq:eq07-06}에서 CL\textsubscript{uptake}, CL\textsubscript{efflux}, CL\textsubscript{pd}, CL\textsubscript{int}는 각각
 sinusoidal uptake 수송체에 의한 클리어런스, sinusoidal efflux 수송체에
 의한 클리어런스, 수동확산 클리어런스, 대사 및 담즙배설 클리어런스를
 의미하며, Q\textsubscript{h}, f\textsubscript{B}, E\textsubscript{h}는 각각 간 혈류 속도, 혈액에서의 약물의
 비결합분율, 및 extraction ratio를 의미한다.
+
+\footnotesize
 
 \begin{equation}
 \begin{split}
@@ -3717,6 +3744,8 @@ sinusoidal uptake 수송체에 의한 클리어런스, sinusoidal efflux 수송�
 \end{split}
 \label{eq:eq07-06} 
 \end{equation}
+
+\normalsize
 
 신약개발 과정에서 약물의 수송체의 기질 및 저해성 여부를 평가하는 것은
 약물의 약동학 및 더 나아가 병용약물과의 약물상호작용을 평가하는데 있어
@@ -3728,19 +3757,16 @@ sinusoidal uptake 수송체에 의한 클리어런스, sinusoidal efflux 수송�
 대한 후보물질의 특성을 정량적으로 평가할 수 있는 kinetic parameter
 (J\textsubscript{max}, K\textsubscript{m}, CL, CL\textsubscript{efflux}, CL\textsubscript{pd} 등)들을 얻어야 함을 잊지 말자.
 
-\hypertarget{part-adme-uxae30uxcd08-uxc790uxb8ccuxc758-translation}{%
-\part{ADME 기초 자료의 translation}\label{part-adme-uxae30uxcd08-uxc790uxb8ccuxc758-translation}}
+\part{ADME 기초 자료의 translation}\label{part-adme-uxae30uxcd08-uxc790uxb8ccuxc758-translation}
 
-\hypertarget{translation}{%
-\chapter{Translation}\label{translation}}
+\chapter{Translation}\label{translation}
 
 \Large\hfill
 
 임동석
 \normalsize
 
-\hypertarget{uxc11cuxb860-7}{%
-\section{서론}\label{uxc11cuxb860-7}}
+\section{서론}\label{uxc11cuxb860-7}
 
 In vitro, in vivo 데이터로 사람에서의 PK, PD를 예측한다는 것은 데이터를 translation하는 것으로서 방법론에 관해서는 이후 출간될 책에서 자세히 다룰 예정이므로 이 장에서는 간략히 개념을 소개한다.
 In vitro ADME 실험을 하는 목적은 결국 사람의 약동학을 파악하기 위함인데 사람의 약동학을 파악하기 위해서이다.
@@ -3759,32 +3785,30 @@ In vitro ADME 실험의 또다른 목적이라 할 수 있는 것으로 약물-�
 \begin{itemize}
 \tightlist
 \item
-  흡수 Transl Clin Pharmacol. 2020 Sep;28(3):126-135 (\protect\hyperlink{ref-yimabsorption}{Yim, Choi, and Bae 2020}) \footnote{\url{https://doi.org/10.12793/tcp.2020.28.e14}}
+  흡수 Transl Clin Pharmacol. 2020 Sep;28(3):126-135 (\citeproc{ref-yimabsorption}{Yim, Choi, and Bae 2020}) \footnote{\url{https://doi.org/10.12793/tcp.2020.28.e14}}
 \item
-  분포 Transl Clin Pharmacol. 2020 Dec;28(4):169-174 (\protect\hyperlink{ref-yim2020predicting}{Yim and Choi 2020}) \footnote{\url{https://doi.org/10.12793/tcp.2020.28.e19}}
+  분포 Transl Clin Pharmacol. 2020 Dec;28(4):169-174 (\citeproc{ref-yim2020predicting}{Yim and Choi 2020}) \footnote{\url{https://doi.org/10.12793/tcp.2020.28.e19}}
 \item
-  청소율 Transl Clin Pharmacol. 2021 Jun;29(2):78-87 (\protect\hyperlink{ref-yim2021predicting}{Yim, Bae, and Choi 2021}) \footnote{\url{https://doi.org/10.12793/tcp.2021.29.e12}}
+  청소율 Transl Clin Pharmacol. 2021 Jun;29(2):78-87 (\citeproc{ref-yim2021predicting}{Yim, Bae, and Choi 2021}) \footnote{\url{https://doi.org/10.12793/tcp.2021.29.e12}}
 \end{itemize}
 
 비임상 데이터로부터 사람의 PK를 추정하는데 있어 명심해야 할 사항 중 하나는 종간 예측에는 한계가 있음을 인정하는 것이다.
 기본적인 in vitro, in vivo 실험들을 수행하고 그로부터 추정된 사람 PK 파라미터 값들에 남아있는 불확실성을 다른 추가적인 실험들로 줄일 수 있다는 기대 하에 시간과 비용을 계속 쓰는 것 보다는 임상에 신속히 진입하여 1상 결과를 얻고 이후 전략을 수정하는 것이 나은 경우가 많다.
 즉, 비임상 자료들로부터 얻어진 사람 PK 파라미터 추정값은 불가피하게 상당한 불확실성이 포함되어 있음을 받아들여야 한다는 것이다.
 
-\hypertarget{uxc0dduxccb4uxc774uxc6a9uxb960fuxc758-uxcd94uxc815}{%
-\section{생체이용률(F)의 추정}\label{uxc0dduxccb4uxc774uxc6a9uxb960fuxc758-uxcd94uxc815}}
+\section{생체이용률(F)의 추정}\label{uxc0dduxccb4uxc774uxc6a9uxb960fuxc758-uxcd94uxc815}
 
 F는 F = F\textsubscript{a} · F\textsubscript{g} · F\textsubscript{h}의 세 가지 값의 곱으로 계산한다.
 F\textsubscript{h}는 CL\textsubscript{h}를 추정한 후 알려진 관계식으로 구하는 것이 일반적이다.
 
-\hypertarget{fauxc758-uxcd94uxc815}{%
-\subsection{\texorpdfstring{F\textsubscript{a}의 추정}{Fa의 추정}}\label{fauxc758-uxcd94uxc815}}
+\subsection{\texorpdfstring{F\textsubscript{a}의 추정}{Fa의 추정}}\label{fauxc758-uxcd94uxc815}
 
 F\textsubscript{a}는 소장 내강에 용해된 약물이 소장 상피세포막을 통과하여 소장 세포 안으로 들어가는 분율을 의미한다.
 이 값은 약물분자의 크기가 작을수록, 이온화된 정도(pK\textsubscript{a})가 적을수록 높을 것이다.
 Caco-2 투과도(permeability) 실험값과 사람의 F\textsubscript{a}는 비례할 것으로 추정할 수 있다.
 F\textsubscript{a}를 사람에서 직접 측정하는 경우는 드물며 그와 비례관계가 알려져 있는 다른 실험값을 측정하여 간접적으로 추정한다.
 F\textsubscript{a}와의 상관관계가 먼저 알려진 실험법으로는human jejunal permeability가 있는데, 이 역시 생체에서 자주 실측하기에는 어려우므로 이와 또 연관성이 알려져 있는 Caco-2 투과도를 이용하여 추정하게 된다.
-즉 비교적 간단한 실험법인 Caco-2 투과도를 측정하고 관계식을 이용하여 human jejunal permeability 추정값을 얻은 후 이것과 F\textsubscript{a}의 관계식으로써 F\textsubscript{a}를 예측하는 것이다. (그림 \ref{fig:08-01}) (\protect\hyperlink{ref-sun2002comparison}{Sun et al. 2002})
+즉 비교적 간단한 실험법인 Caco-2 투과도를 측정하고 관계식을 이용하여 human jejunal permeability 추정값을 얻은 후 이것과 F\textsubscript{a}의 관계식으로써 F\textsubscript{a}를 예측하는 것이다. (그림 \ref{fig:08-01}) (\citeproc{ref-sun2002comparison}{Sun et al. 2002})
 다만 이 방법에도 한계가 있어서 \ref{fig:08-01})의 아래 패널에서 보는 바와 같이 투과도가 낮다고 예측된 물질의 경우에도 실제 F\textsubscript{a}는 매우 큰 경우가 있고 이는 현재 수준의 실험방법의 한계인 것이다.
 지용성 약물에서Caco-2 투과도로써 실제 소장 세포막을 투과하는 정도를 잘 예측할 수 있다고 알려져 있다.
 그러나 친수성 약물분자들에서는 Caco-2 투과도의 예측력이 떨어지는데, 왜냐면 친수성이면서 분자량이 작은 물질들은 직접 세포막을 투과하지 못한다 해도 소장 세포와 세포 사이의 틈새를 통해 흡수될 수도 있기 때문이다.
@@ -3797,32 +3821,29 @@ Caco-2 세포는 세포들 사이의 틈새가 실제 소장 세포들보다 치
 
 }
 
-\caption{Caco-2 투과도와 human jejunal permeability, F\textsubscript{a}의 연관성 실험 자료들 (\protect\hyperlink{ref-sun2002comparison}{Sun et al. 2002})}\label{fig:08-01}
+\caption{Caco-2 투과도와 human jejunal permeability, F\textsubscript{a}의 연관성 실험 자료들 (\citeproc{ref-sun2002comparison}{Sun et al. 2002})}\label{fig:08-01}
 \end{figure}
 
 
 
 이 외에도 polar surface area (PSA)와 F\textsubscript{a}의 반비례하는 경향을 이용하여 추정하는 수식이 알려져 있으나 수식을 만드는데 쓰인 약물 분자들의 종류가 많지 않고 필자와 동료들이 다른 자료들을 수집하여 PSA와 F\textsubscript{a}의 관계식을 검증해 본 결과 잘 맞지 않는 것으로 나타났으므로 (unpublished data) 우리는 이 방법을 권하지 않는다.
 
-\hypertarget{fguxc758-uxcd94uxc815}{%
-\subsection{\texorpdfstring{F\textsubscript{g}의 추정}{Fg의 추정}}\label{fguxc758-uxcd94uxc815}}
+\subsection{\texorpdfstring{F\textsubscript{g}의 추정}{Fg의 추정}}\label{fguxc758-uxcd94uxc815}
 
 소장 내강에서 소장세포막을 투과하여 흡수된 약물은 소장 세포 내에서 대사되어 제거될 수 있다.
 소장 세포내에 존재하는 CYP450 효소의 80\%는 3A4인 것을 감안하여 연구하고자 하는 약물의 간에서의 CL\textsubscript{int}를 in vitro기법으로 측정하고 간과 소장의 CYP3A4의 발현량과 해당 약물의 CYP3A4에 의한 대사의 분율로 보정하여 구하게 된다.
 직접 사람 소장의 CL\textsubscript{int}를 측정하는 것은 더 힘들므로 간의 CL\textsubscript{int}로써 환산하는 것이 흔한 방법이다. (얼마나 더 자세하게 이 부분을 기술하나?)
 
-\hypertarget{fhuxc758-uxcd94uxc815}{%
-\subsection{\texorpdfstring{F\textsubscript{h}의 추정}{Fh의 추정}}\label{fhuxc758-uxcd94uxc815}}
+\subsection{\texorpdfstring{F\textsubscript{h}의 추정}{Fh의 추정}}\label{fhuxc758-uxcd94uxc815}
 
 F\textsubscript{h}를 추정하기 위해서는 CL\textsubscript{h}를 추정하는 것이 먼저이다. 관계식은 Well-stirred model에 의한 것과 \ldots{} 가 있는데 어느 것이 더 좋다는 우열은 없다.
 
 \textless 이 부분은 해당 chapter 원고와 비교하며 기술한다. \textgreater{}
 
-\hypertarget{uxacbduxad6cuxd761uxc218-uxc18duxb3c4uxc758-uxcd94uxc815}{%
-\section{경구흡수 속도의 추정}\label{uxacbduxad6cuxd761uxc218-uxc18duxb3c4uxc758-uxcd94uxc815}}
+\section{경구흡수 속도의 추정}\label{uxacbduxad6cuxd761uxc218-uxc18duxb3c4uxc758-uxcd94uxc815}
 
 약이 몸 안으로 흡수되는 분율은 F로 표현하지만 여기서 추정하고자 하는 것은 흡수되는 속도에 관한 파라미터이다. 보통 경구 흡수속도는 1차식에 의한 흡수를 따른다고 가정하여 흡수속도 상수인 k\textsubscript{a}를 구하게 된다.
-그러나 비임상 데이터로 k\textsubscript{a}를 구하는 수식으로 알려진 것은 Usansky 등이 보고한 방법으로 Caco-2 투과도, 소장표면적, V\textsubscript{c}를 이용하여 구한다. (\protect\hyperlink{ref-usansky2005estimating}{Usansky and Sinko 2005})
+그러나 비임상 데이터로 k\textsubscript{a}를 구하는 수식으로 알려진 것은 Usansky 등이 보고한 방법으로 Caco-2 투과도, 소장표면적, V\textsubscript{c}를 이용하여 구한다. (\citeproc{ref-usansky2005estimating}{Usansky and Sinko 2005})
 
 흡수속도에 의해 영향을 받는 것은 약물의 최고 혈장농도인 C\textsubscript{max}인데 약효와 안전성에 C\textsubscript{max}보다 더 밀접히 관련된 것은 AUC인 경우가 많고 1차식에 의한 흡수를 가정하는 것 자체가 오류가 있다고 알려져 있으므로 C\textsubscript{max}를 정확히 추정하는 것이 더 어렵다.
 또한 특별히 서방형으로 계획한 제형을 만들지 않는 한 C\textsubscript{max}에 도달하는 시간은 투약 후 2시간 이내인 경우가 많아서 C\textsubscript{max}의 값을 정확이 예측하는 것이 어렵다 해도 비임상 자료를 이용한 예측과 실제 건강자원자 임상 1상에서 얻어진 C\textsubscript{max}의 차이가 후속 임상개발에 지장을 줄 정도로 심각한 경우는 거의 발생하지 않는다.
@@ -3849,11 +3870,9 @@ F\textsubscript{h}를 추정하기 위해서는 CL\textsubscript{h}를 추정하
 달라지므로 일부 상업용 PBPK 소프트웨어들에서는 관련 데이터를 모두 반영한
 더욱 복잡한 모델을 쓰는 경우도 있다.
 
-\hypertarget{vduxc758-uxcd94uxc815}{%
-\section{\texorpdfstring{V\textsubscript{d}의 추정}{Vd의 추정}}\label{vduxc758-uxcd94uxc815}}
+\section{\texorpdfstring{V\textsubscript{d}의 추정}{Vd의 추정}}\label{vduxc758-uxcd94uxc815}
 
-\hypertarget{pbpk-uxbc29uxbc95}{%
-\subsection{PBPK 방법}\label{pbpk-uxbc29uxbc95}}
+\subsection{PBPK 방법}\label{pbpk-uxbc29uxbc95}
 
 약물의 분포는 많은 경우 물리화학적 특성에 의해 결정된다. 즉 얼마나
 친수성/소수성인가, 분자량이 얼마나 되는지 등이 좌우하되 이밖에도
@@ -3863,14 +3882,13 @@ F\textsubscript{h}를 추정하기 위해서는 CL\textsubscript{h}를 추정하
 함량 등 알려진 생리학적 파라미터 값들과 연구하고자 하는 약물의 혈장과
 조직에서의 f\textsubscript{u} 등을 넣어 V\textsubscript{dss}를 계산한다. 조직 별 약물의 f\textsubscript{u}는 직접
 실험으로 구할 수도 있고 혈장의 f\textsubscript{u}를 대입한 계산식으로써 구할 수도
-있다. (\protect\hyperlink{ref-yim2020predicting}{Yim and Choi 2020})
+있다. (\citeproc{ref-yim2020predicting}{Yim and Choi 2020})
 
 이상의 PBPK 방법으로 V\textsubscript{dss}는 간단하게 구할 수 있지만, 약이 조직으로
 퍼져나가는 속도를 감안하지는 않으므로 V\textsubscript{c}, V\textsubscript{p}를 따로 구하는 것은
 불가능하다.
 
-\hypertarget{allometry-uxbc29uxbc95}{%
-\subsection{Allometry 방법}\label{allometry-uxbc29uxbc95}}
+\subsection{Allometry 방법}\label{allometry-uxbc29uxbc95}
 
 이에 비해 allometry 방법은3종이상의 동물에서 정맥주사 후 얻어진 약동학
 데이터를 2구획모델로 분석하고 거기서 얻어진 V\textsubscript{c}, V\textsubscript{p}, Q
@@ -3888,8 +3906,7 @@ CL은 대사효소의 종들 사이의 차이가 커서 우선적으로 권장�
 사람의 PK 파라미터를 추정하는 방법을 다루고 있으므로 allometry방법은
 개념적 소개만 하였다.
 
-\hypertarget{cluxc758-uxcd94uxc815}{%
-\section{CL의 추정}\label{cluxc758-uxcd94uxc815}}
+\section{CL의 추정}\label{cluxc758-uxcd94uxc815}
 
 소변으로 주로 배설되는 약물의 사람에서의 CL은 동물 in vivo
 실험자료로부터 추정하는 것이 표준적 방법이다. 그러나 간에서 대사되는
@@ -3898,7 +3915,7 @@ CL은 대사효소의 종들 사이의 차이가 커서 우선적으로 권장�
 방법으로 만든 사람의 CYP 등을 이용하여 in vitro 실험으로 대사속도를
 측정하고. 이를 여러 단계의 계산을 거쳐 성인에서의 CL를 구한다. 그
 방법들은 이 장의 서두에서 소개한 문헌(Transl Clin Pharmacol. 2021
-Jun;29(2):78-87 (\protect\hyperlink{ref-yim2021predicting}{Yim, Bae, and Choi 2021}) \footnote{\url{https://doi.org/10.12793/tcp.2021.29.e12}})에 정리되어
+Jun;29(2):78-87 (\citeproc{ref-yim2021predicting}{Yim, Bae, and Choi 2021}) \footnote{\url{https://doi.org/10.12793/tcp.2021.29.e12}})에 정리되어
 있으며 간략히 정리하면 다음과 같다.
 
 약물의 사람에서의 간청소율은 흔히 간 혈류량(Q\textsubscript{HB}), 혈액에서의
@@ -3919,8 +3936,7 @@ model를 이용하여 구하게 된다.
 경험과 지식을 갖춘 전문인력이 실험실에서 나온 raw data를 적절히 해석하고
 정확한 이해를 바탕으로 수식을 적용하는 것이 중요하다.
 
-\hypertarget{uxc57duxbb3cuxc0c1uxd638uxc791uxc6a9-uxc2e4uxd5d8-uxacb0uxacfcuxc758-translation}{%
-\section{약물상호작용 실험 결과의 translation}\label{uxc57duxbb3cuxc0c1uxd638uxc791uxc6a9-uxc2e4uxd5d8-uxacb0uxacfcuxc758-translation}}
+\section{약물상호작용 실험 결과의 translation}\label{uxc57duxbb3cuxc0c1uxd638uxc791uxc6a9-uxc2e4uxd5d8-uxacb0uxacfcuxc758-translation}
 
 in vitro 실험으로 약물대사속도나 대사효소를 알아낼 뿐 아니라 약물-약물
 상호작용 또한 예측하게 되는데, 이 예측만 가지고 사람 대상 약물상호작용
@@ -3939,8 +3955,7 @@ itraconazole 등)에 대해서도 똑같이 PBPK 소프트웨어로 예측하여
 소프트웨어로 예측한 변화가 얼마나 유사한지를 검증하는 작업이 수반되어야
 한다.
 
-\hypertarget{uxd608uxc7a5uxb2e8uxbc31uxacb0uxd569uxb960uxc758-uxc758uxbbf8uxc5d0-uxad00uxd55c-uxd574uxc11d}{%
-\section{혈장단백결합률의 의미에 관한 해석}\label{uxd608uxc7a5uxb2e8uxbc31uxacb0uxd569uxb960uxc758-uxc758uxbbf8uxc5d0-uxad00uxd55c-uxd574uxc11d}}
+\section{혈장단백결합률의 의미에 관한 해석}\label{uxd608uxc7a5uxb2e8uxbc31uxacb0uxd569uxb960uxc758-uxc758uxbbf8uxc5d0-uxad00uxd55c-uxd574uxc11d}
 
 이 장에 소개된 in vitro 실험결과의 해석에 있어 약물의 혈장단백질에 대한
 비결합분율 f\textsubscript{u}은 거의 모든 곳에 쓰이고 약효농도의 예측에 있어서도
@@ -3958,7 +3973,7 @@ K\textsubscript{m}, EC\textsubscript{50} 등보다 높게 유지되어야 한다
 극히 높게 산출되므로 신약의 discovery 단계에서부터 혈장단백결합률이 높은
 물질들은 미리 탈락시켜야 하는지 등에 대한 우려가 있어 왔다. 그러나 이런
 우려는 과장된 것이다. 현재 허가된 의약품의 30\textasciitilde40\%가량이 f\textsubscript{u} 0.1이하이며,
-0.01이하인 약들도 5\textasciitilde10\%에 달한다는 보고도 있다. (\protect\hyperlink{ref-liu2011we}{Liu, Chen, and ECA Hop 2011})
+0.01이하인 약들도 5\textasciitilde10\%에 달한다는 보고도 있다. (\citeproc{ref-liu2011we}{Liu, Chen, and ECA Hop 2011})
 따라서 후보물질의 혈장단백결합률이 높다고 개발하기에 좋지 않은
 물질이라고 성급히 단정하지 말고, in vitro 약효실험 뿐 아니라 가능한 한
 질병 동물모델에서 얻어진 약효와 PK데이터까지 살펴보고 판단하는 것이
@@ -3966,100 +3981,99 @@ K\textsubscript{m}, EC\textsubscript{50} 등보다 높게 유지되어야 한다
 
 \backmatter
 
-\hypertarget{uxcc38uxace0uxbb38uxd5cc}{%
-\chapter*{참고문헌}\label{uxcc38uxace0uxbb38uxd5cc}}
+\chapter*{참고문헌}\label{uxcc38uxace0uxbb38uxd5cc}
 
 
-\hypertarget{refs}{}
+\phantomsection\label{refs}
 \begin{CSLReferences}{1}{0}
-\leavevmode\vadjust pre{\hypertarget{ref-alskar2018improved}{}}%
+\bibitem[\citeproctext]{ref-alskar2018improved}
 Alskar, Linda C. 2018. {``Improved Molecular Understanding of Lipid-Based Formulations: For Enabling Oral Delivery of Poorly Water-Soluble Drugs.''} PhD thesis, Acta Universitatis Upsaliensis.
 
-\leavevmode\vadjust pre{\hypertarget{ref-backman2002gemfibrozil}{}}%
+\bibitem[\citeproctext]{ref-backman2002gemfibrozil}
 Backman, Janne T, Carl Kyrklund, Mikko Neuvonen, and Pertti J Neuvonen. 2002. {``Gemfibrozil Greatly Increases Plasma Concentrations of Cerivastatin.''} \emph{Clinical Pharmacology \& Therapeutics} 72 (6): 685--91.
 
-\leavevmode\vadjust pre{\hypertarget{ref-brouwer2013vitro}{}}%
+\bibitem[\citeproctext]{ref-brouwer2013vitro}
 Brouwer, Kim LR, Dietrich Keppler, Keith A Hoffmaster, Daniel AJ Bow, Yaofeng Cheng, Yurong Lai, Johan E Palm, Bruno Stieger, Raymond Evers, and International Transporter Consortium. 2013. {``In Vitro Methods to Support Transporter Evaluation in Drug Discovery and Development.''} \emph{Clinical Pharmacology \& Therapeutics} 94 (1): 95--112.
 
-\leavevmode\vadjust pre{\hypertarget{ref-burt2016metformin}{}}%
+\bibitem[\citeproctext]{ref-burt2016metformin}
 Burt, HJ, Sybille Neuhoff, L Almond, L Gaohua, MD Harwood, Masoud Jamei, A Rostami-Hodjegan, GT Tucker, and K Rowland-Yeo. 2016. {``Metformin and Cimetidine: Physiologically Based Pharmacokinetic Modelling to Investigate Transporter Mediated Drug--Drug Interactions.''} \emph{European Journal of Pharmaceutical Sciences} 88: 70--82.
 
-\leavevmode\vadjust pre{\hypertarget{ref-cayen2011early}{}}%
+\bibitem[\citeproctext]{ref-cayen2011early}
 Cayen, Mitchell N. 2011. \emph{Early Drug Development: Strategies and Routes to First-in-Human Trials}. John Wiley \& Sons.
 
-\leavevmode\vadjust pre{\hypertarget{ref-everythingadme}{}}%
+\bibitem[\citeproctext]{ref-everythingadme}
 Cyprotex. 2022. {``Everything You Need to Know about ADME, 5th Edition.''}
 
-\leavevmode\vadjust pre{\hypertarget{ref-invitroadme}{}}%
+\bibitem[\citeproctext]{ref-invitroadme}
 Cyprotex. 2023. {``In Vitro ADME and PK.''} \url{https://cyprotex.com/admepk}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-di2015drug}{}}%
+\bibitem[\citeproctext]{ref-di2015drug}
 Di, Li, and Edward Kerns. 2015. \emph{Drug-Like Properties: Concepts, Structure Design and Methods from ADME to Toxicity Optimization}. Academic press.
 
-\leavevmode\vadjust pre{\hypertarget{ref-european2012guideline}{}}%
+\bibitem[\citeproctext]{ref-european2012guideline}
 European Medicines Agency. 2012. {``Guideline on the Investigation of Drug Interactions.''} \emph{Committee for Human Medicinal Products (CHMP)}. European Medicines Agency London, United Kingdom.
 
-\leavevmode\vadjust pre{\hypertarget{ref-grimm2009conduct}{}}%
+\bibitem[\citeproctext]{ref-grimm2009conduct}
 Grimm, Scott W, Heidi J Einolf, Steven D Hall, Kan He, Heng-Keang Lim, Kah-Hiing John Ling, Chuang Lu, et al. 2009. {``The Conduct of in Vitro Studies to Address Time-Dependent Inhibition of Drug-Metabolizing Enzymes: A Perspective of the Pharmaceutical Research and Manufacturers of America.''} \emph{Drug Metabolism and Disposition} 37 (7): 1355--70.
 
-\leavevmode\vadjust pre{\hypertarget{ref-studies2020cytochrome}{}}%
+\bibitem[\citeproctext]{ref-studies2020cytochrome}
 In Vitro Drug Interaction Studies. 2020. {``Cytochrome P450 Enzyme-and Transporter-Mediated Drug Interactions Guidance for Industry US Department of Health and Human Services.''} \emph{Food and Drug Administration, Center for Drug Evaluation and Research (CDER)}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-kenna2020sc1}{}}%
+\bibitem[\citeproctext]{ref-kenna2020sc1}
 Kenna, Gerry. 2020. {``SC1. 4-Can BSEP Inhibition Testing in Drug Discovery and Development Reduce Liver Injury Risk? An International Transporter Consortium Perspective.''} \emph{Drug Metabolism and Pharmacokinetics} 35 (1): S1--2.
 
-\leavevmode\vadjust pre{\hypertarget{ref-kim2013increased}{}}%
+\bibitem[\citeproctext]{ref-kim2013increased}
 Kim, Jung Won, SoJeong Yi, Tae-Eun Kim, Kyoung Soo Lim, Seo Hyun Yoon, Joo-Youn Cho, Min Goo Lee, et al. 2013. {``Increased Systemic Exposure of Fimasartan, an Angiotensin II Receptor Antagonist, by Ketoconazole and Rifampicin.''} \emph{The Journal of Clinical Pharmacology} 53 (1): 75--81.
 
-\leavevmode\vadjust pre{\hypertarget{ref-krishna2007effect}{}}%
+\bibitem[\citeproctext]{ref-krishna2007effect}
 Krishna, Rajesh, Arthur Bergman, Patrick Larson, Josee Cote, Kenneth Lasseter, Stacey Dilzer, Amy Wang, et al. 2007. {``Effect of a Single Cyclosporine Dose on the Single-Dose Pharmacokinetics of Sitagliptin (MK-0431), a Dipeptidyl Peptidase-4 Inhibitor, in Healthy Male Subjects.''} \emph{The Journal of Clinical Pharmacology} 47 (2): 165--74.
 
-\leavevmode\vadjust pre{\hypertarget{ref-li2008drug}{}}%
+\bibitem[\citeproctext]{ref-li2008drug}
 Li, Albert P. 2008. \emph{Drug-Drug Interactions in Pharmaceutical Development}. Wiley Online Library.
 
-\leavevmode\vadjust pre{\hypertarget{ref-liu2011we}{}}%
+\bibitem[\citeproctext]{ref-liu2011we}
 Liu, Xingrong, Cuiping Chen, and Cornelis ECA Hop. 2011. {``Do We Need to Optimize Plasma Protein and Tissue Binding in Drug Discovery?''} \emph{Current Topics in Medicinal Chemistry} 11 (4): 450--66.
 
-\leavevmode\vadjust pre{\hypertarget{ref-liu2014rational}{}}%
+\bibitem[\citeproctext]{ref-liu2014rational}
 Liu, Xingrong, Matthew Wright, and Cornelis ECA Hop. 2014. {``Rational Use of Plasma Protein and Tissue Binding Data in Drug Design: Miniperspective.''} \emph{Journal of Medicinal Chemistry} 57 (20): 8238--48.
 
-\leavevmode\vadjust pre{\hypertarget{ref-lubrizol}{}}%
+\bibitem[\citeproctext]{ref-lubrizol}
 Lubrizol Life Science. 2019. {``Biopharmaceutical Classification System.''} \url{https://3ehzg6104228bwtte1se19g6-wpengine.netdna-ssl.com/wp-content/uploads/2019/10/TB-28-Biopharmaceutical-Classification-System.pdf}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-ogilvie2006glucuronidation}{}}%
+\bibitem[\citeproctext]{ref-ogilvie2006glucuronidation}
 Ogilvie, Brian W, Donglu Zhang, Wenying Li, A David Rodrigues, Amy E Gipson, Jeff Holsapple, Paul Toren, and Andrew Parkinson. 2006. {``Glucuronidation Converts Gemfibrozil to a Potent, Metabolism-Dependent Inhibitor of CYP2C8: Implications for Drug-Drug Interactions.''} \emph{Drug Metabolism and Disposition} 34 (1): 191--97.
 
-\leavevmode\vadjust pre{\hypertarget{ref-sun2002comparison}{}}%
+\bibitem[\citeproctext]{ref-sun2002comparison}
 Sun, Duxin, Hans Lennernas, Lynda S Welage, Jeffery L Barnett, Christopher P Landowski, David Foster, David Fleisher, Kyung-Dall Lee, and Gordon L Amidon. 2002. {``Comparison of Human Duodenum and Caco-2 Gene Expression Profiles for 12,000 Gene Sequences Tags and Correlation with Permeability of 26 Drugs.''} \emph{Pharmaceutical Research} 19 (10): 1400--1416.
 
-\leavevmode\vadjust pre{\hypertarget{ref-usansky2005estimating}{}}%
+\bibitem[\citeproctext]{ref-usansky2005estimating}
 Usansky, Helen H, and Patrick J Sinko. 2005. {``Estimating Human Drug Oral Absorption Kinetics from Caco-2 Permeability Using an Absorption-Disposition Model: Model Development and Evaluation and Derivation of Analytical Solutions for Ka and Fa.''} \emph{Journal of Pharmacology and Experimental Therapeutics} 314 (1): 391--99.
 
-\leavevmode\vadjust pre{\hypertarget{ref-varma2015predicting}{}}%
+\bibitem[\citeproctext]{ref-varma2015predicting}
 Varma, Manthena V, Stefanus J Steyn, Charlotte Allerton, and Ayman F El-Kattan. 2015. {``Predicting Clearance Mechanism in Drug Discovery: Extended Clearance Classification System (ECCS).''} \emph{Pharmaceutical Research} 32 (12): 3785--3802.
 
-\leavevmode\vadjust pre{\hypertarget{ref-varma2017extended}{}}%
+\bibitem[\citeproctext]{ref-varma2017extended}
 Varma, MV, AF El-Kattan, B Feng, SJ Steyn, TS Maurer, DO Scott, AD Rodrigues, and LM Tremaine. 2017. {``Extended Clearance Classification System (ECCS) Informed Approach for Evaluating Investigational Drugs as Substrates of Drug Transporters.''} \emph{Clinical Pharmacology \& Therapeutics} 102 (1): 33--36.
 
-\leavevmode\vadjust pre{\hypertarget{ref-wang2008oct2}{}}%
+\bibitem[\citeproctext]{ref-wang2008oct2}
 Wang, Zhi-Jun, Ophelia QP Yin, Brian Tomlinson, and Moses SS Chow. 2008. {``OCT2 Polymorphisms and in-Vivo Renal Functional Consequence: Studies with Metformin and Cimetidine.''} \emph{Pharmacogenetics and Genomics} 18 (7): 637--45.
 
-\leavevmode\vadjust pre{\hypertarget{ref-linearweaver}{}}%
+\bibitem[\citeproctext]{ref-linearweaver}
 Wikipedia. 2023. {``Lineweaver-Burk Plots for Inhibition.''} \url{https://commons.wikimedia.org/wiki/File:Enzyme_Inhibition_lineweaver-burk_plots.gif}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-yanakakis2012biotransformation}{}}%
+\bibitem[\citeproctext]{ref-yanakakis2012biotransformation}
 Yanakakis, Lindsay J, and Namandjé N Bumpus. 2012. {``Biotransformation of the Antiretroviral Drug Etravirine: Metabolite Identification, Reaction Phenotyping, and Characterization of Autoinduction of Cytochrome P450-Dependent Metabolism.''} \emph{Drug Metabolism and Disposition} 40 (4): 803--14.
 
-\leavevmode\vadjust pre{\hypertarget{ref-yim2021predicting}{}}%
+\bibitem[\citeproctext]{ref-yim2021predicting}
 Yim, Dong-Seok, Soo Hyeon Bae, and Suein Choi. 2021. {``Predicting Human Pharmacokinetics from Preclinical Data: Clearance.''} \emph{Translational and Clinical Pharmacology} 29 (2): 78.
 
-\leavevmode\vadjust pre{\hypertarget{ref-yim2020predicting}{}}%
+\bibitem[\citeproctext]{ref-yim2020predicting}
 Yim, Dong-Seok, and Suein Choi. 2020. {``Predicting Human Pharmacokinetics from Preclinical Data: Volume of Distribution.''} \emph{Translational and Clinical Pharmacology} 28 (4): 169.
 
-\leavevmode\vadjust pre{\hypertarget{ref-yimabsorption}{}}%
+\bibitem[\citeproctext]{ref-yimabsorption}
 Yim, Dong-Seok, Suein Choi, and Soo Hyeon Bae. 2020. {``Predicting Human Pharmacokinetics from Preclinical Data: Absorption.''} \emph{Translational and Clinical Pharmacology} 28 (3): 126.
 
-\leavevmode\vadjust pre{\hypertarget{ref-zamek2018transporters}{}}%
+\bibitem[\citeproctext]{ref-zamek2018transporters}
 Zamek-Gliszczynski, Maciej J, Mitchell E Taub, Paresh P Chothe, Xiaoyan Chu, Kathleen M Giacomini, Richard B Kim, Adrian S Ray, et al. 2018. {``Transporters in Drug Development: 2018 ITC Recommendations for Transporters of Emerging Clinical Importance.''} \emph{Clinical Pharmacology \& Therapeutics} 104 (5): 890--99.
 
 \end{CSLReferences}
